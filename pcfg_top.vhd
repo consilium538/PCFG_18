@@ -98,7 +98,7 @@ end component;
 component signal_controller is
 	port(	m_clk		: in std_logic;
 			m_sys_clk	: in std_logic;
-			m_mode_addr	: in std_logic;
+			m_mode_addr	: in std_logic_vector(2 downto 0);
 			m_wen		: in std_logic;
 			m_ren		: in std_logic;
 			m_ad_ram_addr	: out std_logic_vector(10 downto 0);
@@ -108,14 +108,29 @@ component signal_controller is
 			m_out_mux_sel	: out std_logic;
 			m_ram0_en		: out std_logic);
 end component;
-		
 
 
+component Ram0 is
+	port(	ADDRA	: in std_logic_vector(10 downto 0);
+			DINA	: in std_logic_vector(7 downto 0);
+			WEA		: in std_logic_vector(0 downto 0);
+			CLKA	: in std_logic;
+			ADDRB	: in std_logic_vector(10 downto 0);
+			ENB		: in std_logic;
+			CLKB	: in std_logic;
+			DOUTB	: out std_logic_vector(7 downto 0));
+end component;
 
-
-
-
-
+component Ram1 is
+	port(	ADDRA	: in std_logic_vector(10 downto 0);
+			DINA	: in std_logic_vector(7 downto 0);
+			WEA		: in std_logic_vector(0 downto 0);
+			CLKA	: in std_logic;
+			ADDRB	: in std_logic_vector(10 downto 0);
+			ENB		: in std_logic;
+			CLKB	: in std_logic;
+			DOUTB	: out std_logic_vector(7 downto 0));
+end component;
 
 
 
@@ -143,7 +158,7 @@ signal outlatch_dout : std_logic_vector(7 downto 0);
 signal s_led : std_logic_vector(6 downto 0);
 
 ---latch
-signal s_address 	: std_logic_vector(9 downto 0);
+signal s_address 	: std_logic_vector(8 downto 0);
 signal s_cmd_data	: std_logic;
 signal s_OE_b		: std_logic;
 signal s_wen		: std_logic;
@@ -157,6 +172,31 @@ signal s_ram1_mux_sel	: std_logic;
 signal s_ram0_mux_sel	: std_logic;
 signal s_out_mux_sel	: std_logic;
 signal s_ram0_en		: std_logic;
+
+--ram0
+signal s_addra0	: std_logic_vector(10 downto 0);
+signal s_dina0	: std_logic_vector(7 downto 0);
+signal s_wea0	: std_logic_vector(0 downto 0);
+signal s_addrb0	: std_logic_vector(10 downto 0);
+signal s_enb0	: std_logic;
+signal s_doutb0	: std_logic_vector(7 downto 0);
+
+--ram1
+signal s_addra1	: std_logic_vector(10 downto 0);
+signal s_dina1	: std_logic_vector(7 downto 0);
+signal s_wea1	: std_logic_vector(0 downto 0);
+signal s_addrb1	: std_logic_vector(10 downto 0);
+signal s_enb1	: std_logic;
+signal s_doutb1	: std_logic_vector(7 downto 0);
+
+
+
+
+
+
+
+
+
 
 begin
 
@@ -214,6 +254,28 @@ controller : signal_controller port map(
 			m_ram0_mux_sel	=> s_ram0_mux_sel,
 			m_out_mux_sel	=> s_out_mux_sel,
 			m_ram0_en		=> s_ram0_en
+			);
+			
+internal_RAM0 : Ram0 port map(
+			ADDRA	=> s_addra0,
+			DINA	=> s_dina0,
+			WEA		=> s_wea0,
+			CLKA	=> s_clk,
+			ADDRB	=> s_addrb0,
+			ENB		=> s_enb0,
+			CLKB	=> s_clk,
+			DOUTB	=> s_doutb0
+			);
+			
+internal_RAM1 : Ram1 port map(
+			ADDRA	=> s_addra1,
+			DINA	=> s_dina1,
+			WEA		=> s_wea1,
+			CLKA	=> s_clk,
+			ADDRB	=> s_addrb1,
+			ENB		=> s_enb1,
+			CLKB	=> s_clk,
+			DOUTB	=> s_doutb1
 			);
 			
 s_m_8254_gate0	<= '1';
