@@ -1,0 +1,9 @@
+V3 4
+FL C:/Users/user1/Documents/xilinx/oxford/address_decoder.vhd 2018/11/07.16:19:05 P.20131013
+EN work/address_decoder 1541576956 \
+      FL C:/Users/user1/Documents/xilinx/oxford/address_decoder.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179 LB UNISIM PH unisim/VCOMPONENTS 1381692182
+AR work/address_decoder/Behavioral 1541576957 \
+      FL C:/Users/user1/Documents/xilinx/oxford/address_decoder.vhd \
+      EN work/address_decoder 1541576956
