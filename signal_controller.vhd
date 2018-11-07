@@ -8,7 +8,7 @@ USE UNISIM.VCOMPONENTS.ALL;
 entity signal_controller is
 port(	m_clk		: in std_logic;
 		m_sys_clk	: in std_logic;
-		m_mode_addr	: in std_logic;
+		m_mode_addr	: in std_logic_vector(2 downto 0);
 		m_wen		: in std_logic;
 		m_ren		: in std_logic;
 		m_ad_ram_addr	: out std_logic_vector(10 downto 0);
