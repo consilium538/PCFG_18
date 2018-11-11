@@ -2,14 +2,14 @@ Command line:
    tb_8254_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  52247
+     -socket  52326
 
-Sun Nov 11 20:58:40 2018
+Sun Nov 11 21:12:54 2018
 
 
- Elaboration Time: 0.046875 sec
+ Elaboration Time: 0.0625 sec
 
- Current Memory Usage: 5177.55 Meg
+ Current Memory Usage: 5177.53 Meg
 
  Total Signals          : 131
  Total Nets             : 510
@@ -20,11 +20,10 @@ Sun Nov 11 20:58:40 2018
  Total Traceable Variables  : 23
  Total Scalar Nets and Variables : 1075
 Total Line Count : 255
-Total Line Count : 255
 
- Total Simulation Time: 0.09375 sec
+ Total Simulation Time: 0.15625 sec
 
- Current Memory Usage: 5492.12 Meg
+ Current Memory Usage: 5020.24 Meg
 
-Sun Nov 11 20:59:28 2018
+Sun Nov 11 21:17:41 2018
 
