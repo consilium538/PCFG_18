@@ -185,19 +185,32 @@ signal s_din : std_logic_vector(7 downto 0);
 
 signal s_led : std_logic_vector(6 downto 0);
 
----latch
+--LATCH
+--latch
 signal s_address 	: std_logic_vector(8 downto 0);
 signal s_cmd_data	: std_logic;
 signal s_OE_b		: std_logic;
 signal s_wen		: std_logic;
 signal s_ren		: std_logic;
+signal latch_en		: std_logic;
 
 --in_latch
-signal inlatch_din : std_logic_vector(7 downto 0);
+signal inlatch_din 	: std_logic_vector(7 downto 0);
 signal inlatch_dout : std_logic_vector(7 downto 0);
+signal inlatch_en	: std_logic;
 
 --out_latch
 signal outlatch_dout : std_logic_vector(7 downto 0);
+signal outlatch_en	: std_logic;
+
+--da_latch
+signal da_latch_dout : std_logic_vector(7 downto 0);
+signal da_latch_en	: std_logic;
+
+--ad latch
+signal ad_latch_din	: std_logic_vector(7 downto 0);
+signal ad_latch_dout : std_logic_vector(7 downto 0);
+signal ad_latch_en	: std_logic;
 
 --signal controller
 signal s_mode_addr		: std_logic_vector(2 downto 0);
@@ -243,18 +256,18 @@ signal s_doutb3	: std_logic_vector(7 downto 0);
 signal Averager_out : std_logic_vector(7 downto 0);
 
 --MUX
-signal ram0_mux_con : std_logic_vector(0 downto 0);
+signal ram0_mux_sel : std_logic_vector(0 downto 0);
 signal ram0_mux_din0: std_logic_vector(7 downto 0);
 signal ram0_mux_din1: std_logic_vector(7 downto 0);
 signal ram0_mux_dout: std_logic_vector(7 downto 0);
 
-signal ram1_mux_con : std_logic_vector(1 downto 0);
+signal ram1_mux_sel : std_logic_vector(1 downto 0);
 signal ram1_mux_din0: std_logic_vector(7 downto 0);
 signal ram1_mux_din1: std_logic_vector(7 downto 0);
 signal ram1_mux_din2: std_logic_vector(7 downto 0);
 signal ram1_mux_dout: std_logic_vector(7 downto 0);
 
-signal out_mux_con	: std_logic_vector(0 downto 0);
+signal out_mux_sel	: std_logic_vector(0 downto 0);
 signal out_mux_dout	: std_logic_vector(7 downto 0);
 
 
@@ -264,8 +277,8 @@ begin
 
 
 --clks
-m_DAC_clk<=			;--- 필요한 clock 연결하세요
-m_AD9283_clk<=		;--- 필요한 clock 연결하세요
+m_DAC_clk<=	s_clk		;--- 필요한 clock 연결하세요
+m_AD9283_clk<= s_clk		;--- 필요한 clock 연결하세요
 
 
 -----------================  don't change this ==================-------------------
@@ -281,16 +294,48 @@ m_data<=outlatch_dout when s_dout_en='1' else (others=>'Z');
 
 --MUX
 --ram0_mux
-ram0_mux_dout 	<= inlatch_dout when ram0_mux_con="0" else
-				s_doutb3 when ram0_mux_con-"1" else (others=>'Z');
+ram0_mux_dout 	<= inlatch_dout when ram0_mux_sel="0" else
+				s_doutb3 when ram0_mux_sel-"1" else (others=>'Z');
 --ram1_mux
-ram1_mux_dout	<= Averager_out when std_logic_vector=x"00" else
-				s_doutb0 when std_logic_vector=x"01" else
-				inlatch_dout when std_logic_vector=x"10" else (others=>'Z');
+ram1_mux_dout	<= Averager_out when ram1_mux_sel=x"00" else
+				s_doutb0 when ram1_mux_sel=x"01" else
+				inlatch_dout when ram1_mux_sel=x"10" else (others=>'Z');
 --out_mux
-out_mux_dout <= s_doutb0 when out_mux_con="0" else
-				s_doutb1 when out_mux_con="1" else (others=>'Z');
+out_mux_dout <= s_doutb0 when out_mux_sel="0" else
+				s_doutb1 when out_mux_sel="1" else (others=>'Z');
 
+--LATCH
+process(clk)
+begin
+if rising_edge(s_clk) then
+	if latch_en='1' then
+		s_cmd_data	<= m_cmd_data;
+		s_wen		<= m_wen;
+		s_ren		<= m_ren;
+		s_OE_b		<= m_OE_b;
+		s_address	<= m_address;
+	end if;
+	if inlatch_en='1' then
+		inlatch_dout <= inlatch_din;
+	end if;
+	if outlatch_en='1' then
+		outlatch_dout <= out_mux_dout;
+	end if;
+end if;
+	
+if rising_edge(sys_clk) then
+	if da_latch_en='1' then
+		da_latch_dout <= s_doutb2;
+	end if;
+	if ad_latch_en='1' then
+		ad_latch_dout <= ad_latch_din;
+	end if;
+
+end if;
+end process;
+m_DAC_data <= da_latch_dout;
+ad_latch_din <= m_ADC_data;
+s_dina3 <= ad_latch_dout;
 
 
 
