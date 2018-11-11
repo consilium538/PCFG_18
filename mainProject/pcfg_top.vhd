@@ -105,10 +105,12 @@ component signal_controller is
 			m_ren		: in std_logic;
 			m_ad_ram_addr	: out std_logic_vector(10 downto 0);
 			m_da_rma_addr	: out std_logic_vector(10 downto 0);
+			
 			m_ram1_mux_sel	: out std_logic_vector(1 downto 0);
 			m_ram0_mux_sel	: out std_logic_vector(0 downto 0);
 			m_out_mux_sel	: out std_logic_vector(0 downto 0);
 			m_ram0_en		: out std_logic;
+			
 			m_inlatch_en	: out std_logic;
 			m_outlatch_en	: out std_logic;
 			m_ad_latch_en	: out std_logic;
@@ -177,8 +179,6 @@ end component;
 
 
 
-
-
 signal s_clk : std_logic;
 --=== signals
 
@@ -208,7 +208,6 @@ signal s_ren		: std_logic;
 signal latch_en		: std_logic:='1';
 
 --in_latch
-signal inlatch_din 	: std_logic_vector(7 downto 0);
 signal inlatch_dout : std_logic_vector(7 downto 0);
 signal s_inlatch_en	: std_logic;
 
@@ -246,6 +245,7 @@ signal s_wea0	: std_logic_vector(0 downto 0);
 signal s_addrb0	: std_logic_vector(10 downto 0);
 signal s_enb0	: std_logic;
 signal s_doutb0	: std_logic_vector(7 downto 0);
+
 
 --ram1
 signal s_addra1	: std_logic_vector(10 downto 0);
@@ -299,8 +299,8 @@ begin
 
 
 --clks
-m_DAC_clk<=	s_clk		;--- 필요한 clock 연결하세요
-m_AD9283_clk<= s_clk		;--- 필요한 clock 연결하세요
+m_DAC_clk<=	sys_clk		;--- 필요한 clock 연결하세요
+m_AD9283_clk<= sys_clk		;--- 필요한 clock 연결하세요
 
 
 -----------================  don't change this ==================-------------------
@@ -311,8 +311,38 @@ s_clk_g : IBUFG generic map (IOSTANDARD => "DEFAULT")
 port map(I=>m_clk,O=>s_clk);
 
 --tri state
-inlatch_din<=m_data;
+s_din<=m_data;
 m_data<=outlatch_dout when s_dout_en='1' else (others=>'Z');
+
+
+clk_gen : TOP_8254 port map( 
+			m_clk0		=> s_clk,
+			m_clk1    	=> s_clk,
+			m_clk2    	=> s_clk,
+			m_clk_ctr 	=> s_clk,
+			m_reset   	=> b_reset_b,
+			m_data   	=> s_din,
+			m_gate0   	=> s_m_8254_gate0,
+			m_gate1   	=> s_m_8254_gate1,
+			m_gate2   	=> s_m_8254_gate2,
+			m_addr    	=> m_address(1 downto 0),
+			m_cs_b    	=> b_pcs_addr,		-- 여기에 들어갈 시그널 잘 정의해보세요.
+			m_wr_b    	=> b_wen,
+			m_out0    	=> sys_clk,
+			m_out1    	=> open,
+			m_out2    	=> open
+			);
+		   
+s_m_8254_gate0	<= '1';
+s_m_8254_gate1	<= '1';
+s_m_8254_gate2	<= '1';
+
+
+--for debug
+m_TP(0)	<= s_clk; --test point. for s_clk     이걸로 채점하니깐 바꾸면 절대 안됨
+m_TP(1)	<= sys_clk;--test for 8254 output.   이걸로 채점하니깐 바꾸면 절대 안됨
+m_led(7) <=s_reset_b;
+-----------======================================================--------------------
 
 --MUX
 --ram0_mux
@@ -338,7 +368,7 @@ if rising_edge(s_clk) then
 		s_address	<= m_address;
 	end if;
 	if s_inlatch_en='1' then
-		inlatch_dout <= inlatch_din;
+		inlatch_dout <= s_din;
 	end if;
 	if s_outlatch_en='1' then
 		outlatch_dout <= out_mux_dout;
@@ -367,24 +397,6 @@ b_pcs_addr <= not s_pcs_addr;
 b_wen <= not m_wen;
 
 
-clk_gen : TOP_8254 port map( 
-			m_clk0		=> s_clk,
-			m_clk1    	=> s_clk,
-			m_clk2    	=> s_clk,
-			m_clk_ctr 	=> s_clk,
-			m_reset   	=> b_reset_b,
-			m_data   	=> inlatch_din,
-			m_gate0   	=> s_m_8254_gate0,
-			m_gate1   	=> s_m_8254_gate1,
-			m_gate2   	=> s_m_8254_gate2,
-			m_addr    	=> m_address(1 downto 0),
-			m_cs_b    	=> b_pcs_addr,		-- 여기에 들어갈 시그널 잘 정의해보세요.
-			m_wr_b    	=> b_wen,
-			m_out0    	=> sys_clk,
-			m_out1    	=> open,
-			m_out2    	=> open
-			);
-		   
 addr_decode : address_decoder port map(
 			m_addr_in 	=> s_address,
 			m_pcs_addr 	=> s_pcs_addr,
@@ -467,16 +479,6 @@ Average : Averager port map(
 			);
 			
 			
-s_m_8254_gate0	<= '1';
-s_m_8254_gate1	<= '1';
-s_m_8254_gate2	<= '1';
-
-
---for debug
-m_TP(0)	<= s_clk; --test point. for s_clk     이걸로 채점하니깐 바꾸면 절대 안됨
-m_TP(1)	<= sys_clk;--test for 8254 output.   이걸로 채점하니깐 바꾸면 절대 안됨
-m_led(7) <=s_reset_b;
------------======================================================--------------------
 
 
 m_led(6 downto 0)<=s_led(6 downto 0);
