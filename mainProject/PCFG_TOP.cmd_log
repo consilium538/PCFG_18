@@ -1,2 +1,0 @@
-vhdtdtfi -lib work tw_8254_cnt.vhd -lib work top_8254.vhd -lib work pcfg_top.vhd -prj oxford -o PCFG_TOP.spl -module PCFG_TOP -template E:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan3 PCFG_TOP.spl C:/Users/user1/Documents/xilinx/oxford/PCFG_TOP.sym 

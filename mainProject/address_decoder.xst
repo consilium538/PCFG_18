@@ -1,5 +1,0 @@
-set -tmpdir "C:/Users/user1/Documents/xilinx/oxford/xst/projnav.tmp"
-set -xsthdpdir "C:/Users/user1/Documents/xilinx/oxford/xst"
-elaborate
--ifn address_decoder.prj
--ifmt mixed
