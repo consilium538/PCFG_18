@@ -89,9 +89,10 @@ end component;
 
 
 component address_decoder is
-	port(	m_addr_in : in std_logic_vector(8 downto 0);
-			m_pcs_addr : out std_logic;
-			m_mode_addr : out std_logic_vector(2 downto 0));
+	port(	m_addr_in 	: in std_logic_vector(8 downto 0);
+			m_pcs_addr 	: out std_logic;
+			m_mode_addr : out std_logic_vector(2 downto 0);
+			m_mode_valid : out std_logic);
 end component;
 
 
@@ -99,6 +100,7 @@ component signal_controller is
 	port(	m_clk		: in std_logic;
 			m_sys_clk	: in std_logic;
 			m_mode_addr	: in std_logic_vector(2 downto 0);
+			m_mode_valid: in std_logic;
 			m_wen		: in std_logic;
 			m_ren		: in std_logic;
 			m_ad_ram_addr	: out std_logic_vector(10 downto 0);
@@ -214,6 +216,7 @@ signal ad_latch_en	: std_logic;
 
 --signal controller
 signal s_mode_addr		: std_logic_vector(2 downto 0);
+signal s_mode_valid		: std_logic;
 signal s_ad_ram_addr	: std_logic_vector(10 downto 0);
 signal s_da_rma_addr	: std_logic_vector(10 downto 0);
 signal s_ram1_mux_sel	: std_logic;
@@ -360,13 +363,15 @@ clk_gen : TOP_8254 port map(
 addr_decode : address_decoder port map(
 			m_addr_in 	=> s_address,
 			m_pcs_addr 	=> s_pcs_addr,
-			m_mode_addr => s_mode_addr
+			m_mode_addr => s_mode_addr,
+			m_mode_valid => s_mode_valid
 			);
 			
 controller : signal_controller port map(
 			m_clk			=> s_clk,
 			m_sys_clk		=> sys_clk,
 			m_mode_addr		=> s_mode_addr,
+			m_mode_valid	=> s_mode_valid,
 			m_wen			=> s_wen,
 			m_ren			=> s_ren,
 			m_ad_ram_addr	=> s_ad_ram_addr,
