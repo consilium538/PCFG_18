@@ -29,7 +29,7 @@ m_mode_addr <= 	x"0" when m_addr_in=x"120" else
 				x"4" when m_addr_in=x"172" else
 				x"5" when m_addr_in=x"174" else
 				x"6" when m_addr_in=x"176" else
-				x"7" when m_addr_in=x"150" else null;
+				x"7" when m_addr_in=x"150" else "000";
 				
 m_mode_valid <= '1' when m_addr_in=x"120" or
                          m_addr_in=x"180" or
