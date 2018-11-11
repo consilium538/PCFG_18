@@ -1,4 +1,4 @@
-V3 20
+V3 4
 FL C:/Users/user1/Documents/xilinx/oxford/address_decoder.vhd 2018/11/07.16:19:05 P.20131013
 EN work/address_decoder 1541576956 \
       FL C:/Users/user1/Documents/xilinx/oxford/address_decoder.vhd \
@@ -7,26 +7,3 @@ EN work/address_decoder 1541576956 \
 AR work/address_decoder/Behavioral 1541576957 \
       FL C:/Users/user1/Documents/xilinx/oxford/address_decoder.vhd \
       EN work/address_decoder 1541576956
-FL C:/Users/user1/Documents/xilinx/oxford/pcfg_top.vhd 2018/11/07.18:36:01 P.20131013
-EN work/PCFG_TOP 0 FL C:/Users/user1/Documents/xilinx/oxford/pcfg_top.vhd \
-      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
-      PB ieee/STD_LOGIC_UNSIGNED 1381692179 LB UNISIM PH unisim/VCOMPONENTS 1381692182
-AR work/PCFG_TOP/Behavioral 0 \
-      FL C:/Users/user1/Documents/xilinx/oxford/pcfg_top.vhd EN work/PCFG_TOP 0 \
-      CP IBUFG CP TOP_8254 CP address_decoder CP signal_controller CP Ram0 CP Ram1
-FL C:/Users/user1/Documents/xilinx/oxford/top_8254.vhd 2018/11/02.12:58:03 P.20131013
-EN work/TOP_8254 1541583469 \
-      FL C:/Users/user1/Documents/xilinx/oxford/top_8254.vhd \
-      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
-      PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/TOP_8254/Behavioral 1541583470 \
-      FL C:/Users/user1/Documents/xilinx/oxford/top_8254.vhd EN work/TOP_8254 1541583469 \
-      CP TW_8254_CNT
-FL C:/Users/user1/Documents/xilinx/oxford/tw_8254_cnt.vhd 2018/11/02.12:58:55 P.20131013
-EN work/TW_8254_CNT 1541583467 \
-      FL C:/Users/user1/Documents/xilinx/oxford/tw_8254_cnt.vhd \
-      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
-      PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/TW_8254_CNT/Behavioral 1541583468 \
-      FL C:/Users/user1/Documents/xilinx/oxford/tw_8254_cnt.vhd \
-      EN work/TW_8254_CNT 1541583467
