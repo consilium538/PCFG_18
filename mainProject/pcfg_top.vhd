@@ -105,10 +105,15 @@ component signal_controller is
 			m_ren		: in std_logic;
 			m_ad_ram_addr	: out std_logic_vector(10 downto 0);
 			m_da_rma_addr	: out std_logic_vector(10 downto 0);
-			m_ram1_mux_sel	: out std_logic;
-			m_ram0_mux_sel	: out std_logic;
-			m_out_mux_sel	: out std_logic;
-			m_ram0_en		: out std_logic);
+			m_ram1_mux_sel	: out std_logic_vector(1 downto 0);
+			m_ram0_mux_sel	: out std_logic_vector(0 downto 0);
+			m_out_mux_sel	: out std_logic_vector(0 downto 0);
+			m_ram0_en		: out std_logic;
+			m_inlatch_en	: out std_logic;
+			m_outlatch_en	: out std_logic;
+			m_ad_latch_en	: out std_logic;
+			m_da_latch_en	: out std_logic
+			);
 end component;
 
 --RAM
@@ -205,11 +210,11 @@ signal latch_en		: std_logic:='1';
 --in_latch
 signal inlatch_din 	: std_logic_vector(7 downto 0);
 signal inlatch_dout : std_logic_vector(7 downto 0);
-signal inlatch_en	: std_logic;
+signal s_inlatch_en	: std_logic;
 
 --out_latch
 signal outlatch_dout : std_logic_vector(7 downto 0);
-signal outlatch_en	: std_logic;
+signal s_outlatch_en : std_logic;
 
 --da_latch
 signal da_latch_dout : std_logic_vector(7 downto 0);
@@ -225,9 +230,9 @@ signal s_mode_addr		: std_logic_vector(2 downto 0);
 signal s_mode_valid		: std_logic;
 signal s_ad_ram_addr	: std_logic_vector(10 downto 0);
 signal s_da_rma_addr	: std_logic_vector(10 downto 0);
-signal s_ram1_mux_sel	: std_logic;
-signal s_ram0_mux_sel	: std_logic;
-signal s_out_mux_sel	: std_logic;
+signal s_ram1_mux_sel	: std_logic_vector(1 downto 0);
+signal s_ram0_mux_sel	: std_logic_vector(0 downto 0);
+signal s_out_mux_sel	: std_logic_vector(0 downto 0);
 signal s_ram0_en		: std_logic;
 
 signal s_counter0		: std_logic_vector(10 downto 0);
@@ -273,18 +278,15 @@ signal Averager_out : std_logic_vector(7 downto 0);
 signal s_average_en : std_logic;
 
 --MUX
-signal ram0_mux_sel : std_logic_vector(0 downto 0);
 signal ram0_mux_din0: std_logic_vector(7 downto 0);
 signal ram0_mux_din1: std_logic_vector(7 downto 0);
 signal ram0_mux_dout: std_logic_vector(7 downto 0);
 
-signal ram1_mux_sel : std_logic_vector(1 downto 0);
 signal ram1_mux_din0: std_logic_vector(7 downto 0);
 signal ram1_mux_din1: std_logic_vector(7 downto 0);
 signal ram1_mux_din2: std_logic_vector(7 downto 0);
 signal ram1_mux_dout: std_logic_vector(7 downto 0);
 
-signal out_mux_sel	: std_logic_vector(0 downto 0);
 signal out_mux_dout	: std_logic_vector(7 downto 0);
 
 
@@ -314,15 +316,15 @@ m_data<=outlatch_dout when s_dout_en='1' else (others=>'Z');
 
 --MUX
 --ram0_mux
-ram0_mux_dout 	<= inlatch_dout when ram0_mux_sel="0" else
-				s_doutb3 when ram0_mux_sel="1" else (others=>'Z');
+ram0_mux_dout 	<= inlatch_dout when s_ram0_mux_sel="0" else
+				s_doutb3 when s_ram0_mux_sel="1" else (others=>'Z');
 --ram1_mux
-ram1_mux_dout	<= Averager_out when ram1_mux_sel=x"00" else
-				s_doutb0 when ram1_mux_sel=x"01" else
-				inlatch_dout when ram1_mux_sel=x"10" else (others=>'Z');
+ram1_mux_dout	<= Averager_out when s_ram1_mux_sel=x"00" else
+				s_doutb0 when s_ram1_mux_sel=x"01" else
+				inlatch_dout when s_ram1_mux_sel=x"10" else (others=>'Z');
 --out_mux
-out_mux_dout <= s_doutb0 when out_mux_sel="0" else
-				s_doutb1 when out_mux_sel="1" else (others=>'Z');
+out_mux_dout <= s_doutb0 when s_out_mux_sel="0" else
+				s_doutb1 when s_out_mux_sel="1" else (others=>'Z');
 
 --LATCH
 process(s_clk)
@@ -335,10 +337,10 @@ if rising_edge(s_clk) then
 		s_OE_b		<= m_OE_b;
 		s_address	<= m_address;
 	end if;
-	if inlatch_en='1' then
+	if s_inlatch_en='1' then
 		inlatch_dout <= inlatch_din;
 	end if;
-	if outlatch_en='1' then
+	if s_outlatch_en='1' then
 		outlatch_dout <= out_mux_dout;
 	end if;
 end if;
@@ -347,10 +349,10 @@ end process;
 process(sys_clk)
 begin	
 if rising_edge(sys_clk) then
-	if da_latch_en='1' then
+	if s_da_latch_en='1' then
 		da_latch_dout <= s_doutb2;
 	end if;
-	if ad_latch_en='1' then
+	if s_ad_latch_en='1' then
 		ad_latch_dout <= ad_latch_din;
 	end if;
 
@@ -402,7 +404,11 @@ controller : signal_controller port map(
 			m_ram1_mux_sel	=> s_ram1_mux_sel,
 			m_ram0_mux_sel	=> s_ram0_mux_sel,
 			m_out_mux_sel	=> s_out_mux_sel,
-			m_ram0_en		=> s_ram0_en
+			m_ram0_en		=> s_ram0_en,
+			m_inlatch_en	=> s_inlatch_en,
+			m_outlatch_en	=> s_outlatch_en,
+			m_ad_latch_en	=> s_ad_latch_en,
+			m_da_latch_en	=> s_da_latch_en
 			);
 			
 internal_RAM0 : Ram0 port map(
