@@ -182,7 +182,7 @@ signal sys_clk : std_logic;
 signal s_reset_b : std_logic;
 
 signal s_din : std_logic_vector(7 downto 0);
-signal outlatch_dout : std_logic_vector(7 downto 0);
+
 signal s_led : std_logic_vector(6 downto 0);
 
 ---latch
@@ -191,6 +191,13 @@ signal s_cmd_data	: std_logic;
 signal s_OE_b		: std_logic;
 signal s_wen		: std_logic;
 signal s_ren		: std_logic;
+
+--in_latch
+signal inlatch_din : std_logic_vector(7 downto 0);
+signal inlatch_dout : std_logic_vector(7 downto 0);
+
+--out_latch
+signal outlatch_dout : std_logic_vector(7 downto 0);
 
 --signal controller
 signal s_mode_addr		: std_logic_vector(2 downto 0);
@@ -235,9 +242,20 @@ signal s_doutb3	: std_logic_vector(7 downto 0);
 --Averager
 signal Averager_out : std_logic_vector(7 downto 0);
 
+--MUX
+signal ram0_mux_con : std_logic_vector(0 downto 0);
+signal ram0_mux_din0: std_logic_vector(7 downto 0);
+signal ram0_mux_din1: std_logic_vector(7 downto 0);
+signal ram0_mux_dout: std_logic_vector(7 downto 0);
 
+signal ram1_mux_con : std_logic_vector(1 downto 0);
+signal ram1_mux_din0: std_logic_vector(7 downto 0);
+signal ram1_mux_din1: std_logic_vector(7 downto 0);
+signal ram1_mux_din2: std_logic_vector(7 downto 0);
+signal ram1_mux_dout: std_logic_vector(7 downto 0);
 
-
+signal out_mux_con	: std_logic_vector(0 downto 0);
+signal out_mux_dout	: std_logic_vector(7 downto 0);
 
 
 
@@ -258,8 +276,22 @@ s_clk_g : IBUFG generic map (IOSTANDARD => "DEFAULT")
 port map(I=>m_clk,O=>s_clk);
 
 --tri state
-s_din<=m_data;
+inlatch_din<=m_data;
 m_data<=outlatch_dout when s_dout_en='1' else (others=>'Z');
+
+--MUX
+--ram0_mux
+ram0_mux_dout 	<= inlatch_dout when ram0_mux_con="0" else
+				s_doutb3 when ram0_mux_con-"1" else (others=>'Z');
+--ram1_mux
+ram1_mux_dout	<= Averager_out when std_logic_vector=x"00" else
+				s_doutb0 when std_logic_vector=x"01" else
+				inlatch_dout when std_logic_vector=x"10" else (others=>'Z');
+--out_mux
+out_mux_dout <= s_doutb0 when out_mux_con="0" else
+				s_doutb1 when out_mux_con="1" else (others=>'Z');
+
+
 
 
 clk_gen : TOP_8254 port map( 
@@ -268,7 +300,7 @@ clk_gen : TOP_8254 port map(
 			m_clk2    	=> s_clk,
 			m_clk_ctr 	=> s_clk,
 			m_reset   	=> not m_reset_b,
-			m_data   	=> s_din,
+			m_data   	=> inlatch_din,
 			m_gate0   	=> s_m_8254_gate0,
 			m_gate1   	=> s_m_8254_gate1,
 			m_gate2   	=> s_m_8254_gate2,
