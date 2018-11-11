@@ -1,0 +1,17 @@
+[Inputs]
+m_reset_b
+m_clk
+m_cmd_data
+m_OE_b
+m_wen
+m_ren
+=m_address[8:0]=
+=m_ADC_data[7:0]=
+[Outputs]
+m_DAC_clk
+m_AD9283_clk
+=m_DAC_data[7:0]=
+=m_led[7:0]=
+=m_TP[1:0]=
+[BiDir]
+=m_data[7:0]=

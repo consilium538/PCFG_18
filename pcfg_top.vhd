@@ -17,12 +17,12 @@
 -- Additional Comments: 
 --
 ----------------------------------------------------------------------------------
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
-Library UNISIM;
-use UNISIM.vcomponents.all;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+LIBRARY UNISIM;
+USE UNISIM.VCOMPONENTS.ALL;
 
 --=========== don't change this=======================----------------------
 --==========================================================================
@@ -109,6 +109,7 @@ component signal_controller is
 			m_ram0_en		: out std_logic);
 end component;
 
+--RAM
 
 component Ram0 is
 	port(	ADDRA	: in std_logic_vector(10 downto 0);
@@ -132,7 +133,34 @@ component Ram1 is
 			DOUTB	: out std_logic_vector(7 downto 0));
 end component;
 
+component DA_RAM is
+	port(	ADDRA	: in std_logic_vector(10 downto 0);
+			DINA	: in std_logic_vector(7 downto 0);
+			WEA		: in std_logic_vector(0 downto 0);
+			CLKA	: in std_logic;
+			ADDRB	: in std_logic_vector(10 downto 0);
+			ENB		: in std_logic;
+			CLKB	: in std_logic;
+			DOUTB	: out std_logic_vector(7 downto 0));
+end component;
 
+component AD_RAM is
+	port(	ADDRA	: in std_logic_vector(10 downto 0);
+			DINA	: in std_logic_vector(7 downto 0);
+			WEA		: in std_logic_vector(0 downto 0);
+			CLKA	: in std_logic;
+			ADDRB	: in std_logic_vector(10 downto 0);
+			ENB		: in std_logic;
+			CLKB	: in std_logic;
+			DOUTB	: out std_logic_vector(7 downto 0));
+end component;
+
+--Averager
+component Averager is
+port(	m_din : in std_logic_vector(7 downto 0);
+		m_dout : out std_logic_vector(7 downto 0)
+	);
+end component;
 
 
 
@@ -189,7 +217,23 @@ signal s_addrb1	: std_logic_vector(10 downto 0);
 signal s_enb1	: std_logic;
 signal s_doutb1	: std_logic_vector(7 downto 0);
 
+--ram2
+signal s_addra2	: std_logic_vector(10 downto 0);
+signal s_wea2	: std_logic_vector(0 downto 0);
+signal s_addrb2	: std_logic_vector(10 downto 0);
+signal s_enb2	: std_logic;
+signal s_doutb2	: std_logic_vector(7 downto 0);
 
+--ram3
+signal s_addra3	: std_logic_vector(10 downto 0);
+signal s_dina3	: std_logic_vector(7 downto 0);
+signal s_wea3	: std_logic_vector(0 downto 0);
+signal s_addrb3	: std_logic_vector(10 downto 0);
+signal s_enb3	: std_logic;
+signal s_doutb3	: std_logic_vector(7 downto 0);
+
+--Averager
+signal Averager_out : std_logic_vector(7 downto 0);
 
 
 
@@ -277,6 +321,34 @@ internal_RAM1 : Ram1 port map(
 			CLKB	=> s_clk,
 			DOUTB	=> s_doutb1
 			);
+			
+internal_RAM2 : DA_RAM port map(
+			ADDRA	=> s_addra2,
+			DINA	=> s_doutb1,
+			WEA		=> s_wea2,
+			CLKA	=> s_clk,
+			ADDRB	=> s_addrb2,
+			ENB		=> s_enb2,
+			CLKB	=> sys_clk,
+			DOUTB	=> s_doutb2
+			);
+			
+internal_RAM3 : AD_RAM port map(
+			ADDRA	=> s_addra3,
+			DINA	=> s_dina3,
+			WEA		=> s_wea3,
+			CLKA	=> s_clk,
+			ADDRB	=> s_addrb3,
+			ENB		=> s_enb3,
+			CLKB	=> sys_clk,
+			DOUTB	=> s_doutb3
+			);
+
+Average : Averager port map(
+			m_din 	=> s_doutb0,
+			m_dout	=> Averager_out
+			);
+			
 			
 s_m_8254_gate0	<= '1';
 s_m_8254_gate1	<= '1';

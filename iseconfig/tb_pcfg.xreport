@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2018-11-07T15:04:24</DateModified>
+  <DateModified>2018-11-11T17:06:46</DateModified>
   <ModuleName>tb_pcfg</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>C:/Users/user1/Documents/xilinx/oxford/iseconfig/tb_pcfg.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/user1/Documents/xilinx/oxford</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>C:/Users/user1/Documents/xilinx/oxford\</ImplementationReportsDirectory>
   <DateInitialized>2018-11-07T15:04:23</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

@@ -23,12 +23,43 @@
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
     <file xil_pn:fileType="FILE_LSO" xil_pn:name=".lso"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="PCFG_TOP.prj"/>
+    <file xil_pn:fileType="FILE_SPL" xil_pn:name="PCFG_TOP.spl"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="PCFG_TOP.stx"/>
+    <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="PCFG_TOP.sym" xil_pn:origination="imported"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="PCFG_TOP.xst"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="address_decoder.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="address_decoder.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="address_decoder.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="tb_pcfg_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1541580717" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1541580717">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1541580717" xil_pn:in_ck="-1239156288881857879" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1541580717">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="address_decoder.vhd"/>
+      <outfile xil_pn:name="pcfg_top.vhd"/>
+      <outfile xil_pn:name="signal_controller.vhd"/>
+      <outfile xil_pn:name="tb_pcfg.vhd"/>
+      <outfile xil_pn:name="top_8254.vhd"/>
+      <outfile xil_pn:name="tw_8254_cnt.vhd"/>
+    </transform>
+    <transform xil_pn:name="TRAN_SubProjectAbstractToPreProxy">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+  </transforms>
 
 </generated_project>

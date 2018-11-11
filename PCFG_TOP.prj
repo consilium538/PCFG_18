@@ -1,0 +1,3 @@
+vhdl work "tw_8254_cnt.vhd"
+vhdl work "top_8254.vhd"
+vhdl work "pcfg_top.vhd"

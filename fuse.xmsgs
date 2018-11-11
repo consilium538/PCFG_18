@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="HDLCompiler" num="535" delta="unknown" >"C:/Users/user1/Documents/xilinx/oxford/address_decoder.vhd" Line 11: Index constraint prefix <arg fmt="%s" index="1">std_logic</arg> should be an array type
+</msg>
+
+<msg type="error" file="HDLCompiler" num="854" delta="unknown" >"C:/Users/user1/Documents/xilinx/oxford/address_decoder.vhd" Line 8: Unit &lt;<arg fmt="%s" index="1">address_decoder</arg>&gt; ignored due to previous errors.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="374" delta="unknown" >"C:/Users/user1/Documents/xilinx/oxford/address_decoder.vhd" Line 15: Entity &lt;<arg fmt="%s" index="1">address_decoder</arg>&gt; is not yet compiled.
+</msg>
+
+</messages>
+
