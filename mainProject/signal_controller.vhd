@@ -14,10 +14,15 @@ port(	m_clk		: in std_logic;
 		m_ren		: in std_logic;
 		m_ad_ram_addr	: out std_logic_vector(10 downto 0);
 		m_da_rma_addr	: out std_logic_vector(10 downto 0);
-		m_ram1_mux_sel	: out std_logic;
-		m_ram0_mux_sel	: out std_logic;
-		m_out_mux_sel	: out std_logic;
-		m_ram0_en		: out std_logic);
+		m_ram1_mux_sel	: out std_logic_vector(1 downto 0);
+		m_ram0_mux_sel	: out std_logic_vector(0 downto 0);
+		m_out_mux_sel	: out std_logic_vector(0 downto 0);
+		m_ram0_en		: out std_logic;
+		m_inlatch_en	: out std_logic;
+		m_outlatch_en	: out std_logic;
+		m_ad_latch_en	: out std_logic;
+		m_da_latch_en	: out std_logic
+		);
 		
 end signal_controller;
 
