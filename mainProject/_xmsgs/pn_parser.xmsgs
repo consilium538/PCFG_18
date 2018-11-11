@@ -8,31 +8,31 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/user1/Documents/xilinx/oxford/Averager.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/study/sogang/18y6s/adca/Project/PCFG_18/mainProject/Averager.vhd&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/user1/Documents/xilinx/oxford/address_decoder.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/study/sogang/18y6s/adca/Project/PCFG_18/mainProject/address_decoder.vhd&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/user1/Documents/xilinx/oxford/pcfg_top.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/study/sogang/18y6s/adca/Project/PCFG_18/mainProject/pcfg_top.vhd&quot; into library work</arg>
 </msg>
 
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/user1/Documents/xilinx/oxford/pcfg_top.vhd</arg>&quot; Line <arg fmt="%d" index="2">249</arg>. <arg fmt="%s" index="3">Syntax error near &quot;;&quot;.</arg>
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">D:/study/sogang/18y6s/adca/Project/PCFG_18/mainProject/pcfg_top.vhd</arg>&quot; Line <arg fmt="%d" index="2">267</arg>. <arg fmt="%s" index="3">Syntax error near &quot;;&quot;.</arg>
 </msg>
 
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/user1/Documents/xilinx/oxford/pcfg_top.vhd</arg>&quot; Line <arg fmt="%d" index="2">250</arg>. <arg fmt="%s" index="3">Syntax error near &quot;;&quot;.</arg>
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">D:/study/sogang/18y6s/adca/Project/PCFG_18/mainProject/pcfg_top.vhd</arg>&quot; Line <arg fmt="%d" index="2">268</arg>. <arg fmt="%s" index="3">Syntax error near &quot;;&quot;.</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/user1/Documents/xilinx/oxford/signal_controller.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/study/sogang/18y6s/adca/Project/PCFG_18/mainProject/signal_controller.vhd&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/user1/Documents/xilinx/oxford/tb_pcfg.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/study/sogang/18y6s/adca/Project/PCFG_18/mainProject/tb_pcfg.vhd&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/user1/Documents/xilinx/oxford/top_8254.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/study/sogang/18y6s/adca/Project/PCFG_18/mainProject/top_8254.vhd&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/user1/Documents/xilinx/oxford/tw_8254_cnt.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/study/sogang/18y6s/adca/Project/PCFG_18/mainProject/tw_8254_cnt.vhd&quot; into library work</arg>
 </msg>
 
 </messages>

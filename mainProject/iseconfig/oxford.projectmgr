@@ -14,13 +14,13 @@
          <ClosedNode>/tb_pcfg - behavior E:|onedrive|수업|7학기|고급디지털회로설계|2018_고디프로젝트_보강|tb_pcfg.vhd/uut - PCFG_TOP - Behavioral</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>uut - PCFG_TOP - Behavioral (C:/Users/user1/Documents/xilinx/oxford/pcfg_top.vhd)</SelectedItem>
+         <SelectedItem>tb_pcfg - behavior (D:/study/sogang/18y6s/adca/Project/PCFG_18/mainProject/tb_pcfg.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001d3000000020000000000000000000000000200000064ffffffff000000810000000300000002000001d30000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>uut - PCFG_TOP - Behavioral (C:/Users/user1/Documents/xilinx/oxford/pcfg_top.vhd)</CurrentItem>
+      <CurrentItem>tb_pcfg - behavior (D:/study/sogang/18y6s/adca/Project/PCFG_18/mainProject/tb_pcfg.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -105,7 +105,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001db000000010000000100000000000000000000000064ffffffff000000810000000000000001000001db0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000e7000000010000000100000000000000000000000064ffffffff000000810000000000000001000000e70000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
    </ItemView>
