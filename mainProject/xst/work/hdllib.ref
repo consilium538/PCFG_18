@@ -1,7 +1,2 @@
-AR tw_8254_cnt behavioral C:/Users/user1/Documents/xilinx/oxford/tw_8254_cnt.vhd sub00/vhpl03 1541583468
-EN tw_8254_cnt NULL C:/Users/user1/Documents/xilinx/oxford/tw_8254_cnt.vhd sub00/vhpl02 1541583467
 AR address_decoder behavioral C:/Users/user1/Documents/xilinx/oxford/address_decoder.vhd sub00/vhpl01 1541576957
-EN pcfg_top NULL C:/Users/user1/Documents/xilinx/oxford/pcfg_top.vhd sub00/vhpl06 1541583471
 EN address_decoder NULL C:/Users/user1/Documents/xilinx/oxford/address_decoder.vhd sub00/vhpl00 1541576956
-EN top_8254 NULL C:/Users/user1/Documents/xilinx/oxford/top_8254.vhd sub00/vhpl04 1541583469
-AR top_8254 behavioral C:/Users/user1/Documents/xilinx/oxford/top_8254.vhd sub00/vhpl05 1541583470
