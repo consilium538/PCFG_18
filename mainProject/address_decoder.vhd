@@ -22,14 +22,14 @@ begin
 s_addr_in <= m_addr_in;
 
 m_pcs_addr <= '1' when m_addr_in(8 downto 4)=x"14" else '0';
-m_mode_addr <= 	x"0" when m_addr_in=x"120" else
-				x"1" when m_addr_in=x"180" else
-				x"2" when m_addr_in=x"181" else
-				x"3" when m_addr_in=x"160" else
-				x"4" when m_addr_in=x"172" else
-				x"5" when m_addr_in=x"174" else
-				x"6" when m_addr_in=x"176" else
-				x"7" when m_addr_in=x"150" else "000";
+m_mode_addr <= 	"000" when m_addr_in=x"120" else
+				"001" when m_addr_in=x"180" else
+				"010" when m_addr_in=x"181" else
+				"011" when m_addr_in=x"160" else
+				"100" when m_addr_in=x"172" else
+				"101" when m_addr_in=x"174" else
+				"110" when m_addr_in=x"176" else
+				"111" when m_addr_in=x"150" else "000";
 				
 m_mode_valid <= '1' when m_addr_in=x"120" or
                          m_addr_in=x"180" or
