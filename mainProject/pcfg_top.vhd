@@ -193,7 +193,8 @@ end component;
 
 --Averager
 component Averager is
-port(	m_din 			: in std_logic_vector(7 downto 0);
+port(	m_clk			: in std_logic;
+		m_din 			: in std_logic_vector(7 downto 0);
 		m_average_en 	: in std_logic;
 		m_average_clr	: in std_logic;
 		m_counter_in	: in std_logic_vector(10 downto 0);
@@ -528,6 +529,7 @@ internal_RAM3 : AD_RAM port map(
 			);
 
 Average : Averager port map(
+			m_clk		=> s_clk,
 			m_din 		=> s_doutb0,
 			m_average_en => s_average_en,
 			m_average_clr => s_average_clr,
@@ -535,7 +537,6 @@ Average : Averager port map(
 			m_dout		=> Averager_out
 			);
 			
-
 m_led(6 downto 0)<=s_led(6 downto 0);
 		
 --address decoder
