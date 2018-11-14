@@ -99,23 +99,46 @@ end component;
 component signal_controller is
 	port(	m_clk		: in std_logic;
 			m_sys_clk	: in std_logic;
+			
 			m_mode_addr	: in std_logic_vector(2 downto 0);
 			m_mode_valid: in std_logic;
 			m_wen		: in std_logic;
 			m_ren		: in std_logic;
-			m_ad_ram_addr	: out std_logic_vector(10 downto 0);
-			m_da_rma_addr	: out std_logic_vector(10 downto 0);
 			
 			m_ram1_mux_sel	: out std_logic_vector(1 downto 0);
 			m_ram0_mux_sel	: out std_logic_vector(0 downto 0);
 			m_out_mux_sel	: out std_logic_vector(0 downto 0);
-			m_ram0_en		: out std_logic;
 			
 			m_inlatch_en	: out std_logic;
 			m_outlatch_en	: out std_logic;
 			m_ad_latch_en	: out std_logic;
-			m_da_latch_en	: out std_logic
-			);
+			m_da_latch_en	: out std_logic;
+			
+			m_average_en 	: out std_logic;
+			m_average_clr   : out std_logic;
+			
+			--RAM
+			m_ram0_addr		: out std_logic_vector(10 downto 0);
+			m_ram1_addr		: out std_logic_vector(10 downto 0);
+			m_ad_ram_addra	: out std_logic_vector(10 downto 0);
+			m_ad_ram_addrb	: out std_logic_vector(10 downto 0);
+			m_da_ram_addra	: out std_logic_vector(10 downto 0);
+			m_da_ram_addrb  : out std_logic_vector(10 downto 0);
+			
+			m_ena0	: out std_logic;
+			m_wea0	: out std_logic_vector(0 downto 0);
+			m_enb0	: out std_logic;
+			m_ena1	: out std_logic;
+			m_wea1	: out std_logic_vector(0 downto 0);
+			m_enb1	: out std_logic;
+			m_ena2	: out std_logic;
+			m_wea2	: out std_logic_vector(0 downto 0);
+			m_enb2	: out std_logic;
+			m_ena3	: out std_logic;
+			m_wea3	: out std_logic_vector(0 downto 0);
+			m_enb3	: out std_logic
+		
+		);
 end component;
 
 --RAM
@@ -172,23 +195,24 @@ end component;
 component Averager is
 port(	m_din 			: in std_logic_vector(7 downto 0);
 		m_average_en 	: in std_logic;
+		m_average_clr	: in std_logic;
 		m_counter_in	: in std_logic_vector(10 downto 0);
 		m_dout 			: out std_logic_vector(7 downto 0)
 	);
 end component;
-
+---==============================
 
 
 signal s_clk : std_logic;
 --=== signals
 
 ---8254
-signal s_m_8254_gate0				: std_logic; 
-signal s_m_8254_gate1				: std_logic; 
-signal s_m_8254_gate2				: std_logic; 
+signal s_m_8254_gate0	: std_logic; 
+signal s_m_8254_gate1	: std_logic; 
+signal s_m_8254_gate2	: std_logic; 
 
-signal s_dout_en : std_logic;
-signal s_pcs_addr  : std_logic;
+signal s_dout_en 	: std_logic;
+signal s_pcs_addr  	: std_logic;
 
 signal sys_clk : std_logic;
 
@@ -217,22 +241,27 @@ signal s_outlatch_en : std_logic;
 
 --da_latch
 signal da_latch_dout : std_logic_vector(7 downto 0);
-signal da_latch_en	: std_logic;
+signal s_da_latch_en	: std_logic;
 
 --ad latch
 signal ad_latch_din	: std_logic_vector(7 downto 0);
 signal ad_latch_dout : std_logic_vector(7 downto 0);
-signal ad_latch_en	: std_logic;
+signal s_ad_latch_en	: std_logic;
 
 --signal controller
 signal s_mode_addr		: std_logic_vector(2 downto 0);
 signal s_mode_valid		: std_logic;
-signal s_ad_ram_addr	: std_logic_vector(10 downto 0);
-signal s_da_rma_addr	: std_logic_vector(10 downto 0);
+
+signal s_ram0_addr		: std_logic_vector(10 downto 0);
+signal s_ram1_addr		: std_logic_vector(10 downto 0);
+signal s_ad_ram_addra	: std_logic_vector(10 downto 0);
+signal s_ad_ram_addrb	: std_logic_vector(10 downto 0);
+signal s_da_ram_addra	: std_logic_vector(10 downto 0);
+signal s_da_ram_addrb   : std_logic_vector(10 downto 0);
+
 signal s_ram1_mux_sel	: std_logic_vector(1 downto 0);
 signal s_ram0_mux_sel	: std_logic_vector(0 downto 0);
 signal s_out_mux_sel	: std_logic_vector(0 downto 0);
-signal s_ram0_en		: std_logic;
 
 signal s_counter0		: std_logic_vector(10 downto 0);
 signal s_counter1		: std_logic_vector(10 downto 0);
@@ -273,9 +302,10 @@ signal s_addrb3	: std_logic_vector(10 downto 0);
 signal s_enb3	: std_logic;
 signal s_doutb3	: std_logic_vector(7 downto 0);
 
---Averager
+--AVERAGER
 signal Averager_out : std_logic_vector(7 downto 0);
 signal s_average_en : std_logic;
+signal s_average_clr : std_logic;
 
 --MUX
 signal ram0_mux_din0: std_logic_vector(7 downto 0);
@@ -299,8 +329,8 @@ begin
 
 
 --clks
-m_DAC_clk<=	sys_clk		;--- 필요한 clock 연결하세요
-m_AD9283_clk<= sys_clk		;--- 필요한 clock 연결하세요
+m_DAC_clk <= sys_clk		;--- 필요한 clock 연결하세요
+m_AD9283_clk <= sys_clk		;--- 필요한 clock 연결하세요
 
 
 -----------================  don't change this ==================-------------------
@@ -347,11 +377,11 @@ m_led(7) <=s_reset_b;
 --MUX
 --ram0_mux
 ram0_mux_dout 	<= inlatch_dout when s_ram0_mux_sel="0" else
-				s_doutb3 when s_ram0_mux_sel="1" else (others=>'Z');
+				s_doutb3 		when s_ram0_mux_sel="1" else (others=>'Z');
 --ram1_mux
 ram1_mux_dout	<= Averager_out when s_ram1_mux_sel=x"00" else
-				s_doutb0 when s_ram1_mux_sel=x"01" else
-				inlatch_dout when s_ram1_mux_sel=x"10" else (others=>'Z');
+				s_doutb0 		when s_ram1_mux_sel=x"01" else
+				inlatch_dout 	when s_ram1_mux_sel=x"10" else (others=>'Z');
 --out_mux
 out_mux_dout <= s_doutb0 when s_out_mux_sel="0" else
 				s_doutb1 when s_out_mux_sel="1" else (others=>'Z');
@@ -388,7 +418,7 @@ if rising_edge(sys_clk) then
 
 end if;
 end process;
-m_DAC_data <= da_latch_dout;
+m_DAC_data 	<= da_latch_dout;
 ad_latch_din <= m_ADC_data;
 s_dina3 <= ad_latch_dout;
 
@@ -407,79 +437,104 @@ addr_decode : address_decoder port map(
 controller : signal_controller port map(
 			m_clk			=> s_clk,
 			m_sys_clk		=> sys_clk,
+			
 			m_mode_addr		=> s_mode_addr,
 			m_mode_valid	=> s_mode_valid,
 			m_wen			=> s_wen,
 			m_ren			=> s_ren,
-			m_ad_ram_addr	=> s_ad_ram_addr,
-			m_da_rma_addr	=> s_da_rma_addr,
+			
 			m_ram1_mux_sel	=> s_ram1_mux_sel,
 			m_ram0_mux_sel	=> s_ram0_mux_sel,
 			m_out_mux_sel	=> s_out_mux_sel,
-			m_ram0_en		=> s_ram0_en,
+			
 			m_inlatch_en	=> s_inlatch_en,
 			m_outlatch_en	=> s_outlatch_en,
 			m_ad_latch_en	=> s_ad_latch_en,
-			m_da_latch_en	=> s_da_latch_en
+			m_da_latch_en	=> s_da_latch_en,
+			
+			m_average_en 	=> s_average_en,
+			m_average_clr	=> s_average_clr,
+			
+			--RAM
+			m_ram0_addr		=> s_ram0_addr,
+			m_ram1_addr		=> s_ram1_addr,
+			m_ad_ram_addra	=> s_ad_ram_addra,
+			m_ad_ram_addrb	=> s_ad_ram_addrb,
+			m_da_ram_addra	=> s_da_ram_addra,
+			m_da_ram_addrb	=> s_da_ram_addrb,
+			
+			
+			m_ena0 => s_ena0,
+			m_wea0 => s_wea0,
+			m_enb0 => s_enb0,
+			m_ena1 => s_ena1,
+			m_wea1 => s_wea1,
+			m_enb1 => s_enb1,
+			m_ena2 => s_ena2,
+			m_wea2 => s_wea2,
+			m_enb2 => s_enb2,
+			m_ena3 => s_ena3,
+			m_wea3 => s_wea3,
+			m_enb3 => s_enb3
+			
 			);
 			
 internal_RAM0 : Ram0 port map(
-			ADDRA	=> s_addra0,
+			ADDRA	=> s_ram0_addr,
 			ENA		=> s_ena0,
 			DINA	=> s_dina0,
 			WEA		=> s_wea0,
 			CLKA	=> s_clk,
-			ADDRB	=> s_addrb0,
+			ADDRB	=> s_ram0_addr,
 			ENB		=> s_enb0,
 			CLKB	=> s_clk,
 			DOUTB	=> s_doutb0
 			);
 			
 internal_RAM1 : Ram1 port map(
-			ADDRA	=> s_addra1,
+			ADDRA	=> s_ram1_addr,
 			ENA		=> s_ena1,
 			DINA	=> s_dina1,
 			WEA		=> s_wea1,
 			CLKA	=> s_clk,
-			ADDRB	=> s_addrb1,
+			ADDRB	=> s_ram1_addr,
 			ENB		=> s_enb1,
 			CLKB	=> s_clk,
 			DOUTB	=> s_doutb1
 			);
 			
 internal_RAM2 : DA_RAM port map(
-			ADDRA	=> s_addra2,
+			ADDRA	=> s_da_ram_addra,
 			ENA		=> s_ena2,
 			DINA	=> s_doutb1,
 			WEA		=> s_wea2,
 			CLKA	=> s_clk,
-			ADDRB	=> s_addrb2,
+			ADDRB	=> s_ad_ram_addrb,
 			ENB		=> s_enb2,
 			CLKB	=> sys_clk,
 			DOUTB	=> s_doutb2
 			);
 			
 internal_RAM3 : AD_RAM port map(
-			ADDRA	=> s_addra3,
+			ADDRA	=> s_ad_ram_addra,
 			ENA		=> s_ena3,
 			DINA	=> s_dina3,
 			WEA		=> s_wea3,
 			CLKA	=> s_clk,
-			ADDRB	=> s_addrb3,
+			ADDRB	=> s_ad_ram_addrb,
 			ENB		=> s_enb3,
 			CLKB	=> sys_clk,
 			DOUTB	=> s_doutb3
 			);
 
 Average : Averager port map(
-			m_din 	=> s_doutb0,
+			m_din 		=> s_doutb0,
 			m_average_en => s_average_en,
+			m_average_clr => s_average_clr,
 			m_counter_in => s_counter0,
-			m_dout	=> Averager_out
+			m_dout		=> Averager_out
 			);
 			
-			
-
 
 m_led(6 downto 0)<=s_led(6 downto 0);
 		
