@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "D:/study/sogang/18y6s/adca/Project/PCFG_18/avrager/tb_avg_isim_beh.exe" -prj "D:/study/sogang/18y6s/adca/Project/PCFG_18/avrager/tb_avg_beh.prj" "work.tb_avg" 
