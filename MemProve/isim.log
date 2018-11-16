@@ -1,5 +1,5 @@
 ISim log file
-Running: D:\study\sogang\18y6s\adca\Project\PCFG_18\MemProve\tb_remctr_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb D:/study/sogang/18y6s/adca/Project/PCFG_18/MemProve/tb_remctr_isim_beh.wdb 
+Running: D:\study\sogang\18y6s\adca\Project\PCFG_18\MemProve\tb_mem_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb D:/study/sogang/18y6s/adca/Project/PCFG_18/MemProve/tb_mem_isim_beh.wdb 
 ISim P.20131013 (signature 0x7708f090)
 ----------------------------------------------------------------------
 INFO:Security:61 - The XILINXD_LICENSE_FILE environment variable is not set.
@@ -25,5 +25,19 @@ Time resolution is 1 ps
 # wave add /
 # run 1000 ns
 Simulator is doing circuit initialization process.
-at 0 ps, Instance /tb_remctr/uut/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_mem/uut/remctr/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 Finished circuit initialization process.
+at 5 ns(1), Instance /tb_mem/uut/ram0/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 205 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_mem/uut/ram0/U0/native_mem_module/mem_module/).
+at 205 ns(1), Instance /tb_mem/uut/ram0/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 00000000000, B read address: 00000000000
+
+at 210 ns(1), Instance /tb_mem/uut/ram0/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 00000000001, B read address: 00000000001
+
+at 215 ns(1), Instance /tb_mem/uut/ram0/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 00000000001, B read address: 00000000001
+
+at 220 ns(1), Instance /tb_mem/uut/ram0/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 00000000010, B read address: 00000000010
+
+at 225 ns(1), Instance /tb_mem/uut/ram0/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 00000000010, B read address: 00000000010
+
+at 230 ns(1), Instance /tb_mem/uut/ram0/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 00000000011, B read address: 00000000011
+

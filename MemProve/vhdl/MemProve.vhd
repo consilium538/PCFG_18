@@ -62,10 +62,10 @@ architecture Behavioral of MemProve is
     end component;
 
     signal s_addr : STD_LOGIC_VECTOR(10 downto 0) := (others => '0');
-    signal s_rd : STD_LOGIC := '1';
 --signal s_addr : STD_LOGIC_VECTOR(10 downto 0) := (others <='0');
 
 begin
+    d_AData <= s_addr;
     ram0 : dual_port_ram port map(
                                      ADDRA => s_addr, --in
                                      ENA => m_ramen, --in
@@ -87,7 +87,7 @@ begin
                                        m_Din => m_Ain,
         -- output
                                        m_comp => d_Comp,
-                                       m_Cnt => d_AData,
+                                       m_Cnt => s_addr,
                                        m_Dout => m_Aout
                                    );
 end Behavioral;
