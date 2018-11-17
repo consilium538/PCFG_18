@@ -22,14 +22,14 @@ begin
 s_addr_in <= m_addr_in;
 
 m_pcs_addr <= '1' when m_addr_in(8 downto 4)=x"14" else '0';
-m_mode_addr <= 	"000" when m_addr_in=x"120" else
-				"001" when m_addr_in=x"180" else
-				"010" when m_addr_in=x"181" else
-				"011" when m_addr_in=x"160" else
-				"100" when m_addr_in=x"172" else
-				"101" when m_addr_in=x"174" else
-				"110" when m_addr_in=x"176" else
-				"111" when m_addr_in=x"150" else "000";
+m_mode_addr <= 	"000" when m_addr_in=x"120" else -- sw reset
+				"001" when m_addr_in=x"180" else -- pc ram0
+				"010" when m_addr_in=x"181" else -- pc ram1
+				"011" when m_addr_in=x"160" else -- data trans.
+				"100" when m_addr_in=x"172" else -- da start
+				"101" when m_addr_in=x"174" else -- da stop
+				"110" when m_addr_in=x"176" else -- ad
+				"111" when m_addr_in=x"150" else "000"; -- avg
 				
 m_mode_valid <= '1' when m_addr_in=x"120" or
                          m_addr_in=x"180" or

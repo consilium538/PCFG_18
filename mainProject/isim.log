@@ -27,3 +27,7 @@ Time resolution is 1 ps
 Simulator is doing circuit initialization process.
 at 0 ps, Instance /tb_pcfg/uut/clk_gen/CNT0/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 Finished circuit initialization process.
+# restart
+# run 100us
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.

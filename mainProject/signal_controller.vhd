@@ -14,9 +14,9 @@ port(	m_clk		: in std_logic;
 		m_wen		: in std_logic;
 		m_ren		: in std_logic;
 		
-		m_ram1_mux_sel	: out std_logic_vector(1 downto 0);
-		m_ram0_mux_sel	: out std_logic_vector(0 downto 0);
-		m_out_mux_sel	: out std_logic_vector(0 downto 0);
+		m_ram1_mux_sel	: out std_logic_vector(1 downto 0); -- 00:Avg, 01:ram0, 10:dbus
+		m_ram0_mux_sel	: out std_logic_vector(0 downto 0); -- 0:dbus, 1:adcram
+		m_out_mux_sel	: out std_logic_vector(0 downto 0); -- 0:ram0, 1:ram1
 		
 		m_inlatch_en	: out std_logic;
 		m_outlatch_en	: out std_logic;
@@ -55,7 +55,12 @@ architecture Behavioral of signal_controller is
 
 	
 begin
-
+    m_ram0_mux_sel <= "0" when m_mode_addr = "001" else "1"; -- pc ram0 -> 0
+    m_ram1_mux_sel <= "10" when m_mode_addr = "010" else -- pc ram1 -> dbus
+                      "01" when m_mode_addr = "011" else -- data tf. -> ram0
+                      "00" when m_mode_addr = "111" else -- avg -> avg
+                      "11";
+    m_inlatch_en <= '1';
 
 end Behavioral;
 

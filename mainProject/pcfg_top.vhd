@@ -270,7 +270,6 @@ signal s_counter1		: std_logic_vector(10 downto 0);
 --ram0
 signal s_addra0	: std_logic_vector(10 downto 0);
 signal s_ena0	: std_logic;
-signal s_dina0	: std_logic_vector(7 downto 0);
 signal s_wea0	: std_logic_vector(0 downto 0);
 signal s_addrb0	: std_logic_vector(10 downto 0);
 signal s_enb0	: std_logic;
@@ -280,7 +279,6 @@ signal s_doutb0	: std_logic_vector(7 downto 0);
 --ram1
 signal s_addra1	: std_logic_vector(10 downto 0);
 signal s_ena1	: std_logic;
-signal s_dina1	: std_logic_vector(7 downto 0);
 signal s_wea1	: std_logic_vector(0 downto 0);
 signal s_addrb1	: std_logic_vector(10 downto 0);
 signal s_enb1	: std_logic;
@@ -309,15 +307,8 @@ signal s_average_en : std_logic;
 signal s_average_clr : std_logic;
 
 --MUX
-signal ram0_mux_din0: std_logic_vector(7 downto 0);
-signal ram0_mux_din1: std_logic_vector(7 downto 0);
 signal ram0_mux_dout: std_logic_vector(7 downto 0);
-
-signal ram1_mux_din0: std_logic_vector(7 downto 0);
-signal ram1_mux_din1: std_logic_vector(7 downto 0);
-signal ram1_mux_din2: std_logic_vector(7 downto 0);
 signal ram1_mux_dout: std_logic_vector(7 downto 0);
-
 signal out_mux_dout	: std_logic_vector(7 downto 0);
 
 
@@ -380,9 +371,9 @@ m_led(7) <=s_reset_b;
 ram0_mux_dout 	<= inlatch_dout when s_ram0_mux_sel="0" else
 				s_doutb3 		when s_ram0_mux_sel="1" else (others=>'Z');
 --ram1_mux
-ram1_mux_dout	<= Averager_out when s_ram1_mux_sel=x"00" else
-				s_doutb0 		when s_ram1_mux_sel=x"01" else
-				inlatch_dout 	when s_ram1_mux_sel=x"10" else (others=>'Z');
+ram1_mux_dout	<= Averager_out when s_ram1_mux_sel="00" else
+				s_doutb0 		when s_ram1_mux_sel="01" else
+				inlatch_dout 	when s_ram1_mux_sel="10" else (others=>'Z');
 --out_mux
 out_mux_dout <= s_doutb0 when s_out_mux_sel="0" else
 				s_doutb1 when s_out_mux_sel="1" else (others=>'Z');
@@ -483,7 +474,7 @@ controller : signal_controller port map(
 internal_RAM0 : Ram0 port map(
 			ADDRA	=> s_ram0_addr,
 			ENA		=> s_ena0,
-			DINA	=> s_dina0,
+			DINA	=> ram0_mux_dout,
 			WEA		=> s_wea0,
 			CLKA	=> s_clk,
 			ADDRB	=> s_ram0_addr,
@@ -495,7 +486,7 @@ internal_RAM0 : Ram0 port map(
 internal_RAM1 : Ram1 port map(
 			ADDRA	=> s_ram1_addr,
 			ENA		=> s_ena1,
-			DINA	=> s_dina1,
+			DINA	=> ram1_mux_dout,
 			WEA		=> s_wea1,
 			CLKA	=> s_clk,
 			ADDRB	=> s_ram1_addr,
