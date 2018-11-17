@@ -59,7 +59,7 @@ type clk_set_state_machine 			is (idle);
 type rst_state_machine 				is (idle);
 type PC_wr_mode_state_machine 		is (idle);
 type PC_re_mode_state_machine 		is (idle);
-type data_trans_state_machine 		is (idle);
+type data_trans_state_machine 		is (idle,s0,s1,s2,s3,s4,s5);
 type DA_start_mode_state_machine 	is (idle);
 type DA_stop_mode_state_machine 	is (idle);
 type AD_mode_state_machine 			is (idle);
@@ -75,6 +75,18 @@ signal DA_start_state 	: DA_start_mode_state_machine	:=idle;
 signal DA_stop_state 	: DA_stop_mode_state_machine	:=idle;
 signal AD_state 		: AD_mode_state_machine			:=idle;
 signal average_state 	: average_mode_state_machine	:=idle;
+
+
+signal s_hall_state 	 	: std_logic;
+signal s_clk_state 		 	: std_logic;
+signal s_rst_state 		 	: std_logic;
+signal s_PC_wr_state 	 	: std_logic;
+signal s_PC_re_state 	 	: std_logic;
+signal s_data_trans_state	: std_logic;
+signal s_DA_start_state  	: std_logic;
+signal s_DA_stop_state 	 	: std_logic;
+signal s_AD_state 		 	: std_logic;
+signal s_average_state 	 	: std_logic;
 	
 begin
 
@@ -106,7 +118,6 @@ if rising_edge(m_clk) then
 		when clk_set=>
 		when rst=>
 		when PC_wr_mode=>
-		
 		when PC_re_mode=>
 		when data_trans=>
 		when DA_start_mode=>
@@ -116,8 +127,44 @@ if rising_edge(m_clk) then
 		
 		when others=>NULL;
 	end case;
+	
+	case clk_state is
+		when idle=>
+			if hall_state=clk_set then
+	end case;
+	case rst_state is
+	end case;
+	case clk_state is
+	end case;
+	case PC_wr_state is
+	end case;
+	case PC_re_state is
+	end case;
+	case data_trans_state is
+		when idle=>
+			if hall_state=data_trans then
+				data_trans_state<=s0;
+			end if;
+		when s0=>
 		
-			
+		
+		
+		
+		
+		
+
+	end case;
+	case DA_start_state is
+	end case;
+	case clk_state is
+	end case;
+	case DA_stop_state is
+	end case;
+	case AD_state is
+	end case;
+	case average_state is
+	end case;
+	
 			
 			
 			

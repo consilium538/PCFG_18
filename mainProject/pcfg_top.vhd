@@ -510,7 +510,7 @@ internal_RAM2 : DA_RAM port map(
 internal_RAM3 : AD_RAM port map(
 			ADDRA	=> s_ad_ram_addra,
 			ENA		=> s_ena3,
-			DINA	=> s_dina3,
+			DINA	=> ad_latch_dout,
 			WEA		=> s_wea3,
 			CLKA	=> s_clk,
 			ADDRB	=> s_ad_ram_addrb,
