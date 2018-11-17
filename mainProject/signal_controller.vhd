@@ -13,7 +13,7 @@ entity signal_controller is
           m_mode_valid  : in std_logic;
           m_wen         : in std_logic;
           m_ren         : in std_logic;
-          m_oe_b        : in std_logic;
+          m_OE_b        : in std_logic;
           m_cmd_data    : in std_logic;
 
           m_ram1_mux_sel	: out std_logic_vector(1 downto 0); -- 00:Avg, 01:ram0, 10:dbus
@@ -90,17 +90,125 @@ architecture Behavioral of signal_controller is
     signal s_AD_state 		 	: std_logic;
     signal s_average_state 	 	: std_logic;
 
-    type d_testpcmode is (idle,);
+    component RemController is
+        Port ( --input
+        m_clk, m_enp, m_clr : in  STD_LOGIC;
+        m_sel : in  STD_LOGIC_VECTOR(1 downto 0);
+        m_Din : in  STD_LOGIC_VECTOR(10 downto 0);
+        -- output
+        m_comp : out STD_LOGIC;
+        m_Cnt : out  STD_LOGIC_VECTOR(10 downto 0);
+        m_Dout : out  STD_LOGIC_VECTOR(10 downto 0));
+    end component;
+
+    signal s_enp0, s_clr0 : std_logic;
+    signal s_sel0 : std_logic_vector(1 downto 0);
+
+    signal s_enp1, s_clr1 : std_logic;
+    signal s_sel1 : std_logic_vector(1 downto 0);
+
+    signal s_Aa0, s_A01, s_A1d : std_logic_vector(10 downto 0);
+
+
+    -------------------------------------------
+    type d_testpcmode is (idle,decode,wready,rready,);
+
+    signal t_ps, t_ns : d_testpcmode := idle;
+    signal t_prevmode : std_logic_vector(2 downto 0);
+    -------------------------------------------
 
 begin
 
-    m_ram0_mux_sel <= "0" when m_mode_addr = "001" else "1"; -- pc ram0 -> 0
+    m_ram0_mux_sel <= "0" when m_mode_addr = "001" else -- pc ram0 -> 0
+                      "1"; -- basically adc mode
     m_ram1_mux_sel <= "10" when m_mode_addr = "010" else -- pc ram1 -> dbus
                       "01" when m_mode_addr = "011" else -- data tf. -> ram0
                       "00" when m_mode_addr = "111" else -- avg -> avg
                       "11";
-    m_inlatch_en <= '1';
+    m_out_mux_sel <= "0" when m_mode_addr = "001" else -- pc ram0 -> 0
+                     "1" -- pc ram 1 -> 1
+    m_inlatch_en <= m_OE_b;
+    m_outlatch_en <= not m_OE_b;
 
+    m_ena0 <= '1'; m_enb0 <= '1';
+    m_ena1 <= '1'; m_enb1 <= '1';
+    m_ena2 <= '1'; m_enb2 <= '1';
+    m_ena3 <= '1'; m_enb3 <= '1';
+
+    rem0ctr : RemController
+    port map(
+            -- input
+            m_clk => m_clk,
+            m_enp => s_enp0,
+            m_clr => s_clr0,
+            m_sel => s_sel0,
+            m_Din => s_Aa0,
+            -- output
+            --m_comp => d_Comp,
+            m_Cnt => m_ram0_addr,
+            m_Dout => s_A01
+    );
+
+    rem1ctr : RemController
+    port map(
+            -- input
+            m_clk => m_clk,
+            m_enp => s_enp1,
+            m_clr => s_clr1,
+            m_sel => s_sel1,
+            m_Din => s_A01,
+            -- output
+            --m_comp => d_Comp,
+            m_Cnt => m_ram1_addr,
+            m_Dout => s_A1d
+    );
+
+    -------------------------------------------
+    test_sync_proc : process(m_clk)
+    begin
+        if rising_edge(m_clk) then
+            t_ps <= t_ns;
+        end if;
+    end process;
+
+    test_comb_proc : process(m_cmd_data, m_mode_addr, m_OE_b)
+    begin
+        case t_ps is
+            when idle =>
+                if(m_cmd_data = '1') then t_ns <= decode;
+                else t_ns <= idle;
+                end if;
+            when decode =>
+                if(m_mode_addr = "001") then --ram0
+                    if(m_OE_b = '1') t_ns <= wready;
+                    else t_ns <= rready;
+                    end if;
+                elsif(m_mode_addr = "010") then --ram1
+                    if(m_OE_b = '1') t_ns <= wready;
+                    else t_ns <= rready;
+                    end if;
+                else t_ns <= idle;
+                end if
+            when wready =>
+                if(m_mode_addr = "001") then -- ram0
+                    s_enp0 <= '1'; s_sel0 <= "01";
+                    m_wea0 <= '1';
+                else -- ram1
+                    s_enp1 <= '1'; s_sel1 <= "01";
+                    m_wea1 <= '1';
+                end if;
+                t_ns <= wridle;
+            when wready =>
+                if(m_mode_addr = "001") then -- ram0
+                    s_enp0 <= '1'; s_sel0 <= "00";
+                    m_wea0 <= '1';
+                else -- ram1
+                    s_enp1 <= '1'; s_sel1 <= "01";
+                    m_wea1 <= '1';
+                end if;
+                t_ns <= wridle;
+    end process;
+    -------------------------------------------
     --process(m_clk)
     --begin
         --if rising_edge(m_clk) then
