@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/tb_memtp_isim_beh.exe" -prj "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/tb_memtp_beh.prj" "work.tb_memtp" 
