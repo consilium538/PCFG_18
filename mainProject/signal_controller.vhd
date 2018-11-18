@@ -20,6 +20,8 @@ entity signal_controller is
           m_ram0_mux_sel	: out std_logic_vector(0 downto 0); -- 0:dbus, 1:adcram
           m_out_mux_sel	    : out std_logic_vector(0 downto 0); -- 0:ram0, 1:ram1
 
+          m_dout_en : out std_logic;
+
           m_inlatch_en	: out std_logic;
           m_outlatch_en	: out std_logic;
           m_ad_latch_en	: out std_logic;
@@ -111,7 +113,7 @@ architecture Behavioral of signal_controller is
 
 
     -------------------------------------------
-    type d_testpcmode is (idle,decode,wready,rready,);
+    type d_testpcmode is (idle,decode,wready,writeram,rready,rstandby,rterm);
 
     signal t_ps, t_ns : d_testpcmode := idle;
     signal t_prevmode : std_logic_vector(2 downto 0);
@@ -126,7 +128,7 @@ begin
                       "00" when m_mode_addr = "111" else -- avg -> avg
                       "11";
     m_out_mux_sel <= "0" when m_mode_addr = "001" else -- pc ram0 -> 0
-                     "1" -- pc ram 1 -> 1
+                     "1"; -- pc ram 1 -> 1
     m_inlatch_en <= m_OE_b;
     m_outlatch_en <= not m_OE_b;
 
@@ -171,42 +173,73 @@ begin
         end if;
     end process;
 
-    test_comb_proc : process(m_cmd_data, m_mode_addr, m_OE_b)
+    test_comb_proc : process(m_clk, m_cmd_data, m_mode_addr, m_OE_b)
     begin
         case t_ps is
             when idle =>
+                s_enp0 <= '0'; s_sel0 <= "00";
+                m_wea0 <= "0";
+                s_enp1 <= '0'; s_sel1 <= "00";
+                m_wea1 <= "0";
                 if(m_cmd_data = '1') then t_ns <= decode;
                 else t_ns <= idle;
                 end if;
             when decode =>
                 if(m_mode_addr = "001") then --ram0
-                    if(m_OE_b = '1') t_ns <= wready;
+                    if(m_OE_b = '1') then
+                        t_ns <= wready;
+                        if(t_prevmode /= "001") then s_clr0 <= '1';
+                        end if;
                     else t_ns <= rready;
+                        if(t_prevmode /= "000") then s_clr0 <= '1';
+                        end if;
                     end if;
                 elsif(m_mode_addr = "010") then --ram1
-                    if(m_OE_b = '1') t_ns <= wready;
+                    if(m_OE_b = '1') then
+                        t_ns <= wready;
+                        if(t_prevmode /= "011") then s_clr0 <= '1';
+                        end if;
                     else t_ns <= rready;
+                        if(t_prevmode /= "010") then s_clr0 <= '1';
+                        end if;
                     end if;
-                else t_ns <= idle;
-                end if
+                else t_ns <= idle; t_prevmode <= "100";
+                end if;
             when wready =>
+                s_clr0 <= '0'; s_clr1 <= '0';
+                if(m_wen = '1') then t_ns <= writeram;
+                else t_ns <= wready;
+                end if;
+            when writeram =>
                 if(m_mode_addr = "001") then -- ram0
                     s_enp0 <= '1'; s_sel0 <= "01";
-                    m_wea0 <= '1';
+                    m_wea0 <= "0";
+                    t_prevmode <= "001";
                 else -- ram1
                     s_enp1 <= '1'; s_sel1 <= "01";
-                    m_wea1 <= '1';
+                    m_wea1 <= "1";
+                    t_prevmode <= "011";
                 end if;
-                t_ns <= wridle;
-            when wready =>
+                t_ns <= idle;
+            when rready =>
+                s_clr0 <= '0'; s_clr1 <= '0';
+                if(m_ren = '1') then t_ns <= rstandby;
+                else t_ns <= rready;
+                end if;
+            when rstandby =>
+                m_dout_en <= '1';
+                if(m_ren = '0') then t_ns <= rterm;
+                else t_ns <= rstandby;
+                end if;
+            when rterm =>
+                m_dout_en <= '0';
                 if(m_mode_addr = "001") then -- ram0
                     s_enp0 <= '1'; s_sel0 <= "00";
-                    m_wea0 <= '1';
                 else -- ram1
                     s_enp1 <= '1'; s_sel1 <= "01";
-                    m_wea1 <= '1';
                 end if;
-                t_ns <= wridle;
+                t_ns <= idle;
+        end case;
     end process;
     -------------------------------------------
     --process(m_clk)
