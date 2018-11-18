@@ -222,7 +222,7 @@ begin
                 end if;
                 t_ns <= writeram;
             when writeram =>
-                m_wea0 <= '0'; m_wea1 <= '0';
+                m_wea0 <= "0"; m_wea1 <= "0";
                 s_enp0 <= '0'; s_sel0 <= "00";
                 s_enp1 <= '0'; s_sel1 <= "00";
                 if(m_wen = '1') then t_ns <= writeram;
