@@ -207,7 +207,7 @@ begin
                 end if;
             when wready =>
                 s_clr0 <= '0'; s_clr1 <= '0';
-                if(m_wen = '1') then t_ns <= writeram;
+                if(m_wen = '1') then t_ns <= wact;
                 else t_ns <= wready;
                 end if;
             when wact =>
@@ -224,7 +224,7 @@ begin
             when writeram =>
                 s_enp0 <= '0'; s_sel0 <= "00";
                 s_enp1 <= '0'; s_sel1 <= "00";
-                if(m_wen = '0') then t_ns <= writeram;
+                if(m_wen = '1') then t_ns <= writeram;
                 else t_ns <= idle;
                 end if;
             when rready =>
@@ -250,74 +250,6 @@ begin
         end case;
     end process;
     -------------------------------------------
-    --process(m_clk)
-    --begin
-        --if rising_edge(m_clk) then
-            --case hall_state is
-                --when idle=>
-                    --if m_mode_valid='0' then
-                        --hall_state<=idle;
-                    --elsif m_mode_addr="000" then
-                        --hall_state<=idle;
-                    --elsif m_mode_addr="001" then
-                        --hall_state<=PC_wr_mode;
-                    --elsif m_mode_addr="010" then
-                        --hall_state<=PC_re_mode;
-                    --elsif m_mode_addr="011" then
-                        --hall_state<=data_trans;
-                    --elsif m_mode_addr="100" then
-                        --hall_state<=DA_start_mode;
-                    --elsif m_mode_addr="101" then
-                        --hall_state<=DA_stop_mode;
-                    --elsif m_mode_addr="110" then
-                        --hall_state<=AD_mode;
-                    --elsif m_mode_addr="111" then
-                        --hall_state<=average_mode;
-                    --end if;
-                --when clk_set=>
-                --when rst=>
-                --when PC_wr_mode=>
-                --when PC_re_mode=>
-                --when data_trans=>
-                --when DA_start_mode=>
-                --when DA_stop_mode=>
-                --when AD_mode=>
-                --when average_mode=>
---
-                --when others=>NULL;
-            --end case;
---
-            --case clk_state is
-                --when idle=>
-                    --if hall_state=clk_set then
-            --end case;
-            --case rst_state is
-            --end case;
-            --case clk_state is
-            --end case;
-            --case PC_wr_state is
-            --end case;
-            --case PC_re_state is
-            --end case;
-            --case data_trans_state is
-                --when idle=>
-                    --if hall_state=data_trans then
-                        --data_trans_state<=s0;
-                    --end if;
-                --when s0=>
-            --end case;
-            --case DA_start_state is
-            --end case;
-            --case clk_state is
-            --end case;
-            --case DA_stop_state is
-            --end case;
-            --case AD_state is
-            --end case;
-            --case average_state is
-            --end case;
-        --end if;
-    --end process;
-
+    
 end Behavioral;
 
