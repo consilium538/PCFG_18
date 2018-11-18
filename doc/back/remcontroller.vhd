@@ -18,8 +18,8 @@ entity RemController is
 end RemController;
 
 architecture Behavioral of RemController is
-    signal s_Reg : STD_LOGIC_VECTOR(10 downto 0);
-    signal s_Cnt : STD_LOGIC_VECTOR(10 downto 0);
+    signal s_Reg : STD_LOGIC_VECTOR(10 downto 0):=(others => '0');
+    signal s_Cnt : STD_LOGIC_VECTOR(10 downto 0):=(others => '0');
 begin
     m_Cnt <= s_Cnt;
     m_Dout <= s_Reg;
