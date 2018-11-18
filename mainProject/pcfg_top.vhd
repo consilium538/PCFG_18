@@ -106,6 +106,7 @@ component signal_controller is
 			m_ren		: in std_logic;
             m_OE_b      : in std_logic;
             m_cmd_data  : in std_logic;
+            m_data      : in std_logic_vector(7 downto 0);
 			
 			m_ram1_mux_sel	: out std_logic_vector(1 downto 0);
 			m_ram0_mux_sel	: out std_logic_vector(0 downto 0);
@@ -439,6 +440,7 @@ controller : signal_controller port map(
 			m_ren			=> s_ren,
             m_OE_b          => s_OE_b,
             m_cmd_data      => s_cmd_data,
+            m_data          => inlatch_dout,
 			
 			m_ram1_mux_sel	=> s_ram1_mux_sel,
 			m_ram0_mux_sel	=> s_ram0_mux_sel,

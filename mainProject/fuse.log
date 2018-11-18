@@ -44,8 +44,7 @@ Compiling architecture behavioral of entity Averager [averager_default]
 Compiling architecture behavioral of entity PCFG_TOP [pcfg_top_default]
 Compiling architecture behavior of entity tb_pcfg
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
 Compiled 42 VHDL Units
 Built simulation executable D:/study/sogang/18y6s/adca/Project/PCFG_18/mainProject/tb_pcfg_isim_beh.exe
-Fuse Memory Usage: 52632 KB
-Fuse CPU Usage: 781 ms
+Fuse Memory Usage: 52568 KB
+Fuse CPU Usage: 843 ms

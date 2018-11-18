@@ -15,6 +15,7 @@ entity signal_controller is
           m_ren         : in std_logic;
           m_OE_b        : in std_logic;
           m_cmd_data    : in std_logic;
+          m_data        : in std_logic_vector(7 downto 0);
 
           m_ram1_mux_sel	: out std_logic_vector(1 downto 0); -- 00:Avg, 01:ram0, 10:dbus
           m_ram0_mux_sel	: out std_logic_vector(0 downto 0); -- 0:dbus, 1:adcram
@@ -115,11 +116,19 @@ architecture Behavioral of signal_controller is
     signal s_enp1, s_clr1 : std_logic;
     signal s_sel1 : std_logic_vector(1 downto 0);
 
+    signal s_enpda, s_clrda : std_logic;
+    signal s_selda : std_logic_vector(1 downto 0);
+
+    signal s_enpad, s_clrad : std_logic;
+    signal s_selad : std_logic_vector(1 downto 0);
+
     signal s_Aa0, s_A01, s_A1d : std_logic_vector(10 downto 0);
 
 
     -------------------------------------------
-    type d_testpcmode is (idle,decode,wready,wact,writeram,rready,rstandby,rterm);
+    type d_testpcmode is (idle,decode,
+    wready,wact,writeram,rready,rstandby,rterm,
+    dt_cntclr, dt_cntpreset, dt_transfer);
 
     signal t_ps, t_ns : d_testpcmode := idle;
     signal t_prevmode : std_logic_vector(2 downto 0);
@@ -171,6 +180,34 @@ begin
                 m_Dout => s_A1d
             );
 
+    daremctr : RemController
+    port map(
+            -- input
+                m_clk => m_clk,
+                m_enp => s_enpda,
+                m_clr => s_clrda,
+                m_sel => s_selda,
+                m_Din => s_A1d,
+            -- output
+            --m_comp => d_Comp,
+                m_Cnt => s_da_ram_addrb
+                --m_Dout => s_A1d
+            );
+
+    adremctr : RemController
+    port map(
+            -- input
+                m_clk => m_clk,
+                m_enp => s_enpad,
+                m_clr => s_clrad,
+                m_sel => s_selad,
+                m_Din(7 downto 0) => m_data,
+            -- output
+            --m_comp => d_Comp,
+                m_Cnt => s_ad_ram_addra,
+                m_Dout => s_Aa0
+            );
+
     -------------------------------------------
     test_sync_proc : process(m_clk)
     begin
@@ -185,13 +222,15 @@ begin
             when idle =>
                 m_ena0 <= '0'; m_enb0 <= '0';
                 m_ena1 <= '0'; m_enb1 <= '0';
-                m_ena2 <= '0'; m_enb2 <= '0';
-                m_ena3 <= '0'; m_enb3 <= '0';
+                m_enb2 <= '0';
+                m_ena3 <= '0';
                 s_enp0 <= '0'; s_sel0 <= "00";
                 m_wea0 <= "0";
                 s_enp1 <= '0'; s_sel1 <= "00";
                 m_wea1 <= "0";
+                s_enpda <= '0'; s_selda <= "00";
 				m_wea2 <= "0";
+                s_enpad <= '0'; s_selad <= "00";
 				m_wea3 <= "0";
                 if(m_cmd_data = '1') then t_ns <= decode;
                 else t_ns <= idle;
@@ -215,7 +254,12 @@ begin
                         if(t_prevmode /= "010") then s_clr1 <= '1';
                         end if;
                     end if;
+                --elsif(m_mode_addr = "100") then --da start
+                elsif(m_mode_addr = "011") then -- data transfer
+                    t_ns <= dt_cntclr;
                 else t_ns <= idle; t_prevmode <= "100";
+                    s_clr0 <= '1';
+                    s_clr1 <= '1';
                 end if;
             when wready =>
                 m_ena0 <= '1'; m_ena1 <= '1';
@@ -254,6 +298,7 @@ begin
                 else t_ns <= rready;
                 end if;
             when rstandby =>
+                m_enb0 <= not m_OE_b; m_enb1 <= not m_OE_b;
                 m_dout_en <= '1';
                 if(m_ren = '0') then t_ns <= rterm;
                 else t_ns <= rstandby;
@@ -267,6 +312,15 @@ begin
                     s_enp1 <= '1'; s_sel1 <= "00";
                 end if;
                 t_ns <= idle;
+            when dt_cntclr =>
+                t_prevmode <= "100";
+                s_clr0 <= '1'; s_clr1 <= '1';
+                s_sel1 <= "11";
+                t_ns <= dt_cntpreset;
+            when dt_cntpreset =>
+                s_clr0 <= '0'; s_clr1 <= '0';
+                s_sel1 <= "00"; --<<작업시작지점
+    --dt_cntclr, dt_cntpreset, dt_transfer);
         end case;
     end process;
 -------------------------------------------

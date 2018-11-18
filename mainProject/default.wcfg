@@ -15,7 +15,11 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="15" />
+   <wvobject fp_name="/tb_pcfg/m_reset_b" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_reset_b</obj_property>
+      <obj_property name="ObjectShortName">m_reset_b</obj_property>
+   </wvobject>
    <wvobject fp_name="/tb_pcfg/m_clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">m_clk</obj_property>
       <obj_property name="ObjectShortName">m_clk</obj_property>
@@ -40,20 +44,356 @@
       <obj_property name="ElementShortName">m_ren</obj_property>
       <obj_property name="ObjectShortName">m_ren</obj_property>
    </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_adc_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_adc_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_adc_data[7:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/tb_pcfg/m_data" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">m_data[7:0]</obj_property>
       <obj_property name="ObjectShortName">m_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_dac_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_dac_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_dac_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_dac_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_dac_clk</obj_property>
+      <obj_property name="ObjectShortName">m_dac_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_ad9283_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_ad9283_clk</obj_property>
+      <obj_property name="ObjectShortName">m_ad9283_clk</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_pcfg/uut/controller/t_ps" type="other" db_ref_id="1">
       <obj_property name="ElementShortName">t_ps</obj_property>
       <obj_property name="ObjectShortName">t_ps</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_pcfg/uut/controller/t_prevmode" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">t_prevmode[2:0]</obj_property>
-      <obj_property name="ObjectShortName">t_prevmode[2:0]</obj_property>
+   <wvobject fp_name="group27" type="group">
+      <obj_property name="label">sigcnt</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_sys_clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_sys_clk</obj_property>
+         <obj_property name="ObjectShortName">m_sys_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_mode_addr" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m_mode_addr[2:0]</obj_property>
+         <obj_property name="ObjectShortName">m_mode_addr[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_mode_valid" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_mode_valid</obj_property>
+         <obj_property name="ObjectShortName">m_mode_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_wen" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_wen</obj_property>
+         <obj_property name="ObjectShortName">m_wen</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_ren" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_ren</obj_property>
+         <obj_property name="ObjectShortName">m_ren</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_oe_b" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_oe_b</obj_property>
+         <obj_property name="ObjectShortName">m_oe_b</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_cmd_data" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_cmd_data</obj_property>
+         <obj_property name="ObjectShortName">m_cmd_data</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_ram1_mux_sel" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m_ram1_mux_sel[1:0]</obj_property>
+         <obj_property name="ObjectShortName">m_ram1_mux_sel[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_ram0_mux_sel" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m_ram0_mux_sel[0:0]</obj_property>
+         <obj_property name="ObjectShortName">m_ram0_mux_sel[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_out_mux_sel" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m_out_mux_sel[0:0]</obj_property>
+         <obj_property name="ObjectShortName">m_out_mux_sel[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_dout_en" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_dout_en</obj_property>
+         <obj_property name="ObjectShortName">m_dout_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_inlatch_en" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_inlatch_en</obj_property>
+         <obj_property name="ObjectShortName">m_inlatch_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_outlatch_en" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_outlatch_en</obj_property>
+         <obj_property name="ObjectShortName">m_outlatch_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_ad_latch_en" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_ad_latch_en</obj_property>
+         <obj_property name="ObjectShortName">m_ad_latch_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_da_latch_en" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_da_latch_en</obj_property>
+         <obj_property name="ObjectShortName">m_da_latch_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_average_en" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_average_en</obj_property>
+         <obj_property name="ObjectShortName">m_average_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_average_clr" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_average_clr</obj_property>
+         <obj_property name="ObjectShortName">m_average_clr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_ram0_addr" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m_ram0_addr[10:0]</obj_property>
+         <obj_property name="ObjectShortName">m_ram0_addr[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_ram1_addr" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m_ram1_addr[10:0]</obj_property>
+         <obj_property name="ObjectShortName">m_ram1_addr[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_ad_ram_addra" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m_ad_ram_addra[10:0]</obj_property>
+         <obj_property name="ObjectShortName">m_ad_ram_addra[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_ad_ram_addrb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m_ad_ram_addrb[10:0]</obj_property>
+         <obj_property name="ObjectShortName">m_ad_ram_addrb[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_da_ram_addra" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m_da_ram_addra[10:0]</obj_property>
+         <obj_property name="ObjectShortName">m_da_ram_addra[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_da_ram_addrb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m_da_ram_addrb[10:0]</obj_property>
+         <obj_property name="ObjectShortName">m_da_ram_addrb[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_ena0" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_ena0</obj_property>
+         <obj_property name="ObjectShortName">m_ena0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_wea0" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m_wea0[0:0]</obj_property>
+         <obj_property name="ObjectShortName">m_wea0[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_enb0" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_enb0</obj_property>
+         <obj_property name="ObjectShortName">m_enb0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_ena1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_ena1</obj_property>
+         <obj_property name="ObjectShortName">m_ena1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_wea1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m_wea1[0:0]</obj_property>
+         <obj_property name="ObjectShortName">m_wea1[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_enb1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_enb1</obj_property>
+         <obj_property name="ObjectShortName">m_enb1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_ena2" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_ena2</obj_property>
+         <obj_property name="ObjectShortName">m_ena2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_wea2" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m_wea2[0:0]</obj_property>
+         <obj_property name="ObjectShortName">m_wea2[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_enb2" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_enb2</obj_property>
+         <obj_property name="ObjectShortName">m_enb2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_ena3" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_ena3</obj_property>
+         <obj_property name="ObjectShortName">m_ena3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_wea3" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m_wea3[0:0]</obj_property>
+         <obj_property name="ObjectShortName">m_wea3[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/m_enb3" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">m_enb3</obj_property>
+         <obj_property name="ObjectShortName">m_enb3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/hall_state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">hall_state</obj_property>
+         <obj_property name="ObjectShortName">hall_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/clk_state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">clk_state</obj_property>
+         <obj_property name="ObjectShortName">clk_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/rst_state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">rst_state</obj_property>
+         <obj_property name="ObjectShortName">rst_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/pc_wr_state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">pc_wr_state</obj_property>
+         <obj_property name="ObjectShortName">pc_wr_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/pc_re_state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">pc_re_state</obj_property>
+         <obj_property name="ObjectShortName">pc_re_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/data_trans_state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">data_trans_state</obj_property>
+         <obj_property name="ObjectShortName">data_trans_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/da_start_state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">da_start_state</obj_property>
+         <obj_property name="ObjectShortName">da_start_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/da_stop_state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">da_stop_state</obj_property>
+         <obj_property name="ObjectShortName">da_stop_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/ad_state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">ad_state</obj_property>
+         <obj_property name="ObjectShortName">ad_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/average_state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">average_state</obj_property>
+         <obj_property name="ObjectShortName">average_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_hall_state" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">s_hall_state</obj_property>
+         <obj_property name="ObjectShortName">s_hall_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_clk_state" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">s_clk_state</obj_property>
+         <obj_property name="ObjectShortName">s_clk_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_rst_state" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">s_rst_state</obj_property>
+         <obj_property name="ObjectShortName">s_rst_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_pc_wr_state" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">s_pc_wr_state</obj_property>
+         <obj_property name="ObjectShortName">s_pc_wr_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_pc_re_state" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">s_pc_re_state</obj_property>
+         <obj_property name="ObjectShortName">s_pc_re_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_data_trans_state" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">s_data_trans_state</obj_property>
+         <obj_property name="ObjectShortName">s_data_trans_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_da_start_state" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">s_da_start_state</obj_property>
+         <obj_property name="ObjectShortName">s_da_start_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_da_stop_state" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">s_da_stop_state</obj_property>
+         <obj_property name="ObjectShortName">s_da_stop_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_ad_state" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">s_ad_state</obj_property>
+         <obj_property name="ObjectShortName">s_ad_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_average_state" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">s_average_state</obj_property>
+         <obj_property name="ObjectShortName">s_average_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_ad_ram_addra" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">s_ad_ram_addra[10:0]</obj_property>
+         <obj_property name="ObjectShortName">s_ad_ram_addra[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_ad_ram_addrb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">s_ad_ram_addrb[10:0]</obj_property>
+         <obj_property name="ObjectShortName">s_ad_ram_addrb[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_da_ram_addra" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">s_da_ram_addra[10:0]</obj_property>
+         <obj_property name="ObjectShortName">s_da_ram_addra[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_da_ram_addrb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">s_da_ram_addrb[10:0]</obj_property>
+         <obj_property name="ObjectShortName">s_da_ram_addrb[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_enp0" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">s_enp0</obj_property>
+         <obj_property name="ObjectShortName">s_enp0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_clr0" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">s_clr0</obj_property>
+         <obj_property name="ObjectShortName">s_clr0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_sel0" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">s_sel0[1:0]</obj_property>
+         <obj_property name="ObjectShortName">s_sel0[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_enp1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">s_enp1</obj_property>
+         <obj_property name="ObjectShortName">s_enp1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_clr1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">s_clr1</obj_property>
+         <obj_property name="ObjectShortName">s_clr1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_sel1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">s_sel1[1:0]</obj_property>
+         <obj_property name="ObjectShortName">s_sel1[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_aa0" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">s_aa0[10:0]</obj_property>
+         <obj_property name="ObjectShortName">s_aa0[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_a01" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">s_a01[10:0]</obj_property>
+         <obj_property name="ObjectShortName">s_a01[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/s_a1d" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">s_a1d[10:0]</obj_property>
+         <obj_property name="ObjectShortName">s_a1d[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/t_ps" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">t_ps</obj_property>
+         <obj_property name="ObjectShortName">t_ps</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/t_ns" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">t_ns</obj_property>
+         <obj_property name="ObjectShortName">t_ns</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/controller/t_prevmode" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">t_prevmode[2:0]</obj_property>
+         <obj_property name="ObjectShortName">t_prevmode[2:0]</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject fp_name="/tb_pcfg/uut/s_dout_en" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">s_dout_en</obj_property>
-      <obj_property name="ObjectShortName">s_dout_en</obj_property>
+   <wvobject fp_name="group100" type="group">
+      <obj_property name="label">ram1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_pcfg/uut/internal_RAM1/clka" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clka</obj_property>
+         <obj_property name="ObjectShortName">clka</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/internal_RAM1/ena" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">ena</obj_property>
+         <obj_property name="ObjectShortName">ena</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/internal_RAM1/wea" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">wea[0:0]</obj_property>
+         <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/internal_RAM1/addra" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addra[10:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/internal_RAM1/dina" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">dina[7:0]</obj_property>
+         <obj_property name="ObjectShortName">dina[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/internal_RAM1/clkb" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clkb</obj_property>
+         <obj_property name="ObjectShortName">clkb</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/internal_RAM1/enb" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">enb</obj_property>
+         <obj_property name="ObjectShortName">enb</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/internal_RAM1/addrb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addrb[10:0]</obj_property>
+         <obj_property name="ObjectShortName">addrb[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pcfg/uut/internal_RAM1/doutb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">doutb[7:0]</obj_property>
+         <obj_property name="ObjectShortName">doutb[7:0]</obj_property>
+      </wvobject>
    </wvobject>
 </wave_config>
