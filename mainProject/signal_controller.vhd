@@ -113,7 +113,7 @@ architecture Behavioral of signal_controller is
 
 
     -------------------------------------------
-    type d_testpcmode is (idle,decode,wready,writeram,rready,rstandby,rterm);
+    type d_testpcmode is (idle,decode,wready,wact,writeram,rready,rstandby,rterm);
 
     signal t_ps, t_ns : d_testpcmode := idle;
     signal t_prevmode : std_logic_vector(2 downto 0);
@@ -210,7 +210,7 @@ begin
                 if(m_wen = '1') then t_ns <= writeram;
                 else t_ns <= wready;
                 end if;
-            when writeram =>
+            when wact =>
                 if(m_mode_addr = "001") then -- ram0
                     s_enp0 <= '1'; s_sel0 <= "01";
                     m_wea0 <= "0";
@@ -220,7 +220,13 @@ begin
                     m_wea1 <= "1";
                     t_prevmode <= "011";
                 end if;
-                t_ns <= idle;
+                t_ns <= writeram;
+            when writeram =>
+                s_enp0 <= '0'; s_sel0 <= "00";
+                s_enp1 <= '0'; s_sel1 <= "00";
+                if(m_wen = '0') then t_ns <= writeram;
+                else t_ns <= idle;
+                end if;
             when rready =>
                 s_clr0 <= '0'; s_clr1 <= '0';
                 if(m_ren = '1') then t_ns <= rstandby;
