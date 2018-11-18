@@ -92,6 +92,12 @@ architecture Behavioral of signal_controller is
     signal s_AD_state 		 	: std_logic;
     signal s_average_state 	 	: std_logic;
 
+	--임시로 ram ad와 da 신호 오류 방지
+	signal s_ad_ram_addra	: std_logic_vector(10 downto 0):=(others=>'0');
+    signal s_ad_ram_addrb	: std_logic_vector(10 downto 0):=(others=>'0');
+    signal s_da_ram_addra	: std_logic_vector(10 downto 0):=(others=>'0');
+    signal s_da_ram_addrb  	: std_logic_vector(10 downto 0):=(others=>'0');
+	--	
     component RemController is
         Port ( --input
         m_clk, m_enp, m_clr : in  STD_LOGIC;
@@ -181,6 +187,8 @@ begin
                 m_wea0 <= "0";
                 s_enp1 <= '0'; s_sel1 <= "00";
                 m_wea1 <= "0";
+				m_wea2 <= "0";
+				m_wea3 <= "0";
                 if(m_cmd_data = '1') then t_ns <= decode;
                 else t_ns <= idle;
                 end if;
@@ -254,6 +262,12 @@ begin
         end case;
     end process;
 -------------------------------------------
+--임시로 ram ad와 da 신호 오류 방지
+m_ad_ram_addra <= s_ad_ram_addra;
+m_ad_ram_addrb <= s_ad_ram_addrb;
+m_da_ram_addra <= s_da_ram_addra;
+m_da_ram_addrb <= s_da_ram_addrb;
+
 
 end Behavioral;
 
