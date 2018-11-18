@@ -109,9 +109,10 @@ component signal_controller is
 			
 			m_ram1_mux_sel	: out std_logic_vector(1 downto 0);
 			m_ram0_mux_sel	: out std_logic_vector(0 downto 0);
-			m_out_mux_sel	: out std_logic_vector(0 downto 0);
-			
-			m_inlatch_en	: out std_logic;
+            m_out_mux_sel	: out std_logic_vector(0 downto 0);
+
+            m_dout_en       : out std_logic;
+            m_inlatch_en	: out std_logic;
 			m_outlatch_en	: out std_logic;
 			m_ad_latch_en	: out std_logic;
 			m_da_latch_en	: out std_logic;
@@ -443,6 +444,7 @@ controller : signal_controller port map(
 			m_ram0_mux_sel	=> s_ram0_mux_sel,
 			m_out_mux_sel	=> s_out_mux_sel,
 			
+            m_dout_en       => s_dout_en,
 			m_inlatch_en	=> s_inlatch_en,
 			m_outlatch_en	=> s_outlatch_en,
 			m_ad_latch_en	=> s_ad_latch_en,

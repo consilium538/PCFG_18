@@ -117,7 +117,7 @@ architecture Behavioral of signal_controller is
 
     signal t_ps, t_ns : d_testpcmode := idle;
     signal t_prevmode : std_logic_vector(2 downto 0);
-    -------------------------------------------
+-------------------------------------------
 
 begin
 
@@ -140,30 +140,30 @@ begin
     rem0ctr : RemController
     port map(
             -- input
-            m_clk => m_clk,
-            m_enp => s_enp0,
-            m_clr => s_clr0,
-            m_sel => s_sel0,
-            m_Din => s_Aa0,
+                m_clk => m_clk,
+                m_enp => s_enp0,
+                m_clr => s_clr0,
+                m_sel => s_sel0,
+                m_Din => s_Aa0,
             -- output
             --m_comp => d_Comp,
-            m_Cnt => m_ram0_addr,
-            m_Dout => s_A01
-    );
+                m_Cnt => m_ram0_addr,
+                m_Dout => s_A01
+            );
 
     rem1ctr : RemController
     port map(
             -- input
-            m_clk => m_clk,
-            m_enp => s_enp1,
-            m_clr => s_clr1,
-            m_sel => s_sel1,
-            m_Din => s_A01,
+                m_clk => m_clk,
+                m_enp => s_enp1,
+                m_clr => s_clr1,
+                m_sel => s_sel1,
+                m_Din => s_A01,
             -- output
             --m_comp => d_Comp,
-            m_Cnt => m_ram1_addr,
-            m_Dout => s_A1d
-    );
+                m_Cnt => m_ram1_addr,
+                m_Dout => s_A1d
+            );
 
     -------------------------------------------
     test_sync_proc : process(m_clk)
@@ -213,7 +213,7 @@ begin
             when wact =>
                 if(m_mode_addr = "001") then -- ram0
                     s_enp0 <= '1'; s_sel0 <= "01";
-                    m_wea0 <= "0";
+                    m_wea0 <= "1";
                     t_prevmode <= "001";
                 else -- ram1
                     s_enp1 <= '1'; s_sel1 <= "01";
@@ -222,6 +222,7 @@ begin
                 end if;
                 t_ns <= writeram;
             when writeram =>
+                m_wea0 <= '0'; m_wea1 <= '0';
                 s_enp0 <= '0'; s_sel0 <= "00";
                 s_enp1 <= '0'; s_sel1 <= "00";
                 if(m_wen = '1') then t_ns <= writeram;
@@ -229,6 +230,11 @@ begin
                 end if;
             when rready =>
                 s_clr0 <= '0'; s_clr1 <= '0';
+                if(m_mode_addr = "001") then -- ram0
+                    t_prevmode <= "000";
+                else -- ram1
+                    t_prevmode <= "010";
+                end if;
                 if(m_ren = '1') then t_ns <= rstandby;
                 else t_ns <= rready;
                 end if;
@@ -239,17 +245,15 @@ begin
                 end if;
             when rterm =>
                 m_dout_en <= '0';
-                if(m_mode_addr = "001") then -- ram0
+                if(t_prevmode = "000") then -- ram0
                     s_enp0 <= '1'; s_sel0 <= "00";
-					t_prevmode <= "000";
                 else -- ram1
                     s_enp1 <= '1'; s_sel1 <= "00";
-					t_prevmode <= "010";
                 end if;
                 t_ns <= idle;
         end case;
     end process;
-    -------------------------------------------
-    
+-------------------------------------------
+
 end Behavioral;
 
