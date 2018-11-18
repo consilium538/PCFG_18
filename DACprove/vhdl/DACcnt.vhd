@@ -19,6 +19,8 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -53,9 +55,9 @@ begin
         if rising_edge(m_clk) then
             if(s_ps = dacload) then
                 s_reg <= m_Ain;
-                s_cnt <= (others => 0);
+                s_cnt <= (others => '0');
             elsif(s_ps = dacplay) then
-                if(s_cnt = s_reg) then s_cnt <= 0;
+                if(s_cnt = s_reg) then s_cnt <= (others => '0');
                 else s_cnt <= s_cnt+1;
                 end if;
             end if;
@@ -63,7 +65,7 @@ begin
         end if;
     end process;
 
-    dac_comb_proc : process(m_clk, m_start, m_end)
+    dac_comb_proc : process(m_clk, m_start, m_end,s_ps)
     begin
         case s_ps is
             when dacidle =>
@@ -71,11 +73,11 @@ begin
                 else s_ns <= dacidle;
                 end if;
             when dacload =>
-                if(m_stop = '1') then s_ns <= dacidle;
+                if(m_end = '1') then s_ns <= dacidle;
                 else s_ns <= dacplay;
                 end if;
             when dacplay =>
-                if(m_stop = '1') then s_ns <= dacidle;
+                if(m_end = '1') then s_ns <= dacidle;
                 else s_ns <= dacplay;
                 end if;
         end case;

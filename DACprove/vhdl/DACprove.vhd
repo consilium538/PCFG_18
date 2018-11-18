@@ -122,7 +122,7 @@ begin
                 m_end => m_end,
                 m_Ain => s_Abus,
                 m_Aout => s_addrb,
-                d_reg => d_reg
+                d_reg => d_AData
             );
 end Behavioral;
 

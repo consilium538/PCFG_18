@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/tb_dac_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_textio" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="tb_dac" />
+            <top_module name="textio" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="15" />
+   <wvobject fp_name="/tb_dac/m_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_clk</obj_property>
+      <obj_property name="ObjectShortName">m_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_dac/m_enp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_enp</obj_property>
+      <obj_property name="ObjectShortName">m_enp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_dac/m_clr" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_clr</obj_property>
+      <obj_property name="ObjectShortName">m_clr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_dac/m_ramwr" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_ramwr</obj_property>
+      <obj_property name="ObjectShortName">m_ramwr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_dac/m_start" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_start</obj_property>
+      <obj_property name="ObjectShortName">m_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_dac/m_end" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_end</obj_property>
+      <obj_property name="ObjectShortName">m_end</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_dac/m_sel" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_dac/m_ain" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_ain[10:0]</obj_property>
+      <obj_property name="ObjectShortName">m_ain[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_dac/m_din" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_din[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_din[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_dac/m_comp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_comp</obj_property>
+      <obj_property name="ObjectShortName">m_comp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_dac/m_cnt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_cnt[10:0]</obj_property>
+      <obj_property name="ObjectShortName">m_cnt[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_dac/m_aout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_aout[10:0]</obj_property>
+      <obj_property name="ObjectShortName">m_aout[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_dac/m_dout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_dout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_dout[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_dac/d_adata" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">d_adata[10:0]</obj_property>
+      <obj_property name="ObjectShortName">d_adata[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group27" type="group">
+      <obj_property name="label">ram0</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_dac/uut/ram0/ena" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">ena</obj_property>
+         <obj_property name="ObjectShortName">ena</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_dac/uut/ram0/wea" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">wea[0:0]</obj_property>
+         <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_dac/uut/ram0/addra" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addra[10:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_dac/uut/ram0/dina" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">dina[7:0]</obj_property>
+         <obj_property name="ObjectShortName">dina[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_dac/uut/ram0/enb" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">enb</obj_property>
+         <obj_property name="ObjectShortName">enb</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_dac/uut/ram0/addrb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addrb[10:0]</obj_property>
+         <obj_property name="ObjectShortName">addrb[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_dac/uut/ram0/doutb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">doutb[7:0]</obj_property>
+         <obj_property name="ObjectShortName">doutb[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>
