@@ -197,10 +197,10 @@ begin
                 elsif(m_mode_addr = "010") then --ram1
                     if(m_OE_b = '1') then
                         t_ns <= wready;
-                        if(t_prevmode /= "011") then s_clr0 <= '1';
+                        if(t_prevmode /= "011") then s_clr1 <= '1';
                         end if;
                     else t_ns <= rready;
-                        if(t_prevmode /= "010") then s_clr0 <= '1';
+                        if(t_prevmode /= "010") then s_clr1 <= '1';
                         end if;
                     end if;
                 else t_ns <= idle; t_prevmode <= "100";
@@ -235,8 +235,10 @@ begin
                 m_dout_en <= '0';
                 if(m_mode_addr = "001") then -- ram0
                     s_enp0 <= '1'; s_sel0 <= "00";
+					t_prevmode <= "000";
                 else -- ram1
-                    s_enp1 <= '1'; s_sel1 <= "01";
+                    s_enp1 <= '1'; s_sel1 <= "00";
+					t_prevmode <= "010";
                 end if;
                 t_ns <= idle;
         end case;
