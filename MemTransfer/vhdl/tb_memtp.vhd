@@ -92,7 +92,7 @@ ARCHITECTURE behavior OF tb_memtp IS
     signal d_Comp1 : std_logic;
 
    -- Clock period definitions
-    constant m_clk_period : time := 10 ns;
+    constant m_clk_period : time := 25 ns;
 
 BEGIN
 
@@ -124,9 +124,9 @@ BEGIN
    -- Clock process definitions
     m_clk_process :process
     begin
-        m_clk <= '0';
-        wait for m_clk_period/2;
         m_clk <= '1';
+        wait for m_clk_period/2;
+        m_clk <= '0';
         wait for m_clk_period/2;
     end process;
 

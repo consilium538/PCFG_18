@@ -58,41 +58,6 @@ end signal_controller;
 
 architecture Behavioral of signal_controller is
 
-    type hall_state_machine 			is (idle,clk_set,rst,PC_wr_mode,PC_re_mode,
-    data_trans,DA_start_mode,DA_stop_mode,AD_mode,average_mode);
-    type clk_set_state_machine 			is (idle);
-    type rst_state_machine 				is (idle);
-    type PC_wr_mode_state_machine 		is (idle);
-    type PC_re_mode_state_machine 		is (idle);
-    type data_trans_state_machine 		is (idle,s0,s1,s2,s3,s4,s5);
-    type DA_start_mode_state_machine 	is (idle);
-    type DA_stop_mode_state_machine 	is (idle);
-    type AD_mode_state_machine 			is (idle);
-    type average_mode_state_machine 	is (idle);
-
-    signal hall_state 		: hall_state_machine			:=idle;
-    signal clk_state 		: clk_set_state_machine			:=idle;
-    signal rst_state 		: rst_state_machine				:=idle;
-    signal PC_wr_state 		: PC_wr_mode_state_machine		:=idle;
-    signal PC_re_state 		: PC_re_mode_state_machine		:=idle;
-    signal data_trans_state : data_trans_state_machine		:=idle;
-    signal DA_start_state 	: DA_start_mode_state_machine	:=idle;
-    signal DA_stop_state 	: DA_stop_mode_state_machine	:=idle;
-    signal AD_state 		: AD_mode_state_machine			:=idle;
-    signal average_state 	: average_mode_state_machine	:=idle;
-
-
-    signal s_hall_state 	 	: std_logic;
-    signal s_clk_state 		 	: std_logic;
-    signal s_rst_state 		 	: std_logic;
-    signal s_PC_wr_state 	 	: std_logic;
-    signal s_PC_re_state 	 	: std_logic;
-    signal s_data_trans_state	: std_logic;
-    signal s_DA_start_state  	: std_logic;
-    signal s_DA_stop_state 	 	: std_logic;
-    signal s_AD_state 		 	: std_logic;
-    signal s_average_state 	 	: std_logic;
-
 	--임시로 ram ad와 da 신호 오류 방지
 	signal s_ad_ram_addra	: std_logic_vector(10 downto 0):=(others=>'0');
     signal s_ad_ram_addrb	: std_logic_vector(10 downto 0):=(others=>'0');
@@ -124,6 +89,8 @@ architecture Behavioral of signal_controller is
 
     signal s_Aa0, s_A01, s_A1d : std_logic_vector(10 downto 0);
 
+    signal s_comp0, s_comp1, s_comp2, s_comp3 : std_logic;
+    signal s_dtoa : std_logic_vector(10 downto 0) := (others => '0');
 
     -------------------------------------------
     type d_testpcmode is (idle,decode,
@@ -136,16 +103,11 @@ architecture Behavioral of signal_controller is
 
 begin
 
-    m_ram0_mux_sel <= "0" when m_mode_addr = "001" else -- pc ram0 -> 0
-                      "1"; -- basically adc mode
-    m_ram1_mux_sel <= "10" when m_mode_addr = "010" else -- pc ram1 -> dbus
-                      "01" when m_mode_addr = "011" else -- data tf. -> ram0
-                      "00" when m_mode_addr = "111" else -- avg -> avg
-                      "11";
     m_out_mux_sel <= "0" when m_mode_addr = "001" else -- pc ram0 -> 0
                      "1"; -- pc ram 1 -> 1
     m_inlatch_en <= m_OE_b;
     m_outlatch_en <= not m_OE_b;
+    s_dtoa(7 downto 0) <= m_data;
 
     --m_ena0 <= '1'; m_enb0 <= '1';
     --m_ena1 <= '1'; m_enb1 <= '1';
@@ -161,7 +123,7 @@ begin
                 m_sel => s_sel0,
                 m_Din => s_Aa0,
             -- output
-            --m_comp => d_Comp,
+                m_comp => s_comp0,
                 m_Cnt => m_ram0_addr,
                 m_Dout => s_A01
             );
@@ -175,7 +137,7 @@ begin
                 m_sel => s_sel1,
                 m_Din => s_A01,
             -- output
-            --m_comp => d_Comp,
+                m_comp => s_comp1,
                 m_Cnt => m_ram1_addr,
                 m_Dout => s_A1d
             );
@@ -189,7 +151,7 @@ begin
                 m_sel => s_selda,
                 m_Din => s_A1d,
             -- output
-            --m_comp => d_Comp,
+                m_comp => s_comp2,
                 m_Cnt => s_da_ram_addrb
                 --m_Dout => s_A1d
             );
@@ -201,9 +163,9 @@ begin
                 m_enp => s_enpad,
                 m_clr => s_clrad,
                 m_sel => s_selad,
-                m_Din(7 downto 0) => m_data,
+                m_Din => s_dtoa,
             -- output
-            --m_comp => d_Comp,
+                m_comp => s_comp3,
                 m_Cnt => s_ad_ram_addra,
                 m_Dout => s_Aa0
             );
@@ -232,6 +194,8 @@ begin
 				m_wea2 <= "0";
                 s_enpad <= '0'; s_selad <= "00";
 				m_wea3 <= "0";
+                m_ram0_mux_sel <= "0";
+                m_ram1_mux_sel <= "11";
                 if(m_cmd_data = '1') then t_ns <= decode;
                 else t_ns <= idle;
                 end if;
@@ -239,7 +203,9 @@ begin
                 if(m_mode_addr = "001") then --ram0
                     if(m_OE_b = '1') then
                         t_ns <= wready;
-                        if(t_prevmode /= "001") then s_clr0 <= '1';
+                        m_ram0_mux_sel <= "0";
+                        if(t_prevmode /= "001") then
+                            s_clr0 <= '1'; s_sel0 <= "10";
                         end if;
                     else t_ns <= rready;
                         if(t_prevmode /= "000") then s_clr0 <= '1';
@@ -248,7 +214,9 @@ begin
                 elsif(m_mode_addr = "010") then --ram1
                     if(m_OE_b = '1') then
                         t_ns <= wready;
-                        if(t_prevmode /= "011") then s_clr1 <= '1';
+                        m_ram1_mux_sel <= "10";
+                        if(t_prevmode /= "011") then
+                            s_clr1 <= '1'; s_sel1 <= "10";
                         end if;
                     else t_ns <= rready;
                         if(t_prevmode /= "010") then s_clr1 <= '1';
@@ -262,6 +230,11 @@ begin
                     s_clr1 <= '1';
                 end if;
             when wready =>
+                if(m_mode_addr = "010") then --ram1
+                    m_ram1_mux_sel <= "10";
+                else
+                    m_ram0_mux_sel <= "0";
+                end if;
                 m_ena0 <= '1'; m_ena1 <= '1';
                 s_clr0 <= '0'; s_clr1 <= '0';
                 if(m_wen = '1') then t_ns <= wact;
@@ -290,8 +263,10 @@ begin
                 s_clr0 <= '0'; s_clr1 <= '0';
                 m_enb0 <= '1'; m_enb1 <= '1';
                 if(m_mode_addr = "001") then -- ram0
+                    m_ram0_mux_sel <= "0";
                     t_prevmode <= "000";
                 else -- ram1
+                    m_ram1_mux_sel <= "10";
                     t_prevmode <= "010";
                 end if;
                 if(m_ren = '1') then t_ns <= rstandby;
@@ -313,13 +288,24 @@ begin
                 end if;
                 t_ns <= idle;
             when dt_cntclr =>
+                m_ram1_mux_sel <= "01";
+                m_ena1 <= '1'; m_enb0 <= '1';
                 t_prevmode <= "100";
                 s_clr0 <= '1'; s_clr1 <= '1';
                 s_sel1 <= "11";
                 t_ns <= dt_cntpreset;
             when dt_cntpreset =>
                 s_clr0 <= '0'; s_clr1 <= '0';
-                s_sel1 <= "00"; --<<작업시작지점
+                s_enp0 <= '1';
+                s_sel1 <= "00";
+                t_ns <= dt_transfer;
+            when dt_transfer =>
+                s_enp1 <= '1';
+                m_wea1 <= "1";
+                if(s_comp1 = '1') then t_ns <= idle;
+                else t_ns <= dt_transfer;
+                end if;
+
     --dt_cntclr, dt_cntpreset, dt_transfer);
         end case;
     end process;
