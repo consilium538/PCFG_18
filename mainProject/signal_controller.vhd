@@ -138,10 +138,10 @@ begin
     m_inlatch_en <= m_OE_b;
     m_outlatch_en <= not m_OE_b;
 
-    m_ena0 <= '1'; m_enb0 <= '1';
-    m_ena1 <= '1'; m_enb1 <= '1';
-    m_ena2 <= '1'; m_enb2 <= '1';
-    m_ena3 <= '1'; m_enb3 <= '1';
+    --m_ena0 <= '1'; m_enb0 <= '1';
+    --m_ena1 <= '1'; m_enb1 <= '1';
+    --m_ena2 <= '1'; m_enb2 <= '1';
+    --m_ena3 <= '1'; m_enb3 <= '1';
 
     rem0ctr : RemController
     port map(
@@ -183,6 +183,10 @@ begin
     begin
         case t_ps is
             when idle =>
+                m_ena0 <= '0'; m_enb0 <= '0';
+                m_ena1 <= '0'; m_enb1 <= '0';
+                m_ena2 <= '0'; m_enb2 <= '0';
+                m_ena3 <= '0'; m_enb3 <= '0';
                 s_enp0 <= '0'; s_sel0 <= "00";
                 m_wea0 <= "0";
                 s_enp1 <= '0'; s_sel1 <= "00";
@@ -214,6 +218,7 @@ begin
                 else t_ns <= idle; t_prevmode <= "100";
                 end if;
             when wready =>
+                m_ena0 <= '1'; m_ena1 <= '1';
                 s_clr0 <= '0'; s_clr1 <= '0';
                 if(m_wen = '1') then t_ns <= wact;
                 else t_ns <= wready;
@@ -231,6 +236,7 @@ begin
                 t_ns <= writeram;
             when writeram =>
                 m_wea0 <= "0"; m_wea1 <= "0";
+                m_ena0 <= '0'; m_ena1 <= '0';
                 s_enp0 <= '0'; s_sel0 <= "00";
                 s_enp1 <= '0'; s_sel1 <= "00";
                 if(m_wen = '1') then t_ns <= writeram;
@@ -238,6 +244,7 @@ begin
                 end if;
             when rready =>
                 s_clr0 <= '0'; s_clr1 <= '0';
+                m_enb0 <= '1'; m_enb1 <= '1';
                 if(m_mode_addr = "001") then -- ram0
                     t_prevmode <= "000";
                 else -- ram1
@@ -252,6 +259,7 @@ begin
                 else t_ns <= rstandby;
                 end if;
             when rterm =>
+                m_ena0 <= '0'; m_ena1 <= '0';
                 m_dout_en <= '0';
                 if(t_prevmode = "000") then -- ram0
                     s_enp0 <= '1'; s_sel0 <= "00";
