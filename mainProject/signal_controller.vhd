@@ -30,6 +30,7 @@ entity signal_controller is
 
           m_average_en 	: out std_logic;
           m_average_clr   : out std_logic;
+		  m_average_addr	: out std_logic_vector(10 downto 0);
 
           --RAM
           m_ram0_addr		: out std_logic_vector(10 downto 0);
@@ -118,7 +119,7 @@ architecture Behavioral of signal_controller is
 -------------------------------------------
 
 begin
-
+	m_average_addr <= s_A01;
     m_out_mux_sel <= "0" when m_mode_addr = "001" else -- pc ram0 -> 0
                      "1"; -- pc ram 1 -> 1
     m_inlatch_en <= m_OE_b;

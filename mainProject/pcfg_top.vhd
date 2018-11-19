@@ -120,6 +120,7 @@ component signal_controller is
 			
 			m_average_en 	: out std_logic;
 			m_average_clr   : out std_logic;
+			m_average_addr	: out std_logic_vector(10 downto 0);
 			
 			--RAM
 			m_ram0_addr		: out std_logic_vector(10 downto 0);
@@ -454,7 +455,7 @@ controller : signal_controller port map(
 			
 			m_average_en 	=> s_average_en,
 			m_average_clr	=> s_average_clr,
-			
+			m_average_addr	=> s_counter0,
 			--RAM
 			m_ram0_addr		=> s_ram0_addr,
 			m_ram1_addr		=> s_ram1_addr,
