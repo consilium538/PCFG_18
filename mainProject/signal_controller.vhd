@@ -74,6 +74,15 @@ architecture Behavioral of signal_controller is
         m_Cnt : out  STD_LOGIC_VECTOR(10 downto 0);
         m_Dout : out  STD_LOGIC_VECTOR(10 downto 0));
     end component;
+    
+    component DACcnt is
+        Port (
+        m_clk, m_sys_clk, m_start, m_end : in std_logic;
+        m_Ain : in std_logic_vector(10 downto 0);
+        m_Aout : out std_logic_vector(10 downto 0);
+        d_reg : out std_logic_vector(10 downto 0)
+    );
+    end component;
 
     signal s_enp0, s_clr0 : std_logic;
     signal s_sel0 : std_logic_vector(1 downto 0);
@@ -88,14 +97,20 @@ architecture Behavioral of signal_controller is
     signal s_selad : std_logic_vector(1 downto 0);
 
     signal s_Aa0, s_A01, s_A1d : std_logic_vector(10 downto 0);
+    signal s_Adac, s_Aadc : std_logic_vector(10 downto 0);
 
     signal s_comp0, s_comp1, s_comp2, s_comp3 : std_logic;
     signal s_dtoa : std_logic_vector(10 downto 0) := (others => '0');
+    signal s_dac_start, s_dac_stop : std_logic;
 
     -------------------------------------------
     type d_testpcmode is (idle,decode,
     wready,wact,writeram,rready,rstandby,rterm,
-    dt_cntclr, dt_cntpreset, dt_transfer);
+    dt_cntclr, dt_cntpreset, dt_transfer,
+    dac_cntclr, dac_cntpreset, dac_transfer, dac_start,
+    dac_stop,
+    adc_cntclr, adc_cntpreset, adc_transfer,
+    softreset);
 
     signal t_ps, t_ns : d_testpcmode := idle;
     signal t_prevmode : std_logic_vector(2 downto 0);
@@ -108,6 +123,7 @@ begin
     m_inlatch_en <= m_OE_b;
     m_outlatch_en <= not m_OE_b;
     s_dtoa(7 downto 0) <= m_data;
+    s_dtoa(10 downto 8) <= "000";
 
     --m_ena0 <= '1'; m_enb0 <= '1';
     --m_ena1 <= '1'; m_enb1 <= '1';
@@ -152,8 +168,8 @@ begin
                 m_Din => s_A1d,
             -- output
                 m_comp => s_comp2,
-                m_Cnt => s_da_ram_addrb
-                --m_Dout => s_A1d
+                m_Cnt => s_da_ram_addra,
+                m_Dout => s_Adac
             );
 
     adremctr : RemController
@@ -166,8 +182,19 @@ begin
                 m_Din => s_dtoa,
             -- output
                 m_comp => s_comp3,
-                m_Cnt => s_ad_ram_addra,
+                m_Cnt => s_ad_ram_addrb,
                 m_Dout => s_Aa0
+            );
+
+    dac_ctr : DACcnt
+    port map(
+                m_clk => m_clk,
+                m_sys_clk => m_sys_clk,
+                m_start => s_dac_start,
+                m_end => s_dac_stop,
+                m_Ain => s_Adac,
+                m_Aout => s_da_ram_addrb
+                --d_reg => d_AData
             );
 
     -------------------------------------------
@@ -182,10 +209,11 @@ begin
     begin
         case t_ps is
             when idle =>
+                s_dac_start <= '0'; s_dac_stop <= '0';
                 m_ena0 <= '0'; m_enb0 <= '0';
                 m_ena1 <= '0'; m_enb1 <= '0';
-                m_enb2 <= '0';
-                m_ena3 <= '0';
+                m_ena2 <= '0';
+                m_enb3 <= '0';
                 s_enp0 <= '0'; s_sel0 <= "00";
                 m_wea0 <= "0";
                 s_enp1 <= '0'; s_sel1 <= "00";
@@ -225,10 +253,19 @@ begin
                 --elsif(m_mode_addr = "100") then --da start
                 elsif(m_mode_addr = "011") then -- data transfer
                     t_ns <= dt_cntclr;
+                elsif(m_mode_addr = "100") then -- da start
+                    t_ns <= dac_cntclr;
+                elsif(m_mode_addr = "101") then -- da stop
+                    t_ns <= dac_stop;
+                elsif(m_mode_addr = "110") then -- ad
+                    t_ns <= adc_cntclr;
+                elsif(m_mode_addr = "000" and m_mode_valid = '1') then -- ad
+                    t_ns <= softreset;
                 else t_ns <= idle; t_prevmode <= "100";
                     s_clr0 <= '1';
                     s_clr1 <= '1';
                 end if;
+
             when wready =>
                 if(m_mode_addr = "010") then --ram1
                     m_ram1_mux_sel <= "10";
@@ -259,6 +296,7 @@ begin
                 if(m_wen = '1') then t_ns <= writeram;
                 else t_ns <= idle;
                 end if;
+
             when rready =>
                 s_clr0 <= '0'; s_clr1 <= '0';
                 m_enb0 <= '1'; m_enb1 <= '1';
@@ -287,9 +325,10 @@ begin
                     s_enp1 <= '1'; s_sel1 <= "00";
                 end if;
                 t_ns <= idle;
+
             when dt_cntclr =>
                 m_ram1_mux_sel <= "01";
-                m_ena1 <= '1'; m_enb0 <= '1';
+                m_ena0 <= '1'; m_enb1 <= '1';
                 t_prevmode <= "100";
                 s_clr0 <= '1'; s_clr1 <= '1';
                 s_sel1 <= "11";
@@ -306,7 +345,55 @@ begin
                 else t_ns <= dt_transfer;
                 end if;
 
+            when dac_cntclr =>
+                m_ena1 <= '1'; m_enb2 <= '1';
+                t_prevmode <= "100";
+                s_clr1 <= '1'; s_clrda <= '1';
+                s_selda <= "11";
+                s_dac_stop <= '1';
+                t_ns <= dac_cntpreset;
+            when dac_cntpreset =>
+                s_clr1 <= '0'; s_clrda <= '0';
+                s_enp1 <= '1';
+                s_selda <= "00";
+                s_dac_stop <= '0';
+                t_ns <= dac_transfer;
+            when dac_transfer =>
+                s_enpda <= '1';
+                m_wea2 <= "1";
+                if(s_comp2 = '1') then t_ns <= dac_start;
+                else t_ns <= dac_transfer;
+                end if;
+            when dac_start =>
+                m_da_latch_en <= '1';
+                s_dac_start <= '1';
+                s_enp1 <= '0'; s_enpda <= '0';
+                m_wea2 <= "0";
+                t_ns <= idle;
+
+            when dac_stop =>
+                m_da_latch_en <= '0';
+                s_dac_stop <= '1';
+                if(m_OE_b = '1') then t_ns <= idle;
+                else t_ns <= dac_stop;
+                end if;
+
+            when softreset =>
+                s_dac_stop <= '1';
+                s_clr0<='1'; s_clr1<='1';
+                s_clrad<='1'; s_clrda<='1';
+                s_sel0 <= "10"; s_sel1 <= "10";
+                s_selda <= "10"; s_selad <= "10";
+                t_ns <= idle;
+
+            when others =>
+                t_ns <= idle;
+
     --dt_cntclr, dt_cntpreset, dt_transfer);
+    --dac_cntclr, dac_cntpreset, dac_transfer,dac_start,
+    --dac_stop,
+    --adc_cntclr, adc_cntpreset, adc_transfer,
+    --softreset);
         end case;
     end process;
 -------------------------------------------

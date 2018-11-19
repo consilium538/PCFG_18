@@ -509,9 +509,9 @@ internal_RAM2 : DA_RAM port map(
 			DINA	=> s_doutb1,
 			WEA		=> s_wea2,
 			CLKA	=> s_clk,
-			ADDRB	=> s_ad_ram_addrb,
+			ADDRB	=> s_da_ram_addrb,
 			ENB		=> s_enb2,
-			CLKB	=> sys_clk,
+			CLKB	=> s_clk,
 			DOUTB	=> s_doutb2
 			);
 			
