@@ -55,19 +55,16 @@ begin
         if rising_edge(m_clk) then
             if(s_ps = dacload) then
                 s_reg <= m_Ain;
-                s_cnt <= (others => '0');
             end if;
             s_ps <= s_ns;
         end if;
     end process;
 
-    dac_slow_proc : process(m_sys_clk, s_cnt, s_reg, s_ps)
+    dac_slow_proc : process(m_sys_clk, s_reg)
     begin
-        if rising_edge(m_clk) then
-            if(s_ps = dacplay) then
-                if(s_cnt >= s_reg) then s_cnt <= (others => '0');
-                else s_cnt <= s_cnt+1;
-                end if;
+        if rising_edge(m_sys_clk) then
+            if(s_cnt >= s_reg) then s_cnt <= (others => '0');
+            else s_cnt <= s_cnt+1;
             end if;
         end if;
     end process;

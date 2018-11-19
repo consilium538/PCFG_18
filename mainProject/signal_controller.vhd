@@ -346,7 +346,7 @@ begin
                 end if;
 
             when dac_cntclr =>
-                m_ena1 <= '1'; m_enb2 <= '1';
+                m_enb1 <= '1'; m_ena2 <= '1';
                 t_prevmode <= "100";
                 s_clr1 <= '1'; s_clrda <= '1';
                 s_selda <= "11";
