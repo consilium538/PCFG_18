@@ -34,6 +34,7 @@ USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity DACcnt is
     Port (
     m_clk, m_sys_clk, m_start, m_end : in std_logic;
+    m_enb2 : out std_logic;
     m_Ain : in std_logic_vector(10 downto 0);
     m_Aout : out std_logic_vector(10 downto 0);
     d_reg : out std_logic_vector(10 downto 0)
@@ -54,17 +55,17 @@ begin
     begin
         if rising_edge(m_clk) then
             if(s_ps = dacload) then
-                s_reg <= m_Ain;
+                s_reg <= m_Ain - 1;
             end if;
             s_ps <= s_ns;
         end if;
     end process;
 
-    dac_slow_proc : process(m_sys_clk, s_reg)
+    dac_slow_proc : process(m_sys_clk, s_reg, s_ps)
     begin
         if rising_edge(m_sys_clk) then
-            if(s_cnt >= s_reg) then s_cnt <= (others => '0');
-            else s_cnt <= s_cnt+1;
+            if(s_cnt < s_reg and s_ps = dacplay) then s_cnt <= s_cnt+1;
+            else s_cnt <= (others => '0');
             end if;
         end if;
     end process;
@@ -76,11 +77,13 @@ begin
                 if(m_start = '1') then s_ns <= dacload;
                 else s_ns <= dacidle;
                 end if;
+                m_enb2 <= '0';
             when dacload =>
                 if(m_end = '1') then s_ns <= dacidle;
                 else s_ns <= dacplay;
                 end if;
             when dacplay =>
+                m_enb2 <= '1';
                 if(m_end = '1') then s_ns <= dacidle;
                 else s_ns <= dacplay;
                 end if;

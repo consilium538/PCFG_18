@@ -200,7 +200,7 @@ BEGIN
 
 		wait for 10 us;
         CMD_WR('1'&x"72", x"00",m_address, m_data, m_cmd_data, m_wen, m_ren, m_OE_b);
-		wait for 100 us;
+		wait for 10 us;
         CMD_WR('1'&x"74", x"00",m_address, m_data, m_cmd_data, m_wen, m_ren, m_OE_b);
 		
 		--wait for 10 us;

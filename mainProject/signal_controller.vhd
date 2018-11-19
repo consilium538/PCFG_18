@@ -78,6 +78,7 @@ architecture Behavioral of signal_controller is
     component DACcnt is
         Port (
         m_clk, m_sys_clk, m_start, m_end : in std_logic;
+        m_enb2 : out std_logic;
         m_Ain : in std_logic_vector(10 downto 0);
         m_Aout : out std_logic_vector(10 downto 0);
         d_reg : out std_logic_vector(10 downto 0)
@@ -101,7 +102,7 @@ architecture Behavioral of signal_controller is
 
     signal s_comp0, s_comp1, s_comp2, s_comp3 : std_logic;
     signal s_dtoa : std_logic_vector(10 downto 0) := (others => '0');
-    signal s_dac_start, s_dac_stop : std_logic;
+    signal s_dac_start, s_dac_stop, s_enb2 : std_logic;
 
     -------------------------------------------
     type d_testpcmode is (idle,decode,
@@ -127,7 +128,8 @@ begin
 
     --m_ena0 <= '1'; m_enb0 <= '1';
     --m_ena1 <= '1'; m_enb1 <= '1';
-    --m_ena2 <= '1'; m_enb2 <= '1';
+    --m_ena2 <= '1'; 
+    m_enb2 <= s_enb2;
     --m_ena3 <= '1'; m_enb3 <= '1';
 
     rem0ctr : RemController
@@ -192,6 +194,7 @@ begin
                 m_sys_clk => m_sys_clk,
                 m_start => s_dac_start,
                 m_end => s_dac_stop,
+                m_enb2 => s_enb2,
                 m_Ain => s_Adac,
                 m_Aout => s_da_ram_addrb
                 --d_reg => d_AData
