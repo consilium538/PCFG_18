@@ -1,0 +1,23 @@
+V3 11
+FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/ipcore_dir/dual_port_ram.vhd 2018/11/18.13:14:09 P.20131013
+EN work/dual_port_ram 1542709105 \
+      FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/ipcore_dir/dual_port_ram.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/dual_port_ram/dual_port_ram_a 1542709106 \
+      FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/ipcore_dir/dual_port_ram.vhd \
+      EN work/dual_port_ram 1542709105
+FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/vhdl/MemProve.vhd 2018/11/18.13:14:09 P.20131013
+EN work/MemProve 1542709109 \
+      FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/vhdl/MemProve.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/MemProve/Behavioral 1542709110 \
+      FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/vhdl/MemProve.vhd \
+      EN work/MemProve 1542709109 CP dual_port_ram CP RemController
+FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/vhdl/remcontroller.vhd 2018/11/18.13:14:09 P.20131013
+EN work/RemController 1542709107 \
+      FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/vhdl/remcontroller.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/RemController/Behavioral 1542709108 \
+      FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/vhdl/remcontroller.vhd \
+      EN work/RemController 1542709107

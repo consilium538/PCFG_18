@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/vhdl/MemProve.vhd</arg>&quot; line <arg fmt="%d" index="2">69</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">dual_port_ram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1306" delta="new" >Output &lt;<arg fmt="%s" index="1">m_Cnt</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="1306" delta="new" >Output &lt;<arg fmt="%s" index="1">m_comp</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;7&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
+</msg>
+
+<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;6&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
+</msg>
+
+<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;5&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
+</msg>
+
+<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;4&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
+</msg>
+
+<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;3&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
+</msg>
+
+<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;2&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
+</msg>
+
+<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;1&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
+</msg>
+
+<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;0&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
+</msg>
+
+</messages>
+
