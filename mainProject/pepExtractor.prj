@@ -1,0 +1,6 @@
+work	"Averager.vhd"
+work	"address_decoder.vhd"
+work	"pcfg_top.vhd"
+work	"signal_controller.vhd"
+work	"top_8254.vhd"
+work	"tw_8254_cnt.vhd"

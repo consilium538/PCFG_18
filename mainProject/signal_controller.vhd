@@ -86,6 +86,15 @@ architecture Behavioral of signal_controller is
     );
     end component;
 
+    component ADCcnt is
+        Port (
+        m_clk, m_sys_clk, m_start, m_end : in std_logic;
+        m_ena3 : out std_logic;
+        m_Aout : out std_logic_vector(10 downto 0);
+        d_reg : out std_logic_vector(10 downto 0)
+    );
+    end component;
+
     signal s_enp0, s_clr0 : std_logic;
     signal s_sel0 : std_logic_vector(1 downto 0);
 
@@ -103,7 +112,8 @@ architecture Behavioral of signal_controller is
 
     signal s_comp0, s_comp1, s_comp2, s_comp3 : std_logic;
     signal s_dtoa : std_logic_vector(10 downto 0) := (others => '0');
-    signal s_dac_start, s_dac_stop, s_enb2 : std_logic;
+    signal s_dac_start, s_dac_stop, s_enb2, s_ena3 : std_logic;
+    signal s_adc_start, s_adc_stop : std_logic;
 
     -------------------------------------------
     type d_testpcmode is (idle,decode,
@@ -112,6 +122,8 @@ architecture Behavioral of signal_controller is
     dac_cntclr, dac_cntpreset, dac_transfer, dac_start,
     dac_stop,
     adc_cntclr, adc_cntpreset, adc_transfer,
+    average0,average1,average2,average3,average4,
+    average5,average6,average7,average8,
     softreset);
 
     signal t_ps, t_ns : d_testpcmode := idle;
@@ -122,16 +134,19 @@ begin
 	m_average_addr <= s_A01;
     m_out_mux_sel <= "0" when m_mode_addr = "001" else -- pc ram0 -> 0
                      "1"; -- pc ram 1 -> 1
+    m_ad_latch_en <= '1';
     m_inlatch_en <= m_OE_b;
     m_outlatch_en <= not m_OE_b;
     s_dtoa(7 downto 0) <= m_data;
     s_dtoa(10 downto 8) <= "000";
+    m_wea3 <= "1";
 
     --m_ena0 <= '1'; m_enb0 <= '1';
     --m_ena1 <= '1'; m_enb1 <= '1';
     --m_ena2 <= '1'; 
     m_enb2 <= s_enb2;
-    --m_ena3 <= '1'; m_enb3 <= '1';
+    m_ena3 <= s_ena3;
+    --m_enb3 <= '1';
 
     rem0ctr : RemController
     port map(
@@ -201,6 +216,17 @@ begin
                 --d_reg => d_AData
             );
 
+    adc_ctr : ADCcnt
+    port map(
+                m_clk => m_clk,
+                m_sys_clk => m_sys_clk,
+                m_start => s_adc_start,
+                m_end => s_adc_stop,
+                m_ena3 => s_ena3,
+                m_Aout => s_ad_ram_addra
+                --d_reg => d_AData
+            );
+
     -------------------------------------------
     test_sync_proc : process(m_clk)
     begin
@@ -219,13 +245,14 @@ begin
                 m_ena2 <= '0';
                 m_enb3 <= '0';
                 s_enp0 <= '0'; s_sel0 <= "00";
+                m_average_clr <= '1';
+                s_adc_start <= '1';
                 m_wea0 <= "0";
                 s_enp1 <= '0'; s_sel1 <= "00";
                 m_wea1 <= "0";
                 s_enpda <= '0'; s_selda <= "00";
 				m_wea2 <= "0";
                 s_enpad <= '0'; s_selad <= "00";
-				m_wea3 <= "0";
                 m_ram0_mux_sel <= "0";
                 m_ram1_mux_sel <= "11";
                 if(m_cmd_data = '1') then t_ns <= decode;
@@ -381,6 +408,61 @@ begin
                 if(m_OE_b = '1') then t_ns <= idle;
                 else t_ns <= dac_stop;
                 end if;
+
+            when adc_cntclr =>
+                m_enb3 <= '1'; m_ena0 <= '1';
+                t_prevmode <= "100";
+                s_clr0 <= '1'; s_clrad <= '1';
+                s_selad <= "11";
+                s_adc_start <= '0';
+                s_adc_stop <= '1';
+                t_ns <= adc_cntpreset;
+            when adc_cntpreset =>
+                s_clr0 <= '0'; s_clrad <= '0';
+                s_enp0 <= '1';
+                s_selad <= "00";
+                s_adc_stop <= '0';
+                t_ns <= adc_transfer;
+            when adc_transfer =>
+                s_enpad <= '1';
+                m_wea0 <= "1";
+                if(s_comp0 = '1') then t_ns <= idle;
+                else t_ns <= adc_transfer;
+                end if;
+
+            when average0 =>
+                m_average_clr <= '0';
+                m_enb0 <= '1';
+                s_clr0 <= '1';
+                t_ns <= average1;
+            when average1 =>
+                m_average_clr <= '0';
+                s_clr0 <= '0';
+                s_enp0 <= '1';
+                m_average_en<= '1';
+                t_ns <= average2;
+            when average2 =>
+                m_average_en<= '0';
+                s_enp0 <= '0';
+                if s_comp0='1' then
+                    t_ns <= average3;
+                else t_ns <= average1;
+                end if;
+            when average3 =>
+                m_ram1_mux_sel<="00";
+                t_ns <= average4;
+            when average4 =>
+                t_ns <= average5;
+            when average5 =>
+                t_ns <= average6;
+            when average6 =>
+                m_ena1 <='1';
+                m_wea1 <= "1";
+                t_ns <= average7;
+            when average7 =>
+                m_ena1 <='0';
+                m_wea1 <= "0";
+                t_ns <= idle;
 
             when softreset =>
                 s_dac_stop <= '1';

@@ -1,0 +1,36 @@
+Release 14.7 Map P.20131013 (nt64)
+Xilinx Mapping Report File for Design 'PCFG_TOP'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc3s5000-fg900-4 -cm area -ir off -pr off
+-c 100 -o PCFG_TOP_map.ncd PCFG_TOP.ngd PCFG_TOP.pcf 
+Target Device  : xc3s5000
+Target Package : fg900
+Target Speed   : -4
+Mapper Version : spartan3 -- $Revision: 1.55 $
+Mapped Date    : Mon Nov 19 20:45:40 2018
+
+Design Summary
+--------------
+Number of errors   :   1
+Number of warnings :   0
+
+Section 1 - Errors
+------------------
+ERROR:Security:12 - No 'xc3s5000' feature version 2013.10 was available (-5),
+ERROR:Map:258 - A problem was encountered attempting to get the license for this
+   architecture. 
+
+Section 2 - Warnings
+--------------------
+WARNING:Security:9b - No 'ISE' feature version 2013.10 was available for part
+'xc3s5000'.
+
+Section 3 - Informational
+-------------------------
+INFO:Security:56 - Part 'xc3s5000' is not a WebPack part.
+INFO:Security:61 - The XILINXD_LICENSE_FILE environment variable is not set.
+INFO:Security:63 - The LM_LICENSE_FILE environment variable is not set.
+INFO:Security:68 - For more information or for assistance in obtaining 
+INFO:Security:68a - user is user1, on host CHEOLWHAN.
