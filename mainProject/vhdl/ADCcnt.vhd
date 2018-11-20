@@ -57,7 +57,7 @@ begin
         end if;
     end process;
 
-    adc_slow_proc : process(m_sys_clk, s_reg, s_ps)
+    adc_slow_proc : process(m_sys_clk, s_ps)
     begin
         if rising_edge(m_sys_clk) then
             if(s_cnt < 256 and s_ps = adcplay) then s_cnt <= s_cnt+1;
