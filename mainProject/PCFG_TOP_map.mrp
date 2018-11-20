@@ -9,7 +9,7 @@ Target Device  : xc3s5000
 Target Package : fg900
 Target Speed   : -4
 Mapper Version : spartan3 -- $Revision: 1.55 $
-Mapped Date    : Mon Nov 19 20:45:40 2018
+Mapped Date    : Tue Nov 20 10:37:01 2018
 
 Design Summary
 --------------
@@ -33,4 +33,4 @@ INFO:Security:56 - Part 'xc3s5000' is not a WebPack part.
 INFO:Security:61 - The XILINXD_LICENSE_FILE environment variable is not set.
 INFO:Security:63 - The LM_LICENSE_FILE environment variable is not set.
 INFO:Security:68 - For more information or for assistance in obtaining 
-INFO:Security:68a - user is user1, on host CHEOLWHAN.
+INFO:Security:68a - user is DH, on host DHKIM.

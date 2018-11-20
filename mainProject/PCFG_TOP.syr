@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.24 secs
+Total CPU time to Xst completion: 0.20 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.25 secs
+Total CPU time to Xst completion: 0.20 secs
  
 --> Reading design: PCFG_TOP.prj
 
@@ -107,33 +107,33 @@ Cores Search Directories           : {"ipcore_dir"  }
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "H:/asdf/mainProject/CompSub.vhd" in Library work.
+Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/CompSub.vhd" in Library work.
 Architecture behavioral of Entity compsub is up to date.
-Compiling vhdl file "H:/asdf/mainProject/remcontroller.vhd" in Library work.
+Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/remcontroller.vhd" in Library work.
 Architecture behavioral of Entity remcontroller is up to date.
-Compiling vhdl file "H:/asdf/mainProject/DACcnt.vhd" in Library work.
+Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/DACcnt.vhd" in Library work.
 Architecture behavioral of Entity daccnt is up to date.
-Compiling vhdl file "H:/asdf/mainProject/ADCcnt.vhd" in Library work.
+Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/ADCcnt.vhd" in Library work.
 Architecture behavioral of Entity adccnt is up to date.
-Compiling vhdl file "H:/asdf/mainProject/tw_8254_cnt.vhd" in Library work.
+Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/tw_8254_cnt.vhd" in Library work.
 Architecture behavioral of Entity tw_8254_cnt is up to date.
-Compiling vhdl file "H:/asdf/mainProject/top_8254.vhd" in Library work.
+Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/top_8254.vhd" in Library work.
 Architecture behavioral of Entity top_8254 is up to date.
-Compiling vhdl file "H:/asdf/mainProject/address_decoder.vhd" in Library work.
+Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/address_decoder.vhd" in Library work.
 Architecture behavioral of Entity address_decoder is up to date.
-Compiling vhdl file "H:/asdf/mainProject/signal_controller.vhd" in Library work.
+Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/signal_controller.vhd" in Library work.
 Architecture behavioral of Entity signal_controller is up to date.
-Compiling vhdl file "H:/asdf/mainProject/ipcore_dir/Ram0.vhd" in Library work.
+Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/Ram0.vhd" in Library work.
 Architecture ram0_a of Entity ram0 is up to date.
-Compiling vhdl file "H:/asdf/mainProject/ipcore_dir/Ram1.vhd" in Library work.
+Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/Ram1.vhd" in Library work.
 Architecture ram1_a of Entity ram1 is up to date.
-Compiling vhdl file "H:/asdf/mainProject/ipcore_dir/DA_RAM.vhd" in Library work.
+Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/DA_RAM.vhd" in Library work.
 Architecture da_ram_a of Entity da_ram is up to date.
-Compiling vhdl file "H:/asdf/mainProject/ipcore_dir/AD_RAM.vhd" in Library work.
+Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/AD_RAM.vhd" in Library work.
 Architecture ad_ram_a of Entity ad_ram is up to date.
-Compiling vhdl file "H:/asdf/mainProject/Averager.vhd" in Library work.
+Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/Averager.vhd" in Library work.
 Architecture behavioral of Entity averager is up to date.
-Compiling vhdl file "H:/asdf/mainProject/pcfg_top.vhd" in Library work.
+Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/pcfg_top.vhd" in Library work.
 Architecture behavioral of Entity pcfg_top is up to date.
 
 =========================================================================
@@ -168,12 +168,12 @@ Analyzing Entity <PCFG_TOP> in library <work> (Architecture <behavioral>).
     Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <s_clk_g> in unit <PCFG_TOP>.
     Set user-defined property "IBUF_LOW_PWR =  TRUE" for instance <s_clk_g> in unit <PCFG_TOP>.
     Set user-defined property "IOSTANDARD =  DEFAULT" for instance <s_clk_g> in unit <PCFG_TOP>.
-WARNING:Xst:753 - "H:/asdf/mainProject/pcfg_top.vhd" line 345: Unconnected output port 'm_out1' of component 'TOP_8254'.
-WARNING:Xst:753 - "H:/asdf/mainProject/pcfg_top.vhd" line 345: Unconnected output port 'm_out2' of component 'TOP_8254'.
-WARNING:Xst:2211 - "H:/asdf/mainProject/pcfg_top.vhd" line 483: Instantiating black box module <Ram0>.
-WARNING:Xst:2211 - "H:/asdf/mainProject/pcfg_top.vhd" line 495: Instantiating black box module <Ram1>.
-WARNING:Xst:2211 - "H:/asdf/mainProject/pcfg_top.vhd" line 507: Instantiating black box module <DA_RAM>.
-WARNING:Xst:2211 - "H:/asdf/mainProject/pcfg_top.vhd" line 519: Instantiating black box module <AD_RAM>.
+WARNING:Xst:753 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/pcfg_top.vhd" line 345: Unconnected output port 'm_out1' of component 'TOP_8254'.
+WARNING:Xst:753 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/pcfg_top.vhd" line 345: Unconnected output port 'm_out2' of component 'TOP_8254'.
+WARNING:Xst:2211 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/pcfg_top.vhd" line 483: Instantiating black box module <Ram0>.
+WARNING:Xst:2211 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/pcfg_top.vhd" line 495: Instantiating black box module <Ram1>.
+WARNING:Xst:2211 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/pcfg_top.vhd" line 507: Instantiating black box module <DA_RAM>.
+WARNING:Xst:2211 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/pcfg_top.vhd" line 519: Instantiating black box module <AD_RAM>.
 Entity <PCFG_TOP> analyzed. Unit <PCFG_TOP> generated.
 
 Analyzing Entity <TOP_8254> in library <work> (Architecture <behavioral>).
@@ -187,9 +187,9 @@ Analyzing Entity <address_decoder> in library <work> (Architecture <behavioral>)
 Entity <address_decoder> analyzed. Unit <address_decoder> generated.
 
 Analyzing Entity <signal_controller> in library <work> (Architecture <behavioral>).
-WARNING:Xst:753 - "H:/asdf/mainProject/signal_controller.vhd" line 207: Unconnected output port 'd_reg' of component 'DACcnt'.
-WARNING:Xst:753 - "H:/asdf/mainProject/signal_controller.vhd" line 219: Unconnected output port 'd_reg' of component 'ADCcnt'.
-WARNING:Xst:819 - "H:/asdf/mainProject/signal_controller.vhd" line 238: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+WARNING:Xst:753 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/signal_controller.vhd" line 207: Unconnected output port 'd_reg' of component 'DACcnt'.
+WARNING:Xst:753 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/signal_controller.vhd" line 219: Unconnected output port 'd_reg' of component 'ADCcnt'.
+WARNING:Xst:819 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/signal_controller.vhd" line 238: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <t_ps>, <t_prevmode>, <m_mode_valid>, <m_wen>, <m_ren>, <s_comp1>, <s_comp2>, <s_comp0>
 INFO:Xst:2679 - Register <m_ram0_mux_sel> in unit <signal_controller> has a constant value of 0 during circuit operation. The register is replaced by logic.
 Entity <signal_controller> analyzed. Unit <signal_controller> generated.
@@ -217,13 +217,13 @@ Entity <CompSub> analyzed. Unit <CompSub> generated.
 Performing bidirectional port resolution...
 
 Synthesizing Unit <address_decoder>.
-    Related source file is "H:/asdf/mainProject/address_decoder.vhd".
+    Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/address_decoder.vhd".
 WARNING:Xst:646 - Signal <s_addr_in> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 Unit <address_decoder> synthesized.
 
 
 Synthesizing Unit <TW_8254_CNT>.
-    Related source file is "H:/asdf/mainProject/tw_8254_cnt.vhd".
+    Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/tw_8254_cnt.vhd".
 WARNING:Xst:1780 - Signal <s_temp2> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <s_temp1> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <s_CNT3_2_rst> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -252,7 +252,7 @@ Unit <TW_8254_CNT> synthesized.
 
 
 Synthesizing Unit <RemController>.
-    Related source file is "H:/asdf/mainProject/remcontroller.vhd".
+    Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/remcontroller.vhd".
     Found 11-bit comparator lessequal for signal <m_comp$cmp_le0000> created at line 26.
     Found 11-bit up counter for signal <s_Cnt>.
     Found 11-bit register for signal <s_Reg>.
@@ -266,7 +266,7 @@ Unit <RemController> synthesized.
 
 
 Synthesizing Unit <DACcnt>.
-    Related source file is "H:/asdf/mainProject/DACcnt.vhd".
+    Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/DACcnt.vhd".
     Found finite state machine <FSM_0> for signal <s_ps>.
     -----------------------------------------------------------------------
     | States             | 3                                              |
@@ -294,7 +294,7 @@ Unit <DACcnt> synthesized.
 
 
 Synthesizing Unit <ADCcnt>.
-    Related source file is "H:/asdf/mainProject/ADCcnt.vhd".
+    Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/ADCcnt.vhd".
 WARNING:Xst:653 - Signal <s_reg> is used but never assigned. This sourceless signal will be automatically connected to value 00000000000.
     Found 11-bit up counter for signal <s_cnt>.
     Found 12-bit comparator less for signal <s_cnt$cmp_lt0000> created at line 63.
@@ -307,7 +307,7 @@ Unit <ADCcnt> synthesized.
 
 
 Synthesizing Unit <CompSub>.
-    Related source file is "H:/asdf/mainProject/CompSub.vhd".
+    Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/CompSub.vhd".
     Found 8-bit subtractor for signal <m_remainder$addsub0000> created at line 24.
     Found 8-bit comparator greatequal for signal <m_remainder$cmp_ge0000> created at line 22.
     Summary:
@@ -317,7 +317,7 @@ Unit <CompSub> synthesized.
 
 
 Synthesizing Unit <TOP_8254>.
-    Related source file is "H:/asdf/mainProject/top_8254.vhd".
+    Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/top_8254.vhd".
 WARNING:Xst:1780 - Signal <s_WR_WAIT> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <s_MSB_wr> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <s_LSB_wr> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
@@ -346,7 +346,7 @@ Unit <TOP_8254> synthesized.
 
 
 Synthesizing Unit <signal_controller>.
-    Related source file is "H:/asdf/mainProject/signal_controller.vhd".
+    Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/signal_controller.vhd".
 WARNING:Xst:646 - Signal <s_comp3> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <s_Aadc> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 INFO:Xst:1799 - State average8 is never reached in FSM <t_ps>.
@@ -436,7 +436,7 @@ Unit <signal_controller> synthesized.
 
 
 Synthesizing Unit <Averager>.
-    Related source file is "H:/asdf/mainProject/Averager.vhd".
+    Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/Averager.vhd".
 WARNING:Xst:647 - Input <m_counter_in<10:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:646 - Signal <s_reminder8> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <s_reminder7<7>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -453,7 +453,7 @@ Unit <Averager> synthesized.
 
 
 Synthesizing Unit <PCFG_TOP>.
-    Related source file is "H:/asdf/mainProject/pcfg_top.vhd".
+    Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/pcfg_top.vhd".
 WARNING:Xst:653 - Signal <s_reset_b> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:653 - Signal <s_led> is used but never assigned. This sourceless signal will be automatically connected to value 0000000.
 WARNING:Xst:646 - Signal <s_dina3> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -1270,12 +1270,12 @@ Delay:               9.436ns (Levels of Logic = 3)
 =========================================================================
 
 
-Total REAL time to Xst completion: 18.00 secs
-Total CPU time to Xst completion: 17.50 secs
+Total REAL time to Xst completion: 15.00 secs
+Total CPU time to Xst completion: 14.39 secs
  
 --> 
 
-Total memory usage is 4583808 kilobytes
+Total memory usage is 4583660 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  233 (   0 filtered)
