@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/user1/Documents/xilinx/oxford/tb_pcfg.xst" -ofn "C:/Users/user1/Documents/xilinx/oxford/tb_pcfg.syr" 

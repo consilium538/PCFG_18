@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="D:/study/sogang/18y6s/adca/Project/PCFG_18/mainProject/tb_pcfg_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_textio" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="tb_pcfg" />
+            <top_module name="textio" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/tb_pcfg/m_reset_b" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_reset_b</obj_property>
+      <obj_property name="ObjectShortName">m_reset_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_clk</obj_property>
+      <obj_property name="ObjectShortName">m_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_address" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_address[8:0]</obj_property>
+      <obj_property name="ObjectShortName">m_address[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_cmd_data" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_cmd_data</obj_property>
+      <obj_property name="ObjectShortName">m_cmd_data</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_oe_b" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_oe_b</obj_property>
+      <obj_property name="ObjectShortName">m_oe_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_wen" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_wen</obj_property>
+      <obj_property name="ObjectShortName">m_wen</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_ren" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_ren</obj_property>
+      <obj_property name="ObjectShortName">m_ren</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">m_clk_period</obj_property>
+      <obj_property name="ObjectShortName">m_clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/uut/controller/m_ram1_mux_sel" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_ram1_mux_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_ram1_mux_sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/uut/controller/m_ram0_mux_sel" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_ram0_mux_sel[0:0]</obj_property>
+      <obj_property name="ObjectShortName">m_ram0_mux_sel[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/uut/internal_RAM1/wea" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+   </wvobject>
+</wave_config>

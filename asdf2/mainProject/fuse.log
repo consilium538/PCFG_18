@@ -1,0 +1,56 @@
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -o "C:/Users/user1/Desktop/asdf2/mainProject/tb_pcfg_isim_beh.exe" -prj "C:/Users/user1/Desktop/asdf2/mainProject/tb_pcfg_beh.prj" "work.tb_pcfg" 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Parsing VHDL file "C:/Users/user1/Desktop/asdf2/mainProject/ipcore_dir/Ram0.vhd" into library work
+Parsing VHDL file "C:/Users/user1/Desktop/asdf2/mainProject/ipcore_dir/Ram1.vhd" into library work
+Parsing VHDL file "C:/Users/user1/Desktop/asdf2/mainProject/ipcore_dir/DA_RAM.vhd" into library work
+Parsing VHDL file "C:/Users/user1/Desktop/asdf2/mainProject/ipcore_dir/AD_RAM.vhd" into library work
+Parsing VHDL file "C:/Users/user1/Desktop/asdf2/mainProject/tw_8254_cnt.vhd" into library work
+Parsing VHDL file "C:/Users/user1/Desktop/asdf2/mainProject/remcontroller.vhd" into library work
+Parsing VHDL file "C:/Users/user1/Desktop/asdf2/mainProject/DACcnt.vhd" into library work
+Parsing VHDL file "C:/Users/user1/Desktop/asdf2/mainProject/CompSub.vhd" into library work
+Parsing VHDL file "C:/Users/user1/Desktop/asdf2/mainProject/ADCcnt.vhd" into library work
+Parsing VHDL file "C:/Users/user1/Desktop/asdf2/mainProject/top_8254.vhd" into library work
+Parsing VHDL file "C:/Users/user1/Desktop/asdf2/mainProject/signal_controller.vhd" into library work
+Parsing VHDL file "C:/Users/user1/Desktop/asdf2/mainProject/Averager.vhd" into library work
+Parsing VHDL file "C:/Users/user1/Desktop/asdf2/mainProject/address_decoder.vhd" into library work
+Parsing VHDL file "C:/Users/user1/Desktop/asdf2/mainProject/pcfg_top.vhd" into library work
+Parsing VHDL file "C:/Users/user1/Desktop/asdf2/mainProject/tb_pcfg.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package vcomponents
+Compiling architecture ibufg_v of entity IBUFG [\IBUFG("DONT_CARE","0",true,"DEF...]
+Compiling architecture behavioral of entity TW_8254_CNT [tw_8254_cnt_default]
+Compiling architecture behavioral of entity TOP_8254 [top_8254_default]
+Compiling architecture behavioral of entity address_decoder [address_decoder_default]
+Compiling architecture behavioral of entity RemController [remcontroller_default]
+Compiling architecture behavioral of entity DACcnt [daccnt_default]
+Compiling architecture behavioral of entity ADCcnt [adccnt_default]
+Compiling architecture behavioral of entity signal_controller [signal_controller_default]
+Compiling package textio
+Compiling package std_logic_textio
+Compiling architecture output_stage_behavioral of entity BLK_MEM_GEN_V7_3_output_stage [\BLK_MEM_GEN_V7_3_output_stage("...]
+Compiling architecture softecc_output_reg_stage_behavioral of entity BLK_MEM_GEN_V7_3_softecc_output_reg_stage [\BLK_MEM_GEN_V7_3_softecc_output...]
+Compiling architecture mem_module_behavioral of entity BLK_MEM_GEN_V7_3_mem_module [\BLK_MEM_GEN_V7_3_mem_module("bl...]
+Compiling architecture behavioral of entity BLK_MEM_GEN_V7_3 [\BLK_MEM_GEN_V7_3("blk_mem_gen_v...]
+Compiling architecture ram0_a of entity Ram0 [ram0_default]
+Compiling architecture ram1_a of entity Ram1 [ram1_default]
+Compiling architecture da_ram_a of entity DA_RAM [da_ram_default]
+Compiling architecture ad_ram_a of entity AD_RAM [ad_ram_default]
+Compiling architecture behavioral of entity CompSub [compsub_default]
+Compiling architecture behavioral of entity Averager [averager_default]
+Compiling architecture behavioral of entity PCFG_TOP [pcfg_top_default]
+Compiling architecture behavior of entity tb_pcfg
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+WARNING:Simulator - Unable to copy libPortabilityNOSH.dll to the simulation executable directory: boost::filesystem::copy_file: 지정된 경로를 찾을 수 없습니다, "isim\tb_pcfg_isim_beh.exe.sim\libPortability.dll".
+Compiled 46 VHDL Units
+Built simulation executable C:/Users/user1/Desktop/asdf2/mainProject/tb_pcfg_isim_beh.exe
+Fuse Memory Usage: 53524 KB
+Fuse CPU Usage: 1624 ms

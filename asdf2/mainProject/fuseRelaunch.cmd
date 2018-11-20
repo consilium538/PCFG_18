@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "C:/Users/user1/Desktop/asdf2/mainProject/tb_pcfg_isim_beh.exe" -prj "C:/Users/user1/Desktop/asdf2/mainProject/tb_pcfg_beh.prj" "work.tb_pcfg" 
