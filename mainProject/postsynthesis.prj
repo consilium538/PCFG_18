@@ -1,0 +1,2 @@
+vhdl work "netgen/synthesis/PCFG_TOP_synthesis.vhd"
+vhdl work "vhdl/tb_pcfg.vhd"

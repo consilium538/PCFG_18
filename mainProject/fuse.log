@@ -1,18 +1,61 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/tb_pcfg_isim_beh.exe -prj C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/tb_pcfg_beh.prj work.tb_pcfg 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisim -lib unimacro -lib xilinxcorelib -lib secureip -o x_synthesis.exe -prj postsynthesis.prj work.tb_pcfg 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/Ram0.vhd" into library work
-Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/Ram1.vhd" into library work
-Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/DA_RAM.vhd" into library work
-Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/AD_RAM.vhd" into library work
-Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/tw_8254_cnt.vhd" into library work
-Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/remcontroller.vhd" into library work
-Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/DACcnt.vhd" into library work
-Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/CompSub.vhd" into library work
-Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/top_8254.vhd" into library work
-Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/signal_controller.vhd" into library work
-ERROR:HDLCompiler:432 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/signal_controller.vhd" Line 220: Formal <m_ain> has no actual or default value.
-ERROR:HDLCompiler:854 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/signal_controller.vhd" Line 60: Unit <behavioral> ignored due to previous errors.
-VHDL file C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/signal_controller.vhd ignored due to errors
+Parsing VHDL file "netgen/synthesis/PCFG_TOP_synthesis.vhd" into library work
+Parsing VHDL file "vhdl/tb_pcfg.vhd" into library work
+Starting static elaboration
+WARNING:HDLCompiler:89 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14618: <sram2k> remains a black-box since it has no binding entity.
+WARNING:HDLCompiler:89 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14664: <sram2k> remains a black-box since it has no binding entity.
+WARNING:HDLCompiler:89 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14710: <sram2k> remains a black-box since it has no binding entity.
+WARNING:HDLCompiler:89 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14756: <sram2k> remains a black-box since it has no binding entity.
+Completed static elaboration
+WARNING:Simulator:648 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14618. Instance sram2k is unbound
+WARNING:Simulator:648 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14664. Instance sram2k is unbound
+WARNING:Simulator:648 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14710. Instance sram2k is unbound
+WARNING:Simulator:648 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14756. Instance sram2k is unbound
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package vcomponents
+Compiling package textio
+Compiling package vital_timing
+Compiling package vital_primitives
+Compiling package vpkg
+Compiling architecture gnd_v of entity GND [gnd_default]
+Compiling architecture vcc_v of entity VCC [vcc_default]
+Compiling architecture fde_v of entity FDE [\FDE('0')\]
+Compiling architecture ibufg_v of entity IBUFG [\IBUFG("DONT_CARE","0",true,"DEF...]
+Compiling architecture fds_1_v of entity FDS_1 [\FDS_1('1')\]
+Compiling architecture fdce_v of entity FDCE [\FDCE('0')\]
+Compiling architecture fdpe_v of entity FDPE [\FDPE('1')\]
+Compiling architecture muxcy_v of entity MUXCY [muxcy_default]
+Compiling architecture xorcy_v of entity XORCY [xorcy_default]
+Compiling architecture fdr_v of entity FDR [\FDR('0')\]
+Compiling architecture fds_v of entity FDS [\FDS('1')\]
+Compiling architecture fdre_v of entity FDRE [\FDRE('0')\]
+Compiling architecture fdse_v of entity FDSE [\FDSE('1')\]
+Compiling architecture ld_1_v of entity LD_1 [\LD_1('0')\]
+Compiling architecture fd_v of entity FD [\FD('0')\]
+Compiling architecture lut2_v of entity LUT2 [\LUT2("1001")(0,3)\]
+Compiling architecture ld_v of entity LD [\LD('0')\]
+Compiling architecture lut3_v of entity LUT3 [\LUT3("00001000")(0,7)\]
+Compiling architecture lut4_v of entity LUT4 [\LUT4("1111111111111110")(0,15)\]
+Compiling architecture ibuf_v of entity IBUF [\IBUF("DONT_CARE","0",true,"AUTO...]
+Compiling architecture iobuf_v of entity IOBUF [\IOBUF("DONT_CARE",12,"0",true,"...]
+Compiling architecture obuf_v of entity OBUF [\OBUF("DONT_CARE",12,"DEFAULT","...]
+Compiling architecture fdrs_v of entity FDRS [\FDRS('0')\]
+Compiling architecture lut1_v of entity LUT1 [\LUT1("0010")(0,3)\]
+Compiling architecture muxf5_v of entity MUXF5 [muxf5_default]
+Compiling architecture bufg_v of entity BUFG [bufg_default]
+Compiling architecture inv_v of entity INV [inv_default]
+Compiling architecture structure of entity PCFG_TOP [pcfg_top_default]
+Compiling architecture behavior of entity tb_pcfg
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 238 VHDL Units
+Built simulation executable x_synthesis.exe
+Fuse Memory Usage: 71300 KB
+Fuse CPU Usage: 4468 ms

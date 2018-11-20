@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -o "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/tb_pcfg_isim_beh.exe" -prj "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/tb_pcfg_beh.prj" "work.tb_pcfg" 
+-intstyle "ise" -incremental -lib "unisim" -lib "unimacro" -lib "xilinxcorelib" -lib "secureip" -o "x_synthesis.exe" -prj "postsynthesis.prj" "work.tb_pcfg" 

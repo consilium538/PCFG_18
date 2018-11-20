@@ -203,13 +203,13 @@ BEGIN
 		wait for 10 us;
 
 				
-		--for i in 0 to 9 loop			
-		--CMD_WR('1' & x"81",conv_std_logic_vector(i,8),m_address,m_data,m_cmd_data,m_wen,m_ren,m_OE_b);	-- RAM0에 100개 쓰기
-			--wait for 1 us;
-		--end loop;
+		for i in 0 to 9 loop			
+		CMD_WR('1' & x"80",conv_std_logic_vector(i,8),m_address,m_data,m_cmd_data,m_wen,m_ren,m_OE_b);	-- RAM0에 100개 쓰기
+			wait for 1 us;
+		end loop;
 
-		wait for 30 us;
-        CMD_WR('1'&x"76", x"00",m_address, m_data, m_cmd_data, m_wen, m_ren, m_OE_b);
+		--wait for 30 us;
+        --CMD_WR('1'&x"76", x"00",m_address, m_data, m_cmd_data, m_wen, m_ren, m_OE_b);
 		--wait for 10 us;
         --CMD_WR('1'&x"74", x"00",m_address, m_data, m_cmd_data, m_wen, m_ren, m_OE_b);
 		
