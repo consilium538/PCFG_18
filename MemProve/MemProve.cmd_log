@@ -1,2 +1,6 @@
 xst -intstyle ise -ifn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/MemProve.xst" -ofn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/MemProve.syr" 
 netgen -intstyle ise -ar Structure -tm MemProve -w -dir netgen/synthesis -ofmt vhdl -sim MemProve.ngc MemProve_synthesis.vhd 
+xst -intstyle ise -ifn "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemProve/MemProve.xst" -ofn "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemProve/MemProve.syr" 
+netgen -intstyle ise -ar Structure -tm MemProve -w -dir netgen/synthesis -ofmt vhdl -sim MemProve.ngc MemProve_synthesis.vhd 
+xst -intstyle ise -ifn "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemProve/MemProve.xst" -ofn "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemProve/MemProve.syr" 
+netgen -intstyle ise -ar Structure -tm MemProve -w -dir netgen/synthesis -ofmt vhdl -sim MemProve.ngc MemProve_synthesis.vhd 

@@ -62,33 +62,38 @@ architecture Behavioral of MemProve is
     end component;
 
     signal s_addr : STD_LOGIC_VECTOR(10 downto 0) := (others => '0');
+    signal s_comp : STD_LOGIC := (others => '0');
 --signal s_addr : STD_LOGIC_VECTOR(10 downto 0) := (others <='0');
 
 begin
+    ram0 : dual_port_ram
+    port map(
+                ADDRA => s_addr, --in
+                ENA => m_ramen, --in
+                DINA => m_Din, --in
+                WEA(0) => m_ramwr, --in
+                CLKA => m_clk, -- in
+                ADDRB => s_addr, -- in
+                ENB => m_ramen, -- in
+                CLKB => m_clk, -- in
+                DOUTB => m_Dout -- out
+            );
+
+    remctr : RemController
+    port map(
+
+                m_clk => m_clk,
+                m_enp => m_enp,
+                m_clr => m_clr,
+                m_sel => m_sel,
+                m_Din => m_Ain,
+                -- output
+                m_comp => s_comp,
+                m_Cnt => s_addr,
+                m_Dout => m_Aout
+            );
     d_AData <= s_addr;
-    ram0 : dual_port_ram port map(
-                                     ADDRA => s_addr, --in
-                                     ENA => m_ramen, --in
-                                     DINA => m_Din, --in
-                                     WEA(0) => m_ramwr, --in
-                                     CLKA => m_clk, -- in
-                                     ADDRB => s_addr, -- in
-                                     ENB => m_ramen, -- in
-                                     CLKB => m_clk, -- in
-                                     DOUTB => m_Dout -- out
-                                 );
-
-    remctr : RemController port map(
-
-                                       m_clk => m_clk,
-                                       m_enp => m_enp,
-                                       m_clr => m_clr,
-                                       m_sel => m_sel,
-                                       m_Din => m_Ain,
-        -- output
-                                       m_comp => d_Comp,
-                                       m_Cnt => s_addr,
-                                       m_Dout => m_Aout
-                                   );
+    d_Comp <= s_comp;
+    m_comp <= s_comp;
 end Behavioral;
 

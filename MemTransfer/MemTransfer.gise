@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="MemTransfer.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="MemTransfer.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="MemTransfer.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="MemTransfer.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="MemTransfer.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="MemTransfer.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="MemTransfer.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="MemTransfer.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="MemTransfer.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="MemTransfer_envsettings.html"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="MemTransfer_summary.html"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="MemTransfer_vhdl.prj"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="MemTransfer_xst.xrpt"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="RemController_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="tb_memtp_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="tb_memtp_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="tb_memtp_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1542430631" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1542430631">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1542566472" xil_pn:in_ck="7440685054856022731" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1542566472">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="vhdl/MemTransfer.vhd"/>
+      <outfile xil_pn:name="vhdl/remcontroller.vhd"/>
+      <outfile xil_pn:name="vhdl/tb_memtp.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1542433186" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-1781268606119068946" xil_pn:start_ts="1542433186">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1542433186" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="3570434267190150566" xil_pn:start_ts="1542433186">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1542430631" xil_pn:in_ck="-5111961676105998518" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="8505082145979086681" xil_pn:start_ts="1542430631">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="ipcore_dir/sram0.ngc"/>
+      <outfile xil_pn:name="ipcore_dir/sram0.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1542566472" xil_pn:in_ck="7440685054856022731" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1542566472">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="vhdl/MemTransfer.vhd"/>
+      <outfile xil_pn:name="vhdl/remcontroller.vhd"/>
+      <outfile xil_pn:name="vhdl/tb_memtp.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1542566476" xil_pn:in_ck="7304739990837415149" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="4357656887037326521" xil_pn:start_ts="1542566472">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="tb_memtp_beh.prj"/>
+      <outfile xil_pn:name="tb_memtp_isim_beh.exe"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
+    </transform>
+    <transform xil_pn:end_ts="1542566811" xil_pn:in_ck="1089759311652952126" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="1575225907182676097" xil_pn:start_ts="1542566811">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="tb_memtp_isim_beh.wdb"/>
+    </transform>
+    <transform xil_pn:end_ts="1542430646" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1542430646">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1542430646" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-6537023381889601601" xil_pn:start_ts="1542430646">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1542430646" xil_pn:in_ck="-5111961676105998518" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="8505082145979086681" xil_pn:start_ts="1542430646">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="ipcore_dir/sram0.ngc"/>
+      <outfile xil_pn:name="ipcore_dir/sram0.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1542430646" xil_pn:in_ck="-2674038648111979783" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1542430646">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1542430646" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-6116645496025545209" xil_pn:start_ts="1542430646">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1542430646" xil_pn:in_ck="-2674038648111979783" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="-4348152628426634184" xil_pn:start_ts="1542430646">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1542430646" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="1073205071434000483" xil_pn:start_ts="1542430646">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1542430786" xil_pn:in_ck="-1064013016498587384" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="1735692315848042871" xil_pn:start_ts="1542430778">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <outfile xil_pn:name="MemTransfer.lso"/>
+      <outfile xil_pn:name="MemTransfer.ngc"/>
+      <outfile xil_pn:name="MemTransfer.ngr"/>
+      <outfile xil_pn:name="MemTransfer.prj"/>
+      <outfile xil_pn:name="MemTransfer.stx"/>
+      <outfile xil_pn:name="MemTransfer.syr"/>
+      <outfile xil_pn:name="MemTransfer.xst"/>
+      <outfile xil_pn:name="MemTransfer_vhdl.prj"/>
+      <outfile xil_pn:name="MemTransfer_xst.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+  </transforms>
+
+</generated_project>

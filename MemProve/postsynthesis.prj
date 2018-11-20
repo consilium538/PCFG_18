@@ -1,2 +1,2 @@
 vhdl work "netgen/synthesis/MemProve_synthesis.vhd"
-vhdl work "vhdl/tb_remctr.vhd"
+vhdl work "vhdl/tb_mem.vhd"

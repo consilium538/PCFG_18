@@ -1,0 +1,4 @@
+vhdl work "ipcore_dir/sram0.vhd"
+vhdl work "vhdl/remcontroller.vhd"
+vhdl work "vhdl/MemTransfer.vhd"
+vhdl work "vhdl/tb_memtp.vhd"

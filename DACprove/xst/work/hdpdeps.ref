@@ -1,0 +1,31 @@
+V3 15
+FL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/ipcore_dir/sram.vhd 2018/11/18.20:03:58 P.20131013
+EN work/sram 1542556160 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/ipcore_dir/sram.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/sram/sram_a 1542556161 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/ipcore_dir/sram.vhd \
+      EN work/sram 1542556160
+FL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/vhdl/DACcnt.vhd 2018/11/19.00:47:34 P.20131013
+EN work/DACcnt 1542556164 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/vhdl/DACcnt.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/DACcnt/Behavioral 1542556165 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/vhdl/DACcnt.vhd \
+      EN work/DACcnt 1542556164
+FL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/vhdl/DACprove.vhd 2018/11/19.00:49:16 P.20131013
+EN work/DACprove 1542556166 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/vhdl/DACprove.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/DACprove/Behavioral 1542556167 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/vhdl/DACprove.vhd \
+      EN work/DACprove 1542556166 CP sram CP RemController CP DACcnt
+FL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/vhdl/remcontroller.vhd 2018/11/15.23:47:14 P.20131013
+EN work/RemController 1542556162 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/vhdl/remcontroller.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/RemController/Behavioral 1542556163 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/vhdl/remcontroller.vhd \
+      EN work/RemController 1542556162

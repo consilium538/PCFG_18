@@ -5,37 +5,16 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/vhdl/MemProve.vhd</arg>&quot; line <arg fmt="%d" index="2">69</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">dual_port_ram</arg>&gt;.
+<msg type="warning" file="Xst" num="2211" delta="old" >&quot;<arg fmt="%s" index="1">D:/study/sogang/18y6s/adca/Project/PCFG_18/MemProve/vhdl/MemProve.vhd</arg>&quot; line <arg fmt="%d" index="2">69</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">dual_port_ram</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1306" delta="new" >Output &lt;<arg fmt="%s" index="1">m_Cnt</arg>&gt; is never assigned.
+<msg type="warning" file="Xst" num="1306" delta="old" >Output &lt;<arg fmt="%s" index="1">m_Cnt</arg>&gt; is never assigned.
 </msg>
 
-<msg type="warning" file="Xst" num="1306" delta="new" >Output &lt;<arg fmt="%s" index="1">m_comp</arg>&gt; is never assigned.
+<msg type="warning" file="Xst" num="1306" delta="old" >Output &lt;<arg fmt="%s" index="1">m_comp</arg>&gt; is never assigned.
 </msg>
 
-<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;7&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
-</msg>
-
-<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;6&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
-</msg>
-
-<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;5&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
-</msg>
-
-<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;4&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
-</msg>
-
-<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;3&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
-</msg>
-
-<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;2&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
-</msg>
-
-<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;1&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
-</msg>
-
-<msg type="warning" file="Xst" num="2036" delta="new" >Inserting OBUF on port &lt;<arg fmt="%s" index="1">m_Dout&lt;0&gt;</arg>&gt; driven by black box &lt;<arg fmt="%s" index="2">dual_port_ram</arg>&gt;. Possible simulation mismatch.
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram</arg> in unit <arg fmt="%s" index="2">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram</arg> of type <arg fmt="%s" index="3">RAMB16_S9_S9</arg> has been replaced by <arg fmt="%s" index="4">RAMB16</arg>
 </msg>
 
 </messages>

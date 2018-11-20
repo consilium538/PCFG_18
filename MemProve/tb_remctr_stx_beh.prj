@@ -1,0 +1,2 @@
+vhdl isim_temp "vhdl/remcontroller.vhd"
+vhdl isim_temp "vhdl/tb_remctr.vhd"

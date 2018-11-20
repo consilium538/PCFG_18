@@ -1,0 +1,6 @@
+AR sram0 sram0_a D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/ipcore_dir/sram0.vhd sub00/vhpl01 1542430782
+AR memtransfer behavioral D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/vhdl/MemTransfer.vhd sub00/vhpl05 1542430786
+EN memtransfer NULL D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/vhdl/MemTransfer.vhd sub00/vhpl04 1542430785
+EN sram0 NULL D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/ipcore_dir/sram0.vhd sub00/vhpl00 1542430781
+EN remcontroller NULL D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/vhdl/remcontroller.vhd sub00/vhpl02 1542430783
+AR remcontroller behavioral D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/vhdl/remcontroller.vhd sub00/vhpl03 1542430784

@@ -1,0 +1,8 @@
+AR daccnt behavioral D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/vhdl/DACcnt.vhd sub00/vhpl05 1542556165
+EN sram NULL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/ipcore_dir/sram.vhd sub00/vhpl00 1542556160
+AR dacprove behavioral D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/vhdl/DACprove.vhd sub00/vhpl07 1542556167
+AR sram sram_a D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/ipcore_dir/sram.vhd sub00/vhpl01 1542556161
+EN daccnt NULL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/vhdl/DACcnt.vhd sub00/vhpl04 1542556164
+EN dacprove NULL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/vhdl/DACprove.vhd sub00/vhpl06 1542556166
+EN remcontroller NULL D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/vhdl/remcontroller.vhd sub00/vhpl02 1542556162
+AR remcontroller behavioral D:/study/sogang/18y6s/adca/Project/PCFG_18/DACprove/vhdl/remcontroller.vhd sub00/vhpl03 1542556163

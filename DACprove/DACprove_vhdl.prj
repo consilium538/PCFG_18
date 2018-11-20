@@ -1,0 +1,4 @@
+vhdl work "D:\study\sogang\18y6s\adca\Project\PCFG_18\DACprove\ipcore_dir\sram.vhd"
+vhdl work "D:\study\sogang\18y6s\adca\Project\PCFG_18\DACprove\vhdl\remcontroller.vhd"
+vhdl work "D:\study\sogang\18y6s\adca\Project\PCFG_18\DACprove\vhdl\DACcnt.vhd"
+vhdl work "D:\study\sogang\18y6s\adca\Project\PCFG_18\DACprove\vhdl\DACprove.vhd"

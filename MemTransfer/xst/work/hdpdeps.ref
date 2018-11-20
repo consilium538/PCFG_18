@@ -1,0 +1,23 @@
+V3 11
+FL D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/ipcore_dir/sram0.vhd 2018/11/17.11:03:01 P.20131013
+EN work/sram0 1542430781 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/ipcore_dir/sram0.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/sram0/sram0_a 1542430782 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/ipcore_dir/sram0.vhd \
+      EN work/sram0 1542430781
+FL D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/vhdl/MemTransfer.vhd 2018/11/17.13:59:35 P.20131013
+EN work/MemTransfer 1542430785 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/vhdl/MemTransfer.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/MemTransfer/Behavioral 1542430786 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/vhdl/MemTransfer.vhd \
+      EN work/MemTransfer 1542430785 CP sram0 CP RemController
+FL D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/vhdl/remcontroller.vhd 2018/11/15.23:47:14 P.20131013
+EN work/RemController 1542430783 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/vhdl/remcontroller.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/RemController/Behavioral 1542430784 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/vhdl/remcontroller.vhd \
+      EN work/RemController 1542430783

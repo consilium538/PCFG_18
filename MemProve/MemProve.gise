@@ -30,6 +30,7 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="MemProve.stx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="MemProve.syr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="MemProve.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="MemProve_envsettings.html"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="MemProve_summary.html"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="MemProve_vhdl.prj"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="MemProve_xst.xrpt"/>
@@ -46,38 +47,42 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1542709102" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1542709102">
-      <status xil_pn:value="SuccessfullyRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1542709102" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-6605698011614693594" xil_pn:start_ts="1542709102">
+    <transform xil_pn:end_ts="1542722869" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1542722869">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1542709102" xil_pn:in_ck="3317209643511026192" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="5116971820224175040" xil_pn:start_ts="1542709102">
+    <transform xil_pn:end_ts="1542722869" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-6605698011614693594" xil_pn:start_ts="1542722869">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1542722869" xil_pn:in_ck="3317209643511026192" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="5116971820224175040" xil_pn:start_ts="1542722869">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="ipcore_dir/dual_port_ram.ngc"/>
       <outfile xil_pn:name="ipcore_dir/dual_port_ram.vhd"/>
     </transform>
-    <transform xil_pn:name="TRAN_SubProjectAbstractToPreProxy">
+    <transform xil_pn:end_ts="1542722869" xil_pn:in_ck="-1212546206393438593" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1542722869">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1542709102" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="3351459289209074286" xil_pn:start_ts="1542709102">
+    <transform xil_pn:end_ts="1542722869" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="3351459289209074286" xil_pn:start_ts="1542722869">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1542709102" xil_pn:in_ck="-1212546206393438593" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="-4348152628426634184" xil_pn:start_ts="1542709102">
+    <transform xil_pn:end_ts="1542722869" xil_pn:in_ck="-1212546206393438593" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="-4348152628426634184" xil_pn:start_ts="1542722869">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1542709102" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="902507598886000906" xil_pn:start_ts="1542709102">
+    <transform xil_pn:end_ts="1542722869" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="902507598886000906" xil_pn:start_ts="1542722869">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1542709110" xil_pn:in_ck="-1136547881486726987" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="-8067979765569253334" xil_pn:start_ts="1542709102">
+    <transform xil_pn:end_ts="1542722876" xil_pn:in_ck="-1136547881486726987" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="-8067979765569253334" xil_pn:start_ts="1542722869">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="MemProve.lso"/>
       <outfile xil_pn:name="MemProve.ngc"/>
       <outfile xil_pn:name="MemProve.ngr"/>
@@ -91,13 +96,14 @@
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1542709324" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="7472578151003497187" xil_pn:start_ts="1542709324">
+    <transform xil_pn:end_ts="1542722876" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="7472578151003497187" xil_pn:start_ts="1542722876">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1542709327" xil_pn:in_ck="4051608050152921137" xil_pn:name="TRAN_postSynthesisSimModel" xil_pn:prop_ck="-1736964344456900494" xil_pn:start_ts="1542709324">
+    <transform xil_pn:end_ts="1542722878" xil_pn:in_ck="5326240248844243887" xil_pn:name="TRAN_postSynthesisSimModel" xil_pn:prop_ck="-1736964344456900494" xil_pn:start_ts="1542722876">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="netgen"/>
       <outfile xil_pn:name="netgen/synthesis/MemProve_synthesis.nlf"/>
       <outfile xil_pn:name="netgen/synthesis/MemProve_synthesis.vhd"/>

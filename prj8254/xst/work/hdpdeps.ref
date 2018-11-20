@@ -1,0 +1,17 @@
+V3 7
+FL D:/study/sogang/18y6s/adca/Project/PCFG_18/prj8254/vhdl/top_8254.vhd 2018/11/11.18:19:36 P.20131013
+EN work/TOP_8254 1541937505 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/prj8254/vhdl/top_8254.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/TOP_8254/Behavioral 1541937506 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/prj8254/vhdl/top_8254.vhd \
+      EN work/TOP_8254 1541937505 CP TW_8254_CNT
+FL D:/study/sogang/18y6s/adca/Project/PCFG_18/prj8254/vhdl/tw_8254_cnt.vhd 2018/11/11.18:19:36 P.20131013
+EN work/TW_8254_CNT 1541937503 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/prj8254/vhdl/tw_8254_cnt.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/TW_8254_CNT/Behavioral 1541937504 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/prj8254/vhdl/tw_8254_cnt.vhd \
+      EN work/TW_8254_CNT 1541937503

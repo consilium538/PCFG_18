@@ -7,12 +7,12 @@ INFO:Security:63 - The LM_LICENSE_FILE environment variable is not set.
 INFO:Security:68 - For more information or for assistance in obtaining 
  a license, please run the Xilinx License Configuration Manager
        (xlcm or "Manage Xilinx Licenses".)
-INFO:Security:68a - user is DH, on host DHKIM.
+INFO:Security:68a - user is dhej1, on host DESKTOP-JMJBC6K.
 ERROR:Security:14 - No feature was available for 'ISIM'.
 
 No such feature exists.
 Feature:       ISIM
-License path:  C:/.Xilinx\Xilinx.lic;C:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\Xilinx.lic;C:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\XilinxFree.lic;C:\Xilinx\14.7\ISE_DS\EDK/data/core_licenses\Xilinx.lic;
+License path:  C:/.Xilinx\Xilinx.lic;D:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\Xilinx.lic;D:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\XilinxFree.lic;D:\Xilinx\14.7\ISE_DS\EDK/data/core_licenses\Xilinx.lic;
 FLEXnet Licensing error:-5,357
 For further information, refer to the FLEXnet Licensing documentation,
 available at "www.flexerasoftware.com".
@@ -25,3 +25,16 @@ Time resolution is 1 ps
 # run 1.00us
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
+at 205 ns(2): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_mem/uut/ram0/U0/native_mem_module/mem_module/).
+at 205 ns(2), Instance /tb_mem/uut/ram0/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 00000000000, B read address: 00000000000
+
+at 210 ns(2), Instance /tb_mem/uut/ram0/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 00000000001, B read address: 00000000001
+
+at 215 ns(2), Instance /tb_mem/uut/ram0/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 00000000001, B read address: 00000000001
+
+at 220 ns(2), Instance /tb_mem/uut/ram0/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 00000000010, B read address: 00000000010
+
+at 225 ns(2), Instance /tb_mem/uut/ram0/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 00000000010, B read address: 00000000010
+
+at 230 ns(2), Instance /tb_mem/uut/ram0/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 00000000011, B read address: 00000000011
+

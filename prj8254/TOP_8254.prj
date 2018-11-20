@@ -1,0 +1,2 @@
+vhdl work "vhdl/tw_8254_cnt.vhd"
+vhdl work "vhdl/top_8254.vhd"

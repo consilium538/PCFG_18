@@ -1,0 +1,3 @@
+vhdl isim_temp "CompSub.vhd"
+vhdl isim_temp "Averager.vhd"
+vhdl isim_temp "tb_avg.vhd"

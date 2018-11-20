@@ -1,0 +1,3 @@
+work	"ipcore_dir/dual_port_ram.vhd"
+work	"vhdl/MemProve.vhd"
+work	"vhdl/remcontroller.vhd"

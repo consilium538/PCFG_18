@@ -7,17 +7,17 @@
 -- \   \   \/     Version: P.20131013
 --  \   \         Application: netgen
 --  /   /         Filename: MemProve_synthesis.vhd
--- /___/   /\     Timestamp: Tue Nov 20 19:22:05 2018
+-- /___/   /\     Timestamp: Tue Nov 20 23:07:57 2018
 -- \   \  /  \ 
 --  \___\/\___\
 --             
 -- Command	: -intstyle ise -ar Structure -tm MemProve -w -dir netgen/synthesis -ofmt vhdl -sim MemProve.ngc MemProve_synthesis.vhd 
 -- Device	: xc3s5000-4-fg900
 -- Input file	: MemProve.ngc
--- Output file	: C:\KDH\Doc\18y6s\adca\PCFG\PCFG_18\MemProve\netgen\synthesis\MemProve_synthesis.vhd
+-- Output file	: D:\study\sogang\18y6s\adca\Project\PCFG_18\MemProve\netgen\synthesis\MemProve_synthesis.vhd
 -- # of Entities	: 1
 -- Design Name	: MemProve
--- Xilinx	: C:\Xilinx\14.7\ISE_DS\ISE\
+-- Xilinx	: D:\Xilinx\14.7\ISE_DS\ISE\
 --             
 -- Purpose:    
 --     This VHDL netlist is a verification model and uses simulation 
@@ -32,6 +32,8 @@
 --             
 --------------------------------------------------------------------------------
 
+
+-- synthesis translate_off
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
@@ -60,15 +62,15 @@ end MemProve;
 architecture Structure of MemProve is
   component dual_port_ram
     port (
-      ENA : in STD_LOGIC := 'X'; 
-      ENB : in STD_LOGIC := 'X'; 
-      CLKA : in STD_LOGIC := 'X'; 
-      CLKB : in STD_LOGIC := 'X'; 
-      DOUTB : out STD_LOGIC_VECTOR ( 7 downto 0 ); 
-      WEA : in STD_LOGIC_VECTOR ( 0 downto 0 ); 
-      ADDRA : in STD_LOGIC_VECTOR ( 10 downto 0 ); 
-      ADDRB : in STD_LOGIC_VECTOR ( 10 downto 0 ); 
-      DINA : in STD_LOGIC_VECTOR ( 7 downto 0 ) 
+      clka : in STD_LOGIC := 'X'; 
+      ena : in STD_LOGIC := 'X'; 
+      clkb : in STD_LOGIC := 'X'; 
+      enb : in STD_LOGIC := 'X'; 
+      wea : in STD_LOGIC_VECTOR ( 0 downto 0 ); 
+      addra : in STD_LOGIC_VECTOR ( 10 downto 0 ); 
+      dina : in STD_LOGIC_VECTOR ( 7 downto 0 ); 
+      addrb : in STD_LOGIC_VECTOR ( 10 downto 0 ); 
+      doutb : out STD_LOGIC_VECTOR ( 7 downto 0 ) 
     );
   end component;
   signal N0 : STD_LOGIC; 
@@ -164,52 +166,6 @@ begin
   XST_VCC : VCC
     port map (
       P => N1
-    );
-  ram0 : dual_port_ram
-    port map (
-      ENA => m_ramen_IBUF_109,
-      ENB => m_ramen_IBUF_109,
-      CLKA => m_clk_BUFGP_103,
-      CLKB => m_clk_BUFGP_103,
-      DOUTB(7) => m_Dout_7_OBUF_101,
-      DOUTB(6) => m_Dout_6_OBUF_100,
-      DOUTB(5) => m_Dout_5_OBUF_99,
-      DOUTB(4) => m_Dout_4_OBUF_98,
-      DOUTB(3) => m_Dout_3_OBUF_97,
-      DOUTB(2) => m_Dout_2_OBUF_96,
-      DOUTB(1) => m_Dout_1_OBUF_95,
-      DOUTB(0) => m_Dout_0_OBUF_94,
-      WEA(0) => m_ramwr_IBUF_111,
-      ADDRA(10) => remctr_s_Cnt(10),
-      ADDRA(9) => remctr_s_Cnt(9),
-      ADDRA(8) => remctr_s_Cnt(8),
-      ADDRA(7) => remctr_s_Cnt(7),
-      ADDRA(6) => remctr_s_Cnt(6),
-      ADDRA(5) => remctr_s_Cnt(5),
-      ADDRA(4) => remctr_s_Cnt(4),
-      ADDRA(3) => remctr_s_Cnt(3),
-      ADDRA(2) => remctr_s_Cnt(2),
-      ADDRA(1) => remctr_s_Cnt(1),
-      ADDRA(0) => remctr_s_Cnt(0),
-      ADDRB(10) => remctr_s_Cnt(10),
-      ADDRB(9) => remctr_s_Cnt(9),
-      ADDRB(8) => remctr_s_Cnt(8),
-      ADDRB(7) => remctr_s_Cnt(7),
-      ADDRB(6) => remctr_s_Cnt(6),
-      ADDRB(5) => remctr_s_Cnt(5),
-      ADDRB(4) => remctr_s_Cnt(4),
-      ADDRB(3) => remctr_s_Cnt(3),
-      ADDRB(2) => remctr_s_Cnt(2),
-      ADDRB(1) => remctr_s_Cnt(1),
-      ADDRB(0) => remctr_s_Cnt(0),
-      DINA(7) => m_Din_7_IBUF_85,
-      DINA(6) => m_Din_6_IBUF_84,
-      DINA(5) => m_Din_5_IBUF_83,
-      DINA(4) => m_Din_4_IBUF_82,
-      DINA(3) => m_Din_3_IBUF_81,
-      DINA(2) => m_Din_2_IBUF_80,
-      DINA(1) => m_Din_1_IBUF_79,
-      DINA(0) => m_Din_0_IBUF_78
     );
   remctr_Mcompar_m_comp_cmp_le0000_cy_10_Q : MUXCY
     port map (
@@ -1458,6 +1414,53 @@ begin
       I3 => remctr_s_Reg(9),
       LO => N36
     );
+  ram0 : dual_port_ram
+    port map (
+      clka => m_clk_BUFGP_103,
+      ena => m_ramen_IBUF_109,
+      clkb => m_clk_BUFGP_103,
+      enb => m_ramen_IBUF_109,
+      wea(0) => m_ramwr_IBUF_111,
+      addra(10) => remctr_s_Cnt(10),
+      addra(9) => remctr_s_Cnt(9),
+      addra(8) => remctr_s_Cnt(8),
+      addra(7) => remctr_s_Cnt(7),
+      addra(6) => remctr_s_Cnt(6),
+      addra(5) => remctr_s_Cnt(5),
+      addra(4) => remctr_s_Cnt(4),
+      addra(3) => remctr_s_Cnt(3),
+      addra(2) => remctr_s_Cnt(2),
+      addra(1) => remctr_s_Cnt(1),
+      addra(0) => remctr_s_Cnt(0),
+      dina(7) => m_Din_7_IBUF_85,
+      dina(6) => m_Din_6_IBUF_84,
+      dina(5) => m_Din_5_IBUF_83,
+      dina(4) => m_Din_4_IBUF_82,
+      dina(3) => m_Din_3_IBUF_81,
+      dina(2) => m_Din_2_IBUF_80,
+      dina(1) => m_Din_1_IBUF_79,
+      dina(0) => m_Din_0_IBUF_78,
+      addrb(10) => remctr_s_Cnt(10),
+      addrb(9) => remctr_s_Cnt(9),
+      addrb(8) => remctr_s_Cnt(8),
+      addrb(7) => remctr_s_Cnt(7),
+      addrb(6) => remctr_s_Cnt(6),
+      addrb(5) => remctr_s_Cnt(5),
+      addrb(4) => remctr_s_Cnt(4),
+      addrb(3) => remctr_s_Cnt(3),
+      addrb(2) => remctr_s_Cnt(2),
+      addrb(1) => remctr_s_Cnt(1),
+      addrb(0) => remctr_s_Cnt(0),
+      doutb(7) => m_Dout_7_OBUF_101,
+      doutb(6) => m_Dout_6_OBUF_100,
+      doutb(5) => m_Dout_5_OBUF_99,
+      doutb(4) => m_Dout_4_OBUF_98,
+      doutb(3) => m_Dout_3_OBUF_97,
+      doutb(2) => m_Dout_2_OBUF_96,
+      doutb(1) => m_Dout_1_OBUF_95,
+      doutb(0) => m_Dout_0_OBUF_94
+    );
 
 end Structure;
 
+-- synthesis translate_on

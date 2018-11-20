@@ -1,0 +1,29 @@
+Command line:
+   RemController_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  51752
+
+Sat Nov 17 14:39:28 2018
+
+
+ Elaboration Time: 0.078125 sec
+
+ Current Memory Usage: 5178.02 Meg
+
+ Total Signals          : 10
+ Total Nets             : 61
+ Total Signal Drivers   : 5
+ Total Blocks           : 4
+ Total Primitive Blocks : 4
+ Total Processes        : 5
+ Total Traceable Variables  : 10
+ Total Scalar Nets and Variables : 439
+Total Line Count : 11
+
+ Total Simulation Time: 0.078125 sec
+
+ Current Memory Usage: 5178.02 Meg
+
+Sat Nov 17 14:39:34 2018
+

@@ -1,0 +1,2 @@
+vhdl work "vhdl/cnt_11bit.vhd"
+vhdl work "vhdl/cnt_testbench.vhd"

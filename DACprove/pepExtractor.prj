@@ -1,0 +1,4 @@
+work	"ipcore_dir/sram.vhd"
+work	"vhdl/DACcnt.vhd"
+work	"vhdl/DACprove.vhd"
+work	"vhdl/remcontroller.vhd"

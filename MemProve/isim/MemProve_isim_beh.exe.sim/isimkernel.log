@@ -1,0 +1,29 @@
+Command line:
+   MemProve_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  53936
+
+Fri Nov 16 22:45:14 2018
+
+
+ Elaboration Time: 0.0625 sec
+
+ Current Memory Usage: 5190.71 Meg
+
+ Total Signals          : 247
+ Total Nets             : 16942
+ Total Signal Drivers   : 74
+ Total Blocks           : 19
+ Total Primitive Blocks : 11
+ Total Processes        : 47
+ Total Traceable Variables  : 226
+ Total Scalar Nets and Variables : 18294
+Total Line Count : 353
+
+ Total Simulation Time: 0.0625 sec
+
+ Current Memory Usage: 5190.71 Meg
+
+Fri Nov 16 22:45:17 2018
+

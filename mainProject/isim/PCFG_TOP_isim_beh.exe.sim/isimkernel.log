@@ -1,0 +1,29 @@
+Command line:
+   PCFG_TOP_isim_beh.exe
+     -simmode  gui
+     -simrunnum  1
+     -socket  50358
+
+Mon Nov 19 04:43:54 2018
+
+
+ Elaboration Time: 0.1875 sec
+
+ Current Memory Usage: 5241.58 Meg
+
+ Total Signals          : 1276
+ Total Nets             : 68582
+ Total Signal Drivers   : 451
+ Total Blocks           : 75
+ Total Primitive Blocks : 43
+ Total Processes        : 286
+ Total Traceable Variables  : 881
+ Total Scalar Nets and Variables : 71497
+Total Line Count : 1820
+
+ Total Simulation Time: 0.265625 sec
+
+ Current Memory Usage: 5241.58 Meg
+
+Mon Nov 19 04:44:05 2018
+

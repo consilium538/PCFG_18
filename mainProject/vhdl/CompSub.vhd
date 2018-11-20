@@ -16,16 +16,12 @@ entity CompSub is
 end CompSub;
 
 architecture Behavioral of CompSub is
+    signal s_div_comp : std_logic := '0';
 begin
-    process(m_dividend, m_divisor) -- accumulation
-    begin
-        if m_dividend >= m_divisor then
-            m_quotient <= '1';
-            m_remainder <= m_dividend - m_divisor;
-        else
-            m_quotient <= '0';
-            m_remainder <= m_dividend;
-        end if;
-    end process;
+    s_div_comp  <= '1' when m_dividend >= m_divisor else
+                   '0';
+    m_quotient  <= s_div_comp;
+    m_remainder <= m_dividend - m_divisor when s_div_comp = '1' else
+                   m_dividend;
 end Behavioral;
 

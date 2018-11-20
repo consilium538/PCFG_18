@@ -1,0 +1,4 @@
+xst -intstyle ise -ifn "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/MemTransfer.xst" -ofn "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/MemTransfer.syr" 
+xst -intstyle ise -ifn "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/MemTransfer.xst" -ofn "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/MemTransfer.syr" 
+xst -intstyle ise -ifn "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/MemTransfer.xst" -ofn "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/MemTransfer.syr" 
+xst -intstyle ise -ifn "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/MemTransfer.xst" -ofn "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemTransfer/MemTransfer.syr" 

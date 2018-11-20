@@ -1,20 +1,51 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisim -lib unimacro -lib xilinxcorelib -lib secureip -o x_synthesis.exe -prj postsynthesis.prj work.tb_remctr 
+Running: D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisim -lib unimacro -lib xilinxcorelib -lib secureip -o x_synthesis.exe -prj postsynthesis.prj work.tb_mem 
 ISim P.20131013 (signature 0x7708f090)
-Number of CPUs detected in this system: 4
-Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
 Determining compilation order of HDL files
 Parsing VHDL file "netgen/synthesis/MemProve_synthesis.vhd" into library work
-Parsing VHDL file "vhdl/tb_remctr.vhd" into library work
+Parsing VHDL file "vhdl/tb_mem.vhd" into library work
 Starting static elaboration
-WARNING:HDLCompiler:89 - "vhdl/tb_remctr.vhd" Line 74: <remcontroller> remains a black-box since it has no binding entity.
 Completed static elaboration
-WARNING:Simulator:648 - "vhdl/tb_remctr.vhd" Line 74. Instance remcontroller is unbound
 Compiling package standard
 Compiling package std_logic_1164
-Compiling architecture behavior of entity tb_remctr
+Compiling package vcomponents
+Compiling package textio
+Compiling package vital_timing
+Compiling package vital_primitives
+Compiling package vpkg
+Compiling architecture gnd_v of entity GND [gnd_default]
+Compiling architecture vcc_v of entity VCC [vcc_default]
+Compiling architecture muxcy_v of entity MUXCY [muxcy_default]
+Compiling architecture lut2_v of entity LUT2 [\LUT2("1001")(0,3)\]
+Compiling architecture xorcy_v of entity XORCY [xorcy_default]
+Compiling architecture fdre_v of entity FDRE [\FDRE('0')\]
+Compiling architecture fde_v of entity FDE [\FDE('0')\]
+Compiling architecture lut4_v of entity LUT4 [\LUT4("1001000111000100")(0,15)\]
+Compiling architecture lut3_v of entity LUT3 [\LUT3("10101100")(0,7)\]
+Compiling architecture ibuf_v of entity IBUF [\IBUF("DONT_CARE","0",true,"AUTO...]
+Compiling architecture obuf_v of entity OBUF [\OBUF("DONT_CARE",12,"DEFAULT","...]
+Compiling architecture lut1_v of entity LUT1 [\LUT1("0010")(0,3)\]
+Compiling architecture muxf5_v of entity MUXF5 [muxf5_default]
+Compiling architecture bufgp_v of entity BUFGP [bufgp_default]
+Compiling architecture inv_v of entity INV [inv_default]
+Compiling architecture lut4_l_v of entity LUT4_L [\LUT4_L("1001000111000100")(0,15...]
+Compiling architecture lut3_d_v of entity LUT3_D [\LUT3_D("10000000")(0,7)\]
+Compiling architecture lut3_l_v of entity LUT3_L [\LUT3_L("10000000")(0,7)\]
+Compiling architecture lut4_d_v of entity LUT4_D [\LUT4_D("1000000000000000")(0,15...]
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package std_logic_textio
+Compiling architecture output_stage_behavioral of entity BLK_MEM_GEN_V7_3_output_stage [\BLK_MEM_GEN_V7_3_output_stage("...]
+Compiling architecture softecc_output_reg_stage_behavioral of entity BLK_MEM_GEN_V7_3_softecc_output_reg_stage [\BLK_MEM_GEN_V7_3_softecc_output...]
+Compiling architecture mem_module_behavioral of entity BLK_MEM_GEN_V7_3_mem_module [\BLK_MEM_GEN_V7_3_mem_module("bl...]
+Compiling architecture behavioral of entity BLK_MEM_GEN_V7_3 [\BLK_MEM_GEN_V7_3("blk_mem_gen_v...]
+Compiling architecture dual_port_ram_a of entity dual_port_ram [dual_port_ram_default]
+Compiling architecture structure of entity MemProve [memprove_default]
+Compiling architecture behavior of entity tb_mem
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
-Compiled 3 VHDL Units
+Compiled 85 VHDL Units
 Built simulation executable x_synthesis.exe
-Fuse Memory Usage: 47880 KB
-Fuse CPU Usage: 1140 ms
+Fuse Memory Usage: 63036 KB
+Fuse CPU Usage: 1281 ms

@@ -1,0 +1,17 @@
+V3 8
+FL D:/study/sogang/18y6s/adca/Project/PCFG_18/avrager/Averager.vhd 2018/11/15.19:44:08 P.20131013
+EN work/Averager 1542289871 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/avrager/Averager.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179 LB UNISIM PH unisim/VCOMPONENTS 1381692182
+AR work/Averager/Behavioral 1542289872 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/avrager/Averager.vhd \
+      EN work/Averager 1542289871 CP CompSub
+FL D:/study/sogang/18y6s/adca/Project/PCFG_18/avrager/CompSub.vhd 2018/11/15.19:52:05 P.20131013
+EN work/CompSub 1542289869 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/avrager/CompSub.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179 LB UNISIM PH unisim/VCOMPONENTS 1381692182
+AR work/CompSub/Behavioral 1542289870 \
+      FL D:/study/sogang/18y6s/adca/Project/PCFG_18/avrager/CompSub.vhd \
+      EN work/CompSub 1542289869

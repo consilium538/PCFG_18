@@ -1,0 +1,3 @@
+work	"ipcore_dir/sram0.vhd"
+work	"vhdl/MemTransfer.vhd"
+work	"vhdl/remcontroller.vhd"

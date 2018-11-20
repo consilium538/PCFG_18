@@ -1,0 +1,3 @@
+vhdl work "CompSub.vhd"
+vhdl work "Averager.vhd"
+vhdl work "tb_avg.vhd"

@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: MemProve.prj
 
@@ -107,32 +107,29 @@ Cores Search Directories           : {"ipcore_dir"  }
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/ipcore_dir/dual_port_ram.vhd" in Library work.
-Entity <dual_port_ram> compiled.
-Entity <dual_port_ram> (Architecture <dual_port_ram_a>) compiled.
-Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/vhdl/remcontroller.vhd" in Library work.
-Entity <RemController> compiled.
-Entity <RemController> (Architecture <Behavioral>) compiled.
-Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/vhdl/MemProve.vhd" in Library work.
-Entity <MemProve> compiled.
-Entity <MemProve> (Architecture <Behavioral>) compiled.
+Compiling vhdl file "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemProve/ipcore_dir/dual_port_ram.vhd" in Library work.
+Architecture dual_port_ram_a of Entity dual_port_ram is up to date.
+Compiling vhdl file "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemProve/vhdl/remcontroller.vhd" in Library work.
+Architecture behavioral of Entity remcontroller is up to date.
+Compiling vhdl file "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemProve/vhdl/MemProve.vhd" in Library work.
+Architecture behavioral of Entity memprove is up to date.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
 =========================================================================
-Analyzing hierarchy for entity <MemProve> in library <work> (architecture <Behavioral>).
+Analyzing hierarchy for entity <MemProve> in library <work> (architecture <behavioral>).
 
-Analyzing hierarchy for entity <RemController> in library <work> (architecture <Behavioral>).
+Analyzing hierarchy for entity <RemController> in library <work> (architecture <behavioral>).
 
 
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
-Analyzing Entity <MemProve> in library <work> (Architecture <Behavioral>).
-WARNING:Xst:2211 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/vhdl/MemProve.vhd" line 69: Instantiating black box module <dual_port_ram>.
+Analyzing Entity <MemProve> in library <work> (Architecture <behavioral>).
+WARNING:Xst:2211 - "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemProve/vhdl/MemProve.vhd" line 69: Instantiating black box module <dual_port_ram>.
 Entity <MemProve> analyzed. Unit <MemProve> generated.
 
-Analyzing Entity <RemController> in library <work> (Architecture <Behavioral>).
+Analyzing Entity <RemController> in library <work> (Architecture <behavioral>).
 Entity <RemController> analyzed. Unit <RemController> generated.
 
 
@@ -143,7 +140,7 @@ Entity <RemController> analyzed. Unit <RemController> generated.
 Performing bidirectional port resolution...
 
 Synthesizing Unit <RemController>.
-    Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/vhdl/remcontroller.vhd".
+    Related source file is "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemProve/vhdl/remcontroller.vhd".
     Found 11-bit comparator lessequal for signal <m_comp$cmp_le0000> created at line 26.
     Found 11-bit up counter for signal <s_Cnt>.
     Found 11-bit register for signal <s_Reg>.
@@ -157,7 +154,7 @@ Unit <RemController> synthesized.
 
 
 Synthesizing Unit <MemProve>.
-    Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/MemProve/vhdl/MemProve.vhd".
+    Related source file is "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemProve/vhdl/MemProve.vhd".
 WARNING:Xst:1306 - Output <m_Cnt> is never assigned.
 WARNING:Xst:1306 - Output <m_comp> is never assigned.
 Unit <MemProve> synthesized.
@@ -182,6 +179,8 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+Reading core <ipcore_dir/dual_port_ram.ngc>.
+Loading core <dual_port_ram> for timing and area information for instance <ram0>.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -201,20 +200,13 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram of type RAMB16_S9_S9 has been replaced by RAMB16
 
 Optimizing unit <MemProve> ...
 
 Optimizing unit <RemController> ...
 
 Mapping all equations...
-WARNING:Xst:2036 - Inserting OBUF on port <m_Dout<7>> driven by black box <dual_port_ram>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <m_Dout<6>> driven by black box <dual_port_ram>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <m_Dout<5>> driven by black box <dual_port_ram>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <m_Dout<4>> driven by black box <dual_port_ram>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <m_Dout<3>> driven by black box <dual_port_ram>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <m_Dout<2>> driven by black box <dual_port_ram>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <m_Dout<1>> driven by black box <dual_port_ram>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <m_Dout<0>> driven by black box <dual_port_ram>. Possible simulation mismatch.
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block MemProve, actual ratio is 0.
 
@@ -254,8 +246,8 @@ Design Statistics
 # IOs                              : 69
 
 Cell Usage :
-# BELS                             : 95
-#      GND                         : 1
+# BELS                             : 97
+#      GND                         : 3
 #      INV                         : 1
 #      LUT1                        : 10
 #      LUT2                        : 14
@@ -272,13 +264,13 @@ Cell Usage :
 # FlipFlops/Latches                : 22
 #      FDE                         : 11
 #      FDRE                        : 11
+# RAMS                             : 1
+#      RAMB16                      : 1
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 56
 #      IBUF                        : 25
 #      OBUF                        : 31
-# Others                           : 1
-#      dual_port_ram               : 1
 =========================================================================
 
 Device utilization summary:
@@ -291,6 +283,7 @@ Selected Device : 3s5000fg900-4
  Number of 4 input LUTs:                 56  out of  66560     0%  
  Number of IOs:                          69
  Number of bonded IOBs:                  57  out of    633     9%  
+ Number of BRAMs:                         1  out of    104     0%  
  Number of GCLKs:                         1  out of      8    12%  
 
 ---------------------------
@@ -314,7 +307,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-m_clk                              | BUFGP                  | 22    |
+m_clk                              | BUFGP                  | 23    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -328,7 +321,7 @@ Speed Grade: -4
    Minimum period: 5.638ns (Maximum Frequency: 177.368MHz)
    Minimum input arrival time before clock: 5.251ns
    Maximum output required time after clock: 10.373ns
-   Maximum combinational path delay: 6.445ns
+   Maximum combinational path delay: No path found
 
 Timing Detail:
 --------------
@@ -337,7 +330,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'm_clk'
   Clock period: 5.638ns (frequency: 177.368MHz)
-  Total number of paths / destination ports: 141 / 22
+  Total number of paths / destination ports: 163 / 44
 -------------------------------------------------------------------------
 Delay:               5.638ns (Levels of Logic = 3)
   Source:            remctr/s_Reg_2 (FF)
@@ -360,7 +353,7 @@ Delay:               5.638ns (Levels of Logic = 3)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'm_clk'
-  Total number of paths / destination ports: 106 / 44
+  Total number of paths / destination ports: 116 / 54
 -------------------------------------------------------------------------
 Offset:              5.251ns (Levels of Logic = 4)
   Source:            m_sel<0> (PAD)
@@ -382,7 +375,7 @@ Offset:              5.251ns (Levels of Logic = 4)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'm_clk'
-  Total number of paths / destination ports: 77 / 45
+  Total number of paths / destination ports: 55 / 23
 -------------------------------------------------------------------------
 Offset:              10.373ns (Levels of Logic = 13)
   Source:            remctr/s_Reg_0 (FF)
@@ -412,34 +405,16 @@ Offset:              10.373ns (Levels of Logic = 13)
                                        (80.0% logic, 20.0% route)
 
 =========================================================================
-Timing constraint: Default path analysis
-  Total number of paths / destination ports: 21 / 21
--------------------------------------------------------------------------
-Delay:               6.445ns (Levels of Logic = 1)
-  Source:            ram0:DOUTB<7> (PAD)
-  Destination:       m_Dout<7> (PAD)
-
-  Data Path: ram0:DOUTB<7> to m_Dout<7>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-    dual_port_ram:DOUTB<7>    1   0.000   0.801  ram0 (m_Dout_7_OBUF)
-     OBUF:I->O                 5.644          m_Dout_7_OBUF (m_Dout<7>)
-    ----------------------------------------
-    Total                      6.445ns (5.644ns logic, 0.801ns route)
-                                       (87.6% logic, 12.4% route)
-
-=========================================================================
 
 
 Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 5.03 secs
+Total CPU time to Xst completion: 4.43 secs
  
 --> 
 
-Total memory usage is 4550220 kilobytes
+Total memory usage is 4534824 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   11 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of warnings :    3 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
 

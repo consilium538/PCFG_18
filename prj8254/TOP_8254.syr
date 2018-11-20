@@ -1,0 +1,873 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Reading design: TOP_8254.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "TOP_8254.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "TOP_8254"
+Output Format                      : NGC
+Target Device                      : xc3s5000-4-fg900
+
+---- Source Options
+Top Module Name                    : TOP_8254
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "D:/study/sogang/18y6s/adca/Project/PCFG_18/prj8254/vhdl/tw_8254_cnt.vhd" in Library work.
+Architecture behavioral of Entity tw_8254_cnt is up to date.
+Compiling vhdl file "D:/study/sogang/18y6s/adca/Project/PCFG_18/prj8254/vhdl/top_8254.vhd" in Library work.
+Architecture behavioral of Entity top_8254 is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <TOP_8254> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <TW_8254_CNT> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <TOP_8254> in library <work> (Architecture <behavioral>).
+Entity <TOP_8254> analyzed. Unit <TOP_8254> generated.
+
+Analyzing Entity <TW_8254_CNT> in library <work> (Architecture <behavioral>).
+INFO:Xst:2679 - Register <s_CNT3> in unit <TW_8254_CNT> has a constant value of 0000000100000100 during circuit operation. The register is replaced by logic.
+Entity <TW_8254_CNT> analyzed. Unit <TW_8254_CNT> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <TW_8254_CNT>.
+    Related source file is "D:/study/sogang/18y6s/adca/Project/PCFG_18/prj8254/vhdl/tw_8254_cnt.vhd".
+WARNING:Xst:1780 - Signal <s_temp2> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <s_temp1> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_CNT3_2_rst> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_CNT3_2<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_CNT3_1_rst> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_CNT3_1<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_CNT3> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 16-bit down counter for signal <s_CNT2>.
+    Found 16-bit adder for signal <s_CNT3_1>.
+    Found 16-bit subtractor for signal <s_CNT3_2>.
+    Found 15-bit register for signal <s_CNT3_D>.
+    Found 15-bit subtractor for signal <s_CNT3_D$addsub0000> created at line 144.
+    Found 15-bit register for signal <s_CNT3_U>.
+    Found 15-bit subtractor for signal <s_CNT3_U$share0000>.
+    Found 1-bit register for signal <s_CNT3_UD>.
+    Found 1-bit register for signal <s_mode>.
+    Found 16-bit register for signal <s_REG>.
+    Found 1-bit register for signal <s_wr_L>.
+    Found 1-bit register for signal <s_wr_M>.
+    Found 1-bit register for signal <s_wr_wait>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  51 D-type flip-flop(s).
+	inferred   4 Adder/Subtractor(s).
+Unit <TW_8254_CNT> synthesized.
+
+
+Synthesizing Unit <TOP_8254>.
+    Related source file is "D:/study/sogang/18y6s/adca/Project/PCFG_18/prj8254/vhdl/top_8254.vhd".
+WARNING:Xst:1780 - Signal <s_WR_WAIT> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <s_MSB_wr> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <s_LSB_wr> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <s_LM_wr> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 6                                              |
+    | Transitions        | 10                                             |
+    | Inputs             | 2                                              |
+    | Outputs            | 7                                              |
+    | Clock              | m_clk_ctr                 (rising_edge)        |
+    | Reset              | m_reset                   (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | ready                                          |
+    | Power Up State     | ready                                          |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 2-bit register for signal <s_addr>.
+    Found 8-bit register for signal <s_data>.
+    Found 1-bit register for signal <s_wr_b>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  11 D-type flip-flop(s).
+Unit <TOP_8254> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 12
+ 15-bit subtractor                                     : 6
+ 16-bit adder                                          : 3
+ 16-bit subtractor                                     : 3
+# Counters                                             : 3
+ 16-bit down counter                                   : 3
+# Registers                                            : 72
+ 1-bit register                                        : 64
+ 15-bit register                                       : 6
+ 2-bit register                                        : 1
+ 8-bit register                                        : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <state/FSM> on signal <state[1:6]> with one-hot encoding.
+----------------------
+ State    | Encoding
+----------------------
+ ready    | 000001
+ latched  | 000010
+ latched1 | 000100
+ latched2 | 001000
+ wait1    | 010000
+ wait2    | 100000
+----------------------
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 12
+ 15-bit subtractor                                     : 6
+ 16-bit adder                                          : 3
+ 16-bit subtractor                                     : 3
+# Counters                                             : 3
+ 16-bit down counter                                   : 3
+# Registers                                            : 164
+ Flip-Flops                                            : 164
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <TOP_8254> ...
+
+Optimizing unit <TW_8254_CNT> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block TOP_8254, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 218
+ Flip-Flops                                            : 218
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : TOP_8254.ngr
+Top Level Output File Name         : TOP_8254
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 23
+
+Cell Usage :
+# BELS                             : 1084
+#      GND                         : 1
+#      INV                         : 180
+#      LUT1                        : 57
+#      LUT2                        : 6
+#      LUT3                        : 95
+#      LUT3_D                      : 6
+#      LUT3_L                      : 3
+#      LUT4                        : 240
+#      LUT4_D                      : 30
+#      LUT4_L                      : 15
+#      MUXCY                       : 219
+#      MUXF5                       : 3
+#      VCC                         : 1
+#      XORCY                       : 228
+# FlipFlops/Latches                : 218
+#      FDCE                        : 96
+#      FDPE                        : 12
+#      FDR                         : 4
+#      FDRE                        : 9
+#      FDRS                        : 1
+#      FDS                         : 2
+#      FDS_1                       : 93
+#      FDSE                        : 1
+# Clock Buffers                    : 7
+#      BUFG                        : 6
+#      BUFGP                       : 1
+# IO Buffers                       : 22
+#      IBUF                        : 19
+#      OBUF                        : 3
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s5000fg900-4 
+
+ Number of Slices:                      341  out of  33280     1%  
+ Number of Slice Flip Flops:            218  out of  66560     0%  
+ Number of 4 input LUTs:                632  out of  66560     0%  
+ Number of IOs:                          23
+ Number of bonded IOBs:                  23  out of    633     3%  
+ Number of GCLKs:                         7  out of      8    87%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+m_clk_ctr                          | BUFGP                  | 17    |
+m_clk2                             | IBUF+BUFG              | 47    |
+CNT2/s_wr1(CNT2/s_wr:O)            | BUFG(*)(CNT2/s_REG_9)  | 20    |
+m_clk1                             | IBUF+BUFG              | 47    |
+CNT1/s_wr1(CNT1/s_wr:O)            | BUFG(*)(CNT1/s_REG_9)  | 20    |
+m_clk0                             | IBUF+BUFG              | 47    |
+CNT0/s_wr1(CNT0/s_wr:O)            | BUFG(*)(CNT0/s_REG_9)  | 20    |
+-----------------------------------+------------------------+-------+
+(*) These 3 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+m_reset                            | IBUF                   | 108   |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 10.028ns (Maximum Frequency: 99.721MHz)
+   Minimum input arrival time before clock: 9.149ns
+   Maximum output required time after clock: 12.797ns
+   Maximum combinational path delay: 9.703ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'm_clk_ctr'
+  Clock period: 4.487ns (frequency: 222.866MHz)
+  Total number of paths / destination ports: 24 / 18
+-------------------------------------------------------------------------
+Delay:               4.487ns (Levels of Logic = 2)
+  Source:            state_FSM_FFd2 (FF)
+  Destination:       s_wr_b (FF)
+  Source Clock:      m_clk_ctr rising
+  Destination Clock: m_clk_ctr rising
+
+  Data Path: state_FSM_FFd2 to s_wr_b
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRS:C->Q             3   0.720   1.246  state_FSM_FFd2 (state_FSM_FFd2)
+     LUT3:I0->O            2   0.551   1.216  state_FSM_FFd1-In1 (s_wr_b_mux00006)
+     LUT4:I0->O            1   0.551   0.000  s_wr_b_mux000011 (s_wr_b_mux0000)
+     FDS:D                     0.203          s_wr_b
+    ----------------------------------------
+    Total                      4.487ns (2.025ns logic, 2.462ns route)
+                                       (45.1% logic, 54.9% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'm_clk2'
+  Clock period: 10.028ns (frequency: 99.721MHz)
+  Total number of paths / destination ports: 3379 / 77
+-------------------------------------------------------------------------
+Delay:               10.028ns (Levels of Logic = 4)
+  Source:            CNT2/s_CNT3_U_4 (FF)
+  Destination:       CNT2/s_CNT3_U_14 (FF)
+  Source Clock:      m_clk2 falling
+  Destination Clock: m_clk2 falling
+
+  Data Path: CNT2/s_CNT3_U_4 to CNT2/s_CNT3_U_14
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDS_1:C->Q            3   0.720   1.246  CNT2/s_CNT3_U_4 (CNT2/s_CNT3_U_4)
+     LUT4:I0->O            1   0.551   0.996  CNT2/s_CNT3_UD_cmp_eq000025 (CNT2/s_CNT3_UD_cmp_eq000025)
+     LUT4:I1->O           13   0.551   1.196  CNT2/s_CNT3_UD_cmp_eq000071 (CNT2/s_CNT3_UD_cmp_eq0000)
+     LUT4_D:I3->O         25   0.551   1.839  CNT2/s_CNT3_D_mux0004<14>16 (CNT2/N4)
+     LUT4:I3->O            1   0.551   0.801  CNT2/s_CNT3_U_mux0000<7>14 (CNT2/s_CNT3_U_mux0000<7>14)
+     FDS_1:S                   1.026          CNT2/s_CNT3_U_6
+    ----------------------------------------
+    Total                     10.028ns (3.950ns logic, 6.078ns route)
+                                       (39.4% logic, 60.6% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CNT2/s_wr1'
+  Clock period: 4.202ns (frequency: 237.982MHz)
+  Total number of paths / destination ports: 51 / 17
+-------------------------------------------------------------------------
+Delay:               4.202ns (Levels of Logic = 1)
+  Source:            CNT2/s_wr_L (FF)
+  Destination:       CNT2/s_REG_9 (FF)
+  Source Clock:      CNT2/s_wr1 rising
+  Destination Clock: CNT2/s_wr1 rising
+
+  Data Path: CNT2/s_wr_L to CNT2/s_REG_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             3   0.720   1.246  CNT2/s_wr_L (CNT2/s_wr_L)
+     LUT4:I0->O            8   0.551   1.083  CNT2/s_REG_10_not00011 (CNT2/s_REG_10_not0001)
+     FDCE:CE                   0.602          CNT2/s_REG_10
+    ----------------------------------------
+    Total                      4.202ns (1.873ns logic, 2.329ns route)
+                                       (44.6% logic, 55.4% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'm_clk1'
+  Clock period: 10.028ns (frequency: 99.721MHz)
+  Total number of paths / destination ports: 3379 / 77
+-------------------------------------------------------------------------
+Delay:               10.028ns (Levels of Logic = 4)
+  Source:            CNT1/s_CNT3_U_4 (FF)
+  Destination:       CNT1/s_CNT3_U_14 (FF)
+  Source Clock:      m_clk1 falling
+  Destination Clock: m_clk1 falling
+
+  Data Path: CNT1/s_CNT3_U_4 to CNT1/s_CNT3_U_14
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDS_1:C->Q            3   0.720   1.246  CNT1/s_CNT3_U_4 (CNT1/s_CNT3_U_4)
+     LUT4:I0->O            1   0.551   0.996  CNT1/s_CNT3_UD_cmp_eq000025 (CNT1/s_CNT3_UD_cmp_eq000025)
+     LUT4:I1->O           13   0.551   1.196  CNT1/s_CNT3_UD_cmp_eq000071 (CNT1/s_CNT3_UD_cmp_eq0000)
+     LUT4_D:I3->O         25   0.551   1.839  CNT1/s_CNT3_D_mux0004<14>16 (CNT1/N4)
+     LUT4:I3->O            1   0.551   0.801  CNT1/s_CNT3_U_mux0000<7>14 (CNT1/s_CNT3_U_mux0000<7>14)
+     FDS_1:S                   1.026          CNT1/s_CNT3_U_6
+    ----------------------------------------
+    Total                     10.028ns (3.950ns logic, 6.078ns route)
+                                       (39.4% logic, 60.6% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CNT1/s_wr1'
+  Clock period: 4.202ns (frequency: 237.982MHz)
+  Total number of paths / destination ports: 51 / 17
+-------------------------------------------------------------------------
+Delay:               4.202ns (Levels of Logic = 1)
+  Source:            CNT1/s_wr_L (FF)
+  Destination:       CNT1/s_REG_9 (FF)
+  Source Clock:      CNT1/s_wr1 rising
+  Destination Clock: CNT1/s_wr1 rising
+
+  Data Path: CNT1/s_wr_L to CNT1/s_REG_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             3   0.720   1.246  CNT1/s_wr_L (CNT1/s_wr_L)
+     LUT4:I0->O            8   0.551   1.083  CNT1/s_REG_10_not00011 (CNT1/s_REG_10_not0001)
+     FDCE:CE                   0.602          CNT1/s_REG_10
+    ----------------------------------------
+    Total                      4.202ns (1.873ns logic, 2.329ns route)
+                                       (44.6% logic, 55.4% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'm_clk0'
+  Clock period: 10.028ns (frequency: 99.721MHz)
+  Total number of paths / destination ports: 3379 / 77
+-------------------------------------------------------------------------
+Delay:               10.028ns (Levels of Logic = 4)
+  Source:            CNT0/s_CNT3_U_4 (FF)
+  Destination:       CNT0/s_CNT3_U_14 (FF)
+  Source Clock:      m_clk0 falling
+  Destination Clock: m_clk0 falling
+
+  Data Path: CNT0/s_CNT3_U_4 to CNT0/s_CNT3_U_14
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDS_1:C->Q            3   0.720   1.246  CNT0/s_CNT3_U_4 (CNT0/s_CNT3_U_4)
+     LUT4:I0->O            1   0.551   0.996  CNT0/s_CNT3_UD_cmp_eq000025 (CNT0/s_CNT3_UD_cmp_eq000025)
+     LUT4:I1->O           13   0.551   1.196  CNT0/s_CNT3_UD_cmp_eq000071 (CNT0/s_CNT3_UD_cmp_eq0000)
+     LUT4_D:I3->O         25   0.551   1.839  CNT0/s_CNT3_D_mux0004<14>16 (CNT0/N4)
+     LUT4:I3->O            1   0.551   0.801  CNT0/s_CNT3_U_mux0000<7>14 (CNT0/s_CNT3_U_mux0000<7>14)
+     FDS_1:S                   1.026          CNT0/s_CNT3_U_6
+    ----------------------------------------
+    Total                     10.028ns (3.950ns logic, 6.078ns route)
+                                       (39.4% logic, 60.6% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CNT0/s_wr1'
+  Clock period: 4.202ns (frequency: 237.982MHz)
+  Total number of paths / destination ports: 51 / 17
+-------------------------------------------------------------------------
+Delay:               4.202ns (Levels of Logic = 1)
+  Source:            CNT0/s_wr_L (FF)
+  Destination:       CNT0/s_REG_9 (FF)
+  Source Clock:      CNT0/s_wr1 rising
+  Destination Clock: CNT0/s_wr1 rising
+
+  Data Path: CNT0/s_wr_L to CNT0/s_REG_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             3   0.720   1.246  CNT0/s_wr_L (CNT0/s_wr_L)
+     LUT4:I0->O            8   0.551   1.083  CNT0/s_REG_10_not00011 (CNT0/s_REG_10_not0001)
+     FDCE:CE                   0.602          CNT0/s_REG_10
+    ----------------------------------------
+    Total                      4.202ns (1.873ns logic, 2.329ns route)
+                                       (44.6% logic, 55.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'm_clk_ctr'
+  Total number of paths / destination ports: 41 / 34
+-------------------------------------------------------------------------
+Offset:              4.456ns (Levels of Logic = 1)
+  Source:            m_reset (PAD)
+  Destination:       s_addr_0 (FF)
+  Destination Clock: m_clk_ctr rising
+
+  Data Path: m_reset to s_addr_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           164   0.821   2.609  m_reset_IBUF (m_reset_IBUF)
+     FDRE:R                    1.026          s_addr_0
+    ----------------------------------------
+    Total                      4.456ns (1.847ns logic, 2.609ns route)
+                                       (41.4% logic, 58.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'm_clk2'
+  Total number of paths / destination ports: 260 / 78
+-------------------------------------------------------------------------
+Offset:              9.149ns (Levels of Logic = 4)
+  Source:            m_gate2 (PAD)
+  Destination:       CNT2/s_CNT3_U_14 (FF)
+  Destination Clock: m_clk2 falling
+
+  Data Path: m_gate2 to CNT2/s_CNT3_U_14
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            14   0.821   1.526  m_gate2_IBUF (m_gate2_IBUF)
+     LUT2:I0->O           11   0.551   1.483  CNT2/s_CNT3_UD_and000011 (CNT2/s_CNT3_UD_or0000)
+     LUT4_D:I0->O         25   0.551   1.839  CNT2/s_CNT3_D_mux0004<14>16 (CNT2/N4)
+     LUT4:I3->O            1   0.551   0.801  CNT2/s_CNT3_U_mux0000<7>14 (CNT2/s_CNT3_U_mux0000<7>14)
+     FDS_1:S                   1.026          CNT2/s_CNT3_U_6
+    ----------------------------------------
+    Total                      9.149ns (3.500ns logic, 5.649ns route)
+                                       (38.3% logic, 61.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CNT2/s_wr1'
+  Total number of paths / destination ports: 20 / 20
+-------------------------------------------------------------------------
+Offset:              6.123ns (Levels of Logic = 3)
+  Source:            m_gate2 (PAD)
+  Destination:       CNT2/s_REG_9 (FF)
+  Destination Clock: CNT2/s_wr1 rising
+
+  Data Path: m_gate2 to CNT2/s_REG_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            14   0.821   1.526  m_gate2_IBUF (m_gate2_IBUF)
+     LUT4:I0->O            5   0.551   0.989  s_cw2_and00001 (s_cw2)
+     LUT4:I2->O            8   0.551   1.083  CNT2/s_REG_10_not00011 (CNT2/s_REG_10_not0001)
+     FDCE:CE                   0.602          CNT2/s_REG_10
+    ----------------------------------------
+    Total                      6.123ns (2.525ns logic, 3.598ns route)
+                                       (41.2% logic, 58.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'm_clk1'
+  Total number of paths / destination ports: 260 / 78
+-------------------------------------------------------------------------
+Offset:              9.149ns (Levels of Logic = 4)
+  Source:            m_gate1 (PAD)
+  Destination:       CNT1/s_CNT3_U_14 (FF)
+  Destination Clock: m_clk1 falling
+
+  Data Path: m_gate1 to CNT1/s_CNT3_U_14
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            14   0.821   1.526  m_gate1_IBUF (m_gate1_IBUF)
+     LUT2:I0->O           11   0.551   1.483  CNT1/s_CNT3_UD_and000011 (CNT1/s_CNT3_UD_or0000)
+     LUT4_D:I0->O         25   0.551   1.839  CNT1/s_CNT3_D_mux0004<14>16 (CNT1/N4)
+     LUT4:I3->O            1   0.551   0.801  CNT1/s_CNT3_U_mux0000<7>14 (CNT1/s_CNT3_U_mux0000<7>14)
+     FDS_1:S                   1.026          CNT1/s_CNT3_U_6
+    ----------------------------------------
+    Total                      9.149ns (3.500ns logic, 5.649ns route)
+                                       (38.3% logic, 61.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CNT1/s_wr1'
+  Total number of paths / destination ports: 20 / 20
+-------------------------------------------------------------------------
+Offset:              6.123ns (Levels of Logic = 3)
+  Source:            m_gate1 (PAD)
+  Destination:       CNT1/s_REG_9 (FF)
+  Destination Clock: CNT1/s_wr1 rising
+
+  Data Path: m_gate1 to CNT1/s_REG_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            14   0.821   1.526  m_gate1_IBUF (m_gate1_IBUF)
+     LUT4:I0->O            5   0.551   0.989  s_cw1_and00001 (s_cw1)
+     LUT4:I2->O            8   0.551   1.083  CNT1/s_REG_10_not00011 (CNT1/s_REG_10_not0001)
+     FDCE:CE                   0.602          CNT1/s_REG_10
+    ----------------------------------------
+    Total                      6.123ns (2.525ns logic, 3.598ns route)
+                                       (41.2% logic, 58.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'm_clk0'
+  Total number of paths / destination ports: 260 / 78
+-------------------------------------------------------------------------
+Offset:              9.149ns (Levels of Logic = 4)
+  Source:            m_gate0 (PAD)
+  Destination:       CNT0/s_CNT3_U_14 (FF)
+  Destination Clock: m_clk0 falling
+
+  Data Path: m_gate0 to CNT0/s_CNT3_U_14
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            14   0.821   1.526  m_gate0_IBUF (m_gate0_IBUF)
+     LUT2:I0->O           11   0.551   1.483  CNT0/s_CNT3_UD_and000011 (CNT0/s_CNT3_UD_or0000)
+     LUT4_D:I0->O         25   0.551   1.839  CNT0/s_CNT3_D_mux0004<14>16 (CNT0/N4)
+     LUT4:I3->O            1   0.551   0.801  CNT0/s_CNT3_U_mux0000<7>14 (CNT0/s_CNT3_U_mux0000<7>14)
+     FDS_1:S                   1.026          CNT0/s_CNT3_U_6
+    ----------------------------------------
+    Total                      9.149ns (3.500ns logic, 5.649ns route)
+                                       (38.3% logic, 61.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CNT0/s_wr1'
+  Total number of paths / destination ports: 20 / 20
+-------------------------------------------------------------------------
+Offset:              5.810ns (Levels of Logic = 3)
+  Source:            m_gate0 (PAD)
+  Destination:       CNT0/s_REG_9 (FF)
+  Destination Clock: CNT0/s_wr1 rising
+
+  Data Path: m_gate0 to CNT0/s_REG_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            14   0.821   1.213  m_gate0_IBUF (m_gate0_IBUF)
+     LUT4:I3->O            5   0.551   0.989  s_cw0_and00001 (s_cw0)
+     LUT4:I2->O            8   0.551   1.083  CNT0/s_REG_10_not00011 (CNT0/s_REG_10_not0001)
+     FDCE:CE                   0.602          CNT0/s_REG_10
+    ----------------------------------------
+    Total                      5.810ns (2.525ns logic, 3.285ns route)
+                                       (43.5% logic, 56.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CNT0/s_wr1'
+  Total number of paths / destination ports: 17 / 1
+-------------------------------------------------------------------------
+Offset:              12.171ns (Levels of Logic = 4)
+  Source:            CNT0/s_REG_14 (FF)
+  Destination:       m_out0 (PAD)
+  Source Clock:      CNT0/s_wr1 rising
+
+  Data Path: CNT0/s_REG_14 to m_out0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             6   0.720   1.342  CNT0/s_REG_14 (CNT0/s_REG_14)
+     LUT4:I0->O            1   0.551   1.140  CNT0/s_out2_or000012 (CNT0/s_out2_or000012)
+     LUT4:I0->O            1   0.551   0.801  CNT0/s_out2_or000071 (CNT0/s_out2_or0000)
+     MUXF5:S->O            1   0.621   0.801  CNT0/m_out (m_out0_OBUF)
+     OBUF:I->O                 5.644          m_out0_OBUF (m_out0)
+    ----------------------------------------
+    Total                     12.171ns (8.087ns logic, 4.084ns route)
+                                       (66.4% logic, 33.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'm_clk0'
+  Total number of paths / destination ports: 17 / 1
+-------------------------------------------------------------------------
+Offset:              12.797ns (Levels of Logic = 5)
+  Source:            CNT0/s_CNT2_0 (FF)
+  Destination:       m_out0 (PAD)
+  Source Clock:      m_clk0 falling
+
+  Data Path: CNT0/s_CNT2_0 to m_out0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.720   1.216  CNT0/s_CNT2_0 (CNT0/s_CNT2_0)
+     LUT4:I0->O            1   0.551   1.140  CNT0/s_CNT2_cmp_eq000011 (CNT0/s_CNT2_cmp_eq000011)
+     LUT4_D:I0->O         16   0.551   1.263  CNT0/s_CNT2_cmp_eq000075 (CNT0/s_CNT2_cmp_eq0000)
+     LUT4:I3->O            1   0.551   0.000  CNT0/m_out_F (N71)
+     MUXF5:I0->O           1   0.360   0.801  CNT0/m_out (m_out0_OBUF)
+     OBUF:I->O                 5.644          m_out0_OBUF (m_out0)
+    ----------------------------------------
+    Total                     12.797ns (8.377ns logic, 4.420ns route)
+                                       (65.5% logic, 34.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CNT1/s_wr1'
+  Total number of paths / destination ports: 17 / 1
+-------------------------------------------------------------------------
+Offset:              12.171ns (Levels of Logic = 4)
+  Source:            CNT1/s_REG_14 (FF)
+  Destination:       m_out1 (PAD)
+  Source Clock:      CNT1/s_wr1 rising
+
+  Data Path: CNT1/s_REG_14 to m_out1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             6   0.720   1.342  CNT1/s_REG_14 (CNT1/s_REG_14)
+     LUT4:I0->O            1   0.551   1.140  CNT1/s_out2_or000012 (CNT1/s_out2_or000012)
+     LUT4:I0->O            1   0.551   0.801  CNT1/s_out2_or000071 (CNT1/s_out2_or0000)
+     MUXF5:S->O            1   0.621   0.801  CNT1/m_out (m_out1_OBUF)
+     OBUF:I->O                 5.644          m_out1_OBUF (m_out1)
+    ----------------------------------------
+    Total                     12.171ns (8.087ns logic, 4.084ns route)
+                                       (66.4% logic, 33.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'm_clk1'
+  Total number of paths / destination ports: 17 / 1
+-------------------------------------------------------------------------
+Offset:              12.797ns (Levels of Logic = 5)
+  Source:            CNT1/s_CNT2_0 (FF)
+  Destination:       m_out1 (PAD)
+  Source Clock:      m_clk1 falling
+
+  Data Path: CNT1/s_CNT2_0 to m_out1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.720   1.216  CNT1/s_CNT2_0 (CNT1/s_CNT2_0)
+     LUT4:I0->O            1   0.551   1.140  CNT1/s_CNT2_cmp_eq000011 (CNT1/s_CNT2_cmp_eq000011)
+     LUT4_D:I0->O         16   0.551   1.263  CNT1/s_CNT2_cmp_eq000075 (CNT1/s_CNT2_cmp_eq0000)
+     LUT4:I3->O            1   0.551   0.000  CNT1/m_out_F (N69)
+     MUXF5:I0->O           1   0.360   0.801  CNT1/m_out (m_out1_OBUF)
+     OBUF:I->O                 5.644          m_out1_OBUF (m_out1)
+    ----------------------------------------
+    Total                     12.797ns (8.377ns logic, 4.420ns route)
+                                       (65.5% logic, 34.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CNT2/s_wr1'
+  Total number of paths / destination ports: 17 / 1
+-------------------------------------------------------------------------
+Offset:              12.171ns (Levels of Logic = 4)
+  Source:            CNT2/s_REG_14 (FF)
+  Destination:       m_out2 (PAD)
+  Source Clock:      CNT2/s_wr1 rising
+
+  Data Path: CNT2/s_REG_14 to m_out2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             6   0.720   1.342  CNT2/s_REG_14 (CNT2/s_REG_14)
+     LUT4:I0->O            1   0.551   1.140  CNT2/s_out2_or000012 (CNT2/s_out2_or000012)
+     LUT4:I0->O            1   0.551   0.801  CNT2/s_out2_or000071 (CNT2/s_out2_or0000)
+     MUXF5:S->O            1   0.621   0.801  CNT2/m_out (m_out2_OBUF)
+     OBUF:I->O                 5.644          m_out2_OBUF (m_out2)
+    ----------------------------------------
+    Total                     12.171ns (8.087ns logic, 4.084ns route)
+                                       (66.4% logic, 33.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'm_clk2'
+  Total number of paths / destination ports: 17 / 1
+-------------------------------------------------------------------------
+Offset:              12.797ns (Levels of Logic = 5)
+  Source:            CNT2/s_CNT2_0 (FF)
+  Destination:       m_out2 (PAD)
+  Source Clock:      m_clk2 falling
+
+  Data Path: CNT2/s_CNT2_0 to m_out2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.720   1.216  CNT2/s_CNT2_0 (CNT2/s_CNT2_0)
+     LUT4:I0->O            1   0.551   1.140  CNT2/s_CNT2_cmp_eq000011 (CNT2/s_CNT2_cmp_eq000011)
+     LUT4_D:I0->O         16   0.551   1.263  CNT2/s_CNT2_cmp_eq000075 (CNT2/s_CNT2_cmp_eq0000)
+     LUT4:I3->O            1   0.551   0.000  CNT2/m_out_F (N67)
+     MUXF5:I0->O           1   0.360   0.801  CNT2/m_out (m_out2_OBUF)
+     OBUF:I->O                 5.644          m_out2_OBUF (m_out2)
+    ----------------------------------------
+    Total                     12.797ns (8.377ns logic, 4.420ns route)
+                                       (65.5% logic, 34.5% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 9 / 3
+-------------------------------------------------------------------------
+Delay:               9.703ns (Levels of Logic = 4)
+  Source:            m_gate0 (PAD)
+  Destination:       m_out0 (PAD)
+
+  Data Path: m_gate0 to m_out0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            14   0.821   1.526  m_gate0_IBUF (m_gate0_IBUF)
+     LUT3:I0->O            1   0.551   0.000  CNT0/m_out_G (N72)
+     MUXF5:I1->O           1   0.360   0.801  CNT0/m_out (m_out0_OBUF)
+     OBUF:I->O                 5.644          m_out0_OBUF (m_out0)
+    ----------------------------------------
+    Total                      9.703ns (7.376ns logic, 2.327ns route)
+                                       (76.0% logic, 24.0% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 6.29 secs
+ 
+--> 
+
+Total memory usage is 4534844 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   11 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+
