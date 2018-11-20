@@ -5,5 +5,11 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="89" delta="unknown" >"vhdl/tb_remctr.vhd" Line 74: &lt;<arg fmt="%s" index="1">remcontroller</arg>&gt; remains a black-box since it has no binding entity.
+</msg>
+
+<msg type="warning" file="Simulator" num="648" delta="unknown" >&quot;<arg fmt="%s" index="1">vhdl/tb_remctr.vhd</arg>&quot; Line <arg fmt="%d" index="2">74</arg>. Instance <arg fmt="%s" index="3">remcontroller</arg> is unbound
+</msg>
+
 </messages>
 

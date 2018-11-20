@@ -1,35 +1,7 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    21:13:27 11/18/2018 
--- Design Name: 
--- Module Name:    DACcnt - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.STD_LOGIC_ARITH.ALL;
 USE IEEE.STD_LOGIC_UNSIGNED.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity DACcnt is
     Port (
@@ -42,16 +14,15 @@ entity DACcnt is
 end DACcnt;
 
 architecture Behavioral of DACcnt is
+
     type s_dac_state is (dacidle, dacload, dacplay);
 
     signal s_ps, s_ns : s_dac_state := dacidle;
     signal s_reg : std_logic_vector(10 downto 0) := (others => '0');
     signal s_cnt : std_logic_vector(10 downto 0) := (others => '0');
     signal s_enb2 : std_logic := '0';
+
 begin
-    m_Aout <= s_cnt;
-    d_reg <= s_reg;
-    m_enb2 <= s_enb2;
 
     dac_sync_proc : process(m_clk)
     begin
@@ -91,4 +62,9 @@ begin
                 end if;
         end case;
     end process;
+
+    m_Aout <= s_cnt;
+    d_reg <= s_reg;
+    m_enb2 <= s_enb2;
+
 end Behavioral;

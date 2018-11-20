@@ -1,3 +1,7 @@
 cd C:\KDH\Doc\18y6s\adca\PCFG\PCFG_18\mainProject
-fuse -intstyle ise -incremental -lib unisim -lib unimacro -lib xilinxcorelib -lib secureip -o x_synthesis.exe -prj postsystehsis.prj work.tb_pcfg
+fuse -intstyle ise -incremental -lib unisim -lib unimacro -lib xilinxcorelib -lib secureip -o x_synthesis.exe -prj postsynthesis.prj work.tb_pcfg
+x_synthesis.exe -gui
+
+cd C:\KDH\Doc\18y6s\adca\PCFG\PCFG_18\MemProve
+fuse -intstyle ise -incremental -lib unisim -lib unimacro -lib xilinxcorelib -lib secureip -o x_synthesis.exe -prj postsynthesis.prj work.tb_remctr
 x_synthesis.exe -gui

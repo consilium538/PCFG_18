@@ -6,15 +6,15 @@ Determining compilation order of HDL files
 Parsing VHDL file "netgen/synthesis/PCFG_TOP_synthesis.vhd" into library work
 Parsing VHDL file "vhdl/tb_pcfg.vhd" into library work
 Starting static elaboration
-WARNING:HDLCompiler:89 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14618: <sram2k> remains a black-box since it has no binding entity.
-WARNING:HDLCompiler:89 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14664: <sram2k> remains a black-box since it has no binding entity.
-WARNING:HDLCompiler:89 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14710: <sram2k> remains a black-box since it has no binding entity.
-WARNING:HDLCompiler:89 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14756: <sram2k> remains a black-box since it has no binding entity.
+WARNING:HDLCompiler:89 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14684: <sram2k> remains a black-box since it has no binding entity.
+WARNING:HDLCompiler:89 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14730: <sram2k> remains a black-box since it has no binding entity.
+WARNING:HDLCompiler:89 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14776: <sram2k> remains a black-box since it has no binding entity.
+WARNING:HDLCompiler:89 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14822: <sram2k> remains a black-box since it has no binding entity.
 Completed static elaboration
-WARNING:Simulator:648 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14618. Instance sram2k is unbound
-WARNING:Simulator:648 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14664. Instance sram2k is unbound
-WARNING:Simulator:648 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14710. Instance sram2k is unbound
-WARNING:Simulator:648 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14756. Instance sram2k is unbound
+WARNING:Simulator:648 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14684. Instance sram2k is unbound
+WARNING:Simulator:648 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14730. Instance sram2k is unbound
+WARNING:Simulator:648 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14776. Instance sram2k is unbound
+WARNING:Simulator:648 - "netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14822. Instance sram2k is unbound
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package std_logic_arith
@@ -41,7 +41,7 @@ Compiling architecture ld_1_v of entity LD_1 [\LD_1('0')\]
 Compiling architecture fd_v of entity FD [\FD('0')\]
 Compiling architecture lut2_v of entity LUT2 [\LUT2("1001")(0,3)\]
 Compiling architecture ld_v of entity LD [\LD('0')\]
-Compiling architecture lut3_v of entity LUT3 [\LUT3("00001000")(0,7)\]
+Compiling architecture lut3_v of entity LUT3 [\LUT3("00000100")(0,7)\]
 Compiling architecture lut4_v of entity LUT4 [\LUT4("1111111111111110")(0,15)\]
 Compiling architecture ibuf_v of entity IBUF [\IBUF("DONT_CARE","0",true,"AUTO...]
 Compiling architecture iobuf_v of entity IOBUF [\IOBUF("DONT_CARE",12,"0",true,"...]
@@ -55,7 +55,7 @@ Compiling architecture structure of entity PCFG_TOP [pcfg_top_default]
 Compiling architecture behavior of entity tb_pcfg
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
-Compiled 238 VHDL Units
+Compiled 242 VHDL Units
 Built simulation executable x_synthesis.exe
-Fuse Memory Usage: 71300 KB
-Fuse CPU Usage: 4468 ms
+Fuse Memory Usage: 71320 KB
+Fuse CPU Usage: 5749 ms

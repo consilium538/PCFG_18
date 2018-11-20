@@ -33,7 +33,7 @@
       <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="26"/>
       <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="26"/>
     </file>
-    <file xil_pn:name="tb_mem.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="vhdl/tb_mem.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="4"/>
       <association xil_pn:name="PostMapSimulation" xil_pn:seqID="37"/>
       <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="37"/>

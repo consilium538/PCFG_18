@@ -87,7 +87,7 @@ architecture Behavioral of signal_controller is
     signal s_enb0	: std_logic;
     signal s_ena1	: std_logic;
     signal s_wea1	: std_logic_vector(0 downto 0);
-    signal s_enb1	: std_logic;
+    signal s_enb1	: std_logic:='0';
     signal s_ena2	: std_logic;
     signal s_wea2	: std_logic_vector(0 downto 0);
     signal s_enb2	: std_logic;
@@ -114,7 +114,7 @@ architecture Behavioral of signal_controller is
 
     signal s_comp0, s_comp1, s_comp2, s_comp3 : std_logic;
     signal s_dtoa : std_logic_vector(10 downto 0) := (others => '0');
-    signal s_dac_start, s_dac_stop, s_enb2, s_ena3 : std_logic;
+    signal s_dac_start, s_dac_stop : std_logic;
     signal s_adc_start, s_adc_stop : std_logic;
     ---=========== END OF SIGNAL ===================
 
@@ -369,7 +369,7 @@ begin
                 else t_ns <= rready;
                 end if;
             when rstandby =>
-                s_enb0 <= not m_OE_b; m_enb1 <= not m_OE_b;
+                s_enb0 <= not m_OE_b; s_enb1 <= not m_OE_b;
                 s_dout_en <= '1';
                 if(m_ren = '0') then t_ns <= rterm;
                 else t_ns <= rstandby;
@@ -511,21 +511,35 @@ begin
 
     m_dout_en <= s_dout_en;
 
+    m_inlatch_en <= m_OE_b;
+    m_outlatch_en <= not m_OE_b;
+    m_ad_latch_en <= '1';
+    m_da_latch_en <= s_da_latch_en;
+
+    m_average_en <= s_average_en;
+    m_average_clr <= s_average_clr;
+    m_average_addr <= s_A01;
+
+    m_ram0_addr <= s_ram0_addr;
+    m_ram1_addr <= s_ram1_addr;
+
     m_ad_ram_addra <= s_ad_ram_addra;
     m_ad_ram_addrb <= s_ad_ram_addrb;
     m_da_ram_addra <= s_da_ram_addra;
     m_da_ram_addrb <= s_da_ram_addrb;
 
-
-    m_average_addr <= s_A01;
-
-    m_inlatch_en <= m_OE_b;
-    m_outlatch_en <= not m_OE_b;
-    m_ad_latch_en <= '1';
-
-    m_wea3 <= "1";
+    m_ena0 <= s_ena0;
+    m_wea0 <= s_wea0;
+    m_enb0 <= s_enb0;
+    m_ena1 <= s_ena1;
+    m_wea1 <= s_wea1;
+    m_enb1 <= s_enb1;
+    m_ena2 <= s_ena2;
+    m_wea2 <= s_wea2;
     m_enb2 <= s_enb2;
     m_ena3 <= s_ena3;
+    m_wea3 <= "1";
+    m_enb3 <= s_enb3;
 
     s_dtoa(7 downto 0) <= m_data;
     s_dtoa(10 downto 8) <= "000";

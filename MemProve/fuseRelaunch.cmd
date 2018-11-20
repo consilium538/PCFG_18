@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -o "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemProve/tb_mem_isim_beh.exe" -prj "D:/study/sogang/18y6s/adca/Project/PCFG_18/MemProve/tb_mem_beh.prj" "work.tb_mem" 
+-intstyle "ise" -incremental -lib "unisim" -lib "unimacro" -lib "xilinxcorelib" -lib "secureip" -o "x_synthesis.exe" -prj "postsynthesis.prj" "work.tb_remctr" 

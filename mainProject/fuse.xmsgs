@@ -5,28 +5,28 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="89" delta="unknown" >"netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14618: &lt;<arg fmt="%s" index="1">sram2k</arg>&gt; remains a black-box since it has no binding entity.
+<msg type="warning" file="HDLCompiler" num="89" delta="unknown" >"netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14684: &lt;<arg fmt="%s" index="1">sram2k</arg>&gt; remains a black-box since it has no binding entity.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="89" delta="unknown" >"netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14664: &lt;<arg fmt="%s" index="1">sram2k</arg>&gt; remains a black-box since it has no binding entity.
+<msg type="warning" file="HDLCompiler" num="89" delta="unknown" >"netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14730: &lt;<arg fmt="%s" index="1">sram2k</arg>&gt; remains a black-box since it has no binding entity.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="89" delta="unknown" >"netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14710: &lt;<arg fmt="%s" index="1">sram2k</arg>&gt; remains a black-box since it has no binding entity.
+<msg type="warning" file="HDLCompiler" num="89" delta="unknown" >"netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14776: &lt;<arg fmt="%s" index="1">sram2k</arg>&gt; remains a black-box since it has no binding entity.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="89" delta="unknown" >"netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14756: &lt;<arg fmt="%s" index="1">sram2k</arg>&gt; remains a black-box since it has no binding entity.
+<msg type="warning" file="HDLCompiler" num="89" delta="unknown" >"netgen/synthesis/PCFG_TOP_synthesis.vhd" Line 14822: &lt;<arg fmt="%s" index="1">sram2k</arg>&gt; remains a black-box since it has no binding entity.
 </msg>
 
-<msg type="warning" file="Simulator" num="648" delta="unknown" >&quot;<arg fmt="%s" index="1">netgen/synthesis/PCFG_TOP_synthesis.vhd</arg>&quot; Line <arg fmt="%d" index="2">14618</arg>. Instance <arg fmt="%s" index="3">sram2k</arg> is unbound
+<msg type="warning" file="Simulator" num="648" delta="unknown" >&quot;<arg fmt="%s" index="1">netgen/synthesis/PCFG_TOP_synthesis.vhd</arg>&quot; Line <arg fmt="%d" index="2">14684</arg>. Instance <arg fmt="%s" index="3">sram2k</arg> is unbound
 </msg>
 
-<msg type="warning" file="Simulator" num="648" delta="unknown" >&quot;<arg fmt="%s" index="1">netgen/synthesis/PCFG_TOP_synthesis.vhd</arg>&quot; Line <arg fmt="%d" index="2">14664</arg>. Instance <arg fmt="%s" index="3">sram2k</arg> is unbound
+<msg type="warning" file="Simulator" num="648" delta="unknown" >&quot;<arg fmt="%s" index="1">netgen/synthesis/PCFG_TOP_synthesis.vhd</arg>&quot; Line <arg fmt="%d" index="2">14730</arg>. Instance <arg fmt="%s" index="3">sram2k</arg> is unbound
 </msg>
 
-<msg type="warning" file="Simulator" num="648" delta="unknown" >&quot;<arg fmt="%s" index="1">netgen/synthesis/PCFG_TOP_synthesis.vhd</arg>&quot; Line <arg fmt="%d" index="2">14710</arg>. Instance <arg fmt="%s" index="3">sram2k</arg> is unbound
+<msg type="warning" file="Simulator" num="648" delta="unknown" >&quot;<arg fmt="%s" index="1">netgen/synthesis/PCFG_TOP_synthesis.vhd</arg>&quot; Line <arg fmt="%d" index="2">14776</arg>. Instance <arg fmt="%s" index="3">sram2k</arg> is unbound
 </msg>
 
-<msg type="warning" file="Simulator" num="648" delta="unknown" >&quot;<arg fmt="%s" index="1">netgen/synthesis/PCFG_TOP_synthesis.vhd</arg>&quot; Line <arg fmt="%d" index="2">14756</arg>. Instance <arg fmt="%s" index="3">sram2k</arg> is unbound
+<msg type="warning" file="Simulator" num="648" delta="unknown" >&quot;<arg fmt="%s" index="1">netgen/synthesis/PCFG_TOP_synthesis.vhd</arg>&quot; Line <arg fmt="%d" index="2">14822</arg>. Instance <arg fmt="%s" index="3">sram2k</arg> is unbound
 </msg>
 
 </messages>

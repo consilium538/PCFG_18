@@ -28,3 +28,11 @@ xst -intstyle ise -ifn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.
 xst -intstyle ise -ifn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.xst" -ofn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.syr" 
 netgen -intstyle ise -ar Structure -tm PCFG_TOP -w -dir netgen/synthesis -ofmt vhdl -sim PCFG_TOP.ngc PCFG_TOP_synthesis.vhd 
 xst -intstyle ise -ifn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.xst" -ofn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.syr" 
+xst -intstyle ise -ifn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.xst" -ofn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.syr" 
+xst -intstyle ise -ifn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.xst" -ofn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.syr" 
+xst -intstyle ise -ifn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.xst" -ofn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.syr" 
+xst -intstyle ise -ifn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.xst" -ofn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.syr" 
+xst -intstyle ise -ifn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.xst" -ofn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.syr" 
+xst -intstyle ise -ifn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.xst" -ofn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.syr" 
+xst -intstyle ise -ifn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.xst" -ofn "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/PCFG_TOP.syr" 
+netgen -intstyle ise -ar Structure -tm PCFG_TOP -w -dir netgen/synthesis -ofmt vhdl -sim PCFG_TOP.ngc PCFG_TOP_synthesis.vhd 

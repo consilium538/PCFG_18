@@ -2,28 +2,28 @@ Command line:
    x_synthesis.exe
      -simmode  gui
      -simrunnum  0
-     -socket  5315
+     -socket  6672
 
-Tue Nov 20 14:12:17 2018
+Tue Nov 20 18:42:33 2018
 
 
- Elaboration Time: 0.1875 sec
+ Elaboration Time: 0.234375 sec
 
- Current Memory Usage: 5363.9 Meg
+ Current Memory Usage: 5363.89 Meg
 
- Total Signals          : 7547
- Total Nets             : 2106
- Total Signal Drivers   : 2035
- Total Blocks           : 1710
- Total Primitive Blocks : 1708
- Total Processes        : 2072
- Total Traceable Variables  : 1890
- Total Scalar Nets and Variables : 22339
-Total Line Count : 6956
+ Total Signals          : 7583
+ Total Nets             : 2113
+ Total Signal Drivers   : 2042
+ Total Blocks           : 1717
+ Total Primitive Blocks : 1715
+ Total Processes        : 2079
+ Total Traceable Variables  : 1896
+ Total Scalar Nets and Variables : 22386
+Total Line Count : 6965
 
- Total Simulation Time: 0.734375 sec
+ Total Simulation Time: 0.765625 sec
 
- Current Memory Usage: 4892.04 Meg
+ Current Memory Usage: 5206.6 Meg
 
-Tue Nov 20 14:37:11 2018
+Tue Nov 20 18:43:38 2018
 
