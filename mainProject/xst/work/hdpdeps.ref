@@ -32,92 +32,99 @@ EN work/Ram1 1542677811 \
 AR work/Ram1/Ram1_a 1542677812 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/Ram1.vhd \
       EN work/Ram1 1542677811
+FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/sram2k.vhd 2018/11/20.10:54:15 P.20131013
+EN work/sram2k 1542680054 \
+      FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/sram2k.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/sram2k/sram2k_a 1542680055 \
+      FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/sram2k.vhd \
+      EN work/sram2k 1542680054
 FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/pcfg_top.vhd 2018/11/19.19:46:14 P.20131013
 FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/remcontroller.vhd 2018/11/18.13:14:12 P.20131013
 FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/signal_controller.vhd 2018/11/19.19:55:40 P.20131013
 FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/top_8254.vhd 2018/11/18.13:14:12 P.20131013
 FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/tw_8254_cnt.vhd 2018/11/18.13:14:12 P.20131013
 FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/ADCcnt.vhd 2018/11/19.20:23:10 P.20131013
-EN work/ADCcnt 1542677799 \
+EN work/ADCcnt 1542680044 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/ADCcnt.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/ADCcnt/Behavioral 1542677800 \
+AR work/ADCcnt/Behavioral 1542680045 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/ADCcnt.vhd \
-      EN work/ADCcnt 1542677799
+      EN work/ADCcnt 1542680044
 FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/address_decoder.vhd 2018/11/18.13:14:12 P.20131013
-EN work/address_decoder 1542677805 \
+EN work/address_decoder 1542680050 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/address_decoder.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179 LB UNISIM PH unisim/VCOMPONENTS 1381692182
-AR work/address_decoder/Behavioral 1542677806 \
+AR work/address_decoder/Behavioral 1542680051 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/address_decoder.vhd \
-      EN work/address_decoder 1542677805
+      EN work/address_decoder 1542680050
 FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/Averager.vhd 2018/11/18.13:14:12 P.20131013
-EN work/Averager 1542677817 \
+EN work/Averager 1542680056 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/Averager.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179 LB UNISIM PH unisim/VCOMPONENTS 1381692182
-AR work/Averager/Behavioral 1542677818 \
+AR work/Averager/Behavioral 1542680057 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/Averager.vhd \
-      EN work/Averager 1542677817 CP CompSub
+      EN work/Averager 1542680056 CP CompSub
 FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/CompSub.vhd 2018/11/19.13:20:34 P.20131013
-EN work/CompSub 1542677793 \
+EN work/CompSub 1542680038 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/CompSub.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179 LB UNISIM PH unisim/VCOMPONENTS 1381692182
-AR work/CompSub/Behavioral 1542677794 \
+AR work/CompSub/Behavioral 1542680039 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/CompSub.vhd \
-      EN work/CompSub 1542677793
+      EN work/CompSub 1542680038
 FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/DACcnt.vhd 2018/11/19.17:19:36 P.20131013
-EN work/DACcnt 1542677797 \
+EN work/DACcnt 1542680042 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/DACcnt.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/DACcnt/Behavioral 1542677798 \
+AR work/DACcnt/Behavioral 1542680043 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/DACcnt.vhd \
-      EN work/DACcnt 1542677797
-FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/pcfg_top.vhd 2018/11/19.19:46:14 P.20131013
-EN work/PCFG_TOP 1542677819 \
+      EN work/DACcnt 1542680042
+FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/pcfg_top.vhd 2018/11/20.11:13:45 P.20131013
+EN work/PCFG_TOP 1542680058 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/pcfg_top.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179 LB UNISIM PH unisim/VCOMPONENTS 1381692182
-AR work/PCFG_TOP/Behavioral 1542677820 \
+AR work/PCFG_TOP/Behavioral 1542680059 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/pcfg_top.vhd \
-      EN work/PCFG_TOP 1542677819 CP IBUFG CP TOP_8254 CP address_decoder \
-      CP signal_controller CP Ram0 CP Ram1 CP DA_RAM CP AD_RAM CP Averager
+      EN work/PCFG_TOP 1542680058 CP IBUFG CP TOP_8254 CP address_decoder \
+      CP signal_controller CP sram2k CP Averager
 FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/remcontroller.vhd 2018/11/18.13:14:12 P.20131013
-EN work/RemController 1542677795 \
+EN work/RemController 1542680040 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/remcontroller.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/RemController/Behavioral 1542677796 \
+AR work/RemController/Behavioral 1542680041 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/remcontroller.vhd \
-      EN work/RemController 1542677795
+      EN work/RemController 1542680040
 FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/signal_controller.vhd 2018/11/19.19:55:40 P.20131013
-EN work/signal_controller 1542677807 \
+EN work/signal_controller 1542680052 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/signal_controller.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179 LB UNISIM PH unisim/VCOMPONENTS 1381692182
-AR work/signal_controller/Behavioral 1542677808 \
+AR work/signal_controller/Behavioral 1542680053 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/signal_controller.vhd \
-      EN work/signal_controller 1542677807 CP RemController CP DACcnt CP ADCcnt
+      EN work/signal_controller 1542680052 CP RemController CP DACcnt CP ADCcnt
 FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/top_8254.vhd 2018/11/18.13:14:12 P.20131013
-EN work/TOP_8254 1542677803 \
+EN work/TOP_8254 1542680048 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/top_8254.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/TOP_8254/Behavioral 1542677804 \
+AR work/TOP_8254/Behavioral 1542680049 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/top_8254.vhd \
-      EN work/TOP_8254 1542677803 CP TW_8254_CNT
+      EN work/TOP_8254 1542680048 CP TW_8254_CNT
 FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/tw_8254_cnt.vhd 2018/11/18.13:14:12 P.20131013
-EN work/TW_8254_CNT 1542677801 \
+EN work/TW_8254_CNT 1542680046 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/tw_8254_cnt.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/TW_8254_CNT/Behavioral 1542677802 \
+AR work/TW_8254_CNT/Behavioral 1542680047 \
       FL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/tw_8254_cnt.vhd \
-      EN work/TW_8254_CNT 1542677801
+      EN work/TW_8254_CNT 1542680046
 FL H:/asdf/mainProject/ADCcnt.vhd 2018/11/19.20:23:10 P.20131013
 FL H:/asdf/mainProject/address_decoder.vhd 2018/11/18.13:14:12 P.20131013
 FL H:/asdf/mainProject/Averager.vhd 2018/11/18.13:14:12 P.20131013

@@ -1,7 +1,4 @@
-vhdl work "ipcore_dir/Ram0.vhd"
-vhdl work "ipcore_dir/Ram1.vhd"
-vhdl work "ipcore_dir/DA_RAM.vhd"
-vhdl work "ipcore_dir/AD_RAM.vhd"
+vhdl work "ipcore_dir/sram2k.vhd"
 vhdl work "vhdl/tw_8254_cnt.vhd"
 vhdl work "vhdl/remcontroller.vhd"
 vhdl work "vhdl/DACcnt.vhd"

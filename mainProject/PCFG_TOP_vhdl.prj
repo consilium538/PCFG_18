@@ -1,7 +1,4 @@
-vhdl work "C:\KDH\Doc\18y6s\adca\PCFG\PCFG_18\mainProject\ipcore_dir\Ram0.vhd"
-vhdl work "C:\KDH\Doc\18y6s\adca\PCFG\PCFG_18\mainProject\ipcore_dir\Ram1.vhd"
-vhdl work "C:\KDH\Doc\18y6s\adca\PCFG\PCFG_18\mainProject\ipcore_dir\DA_RAM.vhd"
-vhdl work "C:\KDH\Doc\18y6s\adca\PCFG\PCFG_18\mainProject\ipcore_dir\AD_RAM.vhd"
+vhdl work "C:\KDH\Doc\18y6s\adca\PCFG\PCFG_18\mainProject\ipcore_dir\sram2k.vhd"
 vhdl work "C:\KDH\Doc\18y6s\adca\PCFG\PCFG_18\mainProject\vhdl\tw_8254_cnt.vhd"
 vhdl work "C:\KDH\Doc\18y6s\adca\PCFG\PCFG_18\mainProject\vhdl\remcontroller.vhd"
 vhdl work "C:\KDH\Doc\18y6s\adca\PCFG\PCFG_18\mainProject\vhdl\DACcnt.vhd"
