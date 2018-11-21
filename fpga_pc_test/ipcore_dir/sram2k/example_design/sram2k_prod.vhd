@@ -94,7 +94,7 @@
 --    C_RST_PRIORITY_A            :  CE 
 --    C_RSTRAM_A                  :  0 
 --    C_INITA_VAL                 :  0 
---    C_HAS_ENA                   :  0 
+--    C_HAS_ENA                   :  1 
 --    C_HAS_REGCEA                :  0 
 --    C_USE_BYTE_WEA              :  0 
 --    C_WEA_WIDTH                 :  1 
@@ -108,7 +108,7 @@
 --    C_RST_PRIORITY_B            :  CE 
 --    C_RSTRAM_B                  :  0 
 --    C_INITB_VAL                 :  0 
---    C_HAS_ENB                   :  0 
+--    C_HAS_ENB                   :  1 
 --    C_HAS_REGCEB                :  0 
 --    C_USE_BYTE_WEB              :  0 
 --    C_WEB_WIDTH                 :  1 
@@ -231,6 +231,7 @@ ARCHITECTURE xilinx OF sram2k_prod IS
   COMPONENT sram2k_exdes IS
   PORT (
       --Port A
+    ENA            : IN STD_LOGIC;  --opt port
   
     WEA            : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     ADDRA          : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
@@ -242,6 +243,7 @@ ARCHITECTURE xilinx OF sram2k_prod IS
 
   
       --Port B
+    ENB            : IN STD_LOGIC;  --opt port
     ADDRB          : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
     DOUTB          : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     CLKB           : IN STD_LOGIC
@@ -256,6 +258,7 @@ BEGIN
   bmg0 : sram2k_exdes
     PORT MAP (
       --Port A
+      ENA        => ENA,
   
       WEA        => WEA,
       ADDRA      => ADDRA,
@@ -265,6 +268,7 @@ BEGIN
       CLKA       => CLKA,
   
       --Port B
+      ENB        => ENB, 
       ADDRB      => ADDRB,
       DOUTB      => DOUTB,
       CLKB       => CLKB

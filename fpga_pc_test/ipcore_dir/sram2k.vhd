@@ -43,10 +43,12 @@ LIBRARY XilinxCoreLib;
 ENTITY sram2k IS
   PORT (
     clka : IN STD_LOGIC;
+    ena : IN STD_LOGIC;
     wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     addra : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
     dina : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     clkb : IN STD_LOGIC;
+    enb : IN STD_LOGIC;
     addrb : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
     doutb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
   );
@@ -57,10 +59,12 @@ ARCHITECTURE sram2k_a OF sram2k IS
 COMPONENT wrapped_sram2k
   PORT (
     clka : IN STD_LOGIC;
+    ena : IN STD_LOGIC;
     wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     addra : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
     dina : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     clkb : IN STD_LOGIC;
+    enb : IN STD_LOGIC;
     addrb : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
     doutb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
   );
@@ -83,8 +87,8 @@ END COMPONENT;
       c_enable_32bit_address => 0,
       c_family => "spartan3",
       c_has_axi_id => 0,
-      c_has_ena => 0,
-      c_has_enb => 0,
+      c_has_ena => 1,
+      c_has_enb => 1,
       c_has_injecterr => 0,
       c_has_mem_output_regs_a => 0,
       c_has_mem_output_regs_b => 0,
@@ -137,10 +141,12 @@ BEGIN
 U0 : wrapped_sram2k
   PORT MAP (
     clka => clka,
+    ena => ena,
     wea => wea,
     addra => addra,
     dina => dina,
     clkb => clkb,
+    enb => enb,
     addrb => addrb,
     doutb => doutb
   );

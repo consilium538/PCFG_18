@@ -77,8 +77,10 @@ gui_list_add_group -id Wave.1 {sram2k_Group}
       gui_sg_addsignal -group sram2k_Group  /sram2k_tb/sram2k_synth_inst/bmg_port/ADDRA
       gui_sg_addsignal -group sram2k_Group  /sram2k_tb/sram2k_synth_inst/bmg_port/DINA
       gui_sg_addsignal -group sram2k_Group  /sram2k_tb/sram2k_synth_inst/bmg_port/WEA
+      gui_sg_addsignal -group sram2k_Group  /sram2k_tb/sram2k_synth_inst/bmg_port/ENA
       gui_sg_addsignal -group sram2k_Group  /sram2k_tb/sram2k_synth_inst/bmg_port/CLKB
       gui_sg_addsignal -group sram2k_Group  /sram2k_tb/sram2k_synth_inst/bmg_port/ADDRB
+      gui_sg_addsignal -group sram2k_Group  /sram2k_tb/sram2k_synth_inst/bmg_port/ENB
       gui_sg_addsignal -group sram2k_Group  /sram2k_tb/sram2k_synth_inst/bmg_port/DOUTB
 
 gui_zoom -window Wave.1 -full

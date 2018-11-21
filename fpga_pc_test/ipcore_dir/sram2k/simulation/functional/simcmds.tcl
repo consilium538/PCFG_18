@@ -57,8 +57,10 @@ wave add /sram2k_tb/status
       wave add  /sram2k_tb/sram2k_synth_inst/BMG_PORT/ADDRA
       wave add  /sram2k_tb/sram2k_synth_inst/BMG_PORT/DINA
       wave add  /sram2k_tb/sram2k_synth_inst/BMG_PORT/WEA
+      wave add  /sram2k_tb/sram2k_synth_inst/BMG_PORT/ENA
       wave add  /sram2k_tb/sram2k_synth_inst/BMG_PORT/CLKB
       wave add  /sram2k_tb/sram2k_synth_inst/BMG_PORT/ADDRB
+      wave add  /sram2k_tb/sram2k_synth_inst/BMG_PORT/ENB
       wave add  /sram2k_tb/sram2k_synth_inst/BMG_PORT/DOUTB
 run all
 quit

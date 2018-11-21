@@ -1,4 +1,5 @@
 # Output products list for <sram2k>
+_xmsgs\pn_parser.xmsgs
 sram2k.asy
 sram2k.gise
 sram2k.ngc

@@ -131,16 +131,20 @@ architecture Behavioral of signal_controller is
 
 
     ---=========== FSM DESIGN ===================
-    type d_testpcmode is (idle,decode,
-    wready0,wact0,wterm0,rready0,ract0,rterm0,
-	wready1,wact1,wterm1,rready1,ract1,rterm1,
+    type d_testpcmode is (
+    idle,decode,
+    wready0,wact0,wterm0,
+    rready0,ract0,rterm0,
+	wready1,wact1,wterm1,
+    rready1,ract1,rterm1,
     dt_cntclr, dt_cntpreset, dt_transfer,
     dac_cntclr, dac_cntpreset, dac_transfer, dac_start,
     dac_stop,
     adc_cntclr, adc_cntpreset, adc_transfer,
     average0,average1,average2,average3,average4,
     average5,average6,average7,average8,
-    softreset);
+    softreset
+);
 
     signal t_ps  : d_testpcmode := idle;
     signal t_prevmode : std_logic_vector(2 downto 0);
@@ -288,8 +292,10 @@ begin
 					end if;
 				else 
 					t_ps<=idle;
+                    t_prevmode<="100";
 				end if;
 			when wready0=>
+                t_prevmode<="001";
 				if m_wen='1' then
 					t_ps<=wact0;
 				else 
@@ -304,6 +310,7 @@ begin
 					t_ps<=wterm0;
 				end if;
 			when wready1=>
+                t_prevmode<="011";
 				if m_wen='1' then
 					t_ps<=wact1;
 				else 
@@ -318,6 +325,7 @@ begin
 					t_ps<=wterm1;
 				end if;
 			when rready0=>
+                t_prevmode<="000";
 				if m_ren='1' then
 					t_ps<=ract0;
 				else 
@@ -332,6 +340,7 @@ begin
 			when rterm0=>
 				t_ps<=idle;
 			when rready1=>
+                t_prevmode<="010";
 				if m_ren='1' then
 					t_ps<=ract1;
 				else 
@@ -371,11 +380,18 @@ begin
 	s_ram0_mux_sel <= "0" when s_state_write0='1' else "1";
 	s_ram1_mux_sel <= "10" when s_state_write1='1' else "11";
 	
-	s_enp0 <= '1' when ( ( t_ps = wact and m_mode_addr = "001" ) or ( t_ps = rterm and t_prevmode = "000" ) or t_ps = dt_cntpreset or t_ps = dt_transper or t_ps = adc_cntpreset or t_ps = adc_transfer or t_ps = average1 ) else
+	s_enp0 <= '1' when ( ( t_ps = wact0 and t_prevmode = "001" ) or ( t_ps = rterm0 and t_prevmode = "000" ) or t_ps = dt_cntpreset or t_ps = dt_transfer or t_ps = adc_cntpreset or t_ps = adc_transfer or t_ps = average1 ) else
               '0';
-    s_clr0 <= '1' when ( ( t_ps = decode and ( t_prevmode /= t_currentmode ) ) or s_state ) else --not done
+    s_clr0 <= '1' when ( ( t_ps = decode and ( ( m_mode_addr = "001" and m_OE_b = '1' and not ( t_prevmode = "001" ) ) or ( m_mode_addr = "001" and m_OE_b = '0' and not (  t_prevmode = "000" ) ) ) ) or s_state_clr = '1' ) else --not done
               '0';
-	
+
+	s_enp1 <= '1' when ( ( t_ps = wact1  and t_prevmode = "011") or ( t_ps = rterm1 and t_prevmode = "010" ) or t_ps = dt_cntpreset or t_ps = dt_transfer or t_ps = adc_cntpreset or t_ps = adc_transfer or t_ps = average1 ) else
+              '0';
+    s_clr1 <= '1' when ( ( t_ps = decode and ( ( m_mode_addr = "010" and m_OE_b = '1' and not ( t_prevmode = "011" ) ) or ( m_mode_addr = "010" and m_OE_b = '0' and not (  t_prevmode = "010" ) ) ) ) or s_state_clr = '1' ) else --not done
+              '0';
+
+    s_dout_en <= '1' when ( t_ps = ract1 or t_ps = ract0 ) else
+                 '0';
 	
 	
 	--m_port
