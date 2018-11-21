@@ -29,34 +29,34 @@ USE UNISIM.VCOMPONENTS.ALL;
 
 
 entity PCFG_TOP is
-    PORT( ---------------------------------------------INPUT
-            m_reset_b : IN std_logic;								
-            m_clk : IN std_logic;		
-            m_address : IN std_logic_vector(8 downto 0);		
-            m_cmd_data : IN std_logic;
-            m_OE_b : IN std_logic;
-            m_wen : IN std_logic;
-            m_ren : IN std_logic;
-
-            m_ADC_data : IN std_logic_vector(7 downto 0);	--adc input
-
-            ---------------------------------------------OUTPUT	
-
-            m_DAC_data : OUT std_logic_vector(7 downto 0);	--dac output
-            m_DAC_clk : OUT std_logic;
-
-            m_AD9283_clk : OUT std_logic;	
-
-            -------------------------------------------------INOUT
-
-            m_data : INOUT std_logic_vector(7 downto 0);
-
-            -------------------------------------------------simulation위한 port
-
-            m_led : OUT std_logic_vector(7 downto 0);
-            m_TP	: out std_logic_vector(1 downto 0)
-
-        );
+PORT( ---------------------------------------------INPUT
+	 	m_reset_b : IN std_logic;								
+		m_clk : IN std_logic;		
+		m_address : IN std_logic_vector(8 downto 0);		
+		m_cmd_data : IN std_logic;
+		m_OE_b : IN std_logic;
+		m_wen : IN std_logic;
+		m_ren : IN std_logic;
+		
+		m_ADC_data : IN std_logic_vector(7 downto 0);	--adc input
+		
+		---------------------------------------------OUTPUT	
+		
+		m_DAC_data : OUT std_logic_vector(7 downto 0);	--dac output
+		m_DAC_clk : OUT std_logic;
+		
+		m_AD9283_clk : OUT std_logic;	
+		
+		-------------------------------------------------INOUT
+		
+		m_data : INOUT std_logic_vector(7 downto 0);
+		
+		-------------------------------------------------simulation위한 port
+		
+		m_led : OUT std_logic_vector(7 downto 0);
+		m_TP	: out std_logic_vector(1 downto 0)
+		
+		);
 end PCFG_TOP;
 
 
@@ -269,11 +269,6 @@ architecture Behavioral of PCFG_TOP is
     signal ram1_mux_dout: std_logic_vector(7 downto 0);
     signal out_mux_dout	: std_logic_vector(7 downto 0);
 
-
-    --port map 코드 수정
-    signal b_reset_b : std_logic;
-    signal b_pcs_addr : std_logic;
-    signal b_wen : std_logic;
     ---=========== END OF SIGNAL ===================
 begin
     --clks
@@ -296,14 +291,14 @@ begin
                                    m_clk1    	=> s_clk,
                                    m_clk2    	=> s_clk,
                                    m_clk_ctr 	=> s_clk,
-                                   m_reset   	=> b_reset_b,
+                                   m_reset   	=> not m_reset_b,
                                    m_data   	=> s_din,
                                    m_gate0   	=> s_m_8254_gate0,
                                    m_gate1   	=> s_m_8254_gate1,
                                    m_gate2   	=> s_m_8254_gate2,
                                    m_addr    	=> m_address(1 downto 0),
-                                   m_cs_b    	=> b_pcs_addr,		-- 여기에 들어갈 시그널 잘 정의해보세요.
-                                   m_wr_b    	=> b_wen,
+                                   m_cs_b    	=> not s_pcs_addr,		-- 여기에 들어갈 시그널 잘 정의해보세요.
+                                   m_wr_b    	=> not m_wen,
                                    m_out0    	=> sys_clk,
                                    m_out1    	=> open,
                                    m_out2    	=> open
@@ -366,10 +361,6 @@ begin
     m_DAC_data 	<= da_latch_dout;
     ad_latch_din <= m_ADC_data;
     s_dina3 <= ad_latch_dout;
-
-    b_reset_b <= not m_reset_b;
-    b_pcs_addr <= not s_pcs_addr;
-    b_wen <= not m_wen;
 
 
     ---=========== SUB-MODULE CONNECTION ===================
