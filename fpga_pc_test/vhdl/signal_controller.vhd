@@ -74,7 +74,7 @@ architecture Behavioral of signal_controller is
     signal s_average_clr   : std_logic;
     signal s_average_addr	: std_logic_vector(10 downto 0);
 
-      --RAM
+    --RAM
     signal s_ram0_addr		: std_logic_vector(10 downto 0);
     signal s_ram1_addr		: std_logic_vector(10 downto 0);
     signal s_ad_ram_addra	: std_logic_vector(10 downto 0):=(others=>'0');
@@ -116,17 +116,17 @@ architecture Behavioral of signal_controller is
     signal s_dtoa : std_logic_vector(10 downto 0) := (others => '0');
     signal s_dac_start, s_dac_stop : std_logic;
     signal s_adc_start, s_adc_stop : std_logic;
-	
-	signal s_state_write0 : std_logic;              
-	signal s_state_write1 : std_logic;              
-	signal s_state_read0  : std_logic;	              
-	signal s_state_read1  : std_logic;	              
-	signal s_state_dt 	  : std_logic;             
-	signal s_state_dac	  : std_logic;             
-	signal s_state_adc	  : std_logic;             
-	signal s_state_avg	  : std_logic;           
-	signal s_state_clr    : std_logic;
-	
+
+    signal s_state_pc_write0 : std_logic;              
+    signal s_state_pc_write1 : std_logic;              
+    signal s_state_pc_read0  : std_logic;	              
+    signal s_state_pc_read1  : std_logic;	              
+    signal s_state_dt 	  : std_logic;             
+    signal s_state_dac	  : std_logic;             
+    signal s_state_adc	  : std_logic;             
+    signal s_state_avg	  : std_logic;           
+    signal s_state_clr    : std_logic;
+
     ---=========== END OF SIGNAL ===================
 
 
@@ -135,7 +135,7 @@ architecture Behavioral of signal_controller is
     idle,decode,
     wready0,wact0,wterm0,
     rready0,ract0,rterm0,
-	wready1,wact1,wterm1,
+    wready1,wact1,wterm1,
     rready1,ract1,rterm1,
     dt_cntclr, dt_cntpreset, dt_transfer,
     dac_cntclr, dac_cntpreset, dac_transfer, dac_start,
@@ -146,41 +146,41 @@ architecture Behavioral of signal_controller is
     softreset
 );
 
-    signal t_ps  : d_testpcmode := idle;
-    signal t_prevmode : std_logic_vector(2 downto 0);
+signal t_ps  : d_testpcmode := idle;
+signal t_prevmode : std_logic_vector(2 downto 0);
     ---=========== END OF FSM ===================
 
     ---=========== COMPONENT DEFINITION ===================
-    component RemController is
-        Port ( --input
-        m_clk, m_enp, m_clr : in  STD_LOGIC;
-        m_sel : in  STD_LOGIC_VECTOR(1 downto 0);
-        m_Din : in  STD_LOGIC_VECTOR(10 downto 0);
+component RemController is
+    Port ( --input
+    m_clk, m_enp, m_clr : in  STD_LOGIC;
+    m_sel : in  STD_LOGIC_VECTOR(1 downto 0);
+    m_Din : in  STD_LOGIC_VECTOR(10 downto 0);
         -- output
-        m_comp : out STD_LOGIC;
-        m_Cnt : out  STD_LOGIC_VECTOR(10 downto 0);
-        m_Dout : out  STD_LOGIC_VECTOR(10 downto 0));
-    end component;
+    m_comp : out STD_LOGIC;
+    m_Cnt : out  STD_LOGIC_VECTOR(10 downto 0);
+    m_Dout : out  STD_LOGIC_VECTOR(10 downto 0));
+end component;
 
-    component DACcnt is
-        Port (
-        m_clk, m_sys_clk, m_start, m_end : in std_logic;
-        m_enb2 : out std_logic;
-        m_Ain : in std_logic_vector(10 downto 0);
-        m_Aout : out std_logic_vector(10 downto 0);
-        d_reg : out std_logic_vector(10 downto 0)
-    );
-    end component;
+component DACcnt is
+    Port (
+    m_clk, m_sys_clk, m_start, m_end : in std_logic;
+    m_enb2 : out std_logic;
+    m_Ain : in std_logic_vector(10 downto 0);
+    m_Aout : out std_logic_vector(10 downto 0);
+    d_reg : out std_logic_vector(10 downto 0)
+);
+end component;
 
-    component ADCcnt is
-        Port (
-        m_clk, m_sys_clk, m_start, m_end : in std_logic;
-        m_ena3 : out std_logic;
-        m_Aout : out std_logic_vector(10 downto 0);
-        d_reg : out std_logic_vector(10 downto 0)
-    );
-    end component;
-    ---=========== END OF COMPONENT ===================
+component ADCcnt is
+    Port (
+    m_clk, m_sys_clk, m_start, m_end : in std_logic;
+    m_ena3 : out std_logic;
+    m_Aout : out std_logic_vector(10 downto 0);
+    d_reg : out std_logic_vector(10 downto 0)
+);
+end component;
+---=========== END OF COMPONENT ===================
 
 -------------------------------------------
 
@@ -268,134 +268,225 @@ begin
     ---=========== END OF COMPONENT DESCRIPTION ===================
 
     process(m_clk)
-	begin
-	if rising_edge(m_clk) then
-		case t_ps is
-			when idle =>
-				if m_cmd_data='1' then
-					t_ps<=decode;
-				else
-					t_ps<=idle;
-				end if;
-			when decode =>
-				if m_mode_addr="001" then
-					if(m_OE_b = '1') then
-						t_ps<=wready0;
-					else 
-						t_ps<=rready0;
-					end if;
-				elsif m_mode_addr="010" then
-					if(m_OE_b = '1') then
-						t_ps<=wready1;
-					else 
-						t_ps<=rready1;
-					end if;
-				else 
-					t_ps<=idle;
-                    t_prevmode<="100";
-				end if;
-			when wready0=>
-                t_prevmode<="001";
-				if m_wen='1' then
-					t_ps<=wact0;
-				else 
-					t_ps<=wready0;
-				end if;
-			when wact0=>
-				t_ps<=wterm0;
-			when wterm0=>
-				if m_cmd_data='0' then
-					t_ps<=idle;
-				else 
-					t_ps<=wterm0;
-				end if;
-			when wready1=>
-                t_prevmode<="011";
-				if m_wen='1' then
-					t_ps<=wact1;
-				else 
-					t_ps<=wready1;
-				end if;
-			when wact1=>
-				t_ps<=wterm1;
-			when wterm1=>
-				if m_cmd_data='0' then
-					t_ps<=idle;
-				else 
-					t_ps<=wterm1;
-				end if;
-			when rready0=>
-                t_prevmode<="000";
-				if m_ren='1' then
-					t_ps<=ract0;
-				else 
-					t_ps<=rready0;
-				end if;
-			when ract0=>
-				if m_cmd_data='0' then
-					t_ps<=rterm0;
-				else 
-					t_ps<=ract0;
-				end if;
-			when rterm0=>
-				t_ps<=idle;
-			when rready1=>
-                t_prevmode<="010";
-				if m_ren='1' then
-					t_ps<=ract1;
-				else 
-					t_ps<=rready1;
-				end if;
-			when ract1=>
-				if m_cmd_data='0' then
-					t_ps<=rterm1;
-				else 
-					t_ps<=ract1;
-				end if;
-			when rterm1=>
-				t_ps<=idle;
-				
-				
-				
-				
-			when others=> null;
-		end case;	
-				
-		
-	end if;
-	end process;
-    
-	--signal;
-	 
-	
-	s_ena0 <= s_state_write0;
-	s_wea0 <= "1" when t_ps=wact0 else "0";
-	s_enb0 <= s_state_read0;
-	
-	s_ena1 <= s_state_write1;
-	s_wea1 <= "1" when t_ps=wact1 else "0";
-	s_enb1 <= s_state_read1;
-	
-	
-	s_ram0_mux_sel <= "0" when s_state_write0='1' else "1";
-	s_ram1_mux_sel <= "10" when s_state_write1='1' else "11";
-	
-	s_enp0 <= '1' when ( ( t_ps = wact0 and t_prevmode = "001" ) or ( t_ps = rterm0 and t_prevmode = "000" ) or t_ps = dt_cntpreset or t_ps = dt_transfer or t_ps = adc_cntpreset or t_ps = adc_transfer or t_ps = average1 ) else
+    begin
+        if rising_edge(m_clk) then
+            case t_ps is
+
+                when idle =>
+                    if m_cmd_data='1' then
+                        t_ps<=decode;
+                    else
+                        t_ps<=idle;
+                    end if;
+
+                when decode =>
+                    if m_mode_addr="001" then
+                        if(m_OE_b = '1') then
+                            t_ps<=wready0;
+                        else 
+                            t_ps<=rready0;
+                        end if;
+                    elsif m_mode_addr="010" then
+                        if(m_OE_b = '1') then
+                            t_ps<=wready1;
+                        else 
+                            t_ps<=rready1;
+                        end if;
+                    elsif(m_mode_addr = "011") then -- data transfer
+                        t_ns <= dt_cntclr;
+                    elsif(m_mode_addr = "100") then -- da start
+                        t_ns <= dac_cntclr;
+                    elsif(m_mode_addr = "101") then -- da stop
+                        t_ns <= dac_stop;
+                    elsif(m_mode_addr = "110") then -- ad
+                        t_ns <= adc_cntclr;
+                    elsif(m_mode_addr = "000" and m_mode_valid = '1') then --softreset
+                        t_ns <= softreset;
+                    else 
+                        t_ps<=idle;
+                        t_prevmode<="100";
+                    end if;
+
+                when wready0=>
+                    t_prevmode<="001";
+                    if m_wen='1' then
+                        t_ps<=wact0;
+                    else 
+                        t_ps<=wready0;
+                    end if;
+                when wact0=>
+                    t_ps<=wterm0;
+                when wterm0=>
+                    if m_cmd_data='0' then
+                        t_ps<=idle;
+                    else 
+                        t_ps<=wterm0;
+                    end if;
+
+                when wready1=>
+                    t_prevmode<="011";
+                    if m_wen='1' then
+                        t_ps<=wact1;
+                    else 
+                        t_ps<=wready1;
+                    end if;
+                when wact1=>
+                    t_ps<=wterm1;
+                when wterm1=>
+                    if m_cmd_data='0' then
+                        t_ps<=idle;
+                    else 
+                        t_ps<=wterm1;
+                    end if;
+
+                when rready0=>
+                    t_prevmode<="000";
+                    if m_ren='1' then
+                        t_ps<=ract0;
+                    else 
+                        t_ps<=rready0;
+                    end if;
+                when ract0=>
+                    if m_cmd_data='0' then
+                        t_ps<=rterm0;
+                    else 
+                        t_ps<=ract0;
+                    end if;
+                when rterm0=>
+                    t_ps<=idle;
+
+                when rready1=>
+                    t_prevmode<="010";
+                    if m_ren='1' then
+                        t_ps<=ract1;
+                    else 
+                        t_ps<=rready1;
+                    end if;
+                when ract1=>
+                    if m_cmd_data='0' then
+                        t_ps<=rterm1;
+                    else 
+                        t_ps<=ract1;
+                    end if;
+                when rterm1=>
+                    t_ps<=idle;
+
+                when dt_cntclr =>
+                    t_ns <= dt_cntpreset;
+                when dt_cntpreset =>
+                    t_ns <= dt_transfer;
+                when dt_transfer =>
+                    if(s_comp1 = '1') then
+                        t_ns <= idle;
+                    else
+                        t_ns <= dt_transfer;
+                    end if;
+
+                when dac_cntclr =>
+                    t_prevmode <= "100";
+                    t_ns <= dac_cntpreset;
+                when dac_cntpreset =>
+                    t_ns <= dac_transfer;
+                when dac_transfer =>
+                    if(s_comp2 = '1') then
+                        t_ns <= dac_start;
+                    else
+                        t_ns <= dac_transfer;
+                    end if;
+                when dac_start =>
+                    t_ns <= idle;
+
+                when dac_stop =>
+                    t_prevmode <= "100";
+                    if(m_OE_b = '1') then
+                        t_ns <= idle;
+                    else
+                        t_ns <= dac_stop;
+                    end if;
+
+                when adc_cntclr =>
+                    t_prevmode <= "100";
+                    t_ns <= adc_cntpreset;
+                when adc_cntpreset =>
+                    t_ns <= adc_transfer;
+                when adc_transfer =>
+                    if(s_comp0 = '1') then
+                        t_ns <= idle;
+                    else
+                        t_ns <= adc_transfer;
+                    end if;
+
+                when average0 =>
+                    t_prevmode <= "100";
+                    t_ns <= average1;
+                when average1 =>
+                    t_ns <= average2;
+                when average2 =>
+                    if s_comp0='1' then
+                        t_ns <= average3;
+                    else
+                        t_ns <= average1;
+                    end if;
+                when average3 =>
+                    t_ns <= average4;
+                when average4 =>
+                    t_ns <= average5;
+                when average5 =>
+                    t_ns <= average6;
+                when average6 =>
+                    t_ns <= average7;
+                when average7 =>
+                    t_ns <= idle;
+
+                when softreset =>
+                    if(m_cmd_data = '0') then
+                        t_ns <= idle;
+                    else
+                        t_ns <= softreset;
+                    end if;
+
+                when others=>
+                    t_ns <= idle;
+            end case;
+
+
+        end if;
+    end process;
+
+    --signal;
+
+
+    s_ena0 <= s_state_pc_write0;
+    s_wea0 <= "1" when t_ps=wact0 else "0";
+    s_enb0 <= s_state_pc_read0;
+
+    s_ena1 <= s_state_pc_write1;
+    s_wea1 <= "1" when t_ps=wact1 else "0";
+    s_enb1 <= s_state_pc_read1;
+
+
+    s_ram0_mux_sel <= "0" when s_state_pc_write0='1' else "1";
+    s_ram1_mux_sel <= "10" when s_state_pc_write1='1' else
+                      "01" when s_state_dt = '1' else
+                      "00" when s_state_avg = '1' else
+                      "11";
+
+    s_enp0 <= '1' when ( ( t_ps = wact0 and t_prevmode = "001" ) or ( t_ps = rterm0 and t_prevmode = "000" ) or t_ps = dt_cntpreset or t_ps = dt_transfer or t_ps = adc_cntpreset or t_ps = adc_transfer or t_ps = average1 ) else
               '0';
     s_clr0 <= '1' when ( ( t_ps = decode and ( ( m_mode_addr = "001" and m_OE_b = '1' and not ( t_prevmode = "001" ) ) or ( m_mode_addr = "001" and m_OE_b = '0' and not (  t_prevmode = "000" ) ) ) ) or s_state_clr = '1' ) else --not done
               '0';
 
-	s_enp1 <= '1' when ( ( t_ps = wact1  and t_prevmode = "011") or ( t_ps = rterm1 and t_prevmode = "010" ) or t_ps = dt_cntpreset or t_ps = dt_transfer or t_ps = adc_cntpreset or t_ps = adc_transfer or t_ps = average1 ) else
+    s_enp1 <= '1' when ( ( t_ps = wact1  and t_prevmode = "011") or ( t_ps = rterm1 and t_prevmode = "010" ) or t_ps = dt_cntpreset or t_ps = dt_transfer or t_ps = adc_cntpreset or t_ps = adc_transfer or t_ps = average1 ) else
               '0';
     s_clr1 <= '1' when ( ( t_ps = decode and ( ( m_mode_addr = "010" and m_OE_b = '1' and not ( t_prevmode = "011" ) ) or ( m_mode_addr = "010" and m_OE_b = '0' and not (  t_prevmode = "010" ) ) ) ) or s_state_clr = '1' ) else --not done
               '0';
 
     s_dout_en <= '1' when ( t_ps = ract1 or t_ps = ract0 ) else
                  '0';
-	
-	
-	--m_port
-	m_ram1_mux_sel <= s_ram1_mux_sel;
+
+
+    --m_port
+    m_ram1_mux_sel <= s_ram1_mux_sel;
     m_ram0_mux_sel <= s_ram0_mux_sel;
     m_out_mux_sel <= "0" when m_mode_addr = "001" else -- pc ram0 -> 0
                      "1"; -- pc ram 1 -> 1
@@ -434,23 +525,25 @@ begin
 
     s_dtoa(7 downto 0) <= m_data;
     s_dtoa(10 downto 8) <= "000";
-	
-	s_state_write0 <= '1' when ( t_ps = wready0 or t_ps = wact0 or t_ps = wterm0 ) else
-                    '0';
-	s_state_write1 <= '1' when ( t_ps = wready1 or t_ps = wact1 or t_ps = wterm1 ) else
-                    '0';
-    s_state_read0 <= '1' when ( t_ps = rready0 or t_ps = ract0 or t_ps = rterm0 ) else
-                    '0';
-	s_state_read1 <= '1' when ( t_ps = rready1 or t_ps = ract1 or t_ps = rterm1 ) else
-                    '0';
+
+    s_state_pc_write0 <= '1' when ( t_ps = wready0 or t_ps = wact0 or t_ps = wterm0 ) else
+                      '0';
+    s_state_pc_write1 <= '1' when ( t_ps = wready1 or t_ps = wact1 or t_ps = wterm1 ) else
+                      '0';
+    s_state_pc_read0 <= '1' when ( t_ps = rready0 or t_ps = ract0 or t_ps = rterm0 ) else
+                     '0';
+    s_state_pc_read1 <= '1' when ( t_ps = rready1 or t_ps = ract1 or t_ps = rterm1 ) else
+                     '0';
     s_state_dt <= '1' when ( t_ps = dt_cntclr or t_ps = dt_transfer or t_ps = dt_transfer ) else
-                    '0';
+                  '0';
     s_state_dac <= '1' when ( t_ps = dac_cntclr or t_ps = dac_cntpreset or t_ps = dac_transfer ) else
-                    '0';
+                   '0';
     s_state_adc <= '1' when ( t_ps = adc_cntclr or t_ps = adc_cntpreset or t_ps = adc_transfer ) else
-                    '0';
+                   '0';
     s_state_avg <= '1' when ( t_ps = average0 or t_ps = average1 or t_ps = average2 or t_ps = average3 or t_ps = average4 or t_ps = average5 or t_ps = average6 or t_ps = average7 ) else
-                    '0';
-	
+                   '0';
+    s_state_clr <= '1' when ( t_ps = dt_cntclr or t_ps = dac_cntclr or t_ps = adc_cntclr ) else
+                   '0';
+
 end Behavioral;
 
