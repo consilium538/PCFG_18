@@ -47,8 +47,8 @@
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="netgen"/>
-    <file xil_pn:branch="PostSynthSim" xil_pn:fileType="FILE_NETGEN_REPORT" xil_pn:name="netgen/synthesis/PCFG_TOP_synthesis.nlf"/>
-    <file xil_pn:branch="PostSynthSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="netgen/synthesis/PCFG_TOP_synthesis.vhd"/>
+    <file xil_pn:fileType="FILE_NETGEN_REPORT" xil_pn:name="netgen/synthesis/PCFG_TOP_synthesis.nlf"/>
+    <file xil_pn:fileType="FILE_VHDL" xil_pn:name="netgen/synthesis/PCFG_TOP_synthesis.vhd"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="tb_pcfg_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="tb_pcfg_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
@@ -166,18 +166,14 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1542706689" xil_pn:in_ck="-8655513626843591761" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="-4069688552825608527" xil_pn:start_ts="1542706670">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
+    <transform xil_pn:end_ts="1542777872" xil_pn:in_ck="-8655513626843591761" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="-4069688552825608527" xil_pn:start_ts="1542777859">
+      <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name=".lso"/>
       <outfile xil_pn:name="PCFG_TOP.lso"/>
       <outfile xil_pn:name="PCFG_TOP.ngc"/>
       <outfile xil_pn:name="PCFG_TOP.ngr"/>
       <outfile xil_pn:name="PCFG_TOP.prj"/>
-      <outfile xil_pn:name="PCFG_TOP.stx"/>
       <outfile xil_pn:name="PCFG_TOP.syr"/>
       <outfile xil_pn:name="PCFG_TOP.xst"/>
       <outfile xil_pn:name="PCFG_TOP_vhdl.prj"/>

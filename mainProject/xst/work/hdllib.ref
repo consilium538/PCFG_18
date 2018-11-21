@@ -1,11 +1,11 @@
 AR tw_8254_cnt behavioral C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/tw_8254_cnt.vhd sub00/vhpl05 1542706682
 EN sram2k NULL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/sram2k.vhd sub00/vhpl28 1542706689
 EN signal_controller NULL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/signal_controller.vhd sub00/vhpl10 1542706687
-EN compsub NULL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/CompSub.vhd sub00/vhpl00 1542706673
+EN compsub NULL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/CompSub.vhd sub00/vhpl00 1542777869
 AR daccnt behavioral C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/DACcnt.vhd sub00/vhpl25 1542706678
 AR da_ram da_ram_a C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/DA_RAM.vhd sub00/vhpl17 1542677814
 AR ram1 ram1_a C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/Ram1.vhd sub00/vhpl15 1542677812
-AR compsub behavioral C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/CompSub.vhd sub00/vhpl01 1542706674
+AR compsub behavioral C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/CompSub.vhd sub00/vhpl01 1542777870
 AR ram0 ram0_a C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/ipcore_dir/Ram0.vhd sub00/vhpl13 1542677810
 AR pcfg_top behavioral C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/pcfg_top.vhd sub00/vhpl23 1542706694
 EN tw_8254_cnt NULL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/tw_8254_cnt.vhd sub00/vhpl04 1542706681
@@ -25,6 +25,6 @@ EN address_decoder NULL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/addr
 EN top_8254 NULL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/top_8254.vhd sub00/vhpl06 1542706683
 AR signal_controller behavioral C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/signal_controller.vhd sub00/vhpl11 1542706688
 EN averager NULL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/Averager.vhd sub00/vhpl20 1542706691
-EN remcontroller NULL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/remcontroller.vhd sub00/vhpl02 1542706675
-AR remcontroller behavioral C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/remcontroller.vhd sub00/vhpl03 1542706676
+EN remcontroller NULL C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/remcontroller.vhd sub00/vhpl02 1542777871
+AR remcontroller behavioral C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/remcontroller.vhd sub00/vhpl03 1542777872
 AR top_8254 behavioral C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/mainProject/vhdl/top_8254.vhd sub00/vhpl07 1542706684
