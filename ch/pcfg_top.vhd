@@ -21,6 +21,7 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.STD_LOGIC_ARITH.ALL;
 USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
 LIBRARY UNISIM;
 USE UNISIM.VCOMPONENTS.ALL;
 
@@ -29,34 +30,34 @@ USE UNISIM.VCOMPONENTS.ALL;
 
 
 entity PCFG_TOP is
-PORT( ---------------------------------------------INPUT
-	 	m_reset_b : IN std_logic;								
-		m_clk : IN std_logic;		
-		m_address : IN std_logic_vector(8 downto 0);		
-		m_cmd_data : IN std_logic;
-		m_OE_b : IN std_logic;
-		m_wen : IN std_logic;
-		m_ren : IN std_logic;
-		
-		m_ADC_data : IN std_logic_vector(7 downto 0);	--adc input
-		
-		---------------------------------------------OUTPUT	
-		
-		m_DAC_data : OUT std_logic_vector(7 downto 0);	--dac output
-		m_DAC_clk : OUT std_logic;
-		
-		m_AD9283_clk : OUT std_logic;	
-		
-		-------------------------------------------------INOUT
-		
-		m_data : INOUT std_logic_vector(7 downto 0);
-		
-		-------------------------------------------------simulation위한 port
-		
-		m_led : OUT std_logic_vector(7 downto 0);
-		m_TP	: out std_logic_vector(1 downto 0)
-		
-		);
+    PORT( ---------------------------------------------INPUT
+            m_reset_b : IN std_logic;								
+            m_clk : IN std_logic;		
+            m_address : IN std_logic_vector(8 downto 0);		
+            m_cmd_data : IN std_logic;
+            m_OE_b : IN std_logic;
+            m_wen : IN std_logic;
+            m_ren : IN std_logic;
+
+            m_ADC_data : IN std_logic_vector(7 downto 0);	--adc input
+
+            ---------------------------------------------OUTPUT	
+
+            m_DAC_data : OUT std_logic_vector(7 downto 0);	--dac output
+            m_DAC_clk : OUT std_logic;
+
+            m_AD9283_clk : OUT std_logic;	
+
+            -------------------------------------------------INOUT
+
+            m_data : INOUT std_logic_vector(7 downto 0);
+
+            -------------------------------------------------simulation위한 port
+
+            m_led : OUT std_logic_vector(7 downto 0);
+            m_TP	: out std_logic_vector(1 downto 0)
+
+        );
 end PCFG_TOP;
 
 
@@ -269,11 +270,21 @@ architecture Behavioral of PCFG_TOP is
     signal ram1_mux_dout: std_logic_vector(7 downto 0);
     signal out_mux_dout	: std_logic_vector(7 downto 0);
 
+
     ---=========== END OF SIGNAL ===================
+
+
+    -----------======================================================-------------------
+    -----------======================  split ========================-------------------
+    -----------======================================================-------------------
+
 begin
-    --clks
+
+    -----------================ clock connection
+
     m_DAC_clk <= sys_clk		; ---필요한 clock 연결하세요
     m_AD9283_clk <= sys_clk		; ---필요한 clock 연결하세요
+
     -----------================  don't change this ==================-------------------
 
 
@@ -315,53 +326,50 @@ begin
     m_led(7) <=s_reset_b;
     -----------======================================================--------------------
 
-    ---=========== MUX ===================
-    ram0_mux_dout 	<= inlatch_dout when s_ram0_mux_sel="0" else
-                      s_doutb3 		when s_ram0_mux_sel="1" else (others=>'Z');
-
-    ram1_mux_dout	<= Averager_out when s_ram1_mux_sel="00" else
-                     s_doutb0 		when s_ram1_mux_sel="01" else
-                     inlatch_dout 	when s_ram1_mux_sel="10" else (others=>'Z');
-
-    out_mux_dout <= s_doutb0 when s_out_mux_sel="0" else
-                    s_doutb1 when s_out_mux_sel="1" else (others=>'Z');
-    ---=========== END OF MUX ===================
-
     ---=========== LATCH ===================
     process(s_clk)
     begin
         if rising_edge(s_clk) then
-            if latch_en='1' then
-                s_cmd_data	<= m_cmd_data;
-                s_wen		<= m_wen;
-                s_ren		<= m_ren;
-                s_OE_b		<= m_OE_b;
-                s_address	<= m_address;
-            end if;
+
+            s_cmd_data	<= m_cmd_data;
+            s_wen		<= m_wen;
+            s_ren		<= m_ren;
+            s_OE_b		<= m_OE_b;
+            s_address	<= m_address;
+
             if s_inlatch_en='1' then
                 inlatch_dout <= s_din;
+            else
+                inlatch_dout <= (others <= 'Z');
             end if;
+
             if s_outlatch_en='1' then
                 outlatch_dout <= out_mux_dout;
+            else
+                outlatch_dout <= (others <= 'Z');
             end if;
+
         end if;
     end process;
 
     process(sys_clk)
     begin	
         if rising_edge(sys_clk) then
+
             if s_da_latch_en='1' then
                 da_latch_dout <= s_doutb2;
+            else
+                da_latch_dout <= x"80";
             end if;
+
             if s_ad_latch_en='1' then
                 ad_latch_dout <= ad_latch_din;
+            else
+                ad_latch_dout <= x"80";
             end if;
+
         end if;
     end process;
-    m_DAC_data 	<= da_latch_dout;
-    ad_latch_din <= m_ADC_data;
-    s_dina3 <= ad_latch_dout;
-
 
     ---=========== SUB-MODULE CONNECTION ===================
     addr_decode : address_decoder
@@ -482,6 +490,24 @@ begin
                 m_dout		=> Averager_out
             );
     ---=========== END OF SUB-MODULE =================== 
+
+    ---=========== MUX ===================
+    ram0_mux_dout 	<= inlatch_dout when s_ram0_mux_sel="0" else
+                      s_doutb3 		when s_ram0_mux_sel="1" else (others=>'Z');
+
+    ram1_mux_dout	<= Averager_out when s_ram1_mux_sel="00" else
+                     s_doutb0 		when s_ram1_mux_sel="01" else
+                     inlatch_dout 	when s_ram1_mux_sel="10" else (others=>'Z');
+
+    out_mux_dout <= s_doutb0 when s_out_mux_sel="0" else
+                    s_doutb1 when s_out_mux_sel="1" else (others=>'Z');
+    ---=========== END OF MUX ===================
+
     m_led(6 downto 0)<=s_led(6 downto 0);
---address decoder
+
+    m_DAC_data 	<= da_latch_dout;
+    ad_latch_din <= m_ADC_data;
+    s_dina3 <= ad_latch_dout;
+
+
 end Behavioral;
