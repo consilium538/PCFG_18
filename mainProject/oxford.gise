@@ -169,6 +169,7 @@
     <transform xil_pn:end_ts="1542777872" xil_pn:in_ck="-8655513626843591761" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="-4069688552825608527" xil_pn:start_ts="1542777859">
       <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <outfile xil_pn:name=".lso"/>
       <outfile xil_pn:name="PCFG_TOP.lso"/>
       <outfile xil_pn:name="PCFG_TOP.ngc"/>
