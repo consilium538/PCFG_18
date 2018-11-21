@@ -9,8 +9,8 @@ entity DACcnt is
     m_Ain : in std_logic_vector(10 downto 0);
 
     m_Aout : out std_logic_vector(10 downto 0);
-    d_reg : out std_logic_vector(10 downto 0)
-    m_enb2 : out std_logic;
+    d_reg : out std_logic_vector(10 downto 0);
+    m_enb2 : out std_logic
 );
 end DACcnt;
 
@@ -31,7 +31,7 @@ begin
     begin
         if rising_edge(m_clk) then
             if(s_ps = dacload) then
-                s_reg <= m_Ain1;
+                s_reg <= m_Ain;
             end if;
             case s_ps is
                 when dacidle =>

@@ -40,7 +40,7 @@ architecture Behavioral of Averager is
         m_clk, m_en : in std_logic;
         m_divisor   : in std_logic_vector(7 downto 0);
                 -- out
-        m_remainder : out std_logic_vector(7 downto 0);
+        m_remainder : out std_logic_vector(7 downto 0)
     );
     end component;
 
