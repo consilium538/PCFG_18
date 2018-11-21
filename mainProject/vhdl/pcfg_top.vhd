@@ -340,13 +340,13 @@ begin
             if s_inlatch_en='1' then
                 inlatch_dout <= s_din;
             else
-                inlatch_dout <= (others <= 'Z');
+                inlatch_dout <= (others => 'Z');
             end if;
 
             if s_outlatch_en='1' then
                 outlatch_dout <= out_mux_dout;
             else
-                outlatch_dout <= (others <= 'Z');
+                outlatch_dout <= (others => 'Z');
             end if;
 
         end if;

@@ -1,0 +1,31 @@
+s_ena0 <= '0';
+s_enb0 <= '0';
+s_enp0 <= '0';
+s_clr0 <= '1';
+s_sel0 <= "00";
+s_wea0 <= "0";
+s_ram0_mux_sel <= "0";
+
+s_ena1 <= '0';
+s_enb1 <= '0';
+s_enp1 <= '0';
+s_clr1 <= '1';
+s_sel1 <= "00";
+s_wea1 <= "0";
+s_ram1_mux_sel <= "11";
+
+s_ena2 <= '0';
+s_wea2 <= "0";
+s_enpda <= '0';
+s_selda <= "00";
+s_dac_start <= '0';
+s_dac_stop <= '0';
+
+s_enb3 <= '0';
+s_adc_start <= '1';
+s_enpad <= '0';
+s_selad <= "00";
+
+s_average_clr <= '1';
+
+>> t_prevmode <= "011";
