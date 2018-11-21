@@ -371,6 +371,11 @@ begin
 	s_ram0_mux_sel <= "0" when s_state_write0='1' else "1";
 	s_ram1_mux_sel <= "10" when s_state_write1='1' else "11";
 	
+	s_enp0 <= '1' when ( ( t_ps = wact and m_mode_addr = "001" ) or ( t_ps = rterm and t_prevmode = "000" ) or t_ps = dt_cntpreset or t_ps = dt_transper or t_ps = adc_cntpreset or t_ps = adc_transfer or t_ps = average1 ) else
+              '0';
+    s_clr0 <= '1' when ( ( t_ps = decode and ( t_prevmode /= t_currentmode ) ) or s_state ) else --not done
+              '0';
+	
 	
 	
 	--m_port
