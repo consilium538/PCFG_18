@@ -26,7 +26,7 @@ entity signal_controller is
           m_inlatch_en	: out std_logic;
           m_outlatch_en	: out std_logic;
           m_ad_latch_en	: out std_logic;
-          m_da_latch_en	: out std_logic;
+          --m_da_latch_en	: out std_logic;
 
           m_average_en 	: out std_logic;
           m_average_clr   : out std_logic;
@@ -395,6 +395,11 @@ begin
                     end if;
                 when dac_start =>
                     t_ps <= idle;
+                    if m_cmd_data='0' then
+                        t_ps<=idle;
+                    else 
+                        t_ps<=dac_start;
+                    end if;
 
                 when dac_stop =>
                     t_prevmode <= "100";
@@ -472,13 +477,25 @@ begin
     s_wea1 <= "1" when ( t_ps = wact1 or t_ps = dt_transfer or t_ps = average6 ) else "0";
     s_enb1 <= s_state_pc_read1 or s_state_dac;
 
-    s_enp1 <= '1' when ( ( t_ps = wact1  and t_prevmode = "011") or ( t_ps = rterm1 and t_prevmode = "010" ) or t_ps = dt_transfer or t_ps = adc_cntpreset or t_ps = adc_transfer or t_ps = average1 ) else
+    s_enp1 <= '1' when ( ( t_ps = wact1  and t_prevmode = "011") or ( t_ps = rterm1 and t_prevmode = "010" ) or t_ps = dt_transfer or t_ps = dac_cntpreset or t_ps = dac_transfer or t_ps = average1 ) else
               '0';
     s_clr1 <= '1' when ( ( t_ps = decode and ( ( m_mode_addr = "010" and m_OE_b = '1' and not ( t_prevmode = "011" ) ) or ( m_mode_addr = "010" and m_OE_b = '0' and not (  t_prevmode = "010" ) ) ) ) or s_state_clr = '1' ) else --not done
               '0';
     s_sel1 <= "01" when ( t_ps = wact1 ) else -- add
               "10" when ( t_ps = softreset ) else -- clear
               "11" when ( t_ps = dt_cntpreset ) else -- setup
+              "00"; -- preserv
+
+    s_ena2 <= s_state_dac;
+    s_wea2 <= "1" when t_ps = dac_transfer else "0";
+
+    s_enpda <= '1' when ( t_ps = dac_cntpreset or t_ps = dac_transfer ) else
+              '0';
+    s_clrda <= '1' when ( s_state_clr = '1' and t_ps = idle ) else --not done
+              '0';
+    s_selda <= "01" when ( t_ps = dac_transfer ) else -- add
+              "10" when ( t_ps = softreset ) else -- clear
+              --"11" when ( t_ps = dt_cntpreset ) else -- setup
               "00"; -- preserv
 
     s_ram0_mux_sel <= "0" when s_state_pc_write0='1' else "1";
@@ -489,7 +506,10 @@ begin
 
     s_dout_en <= '1' when ( t_ps = ract1 or t_ps = ract0 ) else
                  '0';
-
+    s_dac_start <= '1' when ( t_ps = dac_start ) else
+                   '0';
+    s_dac_stop <= '1' when ( t_ps = dac_stop ) else
+                  '0';
 
     --m_port
     m_ram1_mux_sel <= s_ram1_mux_sel;
@@ -502,7 +522,7 @@ begin
     m_inlatch_en <= m_OE_b;
     m_outlatch_en <= not m_OE_b;
     m_ad_latch_en <= '1';
-    m_da_latch_en <= s_da_latch_en;
+    --m_da_latch_en <= s_da_latch_en;
 
     m_average_en <= s_average_en;
     m_average_clr <= s_average_clr;

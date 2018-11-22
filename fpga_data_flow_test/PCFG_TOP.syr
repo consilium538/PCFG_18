@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.22 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.22 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Reading design: PCFG_TOP.prj
 
@@ -68,7 +68,7 @@ Automatic Register Balancing       : No
 
 ---- Target Options
 Add IO Buffers                     : YES
-Global Maximum Fanout              : 500
+Global Maximum Fanout              : 100000
 Add Generic Clock Buffer(BUFG)     : 8
 Register Duplication               : YES
 Slice Packing                      : YES
@@ -123,29 +123,26 @@ Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl
 Architecture behavioral of Entity address_decoder is up to date.
 Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/signal_controller.vhd" in Library work.
 Entity <signal_controller> compiled.
-Entity <signal_controller> (Architecture <Behavioral>) compiled.
+Entity <signal_controller> (Architecture <behavioral>) compiled.
 Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/ipcore_dir/sram2k.vhd" in Library work.
-Entity <sram2k> compiled.
-Entity <sram2k> (Architecture <sram2k_a>) compiled.
+Architecture sram2k_a of Entity sram2k is up to date.
 Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/Averager.vhd" in Library work.
-Entity <Averager> compiled.
-Entity <Averager> (Architecture <Behavioral>) compiled.
+Architecture behavioral of Entity averager is up to date.
 Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/pcfg_top.vhd" in Library work.
-Entity <PCFG_TOP> compiled.
-Entity <PCFG_TOP> (Architecture <Behavioral>) compiled.
+Architecture behavioral of Entity pcfg_top is up to date.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
 =========================================================================
-Analyzing hierarchy for entity <PCFG_TOP> in library <work> (architecture <Behavioral>).
+Analyzing hierarchy for entity <PCFG_TOP> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <TOP_8254> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <address_decoder> in library <work> (architecture <behavioral>).
 
-Analyzing hierarchy for entity <signal_controller> in library <work> (architecture <Behavioral>).
+Analyzing hierarchy for entity <signal_controller> in library <work> (architecture <behavioral>).
 
-Analyzing hierarchy for entity <Averager> in library <work> (architecture <Behavioral>).
+Analyzing hierarchy for entity <Averager> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <TW_8254_CNT> in library <work> (architecture <behavioral>).
 
@@ -161,7 +158,7 @@ Analyzing hierarchy for entity <CompSub> in library <work> (architecture <behavi
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
-Analyzing Entity <PCFG_TOP> in library <work> (Architecture <Behavioral>).
+Analyzing Entity <PCFG_TOP> in library <work> (Architecture <behavioral>).
     Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <s_clk_g> in unit <PCFG_TOP>.
     Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <s_clk_g> in unit <PCFG_TOP>.
     Set user-defined property "IBUF_LOW_PWR =  TRUE" for instance <s_clk_g> in unit <PCFG_TOP>.
@@ -184,7 +181,7 @@ Entity <TW_8254_CNT> analyzed. Unit <TW_8254_CNT> generated.
 Analyzing Entity <address_decoder> in library <work> (Architecture <behavioral>).
 Entity <address_decoder> analyzed. Unit <address_decoder> generated.
 
-Analyzing Entity <signal_controller> in library <work> (Architecture <Behavioral>).
+Analyzing Entity <signal_controller> in library <work> (Architecture <behavioral>).
 WARNING:Xst:753 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/signal_controller.vhd" line 246: Unconnected output port 'd_reg' of component 'DACcnt'.
 WARNING:Xst:753 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/signal_controller.vhd" line 258: Unconnected output port 'd_reg' of component 'ADCcnt'.
 Entity <signal_controller> analyzed. Unit <signal_controller> generated.
@@ -198,7 +195,7 @@ Entity <DACcnt> analyzed. Unit <DACcnt> generated.
 Analyzing Entity <ADCcnt> in library <work> (Architecture <behavioral>).
 Entity <ADCcnt> analyzed. Unit <ADCcnt> generated.
 
-Analyzing Entity <Averager> in library <work> (Architecture <Behavioral>).
+Analyzing Entity <Averager> in library <work> (Architecture <behavioral>).
 Entity <Averager> analyzed. Unit <Averager> generated.
 
 Analyzing Entity <CompSub> in library <work> (Architecture <behavioral>).
@@ -266,21 +263,20 @@ Synthesizing Unit <DACcnt>.
     | States             | 3                                              |
     | Transitions        | 6                                              |
     | Inputs             | 2                                              |
-    | Outputs            | 3                                              |
+    | Outputs            | 2                                              |
     | Clock              | m_clk                     (rising_edge)        |
     | Power Up State     | dacidle                                        |
     | Encoding           | automatic                                      |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
     Found 11-bit up counter for signal <s_cnt>.
-    Found 11-bit subtractor for signal <s_comp$addsub0000> created at line 68.
-    Found 11-bit comparator less for signal <s_comp$cmp_lt0000> created at line 68.
-    Found 1-bit register for signal <s_enb2>.
+    Found 11-bit subtractor for signal <s_comp$addsub0000> created at line 63.
+    Found 11-bit comparator less for signal <s_comp$cmp_lt0000> created at line 63.
     Found 11-bit register for signal <s_reg>.
     Summary:
 	inferred   1 Finite State Machine(s).
 	inferred   1 Counter(s).
-	inferred  12 D-type flip-flop(s).
+	inferred  11 D-type flip-flop(s).
 	inferred   1 Adder/Subtractor(s).
 	inferred   1 Comparator(s).
 Unit <DACcnt> synthesized.
@@ -346,20 +342,13 @@ Unit <TOP_8254> synthesized.
 Synthesizing Unit <signal_controller>.
     Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/signal_controller.vhd".
 WARNING:Xst:1780 - Signal <s_wea3> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <s_wea2<0>> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:653 - Signal <s_selda> is used but never assigned. This sourceless signal will be automatically connected to value 00.
 WARNING:Xst:653 - Signal <s_selad> is used but never assigned. This sourceless signal will be automatically connected to value 00.
 WARNING:Xst:1780 - Signal <s_outlatch_en> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <s_inlatch_en> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <s_enpda> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:653 - Signal <s_enpad> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:653 - Signal <s_enb3> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:653 - Signal <s_ena2> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:653 - Signal <s_dac_stop> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:653 - Signal <s_dac_start> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:653 - Signal <s_da_latch_en> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:1780 - Signal <s_da_latch_en> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <s_comp3> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <s_clrda> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:653 - Signal <s_clrad> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:653 - Signal <s_average_en> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:653 - Signal <s_average_clr> is used but never assigned. This sourceless signal will be automatically connected to value 0.
@@ -380,9 +369,9 @@ INFO:Xst:1799 - State average7 is never reached in FSM <t_ps>.
     Found finite state machine <FSM_2> for signal <t_ps>.
     -----------------------------------------------------------------------
     | States             | 26                                             |
-    | Transitions        | 50                                             |
+    | Transitions        | 51                                             |
     | Inputs             | 15                                             |
-    | Outputs            | 27                                             |
+    | Outputs            | 36                                             |
     | Clock              | m_clk                     (rising_edge)        |
     | Power Up State     | idle                                           |
     | Encoding           | automatic                                      |
@@ -466,8 +455,8 @@ Macro Statistics
  16-bit down counter                                   : 3
 # Accumulators                                         : 1
  15-bit up accumulator                                 : 1
-# Registers                                            : 107
- 1-bit register                                        : 72
+# Registers                                            : 106
+ 1-bit register                                        : 71
  11-bit register                                       : 5
  15-bit register                                       : 6
  2-bit register                                        : 1
@@ -542,13 +531,13 @@ Optimizing FSM <clk_gen/state/FSM> on signal <state[1:6]> with one-hot encoding.
  wait2    | 100000
 ----------------------
 Analyzing FSM <FSM_0> for best encoding.
-Optimizing FSM <sig_controller/dac_ctr/s_ps/FSM> on signal <s_ps[1:2]> with gray encoding.
+Optimizing FSM <sig_controller/dac_ctr/s_ps/FSM> on signal <s_ps[1:2]> with user encoding.
 ---------------------
  State   | Encoding
 ---------------------
  dacidle | 00
  dacload | 01
- dacplay | 11
+ dacplay | 10
 ---------------------
 Reading core <ipcore_dir/sram2k.ngc>.
 Loading core <sram2k> for timing and area information for instance <sram_0>.
@@ -559,51 +548,18 @@ WARNING:Xst:1290 - Hierarchical block <CNT1> is unconnected in block <clk_gen>.
    It will be removed from the design.
 WARNING:Xst:1290 - Hierarchical block <CNT2> is unconnected in block <clk_gen>.
    It will be removed from the design.
-INFO:Xst:2261 - The FF/Latch <FFd2> in Unit <FSM> is equivalent to the following FF/Latch, which will be removed : <FFd1> 
-WARNING:Xst:1293 - FF/Latch <FFd2> has a constant value of 0 in block <FSM>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_reg_0> has a constant value of 0 in block <dac_ctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_reg_1> has a constant value of 0 in block <dac_ctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_reg_2> has a constant value of 0 in block <dac_ctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_reg_3> has a constant value of 0 in block <dac_ctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_reg_4> has a constant value of 0 in block <dac_ctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_reg_5> has a constant value of 0 in block <dac_ctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_reg_6> has a constant value of 0 in block <dac_ctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_reg_7> has a constant value of 0 in block <dac_ctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_reg_8> has a constant value of 0 in block <dac_ctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_reg_9> has a constant value of 0 in block <dac_ctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_reg_10> has a constant value of 0 in block <dac_ctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_enb2> has a constant value of 0 in block <dac_ctr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <s_Reg_0> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <s_Reg_1> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <s_Reg_2> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <s_Reg_3> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <s_Reg_4> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <s_Reg_5> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <s_Reg_6> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <s_Reg_7> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <s_Reg_8> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <s_Reg_9> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <s_Reg_10> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <s_ps_0> has a constant value of 0 in block <adc_ctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_1> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_2> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_3> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_4> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_5> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_6> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_7> (without init value) has a constant value of 1 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_0> (without init value) has a constant value of 0 in block <daremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_1> (without init value) has a constant value of 0 in block <daremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_2> (without init value) has a constant value of 0 in block <daremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_3> (without init value) has a constant value of 0 in block <daremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_4> (without init value) has a constant value of 0 in block <daremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_5> (without init value) has a constant value of 0 in block <daremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_6> (without init value) has a constant value of 0 in block <daremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_7> (without init value) has a constant value of 0 in block <daremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_8> (without init value) has a constant value of 0 in block <daremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_9> (without init value) has a constant value of 0 in block <daremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_10> (without init value) has a constant value of 0 in block <daremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_0> (without init value) has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_1> (without init value) has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_2> (without init value) has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_3> (without init value) has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_4> (without init value) has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_5> (without init value) has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_6> (without init value) has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_7> (without init value) has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_8> (without init value) has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_9> (without init value) has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <s_Reg_10> (without init value) has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <t_prevmode_4> of sequential type is unconnected in block <sig_controller>.
 WARNING:Xst:2677 - Node <t_prevmode_4> of sequential type is unconnected in block <signal_controller>.
 
@@ -624,8 +580,8 @@ Macro Statistics
  16-bit down counter                                   : 3
 # Accumulators                                         : 1
  15-bit up accumulator                                 : 1
-# Registers                                            : 400
- Flip-Flops                                            : 400
+# Registers                                            : 399
+ Flip-Flops                                            : 399
 # Comparators                                          : 14
  11-bit comparator less                                : 1
  11-bit comparator lessequal                           : 4
@@ -637,20 +593,6 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1293 - FF/Latch <s_enb2> has a constant value of 0 in block <DACcnt>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <s_reg_0> has a constant value of 0 in block <DACcnt>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <s_reg_1> has a constant value of 0 in block <DACcnt>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <s_reg_2> has a constant value of 0 in block <DACcnt>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <s_reg_3> has a constant value of 0 in block <DACcnt>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <s_reg_4> has a constant value of 0 in block <DACcnt>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <s_reg_5> has a constant value of 0 in block <DACcnt>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <s_reg_6> has a constant value of 0 in block <DACcnt>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <s_reg_7> has a constant value of 0 in block <DACcnt>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <s_reg_8> has a constant value of 0 in block <DACcnt>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <s_reg_9> has a constant value of 0 in block <DACcnt>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <s_reg_10> has a constant value of 0 in block <DACcnt>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <s_ps_FSM_FFd1> has a constant value of 0 in block <DACcnt>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <s_ps_FSM_FFd2> has a constant value of 0 in block <DACcnt>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <adc_ctr/s_ps_0> has a constant value of 0 in block <signal_controller>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram of type RAMB16_S9_S9 has been replaced by RAMB16
 INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram of type RAMB16_S9_S9 has been replaced by RAMB16
@@ -673,73 +615,43 @@ Optimizing unit <TOP_8254> ...
 Optimizing unit <signal_controller> ...
 
 Optimizing unit <Averager> ...
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Reg_4> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Reg_5> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Reg_6> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Reg_7> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Reg_8> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Reg_9> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Reg_10> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Cnt_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Cnt_1> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Cnt_2> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Cnt_3> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Cnt_4> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Cnt_5> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Cnt_6> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Cnt_7> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Cnt_8> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <avg_module/s_data_0> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <avg_module/s_data_1> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <avg_module/s_data_2> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <avg_module/s_data_3> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <avg_module/s_data_4> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <avg_module/s_data_5> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <avg_module/s_data_6> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <avg_module/s_data_7> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <avg_module/s_data_8> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <avg_module/s_data_9> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <avg_module/s_data_10> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <avg_module/s_data_11> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <avg_module/s_data_12> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <avg_module/s_data_13> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_8> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_9> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_10> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <avg_module/s_data_14> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Cnt_10> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Cnt_9> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Reg_8> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Reg_7> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Reg_6> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Reg_5> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Reg_4> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Reg_3> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Reg_2> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Reg_1> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Reg_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_7> (without init value) has a constant value of 1 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_6> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_5> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_4> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_3> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_2> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_1> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <da_latch_dout_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Reg_3> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Reg_2> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Reg_1> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/adremctr/s_Reg_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Cnt_10> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Cnt_9> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Cnt_8> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Cnt_7> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Cnt_6> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Cnt_5> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Cnt_4> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Cnt_3> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Cnt_2> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Cnt_1> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Cnt_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Reg_9> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sig_controller/daremctr/s_Reg_10> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <avg_module/s_data_13> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <avg_module/s_data_12> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <avg_module/s_data_11> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <avg_module/s_data_10> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <avg_module/s_data_9> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <avg_module/s_data_8> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <avg_module/s_data_7> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <avg_module/s_data_6> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <avg_module/s_data_5> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <avg_module/s_data_4> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <avg_module/s_data_3> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <avg_module/s_data_2> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <avg_module/s_data_1> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <avg_module/s_data_0> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_0> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_1> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_2> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_3> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_4> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_5> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_6> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_7> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_8> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_9> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_10> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_0> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_1> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_2> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_3> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_7> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_6> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_5> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_4> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avg_module/cns1/s_dividend_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avg_module/cns1/s_dividend_1> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avg_module/cns1/s_dividend_2> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
@@ -751,10 +663,10 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avg_module/cns1/s_d
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avg_module/cns2/s_dividend_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avg_module/cns3/s_dividend_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avg_module/cns4/s_dividend_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avg_module/cns5/s_dividend_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avg_module/cns6/s_dividend_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avg_module/cns8/s_dividend_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avg_module/cns7/s_dividend_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avg_module/cns6/s_dividend_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avg_module/cns5/s_dividend_0> (without init value) has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <clk_gen/CNT1/s_CNT3_UD> of sequential type is unconnected in block <PCFG_TOP>.
 WARNING:Xst:2677 - Node <clk_gen/CNT1/s_wr_L> of sequential type is unconnected in block <PCFG_TOP>.
 WARNING:Xst:2677 - Node <clk_gen/CNT1/s_wr_M> of sequential type is unconnected in block <PCFG_TOP>.
@@ -958,7 +870,7 @@ WARNING:Xst:2677 - Node <avg_module/cns8/s_dividend_4> of sequential type is unc
 WARNING:Xst:2677 - Node <avg_module/cns8/s_dividend_5> of sequential type is unconnected in block <PCFG_TOP>.
 WARNING:Xst:2677 - Node <avg_module/cns8/s_dividend_6> of sequential type is unconnected in block <PCFG_TOP>.
 WARNING:Xst:2677 - Node <avg_module/cns8/s_dividend_7> of sequential type is unconnected in block <PCFG_TOP>.
-FlipFlop sig_controller/t_ps_FSM_FFd13 has been replicated 1 time(s)
+FlipFlop sig_controller/t_ps_FSM_FFd4 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -966,8 +878,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 220
- Flip-Flops                                            : 220
+# Registers                                            : 263
+ Flip-Flops                                            : 263
 
 =========================================================================
 
@@ -996,34 +908,34 @@ Design Statistics
 # IOs                              : 51
 
 Cell Usage :
-# BELS                             : 864
+# BELS                             : 920
 #      GND                         : 9
-#      INV                         : 67
-#      LUT1                        : 57
-#      LUT2                        : 60
-#      LUT2_D                      : 5
-#      LUT2_L                      : 4
-#      LUT3                        : 78
-#      LUT3_D                      : 10
-#      LUT3_L                      : 3
-#      LUT4                        : 217
-#      LUT4_D                      : 22
-#      LUT4_L                      : 62
-#      MUXCY                       : 135
-#      MUXF5                       : 14
+#      INV                         : 69
+#      LUT1                        : 68
+#      LUT2                        : 99
+#      LUT2_D                      : 1
+#      LUT2_L                      : 1
+#      LUT3                        : 85
+#      LUT3_D                      : 8
+#      LUT3_L                      : 11
+#      LUT4                        : 203
+#      LUT4_D                      : 24
+#      LUT4_L                      : 18
+#      MUXCY                       : 167
+#      MUXF5                       : 25
 #      VCC                         : 1
-#      XORCY                       : 120
-# FlipFlops/Latches                : 220
-#      FD                          : 55
+#      XORCY                       : 131
+# FlipFlops/Latches                : 263
+#      FD                          : 61
 #      FDCE                        : 32
-#      FDE                         : 22
+#      FDE                         : 44
 #      FDPE                        : 4
-#      FDR                         : 31
-#      FDRE                        : 31
-#      FDRS                        : 1
+#      FDR                         : 32
+#      FDRE                        : 42
+#      FDRS                        : 2
 #      FDS                         : 10
 #      FDS_1                       : 31
-#      FDSE                        : 3
+#      FDSE                        : 5
 # RAMS                             : 4
 #      RAMB16                      : 4
 # Clock Buffers                    : 3
@@ -1040,12 +952,12 @@ Device utilization summary:
 
 Selected Device : 3s5000fg900-4 
 
- Number of Slices:                      311  out of  33280     0%  
- Number of Slice Flip Flops:            212  out of  66560     0%  
- Number of 4 input LUTs:                585  out of  66560     0%  
+ Number of Slices:                      313  out of  33280     0%  
+ Number of Slice Flip Flops:            247  out of  66560     0%  
+ Number of 4 input LUTs:                587  out of  66560     0%  
  Number of IOs:                          51
  Number of bonded IOBs:                  51  out of    633     8%  
-    IOB Flip Flops:                       8
+    IOB Flip Flops:                      16
  Number of BRAMs:                         4  out of    104     3%  
  Number of GCLKs:                         3  out of      8    37%  
 
@@ -1070,8 +982,8 @@ Clock Information:
 ------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 Clock Signal                              | Clock buffer(FF name)                                                                                                                                                                                                                             | Load  |
 ------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-m_clk                                     | IBUFG+BUFG                                                                                                                                                                                                                                        | 174   |
-m_TP_1_OBUF1(clk_gen/CNT0/m_out:O)        | BUFG(*)(sram_AD/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram)| 31    |
+m_clk                                     | IBUFG+BUFG                                                                                                                                                                                                                                        | 209   |
+m_TP_1_OBUF1(clk_gen/CNT0/m_out:O)        | BUFG(*)(sram_AD/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram)| 39    |
 clk_gen/CNT0/s_wr1(clk_gen/CNT0/s_wr_f5:O)| BUFG(*)(clk_gen/CNT0/s_wr_L)                                                                                                                                                                                                                      | 20    |
 ------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 (*) These 2 clock signal(s) are generated by combinatorial logic,
@@ -1090,8 +1002,8 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 10.029ns (Maximum Frequency: 99.715MHz)
-   Minimum input arrival time before clock: 7.496ns
+   Minimum period: 9.445ns (Maximum Frequency: 105.876MHz)
+   Minimum input arrival time before clock: 6.706ns
    Maximum output required time after clock: 14.413ns
    Maximum combinational path delay: 9.309ns
 
@@ -1101,29 +1013,28 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'm_clk'
-  Clock period: 10.029ns (frequency: 99.715MHz)
-  Total number of paths / destination ports: 10685 / 325
+  Clock period: 9.445ns (frequency: 105.876MHz)
+  Total number of paths / destination ports: 7573 / 421
 -------------------------------------------------------------------------
-Delay:               10.029ns (Levels of Logic = 5)
-  Source:            s_address_2 (FF)
-  Destination:       sig_controller/rem1ctr/s_Reg_3 (FF)
-  Source Clock:      m_clk rising
-  Destination Clock: m_clk rising
+Delay:               9.445ns (Levels of Logic = 4)
+  Source:            clk_gen/CNT0/s_CNT3_U_4 (FF)
+  Destination:       clk_gen/CNT0/s_CNT3_U_0 (FF)
+  Source Clock:      m_clk falling
+  Destination Clock: m_clk falling
 
-  Data Path: s_address_2 to sig_controller/rem1ctr/s_Reg_3
+  Data Path: clk_gen/CNT0/s_CNT3_U_4 to clk_gen/CNT0/s_CNT3_U_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               6   0.720   1.342  s_address_2 (s_address_2)
-     LUT4:I0->O            1   0.551   0.869  addr_decode/m_mode_addr<0>75_SW0 (N228)
-     LUT4:I2->O           34   0.551   2.204  addr_decode/m_mode_addr<0>75 (s_mode_addr<0>)
-     LUT4:I0->O            8   0.551   1.109  sig_controller/s_sel1<1>1 (sig_controller/s_sel1<1>)
-     LUT4:I3->O            1   0.551   0.827  sig_controller/rem1ctr/s_Reg_mux0000<3>30 (sig_controller/rem1ctr/s_Reg_mux0000<3>30)
-     LUT4:I3->O            1   0.551   0.000  sig_controller/rem1ctr/s_Reg_mux0000<3>31 (sig_controller/rem1ctr/s_Reg_mux0000<3>)
-     FDE:D                     0.203          sig_controller/rem1ctr/s_Reg_3
+     FDS_1:C->Q            3   0.720   1.246  clk_gen/CNT0/s_CNT3_U_4 (clk_gen/CNT0/s_CNT3_U_4)
+     LUT4:I0->O            1   0.551   0.996  clk_gen/CNT0/s_CNT3_UD_cmp_eq000025 (clk_gen/CNT0/s_CNT3_UD_cmp_eq000025)
+     LUT4:I1->O           15   0.551   1.214  clk_gen/CNT0/s_CNT3_UD_cmp_eq000071 (clk_gen/CNT0/s_CNT3_UD_cmp_eq0000)
+     LUT4_D:I3->O         13   0.551   1.238  clk_gen/CNT0/s_CNT3_D_mux0004<14>18_1 (clk_gen/CNT0/s_CNT3_D_mux0004<14>18)
+     LUT4:I2->O            1   0.551   0.801  clk_gen/CNT0/s_CNT3_U_mux0000<7>14 (clk_gen/CNT0/s_CNT3_U_mux0000<7>14)
+     FDS_1:S                   1.026          clk_gen/CNT0/s_CNT3_U_6
     ----------------------------------------
-    Total                     10.029ns (3.678ns logic, 6.351ns route)
-                                       (36.7% logic, 63.3% route)
+    Total                      9.445ns (3.950ns logic, 5.495ns route)
+                                       (41.8% logic, 58.2% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_gen/CNT0/s_wr1'
@@ -1149,56 +1060,59 @@ Delay:               4.202ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'm_TP_1_OBUF1'
-  Clock period: 4.606ns (frequency: 217.108MHz)
-  Total number of paths / destination ports: 132 / 22
+  Clock period: 7.613ns (frequency: 131.354MHz)
+  Total number of paths / destination ports: 374 / 33
 -------------------------------------------------------------------------
-Delay:               4.606ns (Levels of Logic = 11)
-  Source:            sig_controller/dac_ctr/s_cnt_1 (FF)
-  Destination:       sig_controller/dac_ctr/s_cnt_10 (FF)
+Delay:               7.613ns (Levels of Logic = 13)
+  Source:            sig_controller/dac_ctr/s_cnt_0 (FF)
+  Destination:       sig_controller/dac_ctr/s_cnt_0 (FF)
   Source Clock:      m_TP_1_OBUF1 rising
   Destination Clock: m_TP_1_OBUF1 rising
 
-  Data Path: sig_controller/dac_ctr/s_cnt_1 to sig_controller/dac_ctr/s_cnt_10
+  Data Path: sig_controller/dac_ctr/s_cnt_0 to sig_controller/dac_ctr/s_cnt_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              2   0.720   1.216  sig_controller/dac_ctr/s_cnt_1 (sig_controller/dac_ctr/s_cnt_1)
-     LUT1:I0->O            1   0.551   0.000  sig_controller/dac_ctr/Mcount_s_cnt_cy<1>_rt (sig_controller/dac_ctr/Mcount_s_cnt_cy<1>_rt)
-     MUXCY:S->O            1   0.500   0.000  sig_controller/dac_ctr/Mcount_s_cnt_cy<1> (sig_controller/dac_ctr/Mcount_s_cnt_cy<1>)
-     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcount_s_cnt_cy<2> (sig_controller/dac_ctr/Mcount_s_cnt_cy<2>)
-     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcount_s_cnt_cy<3> (sig_controller/dac_ctr/Mcount_s_cnt_cy<3>)
-     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcount_s_cnt_cy<4> (sig_controller/dac_ctr/Mcount_s_cnt_cy<4>)
-     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcount_s_cnt_cy<5> (sig_controller/dac_ctr/Mcount_s_cnt_cy<5>)
-     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcount_s_cnt_cy<6> (sig_controller/dac_ctr/Mcount_s_cnt_cy<6>)
-     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcount_s_cnt_cy<7> (sig_controller/dac_ctr/Mcount_s_cnt_cy<7>)
-     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcount_s_cnt_cy<8> (sig_controller/dac_ctr/Mcount_s_cnt_cy<8>)
-     MUXCY:CI->O           0   0.064   0.000  sig_controller/dac_ctr/Mcount_s_cnt_cy<9> (sig_controller/dac_ctr/Mcount_s_cnt_cy<9>)
-     XORCY:CI->O           1   0.904   0.000  sig_controller/dac_ctr/Mcount_s_cnt_xor<10> (sig_controller/dac_ctr/Result<10>)
-     FDR:D                     0.203          sig_controller/dac_ctr/s_cnt_10
+     FDR:C->Q              3   0.720   1.246  sig_controller/dac_ctr/s_cnt_0 (sig_controller/dac_ctr/s_cnt_0)
+     LUT2:I0->O            1   0.551   0.000  sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_lut<0> (sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_lut<0>)
+     MUXCY:S->O            1   0.500   0.000  sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<0> (sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<0>)
+     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<1> (sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<1>)
+     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<2> (sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<2>)
+     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<3> (sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<3>)
+     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<4> (sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<4>)
+     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<5> (sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<5>)
+     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<6> (sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<6>)
+     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<7> (sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<7>)
+     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<8> (sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<8>)
+     MUXCY:CI->O           1   0.064   0.000  sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<9> (sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<9>)
+     MUXCY:CI->O           1   0.303   0.996  sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<10> (sig_controller/dac_ctr/Mcompar_s_comp_cmp_lt0000_cy<10>)
+     LUT2:I1->O           11   0.551   1.144  sig_controller/dac_ctr/s_cnt_not00011 (sig_controller/dac_ctr/s_cnt_not0001)
+     FDR:R                     1.026          sig_controller/dac_ctr/s_cnt_0
     ----------------------------------------
-    Total                      4.606ns (3.390ns logic, 1.216ns route)
-                                       (73.6% logic, 26.4% route)
+    Total                      7.613ns (4.227ns logic, 3.386ns route)
+                                       (55.5% logic, 44.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'm_clk'
-  Total number of paths / destination ports: 153 / 113
+  Total number of paths / destination ports: 167 / 113
 -------------------------------------------------------------------------
-Offset:              7.496ns (Levels of Logic = 3)
+Offset:              6.706ns (Levels of Logic = 4)
   Source:            m_reset_b (PAD)
-  Destination:       clk_gen/CNT0/s_CNT3_U_0 (FF)
+  Destination:       clk_gen/CNT0/s_CNT3_D_1 (FF)
   Destination Clock: m_clk falling
 
-  Data Path: m_reset_b to clk_gen/CNT0/s_CNT3_U_0
+  Data Path: m_reset_b to clk_gen/CNT0/s_CNT3_D_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            25   0.821   1.881  m_reset_b_IBUF (m_reset_b_IBUF)
-     LUT4_D:I2->O         24   0.551   1.865  clk_gen/CNT0/s_CNT3_D_mux0004<14>18 (clk_gen/CNT0/N4)
-     LUT4:I2->O            1   0.551   0.801  clk_gen/CNT0/s_CNT3_U_mux0000<9>14 (clk_gen/CNT0/s_CNT3_U_mux0000<9>14)
-     FDS_1:S                   1.026          clk_gen/CNT0/s_CNT3_U_8
+     IBUF:I->O            16   0.821   1.576  m_reset_b_IBUF (m_reset_b_IBUF)
+     LUT2:I0->O            1   0.551   1.140  clk_gen/CNT0/s_CNT3_U_mux0000<10>111_SW0 (N107)
+     LUT4_D:I0->O         12   0.551   1.313  clk_gen/CNT0/s_CNT3_D_mux0004<13>21 (clk_gen/CNT0/N7)
+     LUT3:I1->O            1   0.551   0.000  clk_gen/CNT0/s_CNT3_D_mux0004<13>221 (clk_gen/CNT0/s_CNT3_D_mux0004<13>22)
+     FDS_1:D                   0.203          clk_gen/CNT0/s_CNT3_D_1
     ----------------------------------------
-    Total                      7.496ns (2.949ns logic, 4.547ns route)
-                                       (39.3% logic, 60.7% route)
+    Total                      6.706ns (2.677ns logic, 4.029ns route)
+                                       (39.9% logic, 60.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'm_TP_1_OBUF1'
@@ -1224,15 +1138,15 @@ Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_gen/CNT0/s_wr1'
   Total number of paths / destination ports: 51 / 3
 -------------------------------------------------------------------------
 Offset:              12.556ns (Levels of Logic = 4)
-  Source:            clk_gen/CNT0/s_REG_14 (FF)
+  Source:            clk_gen/CNT0/s_REG_2 (FF)
   Destination:       m_AD9283_clk (PAD)
   Source Clock:      clk_gen/CNT0/s_wr1 rising
 
-  Data Path: clk_gen/CNT0/s_REG_14 to m_AD9283_clk
+  Data Path: clk_gen/CNT0/s_REG_2 to m_AD9283_clk
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             6   0.720   1.342  clk_gen/CNT0/s_REG_14 (clk_gen/CNT0/s_REG_14)
+     FDPE:C->Q             6   0.720   1.342  clk_gen/CNT0/s_REG_2 (clk_gen/CNT0/s_REG_2)
      LUT4:I0->O            1   0.551   1.140  clk_gen/CNT0/s_out2_or000012 (clk_gen/CNT0/s_out2_or000012)
      LUT4:I0->O            1   0.551   1.140  clk_gen/CNT0/s_out2_or000071 (clk_gen/CNT0/s_out2_or0000)
      LUT4:I0->O            4   0.551   0.917  clk_gen/CNT0/m_out (m_TP_1_OBUF1)
@@ -1257,12 +1171,31 @@ Offset:              14.413ns (Levels of Logic = 5)
      FDCE:C->Q             2   0.720   1.216  clk_gen/CNT0/s_CNT2_1 (clk_gen/CNT0/s_CNT2_1)
      LUT4:I0->O            1   0.551   1.140  clk_gen/CNT0/s_CNT2_cmp_eq000011 (clk_gen/CNT0/s_CNT2_cmp_eq000011)
      LUT4_D:I0->O         16   0.551   1.576  clk_gen/CNT0/s_CNT2_cmp_eq000075 (clk_gen/CNT0/s_CNT2_cmp_eq0000)
-     LUT3:I0->O            1   0.551   0.996  clk_gen/CNT0/m_out_SW0 (N25)
+     LUT3:I0->O            1   0.551   0.996  clk_gen/CNT0/m_out_SW0 (N38)
      LUT4:I1->O            4   0.551   0.917  clk_gen/CNT0/m_out (m_TP_1_OBUF1)
      OBUF:I->O                 5.644          m_AD9283_clk_OBUF (m_AD9283_clk)
     ----------------------------------------
     Total                     14.413ns (8.568ns logic, 5.845ns route)
                                        (59.4% logic, 40.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'm_TP_1_OBUF1'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              7.165ns (Levels of Logic = 1)
+  Source:            da_latch_dout_7 (FF)
+  Destination:       m_DAC_data<7> (PAD)
+  Source Clock:      m_TP_1_OBUF1 rising
+
+  Data Path: da_latch_dout_7 to m_DAC_data<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDS:C->Q              1   0.720   0.801  da_latch_dout_7 (da_latch_dout_7)
+     OBUF:I->O                 5.644          m_DAC_data_7_OBUF (m_DAC_data<7>)
+    ----------------------------------------
+    Total                      7.165ns (6.364ns logic, 0.801ns route)
+                                       (88.8% logic, 11.2% route)
 
 =========================================================================
 Timing constraint: Default path analysis
@@ -1286,14 +1219,14 @@ Delay:               9.309ns (Levels of Logic = 3)
 =========================================================================
 
 
-Total REAL time to Xst completion: 15.00 secs
-Total CPU time to Xst completion: 15.33 secs
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 11.42 secs
  
 --> 
 
-Total memory usage is 4583704 kilobytes
+Total memory usage is 4583676 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  404 (   0 filtered)
-Number of infos    :   24 (   0 filtered)
+Number of warnings :  321 (   0 filtered)
+Number of infos    :   23 (   0 filtered)
 

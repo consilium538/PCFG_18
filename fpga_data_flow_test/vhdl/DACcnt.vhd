@@ -21,7 +21,6 @@ architecture Behavioral of DACcnt is
     signal s_ps : s_dac_state := dacidle;
     signal s_reg : std_logic_vector(10 downto 0) := (others => '0');
     signal s_cnt : std_logic_vector(10 downto 0) := (others => '0');
-    signal s_enb2 : std_logic := '0';
 
     signal s_comp : std_logic := '0';
 
@@ -30,24 +29,19 @@ begin
     dac_sync_proc : process(m_clk)
     begin
         if rising_edge(m_clk) then
-            if(s_ps = dacload) then
-                s_reg <= m_Ain;
-            end if;
             case s_ps is
                 when dacidle =>
                     if(m_start = '1') then s_ps <= dacload;
                     else s_ps <= dacidle;
                     end if;
-                    s_enb2 <= '0';
                 when dacload =>
                     if(m_end = '1') then s_ps <= dacidle;
                     else s_ps <= dacplay;
                     end if;
-                    s_enb2 <= '0';
+                    s_reg <= m_Ain;
                 when dacplay =>
                     if(m_end = '1') then s_ps <= dacidle;
                     else s_ps <= dacplay;
-                    s_enb2 <= '1';
                     end if;
             end case;
         end if;
@@ -62,10 +56,11 @@ begin
         end if;
     end process;
 
+    m_enb2 <= '1' when s_ps = dacplay else
+              '0';
     m_Aout <= s_cnt;
     d_reg <= s_reg;
-    m_enb2 <= s_enb2;
-    s_comp <= '1' when s_cnt < s_reg - 1 else
+    s_comp <= '1' when ( s_cnt < s_reg - 1 ) else
               '0';
 
 end Behavioral;

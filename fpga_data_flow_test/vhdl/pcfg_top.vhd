@@ -112,7 +112,7 @@ architecture Behavioral of PCFG_TOP is
               m_inlatch_en	: out std_logic;
               m_outlatch_en	: out std_logic;
               m_ad_latch_en	: out std_logic;
-              m_da_latch_en	: out std_logic;
+              --m_da_latch_en	: out std_logic;
 
               m_average_en 	: out std_logic;
               m_average_clr   : out std_logic;
@@ -201,7 +201,7 @@ architecture Behavioral of PCFG_TOP is
 
     --da_latch
     signal da_latch_dout : std_logic_vector(7 downto 0);
-    signal s_da_latch_en	: std_logic;
+    --signal s_da_latch_en	: std_logic;
 
     --ad latch
     signal ad_latch_din	: std_logic_vector(7 downto 0);
@@ -356,7 +356,7 @@ begin
     begin	
         if rising_edge(sys_clk) then
 
-            if s_da_latch_en='1' then
+            if s_enb2 = '1' then
                 da_latch_dout <= s_doutb2;
             else
                 da_latch_dout <= x"80";
@@ -401,7 +401,7 @@ begin
                 m_inlatch_en	=> s_inlatch_en,
                 m_outlatch_en	=> s_outlatch_en,
                 m_ad_latch_en	=> s_ad_latch_en,
-                m_da_latch_en	=> s_da_latch_en,
+                --m_da_latch_en	=> s_da_latch_en,
 
                 m_average_en 	=> s_average_en,
                 m_average_clr	=> s_average_clr,
