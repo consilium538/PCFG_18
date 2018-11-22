@@ -178,7 +178,6 @@ end component;
 component ADCcnt is
     Port (
     m_clk, m_sys_clk, m_start, m_end : in std_logic;
-    m_ena3 : out std_logic;
     m_Aout : out std_logic_vector(10 downto 0);
     d_reg : out std_logic_vector(10 downto 0)
 );
@@ -197,7 +196,7 @@ begin
                 m_enp => s_enp0,
                 m_clr => s_clr0,
                 m_sel => s_sel0,
-                m_Din => s_Aa0,
+                m_Din => s_dtoa,
                 -- output
                 m_comp => s_comp0,
                 m_Cnt => s_ram0_addr,
@@ -264,7 +263,6 @@ begin
                 m_sys_clk => m_sys_clk,
                 m_start => s_adc_start,
                 m_end => s_adc_stop,
-                m_ena3 => s_ena3,
                 m_Aout => s_ad_ram_addra
             --d_reg => d_AData
             );
@@ -511,6 +509,21 @@ begin
     s_clrda <= '1' when ( s_state_clr = '1' and t_ps = idle ) else --not done
               '0';
     s_selda <= --"01" when ( t_ps = dac_transfer ) else -- add
+              "10" when ( t_ps = softreset ) else -- clear
+              "11" when ( t_ps = dac_cntpreset ) else -- setup
+              "00"; -- preserv
+
+    s_ena3 <= '1' when ( not s_state_adc = '1' ) else
+              '0';
+    s_wea3 <= "1" when ( not s_state_adc = '1' ) else
+              "0";
+    s_enb3 <= s_state_adc;
+
+    s_enpad <= '1' when ( t_ps = dac_transfer ) else
+              '0';
+    s_clrad <= '1' when ( s_state_clr = '1' and t_ps = idle ) else --not done
+              '0';
+    s_selad <= --"01" when ( t_ps = dac_transfer ) else -- add
               "10" when ( t_ps = softreset ) else -- clear
               "11" when ( t_ps = dac_cntpreset ) else -- setup
               "00"; -- preserv

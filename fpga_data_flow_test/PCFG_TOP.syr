@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.21 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.21 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Reading design: PCFG_TOP.prj
 
@@ -122,8 +122,7 @@ Architecture behavioral of Entity top_8254 is up to date.
 Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/address_decoder.vhd" in Library work.
 Architecture behavioral of Entity address_decoder is up to date.
 Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/signal_controller.vhd" in Library work.
-Entity <signal_controller> compiled.
-Entity <signal_controller> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity signal_controller is up to date.
 Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/ipcore_dir/sram2k.vhd" in Library work.
 Architecture sram2k_a of Entity sram2k is up to date.
 Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/Averager.vhd" in Library work.
@@ -182,8 +181,8 @@ Analyzing Entity <address_decoder> in library <work> (Architecture <behavioral>)
 Entity <address_decoder> analyzed. Unit <address_decoder> generated.
 
 Analyzing Entity <signal_controller> in library <work> (Architecture <behavioral>).
-WARNING:Xst:753 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/signal_controller.vhd" line 249: Unconnected output port 'd_reg' of component 'DACcnt'.
-WARNING:Xst:753 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/signal_controller.vhd" line 261: Unconnected output port 'd_reg' of component 'ADCcnt'.
+WARNING:Xst:753 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/signal_controller.vhd" line 248: Unconnected output port 'd_reg' of component 'DACcnt'.
+WARNING:Xst:753 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/signal_controller.vhd" line 260: Unconnected output port 'd_reg' of component 'ADCcnt'.
 Entity <signal_controller> analyzed. Unit <signal_controller> generated.
 
 Analyzing Entity <RemController> in library <work> (Architecture <behavioral>).
@@ -284,16 +283,12 @@ Unit <DACcnt> synthesized.
 
 Synthesizing Unit <ADCcnt>.
     Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/ADCcnt.vhd".
-WARNING:Xst:1305 - Output <m_ena3> is never assigned. Tied to value 0.
 WARNING:Xst:653 - Signal <s_reg> is used but never assigned. This sourceless signal will be automatically connected to value 00000000000.
-WARNING:Xst:646 - Signal <s_ena3> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-    Found 12-bit comparator less for signal <s_adc_comp$cmp_lt0000> created at line 55.
     Found 11-bit up counter for signal <s_cnt>.
     Found 1-bit register for signal <s_ps<0>>.
     Summary:
 	inferred   1 Counter(s).
 	inferred   1 D-type flip-flop(s).
-	inferred   1 Comparator(s).
 Unit <ADCcnt> synthesized.
 
 
@@ -341,20 +336,17 @@ Unit <TOP_8254> synthesized.
 
 Synthesizing Unit <signal_controller>.
     Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/signal_controller.vhd".
-WARNING:Xst:1780 - Signal <s_wea3> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <s_selad> is used but never assigned. This sourceless signal will be automatically connected to value 00.
+WARNING:Xst:646 - Signal <s_wea3<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <s_outlatch_en> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <s_inlatch_en> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <s_enpad> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:653 - Signal <s_enb3> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:1780 - Signal <s_da_latch_en> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <s_comp3> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <s_clrad> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:1780 - Signal <s_average_addr> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:653 - Signal <s_adc_stop> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:653 - Signal <s_adc_start> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:1780 - Signal <s_ad_latch_en> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <s_Aadc> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_Aa0> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 INFO:Xst:1799 - State average8 is never reached in FSM <t_ps>.
     Found finite state machine <FSM_2> for signal <t_ps>.
     -----------------------------------------------------------------------
@@ -370,7 +362,7 @@ INFO:Xst:1799 - State average8 is never reached in FSM <t_ps>.
     Using one-hot encoding for signal <t_prevmode>.
     Found 4-bit up counter for signal <avg_cnt>.
     Found 5-bit register for signal <t_prevmode>.
-    Found 4-bit comparator greatequal for signal <t_ps$cmp_ge0000> created at line 443.
+    Found 4-bit comparator greatequal for signal <t_ps$cmp_ge0000> created at line 441.
     Summary:
 	inferred   1 Finite State Machine(s).
 	inferred   1 Counter(s).
@@ -458,10 +450,9 @@ Macro Statistics
  5-bit register                                        : 1
  8-bit register                                        : 21
  9-bit register                                        : 1
-# Comparators                                          : 15
+# Comparators                                          : 14
  11-bit comparator less                                : 1
  11-bit comparator lessequal                           : 4
- 12-bit comparator less                                : 1
  4-bit comparator greatequal                           : 1
  8-bit comparator greatequal                           : 8
 # Tristates                                            : 4
@@ -544,17 +535,6 @@ WARNING:Xst:1290 - Hierarchical block <CNT1> is unconnected in block <clk_gen>.
    It will be removed from the design.
 WARNING:Xst:1290 - Hierarchical block <CNT2> is unconnected in block <clk_gen>.
    It will be removed from the design.
-WARNING:Xst:1293 - FF/Latch <s_Reg_0> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_Reg_1> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_Reg_2> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_Reg_3> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_Reg_4> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_Reg_5> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_Reg_6> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_Reg_7> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_Reg_8> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_Reg_9> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <s_Reg_10> has a constant value of 0 in block <adremctr>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <s_ps_0> has a constant value of 0 in block <adc_ctr>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <t_prevmode_4> of sequential type is unconnected in block <sig_controller>.
 WARNING:Xst:2677 - Node <t_prevmode_4> of sequential type is unconnected in block <signal_controller>.
@@ -579,10 +559,9 @@ Macro Statistics
  15-bit up accumulator                                 : 1
 # Registers                                            : 399
  Flip-Flops                                            : 399
-# Comparators                                          : 15
+# Comparators                                          : 14
  11-bit comparator less                                : 1
  11-bit comparator lessequal                           : 4
- 12-bit comparator less                                : 1
  4-bit comparator greatequal                           : 1
  8-bit comparator greatequal                           : 8
 
@@ -613,28 +592,6 @@ Optimizing unit <TOP_8254> ...
 Optimizing unit <signal_controller> ...
 
 Optimizing unit <Averager> ...
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_10> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_9> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_8> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_7> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_6> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_5> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_4> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_3> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_2> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_1> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Cnt_0> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_10> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_9> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_8> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_7> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_6> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_5> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_4> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_3> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_2> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_1> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sig_controller/adremctr/s_Reg_0> has a constant value of 0 in block <PCFG_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <clk_gen/CNT1/s_CNT3_UD> of sequential type is unconnected in block <PCFG_TOP>.
 WARNING:Xst:2677 - Node <clk_gen/CNT1/s_wr_L> of sequential type is unconnected in block <PCFG_TOP>.
 WARNING:Xst:2677 - Node <clk_gen/CNT1/s_wr_M> of sequential type is unconnected in block <PCFG_TOP>.
@@ -769,6 +726,17 @@ WARNING:Xst:2677 - Node <clk_gen/CNT2/s_CNT2_11> of sequential type is unconnect
 WARNING:Xst:2677 - Node <clk_gen/CNT2/s_CNT2_12> of sequential type is unconnected in block <PCFG_TOP>.
 WARNING:Xst:2677 - Node <clk_gen/CNT2/s_CNT2_14> of sequential type is unconnected in block <PCFG_TOP>.
 WARNING:Xst:2677 - Node <clk_gen/CNT2/s_CNT2_15> of sequential type is unconnected in block <PCFG_TOP>.
+WARNING:Xst:2677 - Node <sig_controller/adremctr/s_Reg_0> of sequential type is unconnected in block <PCFG_TOP>.
+WARNING:Xst:2677 - Node <sig_controller/adremctr/s_Reg_1> of sequential type is unconnected in block <PCFG_TOP>.
+WARNING:Xst:2677 - Node <sig_controller/adremctr/s_Reg_2> of sequential type is unconnected in block <PCFG_TOP>.
+WARNING:Xst:2677 - Node <sig_controller/adremctr/s_Reg_3> of sequential type is unconnected in block <PCFG_TOP>.
+WARNING:Xst:2677 - Node <sig_controller/adremctr/s_Reg_4> of sequential type is unconnected in block <PCFG_TOP>.
+WARNING:Xst:2677 - Node <sig_controller/adremctr/s_Reg_5> of sequential type is unconnected in block <PCFG_TOP>.
+WARNING:Xst:2677 - Node <sig_controller/adremctr/s_Reg_6> of sequential type is unconnected in block <PCFG_TOP>.
+WARNING:Xst:2677 - Node <sig_controller/adremctr/s_Reg_7> of sequential type is unconnected in block <PCFG_TOP>.
+WARNING:Xst:2677 - Node <sig_controller/adremctr/s_Reg_8> of sequential type is unconnected in block <PCFG_TOP>.
+WARNING:Xst:2677 - Node <sig_controller/adremctr/s_Reg_9> of sequential type is unconnected in block <PCFG_TOP>.
+WARNING:Xst:2677 - Node <sig_controller/adremctr/s_Reg_10> of sequential type is unconnected in block <PCFG_TOP>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -788,8 +756,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 361
- Flip-Flops                                            : 361
+# Registers                                            : 372
+ Flip-Flops                                            : 372
 
 =========================================================================
 
@@ -818,30 +786,30 @@ Design Statistics
 # IOs                              : 51
 
 Cell Usage :
-# BELS                             : 1288
+# BELS                             : 1339
 #      GND                         : 9
-#      INV                         : 70
-#      LUT1                        : 75
-#      LUT2                        : 215
+#      INV                         : 71
+#      LUT1                        : 84
+#      LUT2                        : 224
 #      LUT2_D                      : 1
 #      LUT2_L                      : 9
-#      LUT3                        : 132
-#      LUT3_D                      : 7
-#      LUT3_L                      : 6
-#      LUT4                        : 215
+#      LUT3                        : 135
+#      LUT3_D                      : 8
+#      LUT3_L                      : 5
+#      LUT4                        : 217
 #      LUT4_D                      : 21
-#      LUT4_L                      : 28
-#      MUXCY                       : 287
-#      MUXF5                       : 17
+#      LUT4_L                      : 31
+#      MUXCY                       : 297
+#      MUXF5                       : 20
 #      VCC                         : 1
-#      XORCY                       : 195
-# FlipFlops/Latches                : 361
+#      XORCY                       : 206
+# FlipFlops/Latches                : 372
 #      FD                          : 140
 #      FDCE                        : 32
 #      FDE                         : 44
 #      FDPE                        : 4
 #      FDR                         : 36
-#      FDRE                        : 57
+#      FDRE                        : 68
 #      FDRS                        : 2
 #      FDS                         : 11
 #      FDS_1                       : 31
@@ -862,9 +830,9 @@ Device utilization summary:
 
 Selected Device : 3s5000fg900-4 
 
- Number of Slices:                      421  out of  33280     1%  
- Number of Slice Flip Flops:            345  out of  66560     0%  
- Number of 4 input LUTs:                779  out of  66560     1%  
+ Number of Slices:                      436  out of  33280     1%  
+ Number of Slice Flip Flops:            356  out of  66560     0%  
+ Number of 4 input LUTs:                806  out of  66560     1%  
  Number of IOs:                          51
  Number of bonded IOBs:                  51  out of    633     8%  
     IOB Flip Flops:                      16
@@ -892,7 +860,7 @@ Clock Information:
 ------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 Clock Signal                              | Clock buffer(FF name)                                                                                                                                                                                                                             | Load  |
 ------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-m_clk                                     | IBUFG+BUFG                                                                                                                                                                                                                                        | 307   |
+m_clk                                     | IBUFG+BUFG                                                                                                                                                                                                                                        | 318   |
 m_TP_1_OBUF1(clk_gen/CNT0/m_out:O)        | BUFG(*)(sram_AD/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram)| 39    |
 clk_gen/CNT0/s_wr1(clk_gen/CNT0/s_wr_f5:O)| BUFG(*)(clk_gen/CNT0/s_wr_L)                                                                                                                                                                                                                      | 20    |
 ------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
@@ -924,7 +892,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'm_clk'
   Clock period: 10.259ns (frequency: 97.475MHz)
-  Total number of paths / destination ports: 10635 / 553
+  Total number of paths / destination ports: 10831 / 587
 -------------------------------------------------------------------------
 Delay:               10.259ns (Levels of Logic = 6)
   Source:            sig_controller/t_ps_FSM_FFd6 (FF)
@@ -1083,7 +1051,7 @@ Offset:              14.413ns (Levels of Logic = 5)
      FDCE:C->Q             2   0.720   1.216  clk_gen/CNT0/s_CNT2_1 (clk_gen/CNT0/s_CNT2_1)
      LUT4:I0->O            1   0.551   1.140  clk_gen/CNT0/s_CNT2_cmp_eq000011 (clk_gen/CNT0/s_CNT2_cmp_eq000011)
      LUT4_D:I0->O         16   0.551   1.576  clk_gen/CNT0/s_CNT2_cmp_eq000075 (clk_gen/CNT0/s_CNT2_cmp_eq0000)
-     LUT3:I0->O            1   0.551   0.996  clk_gen/CNT0/m_out_SW0 (N38)
+     LUT3:I0->O            1   0.551   0.996  clk_gen/CNT0/m_out_SW0 (N35)
      LUT4:I1->O            4   0.551   0.917  clk_gen/CNT0/m_out (m_TP_1_OBUF1)
      OBUF:I->O                 5.644          m_AD9283_clk_OBUF (m_AD9283_clk)
     ----------------------------------------
@@ -1131,14 +1099,14 @@ Delay:               9.309ns (Levels of Logic = 3)
 =========================================================================
 
 
-Total REAL time to Xst completion: 13.00 secs
-Total CPU time to Xst completion: 12.84 secs
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 12.11 secs
  
 --> 
 
-Total memory usage is 4583672 kilobytes
+Total memory usage is 4583676 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  232 (   0 filtered)
+Number of warnings :  205 (   0 filtered)
 Number of infos    :   15 (   0 filtered)
 

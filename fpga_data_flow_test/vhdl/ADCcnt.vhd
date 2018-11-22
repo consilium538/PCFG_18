@@ -7,7 +7,6 @@ entity ADCcnt is
     Port (
     m_clk, m_sys_clk, m_start, m_end : in std_logic;
 
-    m_ena3 : out std_logic;
     m_Aout : out std_logic_vector(10 downto 0);
     d_reg : out std_logic_vector(10 downto 0)
 );
@@ -20,7 +19,6 @@ architecture Behavioral of ADCcnt is
 
     signal s_reg : std_logic_vector(10 downto 0) := (others => '0');
     signal s_cnt : std_logic_vector(10 downto 0) := (others => '0');
-    signal s_ena3 : std_logic := '0';
     signal s_adc_comp : std_logic := '0';
 
 begin
@@ -52,10 +50,8 @@ begin
 
     m_Aout <= s_cnt;
     d_reg <= s_reg;
-    s_adc_comp <= '1' when s_cnt < 512 else
+    s_adc_comp <= '1' when s_cnt < 2048 else
                   '0';
-    s_ena3 <= '1' when s_ps = adcplay else
-              '0';
 
 end Behavioral;
 
