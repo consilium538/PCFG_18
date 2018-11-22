@@ -1,0 +1,52 @@
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -o "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/tb_pcfg_isim_beh.exe" -prj "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/tb_pcfg_beh.prj" "work.tb_pcfg" 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/ipcore_dir/sram2k.vhd" into library work
+Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/tw_8254_cnt.vhd" into library work
+Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/remcontroller.vhd" into library work
+Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/DACcnt.vhd" into library work
+Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/CompSub.vhd" into library work
+Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/ADCcnt.vhd" into library work
+Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/top_8254.vhd" into library work
+Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/signal_controller.vhd" into library work
+Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/Averager.vhd" into library work
+Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/address_decoder.vhd" into library work
+Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/pcfg_top.vhd" into library work
+WARNING:HDLCompiler:946 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/pcfg_top.vhd" Line 305: Actual for formal port m_reset is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/pcfg_top.vhd" Line 311: Actual for formal port m_cs_b is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/pcfg_top.vhd" Line 312: Actual for formal port m_wr_b is neither a static name nor a globally static expression
+Parsing VHDL file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/tb_pcfg.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package vcomponents
+Compiling architecture ibufg_v of entity IBUFG [\IBUFG("DONT_CARE","0",true,"DEF...]
+Compiling architecture behavioral of entity TW_8254_CNT [tw_8254_cnt_default]
+Compiling architecture behavioral of entity TOP_8254 [top_8254_default]
+Compiling architecture behavioral of entity address_decoder [address_decoder_default]
+Compiling architecture behavioral of entity RemController [remcontroller_default]
+Compiling architecture behavioral of entity DACcnt [daccnt_default]
+Compiling architecture behavioral of entity ADCcnt [adccnt_default]
+Compiling architecture behavioral of entity signal_controller [signal_controller_default]
+Compiling package textio
+Compiling package std_logic_textio
+Compiling architecture output_stage_behavioral of entity BLK_MEM_GEN_V7_3_output_stage [\BLK_MEM_GEN_V7_3_output_stage("...]
+Compiling architecture softecc_output_reg_stage_behavioral of entity BLK_MEM_GEN_V7_3_softecc_output_reg_stage [\BLK_MEM_GEN_V7_3_softecc_output...]
+Compiling architecture mem_module_behavioral of entity BLK_MEM_GEN_V7_3_mem_module [\BLK_MEM_GEN_V7_3_mem_module("bl...]
+Compiling architecture behavioral of entity BLK_MEM_GEN_V7_3 [\BLK_MEM_GEN_V7_3("blk_mem_gen_v...]
+Compiling architecture sram2k_a of entity sram2k [sram2k_default]
+Compiling architecture behavioral of entity CompSub [compsub_default]
+Compiling architecture behavioral of entity Averager [averager_default]
+Compiling architecture behavioral of entity PCFG_TOP [pcfg_top_default]
+Compiling architecture behavior of entity tb_pcfg
+Time Resolution for simulation is 1ps.
+Waiting for 9 sub-compilation(s) to finish...
+Compiled 40 VHDL Units
+Built simulation executable C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/tb_pcfg_isim_beh.exe
+Fuse Memory Usage: 52852 KB
+Fuse CPU Usage: 1421 ms

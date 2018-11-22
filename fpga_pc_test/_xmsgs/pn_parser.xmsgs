@@ -8,10 +8,37 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_pc_test/vhdl/ADCcnt.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_pc_test/vhdl/Averager.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_pc_test/vhdl/CompSub.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_pc_test/vhdl/DACcnt.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_pc_test/vhdl/address_decoder.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_pc_test/vhdl/pcfg_top.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_pc_test/vhdl/remcontroller.vhd&quot; into library work</arg>
+</msg>
+
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_pc_test/vhdl/signal_controller.vhd&quot; into library work</arg>
 </msg>
 
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_pc_test/vhdl/tb_pcfg.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_pc_test/vhdl/top_8254.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_pc_test/vhdl/tw_8254_cnt.vhd&quot; into library work</arg>
 </msg>
 
 </messages>

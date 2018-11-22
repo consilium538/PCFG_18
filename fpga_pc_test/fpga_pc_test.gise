@@ -41,8 +41,8 @@
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="netgen"/>
-    <file xil_pn:branch="PostSynthSim" xil_pn:fileType="FILE_NETGEN_REPORT" xil_pn:name="netgen/synthesis/PCFG_TOP_synthesis.nlf"/>
-    <file xil_pn:branch="PostSynthSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="netgen/synthesis/PCFG_TOP_synthesis.vhd"/>
+    <file xil_pn:fileType="FILE_NETGEN_REPORT" xil_pn:name="netgen/synthesis/PCFG_TOP_synthesis.nlf"/>
+    <file xil_pn:fileType="FILE_VHDL" xil_pn:name="netgen/synthesis/PCFG_TOP_synthesis.vhd"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="tb_pcfg_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="tb_pcfg_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="tb_pcfg_isim_beh.wdb"/>
@@ -54,6 +54,7 @@
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
     <transform xil_pn:end_ts="1542799136" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1542799136">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1542799486" xil_pn:in_ck="-3789731673528410496" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1542799486">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -136,6 +137,7 @@
     </transform>
     <transform xil_pn:end_ts="1542799089" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1542799089">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1542799089" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="5279753564365560685" xil_pn:start_ts="1542799089">
       <status xil_pn:value="SuccessfullyRun"/>
