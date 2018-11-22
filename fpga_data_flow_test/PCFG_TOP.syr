@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.17 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.17 secs
  
 --> Reading design: PCFG_TOP.prj
 
@@ -284,6 +284,7 @@ Unit <DACcnt> synthesized.
 Synthesizing Unit <ADCcnt>.
     Related source file is "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/ADCcnt.vhd".
 WARNING:Xst:653 - Signal <s_reg> is used but never assigned. This sourceless signal will be automatically connected to value 00000000000.
+WARNING:Xst:1780 - Signal <s_adc_comp> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
     Found 11-bit up counter for signal <s_cnt>.
     Found 1-bit register for signal <s_ps<0>>.
     Summary:
@@ -342,8 +343,6 @@ WARNING:Xst:1780 - Signal <s_inlatch_en> is never used or assigned. This unconne
 WARNING:Xst:1780 - Signal <s_da_latch_en> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <s_comp3> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <s_average_addr> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <s_adc_stop> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:653 - Signal <s_adc_start> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:1780 - Signal <s_ad_latch_en> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <s_Aadc> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <s_Aa0> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -353,7 +352,7 @@ INFO:Xst:1799 - State average8 is never reached in FSM <t_ps>.
     | States             | 34                                             |
     | Transitions        | 62                                             |
     | Inputs             | 17                                             |
-    | Outputs            | 40                                             |
+    | Outputs            | 42                                             |
     | Clock              | m_clk                     (rising_edge)        |
     | Power Up State     | idle                                           |
     | Encoding           | automatic                                      |
@@ -535,7 +534,6 @@ WARNING:Xst:1290 - Hierarchical block <CNT1> is unconnected in block <clk_gen>.
    It will be removed from the design.
 WARNING:Xst:1290 - Hierarchical block <CNT2> is unconnected in block <clk_gen>.
    It will be removed from the design.
-WARNING:Xst:1293 - FF/Latch <s_ps_0> has a constant value of 0 in block <adc_ctr>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <t_prevmode_4> of sequential type is unconnected in block <sig_controller>.
 WARNING:Xst:2677 - Node <t_prevmode_4> of sequential type is unconnected in block <signal_controller>.
 
@@ -570,7 +568,6 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1293 - FF/Latch <adc_ctr/s_ps_0> has a constant value of 0 in block <signal_controller>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram of type RAMB16_S9_S9 has been replaced by RAMB16
 INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram of type RAMB16_S9_S9 has been replaced by RAMB16
 INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram of type RAMB16_S9_S9 has been replaced by RAMB16
@@ -756,8 +753,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 372
- Flip-Flops                                            : 372
+# Registers                                            : 373
+ Flip-Flops                                            : 373
 
 =========================================================================
 
@@ -796,19 +793,19 @@ Cell Usage :
 #      LUT3                        : 135
 #      LUT3_D                      : 8
 #      LUT3_L                      : 5
-#      LUT4                        : 217
+#      LUT4                        : 218
 #      LUT4_D                      : 21
-#      LUT4_L                      : 31
+#      LUT4_L                      : 30
 #      MUXCY                       : 297
 #      MUXF5                       : 20
 #      VCC                         : 1
 #      XORCY                       : 206
-# FlipFlops/Latches                : 372
-#      FD                          : 140
+# FlipFlops/Latches                : 373
+#      FD                          : 141
 #      FDCE                        : 32
-#      FDE                         : 44
+#      FDE                         : 55
 #      FDPE                        : 4
-#      FDR                         : 36
+#      FDR                         : 25
 #      FDRE                        : 68
 #      FDRS                        : 2
 #      FDS                         : 11
@@ -831,11 +828,11 @@ Device utilization summary:
 Selected Device : 3s5000fg900-4 
 
  Number of Slices:                      436  out of  33280     1%  
- Number of Slice Flip Flops:            356  out of  66560     0%  
+ Number of Slice Flip Flops:            365  out of  66560     0%  
  Number of 4 input LUTs:                806  out of  66560     1%  
  Number of IOs:                          51
  Number of bonded IOBs:                  51  out of    633     8%  
-    IOB Flip Flops:                      16
+    IOB Flip Flops:                       8
  Number of BRAMs:                         4  out of    104     3%  
  Number of GCLKs:                         3  out of      8    37%  
 
@@ -860,7 +857,7 @@ Clock Information:
 ------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 Clock Signal                              | Clock buffer(FF name)                                                                                                                                                                                                                             | Load  |
 ------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-m_clk                                     | IBUFG+BUFG                                                                                                                                                                                                                                        | 318   |
+m_clk                                     | IBUFG+BUFG                                                                                                                                                                                                                                        | 319   |
 m_TP_1_OBUF1(clk_gen/CNT0/m_out:O)        | BUFG(*)(sram_AD/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp9x9.ram)| 39    |
 clk_gen/CNT0/s_wr1(clk_gen/CNT0/s_wr_f5:O)| BUFG(*)(clk_gen/CNT0/s_wr_L)                                                                                                                                                                                                                      | 20    |
 ------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
@@ -892,7 +889,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'm_clk'
   Clock period: 10.259ns (frequency: 97.475MHz)
-  Total number of paths / destination ports: 10831 / 587
+  Total number of paths / destination ports: 10845 / 599
 -------------------------------------------------------------------------
 Delay:               10.259ns (Levels of Logic = 6)
   Source:            sig_controller/t_ps_FSM_FFd6 (FF)
@@ -918,31 +915,9 @@ Delay:               10.259ns (Levels of Logic = 6)
                                        (38.6% logic, 61.4% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'clk_gen/CNT0/s_wr1'
-  Clock period: 4.202ns (frequency: 237.982MHz)
-  Total number of paths / destination ports: 51 / 17
--------------------------------------------------------------------------
-Delay:               4.202ns (Levels of Logic = 1)
-  Source:            clk_gen/CNT0/s_wr_L (FF)
-  Destination:       clk_gen/CNT0/s_REG_10 (FF)
-  Source Clock:      clk_gen/CNT0/s_wr1 rising
-  Destination Clock: clk_gen/CNT0/s_wr1 rising
-
-  Data Path: clk_gen/CNT0/s_wr_L to clk_gen/CNT0/s_REG_10
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDCE:C->Q             3   0.720   1.246  clk_gen/CNT0/s_wr_L (clk_gen/CNT0/s_wr_L)
-     LUT4:I0->O            8   0.551   1.083  clk_gen/CNT0/s_REG_10_not00011 (clk_gen/CNT0/s_REG_10_not0001)
-     FDCE:CE                   0.602          clk_gen/CNT0/s_REG_10
-    ----------------------------------------
-    Total                      4.202ns (1.873ns logic, 2.329ns route)
-                                       (44.6% logic, 55.4% route)
-
-=========================================================================
 Timing constraint: Default period analysis for Clock 'm_TP_1_OBUF1'
   Clock period: 7.613ns (frequency: 131.354MHz)
-  Total number of paths / destination ports: 374 / 33
+  Total number of paths / destination ports: 393 / 52
 -------------------------------------------------------------------------
 Delay:               7.613ns (Levels of Logic = 13)
   Source:            sig_controller/dac_ctr/s_cnt_0 (FF)
@@ -972,6 +947,28 @@ Delay:               7.613ns (Levels of Logic = 13)
     ----------------------------------------
     Total                      7.613ns (4.227ns logic, 3.386ns route)
                                        (55.5% logic, 44.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk_gen/CNT0/s_wr1'
+  Clock period: 4.202ns (frequency: 237.982MHz)
+  Total number of paths / destination ports: 51 / 17
+-------------------------------------------------------------------------
+Delay:               4.202ns (Levels of Logic = 1)
+  Source:            clk_gen/CNT0/s_wr_L (FF)
+  Destination:       clk_gen/CNT0/s_REG_10 (FF)
+  Source Clock:      clk_gen/CNT0/s_wr1 rising
+  Destination Clock: clk_gen/CNT0/s_wr1 rising
+
+  Data Path: clk_gen/CNT0/s_wr_L to clk_gen/CNT0/s_REG_10
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             3   0.720   1.246  clk_gen/CNT0/s_wr_L (clk_gen/CNT0/s_wr_L)
+     LUT4:I0->O            8   0.551   1.083  clk_gen/CNT0/s_REG_10_not00011 (clk_gen/CNT0/s_REG_10_not0001)
+     FDCE:CE                   0.602          clk_gen/CNT0/s_REG_10
+    ----------------------------------------
+    Total                      4.202ns (1.873ns logic, 2.329ns route)
+                                       (44.6% logic, 55.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'm_clk'
@@ -1100,13 +1097,13 @@ Delay:               9.309ns (Levels of Logic = 3)
 
 
 Total REAL time to Xst completion: 12.00 secs
-Total CPU time to Xst completion: 12.11 secs
+Total CPU time to Xst completion: 11.94 secs
  
 --> 
 
-Total memory usage is 4583676 kilobytes
+Total memory usage is 4583596 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  205 (   0 filtered)
+Number of warnings :  202 (   0 filtered)
 Number of infos    :   15 (   0 filtered)
 

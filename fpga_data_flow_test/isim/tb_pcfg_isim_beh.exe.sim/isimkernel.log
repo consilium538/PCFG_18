@@ -2,9 +2,29 @@ Command line:
    tb_pcfg_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  11036
+     -socket  11084
 
-Thu Nov 22 19:33:43 2018
+Thu Nov 22 20:13:01 2018
 
 
- Elaboration Time: 0.171875 sec
+ Elaboration Time: 0.203125 sec
+
+ Current Memory Usage: 5397.95 Meg
+
+ Total Signals          : 1382
+ Total Nets             : 68861
+ Total Signal Drivers   : 529
+ Total Blocks           : 78
+ Total Primitive Blocks : 45
+ Total Processes        : 385
+ Total Traceable Variables  : 882
+ Total Scalar Nets and Variables : 71777
+Total Line Count : 1955
+Total Line Count : 1955
+
+ Total Simulation Time: 5.78125 sec
+
+ Current Memory Usage: 5240.66 Meg
+
+Thu Nov 22 20:16:59 2018
+

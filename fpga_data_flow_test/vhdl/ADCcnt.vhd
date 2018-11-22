@@ -42,16 +42,13 @@ begin
     adc_slow_proc : process(m_sys_clk)
     begin
         if rising_edge(m_sys_clk) then
-            if(s_adc_comp = '1' and s_ps = adcplay) then s_cnt <= s_cnt+1;
-            else s_cnt <= (others => '0');
+            if( s_ps = adcplay) then s_cnt <= s_cnt+1;
             end if;
         end if;
     end process;
 
     m_Aout <= s_cnt;
     d_reg <= s_reg;
-    s_adc_comp <= '1' when s_cnt < 2048 else
-                  '0';
 
 end Behavioral;
 

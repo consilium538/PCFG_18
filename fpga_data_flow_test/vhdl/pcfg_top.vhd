@@ -473,10 +473,10 @@ begin
                 ENA		=> s_ena3,
                 DINA	=> ad_latch_dout,
                 WEA		=> s_wea3,
-                CLKA	=> s_clk,
+                CLKA	=> sys_clk,
                 ADDRB	=> s_ad_ram_addrb,
                 ENB		=> s_enb3,
-                CLKB	=> sys_clk,
+                CLKB	=> s_clk,
                 DOUTB	=> s_doutb3
             );
 

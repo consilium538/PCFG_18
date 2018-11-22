@@ -519,13 +519,13 @@ begin
               "0";
     s_enb3 <= s_state_adc;
 
-    s_enpad <= '1' when ( t_ps = dac_transfer ) else
+    s_enpad <= '1' when ( t_ps = adc_transfer ) else
               '0';
     s_clrad <= '1' when ( s_state_clr = '1' and t_ps = idle ) else --not done
               '0';
     s_selad <= --"01" when ( t_ps = dac_transfer ) else -- add
               "10" when ( t_ps = softreset ) else -- clear
-              "11" when ( t_ps = dac_cntpreset ) else -- setup
+              --"11" when ( t_ps = dac_cntpreset ) else -- setup
               "00"; -- preserv
 
     s_ram0_mux_sel <= "0" when s_state_pc_write0='1' else "1";
@@ -540,6 +540,11 @@ begin
                    '0';
     s_dac_stop <= '1' when ( t_ps = dac_stop ) else
                   '0';
+
+    s_adc_start <= '1' when ( not s_state_adc = '1' ) else
+                   '0';
+    s_adc_stop <= not s_adc_start;
+
 
 	--average0
 	s_average_en <='1' when t_ps=average2 else
