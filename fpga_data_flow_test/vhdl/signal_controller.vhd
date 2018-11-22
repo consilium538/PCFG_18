@@ -127,6 +127,9 @@ architecture Behavioral of signal_controller is
     signal s_state_avg	  : std_logic;           
     signal s_state_clr    : std_logic;
 
+	signal avg_cnt		: std_logic_vector(3 downto 0);
+	signal avg_cnt_en	: std_logic;
+
     ---=========== END OF SIGNAL ===================
 
 
@@ -300,6 +303,8 @@ begin
                         t_ps <= dac_stop;
                     elsif(m_mode_addr = "110") then -- ad
                         t_ps <= adc_cntclr;
+					elsif(m_mode_addr = "111") then --average
+                        t_ps <= average0;
                     elsif(m_mode_addr = "000" and m_mode_valid = '1') then --softreset
                         t_ps <= softreset;
                     else 
@@ -426,16 +431,19 @@ begin
                     t_ps <= average1;
                 when average1 =>
                     t_ps <= average2;
-                when average2 =>
+				when average2 =>
+                    t_ps <= average3;
+                when average3 =>
                     if s_comp0='1' then
-                        t_ps <= average3;
+                        t_ps <= average4;
                     else
                         t_ps <= average1;
                     end if;
-                when average3 =>
-                    t_ps <= average4;
                 when average4 =>
-                    t_ps <= average5;
+					if avg_cnt >= x"a" then
+						t_ps <= average5;
+					else t_ps<=average4;
+					end if;
                 when average5 =>
                     t_ps <= average6;
                 when average6 =>
@@ -454,6 +462,15 @@ begin
                     t_ps <= idle;
             end case;
 
+			if avg_cnt_en='1' then
+				if avg_cnt >= x"a" then
+					avg_cnt<=(others=>'0');
+				else
+					avg_cnt<=avg_cnt+'1';
+				end if;
+			else avg_cnt<=(others=>'0');
+			end if;
+
         end if;
     end process;
 
@@ -464,7 +481,7 @@ begin
     s_wea0 <= "1" when ( t_ps=wact0 or t_ps = adc_transfer) else "0";
     s_enb0 <= s_state_pc_read0 or s_state_dt or s_state_avg;
 
-    s_enp0 <= '1' when ( ( t_ps = wact0 and t_prevmode = "001" ) or ( t_ps = rterm0 and t_prevmode = "000" ) or t_ps = dt_cntpreset or t_ps = dt_transfer or t_ps = adc_cntpreset or t_ps = adc_transfer or t_ps = average1 ) else
+    s_enp0 <= '1' when ( ( t_ps = wact0 and t_prevmode = "001" ) or ( t_ps = rterm0 and t_prevmode = "000" ) or t_ps = dt_cntpreset or t_ps = dt_transfer or t_ps = adc_cntpreset or t_ps = adc_transfer or t_ps = average2 ) else
               '0';
     s_clr0 <= '1' when ( ( t_ps = decode and not ( ( m_mode_addr = "001" and m_OE_b = '1' and t_prevmode = "001") or ( m_mode_addr = "001" and m_OE_b = '0' and t_prevmode = "000" )  )  ) or s_state_clr = '1' ) else --not done
               '0';
@@ -477,7 +494,7 @@ begin
     s_wea1 <= "1" when ( t_ps = wact1 or t_ps = dt_transfer or t_ps = average6 ) else "0";
     s_enb1 <= s_state_pc_read1 or s_state_dac;
 
-    s_enp1 <= '1' when ( ( t_ps = wact1  and t_prevmode = "011") or ( t_ps = rterm1 and t_prevmode = "010" ) or t_ps = dt_transfer or t_ps = dac_cntpreset or t_ps = dac_transfer or t_ps = average1 ) else
+    s_enp1 <= '1' when ( ( t_ps = wact1  and t_prevmode = "011") or ( t_ps = rterm1 and t_prevmode = "010" ) or t_ps = dt_transfer or t_ps = dac_cntpreset or t_ps = dac_transfer ) else
               '0';
     s_clr1 <= '1' when ( ( t_ps = decode and ( ( m_mode_addr = "010" and m_OE_b = '1' and not ( t_prevmode = "011" ) ) or ( m_mode_addr = "010" and m_OE_b = '0' and not (  t_prevmode = "010" ) ) ) ) or s_state_clr = '1' ) else --not done
               '0';
@@ -511,6 +528,15 @@ begin
     s_dac_stop <= '1' when ( t_ps = dac_stop ) else
                   '0';
 
+	--average0
+	s_average_en <='1' when t_ps=average2 else
+                   '0';
+	s_average_clr <='1' when ( t_ps=decode and m_mode_addr="111" ) else
+                    '0';
+    avg_cnt_en <='1' when t_ps=average4 else
+                 '0';
+	
+    
     --m_port
     m_ram1_mux_sel <= s_ram1_mux_sel;
     m_ram0_mux_sel <= s_ram0_mux_sel;
