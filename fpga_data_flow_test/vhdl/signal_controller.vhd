@@ -466,7 +466,7 @@ begin
 
     s_enp0 <= '1' when ( ( t_ps = wact0 and t_prevmode = "001" ) or ( t_ps = rterm0 and t_prevmode = "000" ) or t_ps = dt_cntpreset or t_ps = dt_transfer or t_ps = adc_cntpreset or t_ps = adc_transfer or t_ps = average1 ) else
               '0';
-    s_clr0 <= '1' when ( ( t_ps = decode and ( ( m_mode_addr = "001" and m_OE_b = '1' and not ( t_prevmode = "001" ) ) or ( m_mode_addr = "001" and m_OE_b = '0' and not (  t_prevmode = "000" ) ) ) ) or s_state_clr = '1' ) else --not done
+    s_clr0 <= '1' when ( ( t_ps = decode and not ( ( m_mode_addr = "001" and m_OE_b = '1' and t_prevmode = "001") or ( m_mode_addr = "001" and m_OE_b = '0' and t_prevmode = "000" )  )  ) or s_state_clr = '1' ) else --not done
               '0';
     s_sel0 <= "01" when ( t_ps = wact0 ) else -- add
               "10" when ( t_ps = softreset ) else -- clear
@@ -489,13 +489,13 @@ begin
     s_ena2 <= s_state_dac;
     s_wea2 <= "1" when t_ps = dac_transfer else "0";
 
-    s_enpda <= '1' when ( t_ps = dac_cntpreset or t_ps = dac_transfer ) else
+    s_enpda <= '1' when ( t_ps = dac_transfer ) else
               '0';
     s_clrda <= '1' when ( s_state_clr = '1' and t_ps = idle ) else --not done
               '0';
-    s_selda <= "01" when ( t_ps = dac_transfer ) else -- add
+    s_selda <= --"01" when ( t_ps = dac_transfer ) else -- add
               "10" when ( t_ps = softreset ) else -- clear
-              --"11" when ( t_ps = dt_cntpreset ) else -- setup
+              "11" when ( t_ps = dac_cntpreset ) else -- setup
               "00"; -- preserv
 
     s_ram0_mux_sel <= "0" when s_state_pc_write0='1' else "1";

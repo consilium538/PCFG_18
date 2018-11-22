@@ -32,19 +32,19 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1542853515" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-1623423152558874648" xil_pn:start_ts="1542853515">
+    <transform xil_pn:end_ts="1542877532" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-1623423152558874648" xil_pn:start_ts="1542877532">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1542853515" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="8881106719169615810" xil_pn:start_ts="1542853515">
+    <transform xil_pn:end_ts="1542877532" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="8881106719169615810" xil_pn:start_ts="1542877532">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1542853515" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1542853515">
+    <transform xil_pn:end_ts="1542877532" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1542877532">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1542853515" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-2439675602455702992" xil_pn:start_ts="1542853515">
+    <transform xil_pn:end_ts="1542877532" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-2439675602455702992" xil_pn:start_ts="1542877532">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>

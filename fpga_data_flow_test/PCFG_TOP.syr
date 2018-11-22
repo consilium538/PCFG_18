@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total CPU time to Xst completion: 0.17 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total CPU time to Xst completion: 0.17 secs
  
 --> Reading design: PCFG_TOP.prj
 
@@ -371,7 +371,7 @@ INFO:Xst:1799 - State average7 is never reached in FSM <t_ps>.
     | States             | 26                                             |
     | Transitions        | 51                                             |
     | Inputs             | 15                                             |
-    | Outputs            | 36                                             |
+    | Outputs            | 35                                             |
     | Clock              | m_clk                     (rising_edge)        |
     | Power Up State     | idle                                           |
     | Encoding           | automatic                                      |
@@ -870,7 +870,7 @@ WARNING:Xst:2677 - Node <avg_module/cns8/s_dividend_4> of sequential type is unc
 WARNING:Xst:2677 - Node <avg_module/cns8/s_dividend_5> of sequential type is unconnected in block <PCFG_TOP>.
 WARNING:Xst:2677 - Node <avg_module/cns8/s_dividend_6> of sequential type is unconnected in block <PCFG_TOP>.
 WARNING:Xst:2677 - Node <avg_module/cns8/s_dividend_7> of sequential type is unconnected in block <PCFG_TOP>.
-FlipFlop sig_controller/t_ps_FSM_FFd4 has been replicated 1 time(s)
+FlipFlop sig_controller/t_ps_FSM_FFd13 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -908,21 +908,20 @@ Design Statistics
 # IOs                              : 51
 
 Cell Usage :
-# BELS                             : 920
+# BELS                             : 896
 #      GND                         : 9
 #      INV                         : 69
 #      LUT1                        : 68
-#      LUT2                        : 99
-#      LUT2_D                      : 1
-#      LUT2_L                      : 1
-#      LUT3                        : 85
-#      LUT3_D                      : 8
-#      LUT3_L                      : 11
-#      LUT4                        : 203
-#      LUT4_D                      : 24
-#      LUT4_L                      : 18
+#      LUT2                        : 85
+#      LUT2_L                      : 2
+#      LUT3                        : 78
+#      LUT3_D                      : 13
+#      LUT3_L                      : 7
+#      LUT4                        : 202
+#      LUT4_D                      : 22
+#      LUT4_L                      : 19
 #      MUXCY                       : 167
-#      MUXF5                       : 25
+#      MUXF5                       : 23
 #      VCC                         : 1
 #      XORCY                       : 131
 # FlipFlops/Latches                : 263
@@ -933,9 +932,9 @@ Cell Usage :
 #      FDR                         : 32
 #      FDRE                        : 42
 #      FDRS                        : 2
-#      FDS                         : 10
+#      FDS                         : 11
 #      FDS_1                       : 31
-#      FDSE                        : 5
+#      FDSE                        : 4
 # RAMS                             : 4
 #      RAMB16                      : 4
 # Clock Buffers                    : 3
@@ -952,9 +951,9 @@ Device utilization summary:
 
 Selected Device : 3s5000fg900-4 
 
- Number of Slices:                      313  out of  33280     0%  
+ Number of Slices:                      304  out of  33280     0%  
  Number of Slice Flip Flops:            247  out of  66560     0%  
- Number of 4 input LUTs:                587  out of  66560     0%  
+ Number of 4 input LUTs:                565  out of  66560     0%  
  Number of IOs:                          51
  Number of bonded IOBs:                  51  out of    633     8%  
     IOB Flip Flops:                      16
@@ -1002,7 +1001,7 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 9.445ns (Maximum Frequency: 105.876MHz)
+   Minimum period: 9.417ns (Maximum Frequency: 106.191MHz)
    Minimum input arrival time before clock: 6.706ns
    Maximum output required time after clock: 14.413ns
    Maximum combinational path delay: 9.309ns
@@ -1013,28 +1012,28 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'm_clk'
-  Clock period: 9.445ns (frequency: 105.876MHz)
-  Total number of paths / destination ports: 7573 / 421
+  Clock period: 9.417ns (frequency: 106.191MHz)
+  Total number of paths / destination ports: 7629 / 421
 -------------------------------------------------------------------------
-Delay:               9.445ns (Levels of Logic = 4)
-  Source:            clk_gen/CNT0/s_CNT3_U_4 (FF)
+Delay:               9.417ns (Levels of Logic = 4)
+  Source:            clk_gen/CNT0/s_CNT3_D_3 (FF)
   Destination:       clk_gen/CNT0/s_CNT3_U_0 (FF)
   Source Clock:      m_clk falling
   Destination Clock: m_clk falling
 
-  Data Path: clk_gen/CNT0/s_CNT3_U_4 to clk_gen/CNT0/s_CNT3_U_0
+  Data Path: clk_gen/CNT0/s_CNT3_D_3 to clk_gen/CNT0/s_CNT3_U_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDS_1:C->Q            3   0.720   1.246  clk_gen/CNT0/s_CNT3_U_4 (clk_gen/CNT0/s_CNT3_U_4)
-     LUT4:I0->O            1   0.551   0.996  clk_gen/CNT0/s_CNT3_UD_cmp_eq000025 (clk_gen/CNT0/s_CNT3_UD_cmp_eq000025)
-     LUT4:I1->O           15   0.551   1.214  clk_gen/CNT0/s_CNT3_UD_cmp_eq000071 (clk_gen/CNT0/s_CNT3_UD_cmp_eq0000)
-     LUT4_D:I3->O         13   0.551   1.238  clk_gen/CNT0/s_CNT3_D_mux0004<14>18_1 (clk_gen/CNT0/s_CNT3_D_mux0004<14>18)
-     LUT4:I2->O            1   0.551   0.801  clk_gen/CNT0/s_CNT3_U_mux0000<7>14 (clk_gen/CNT0/s_CNT3_U_mux0000<7>14)
-     FDS_1:S                   1.026          clk_gen/CNT0/s_CNT3_U_6
+     FDS_1:C->Q            3   0.720   1.246  clk_gen/CNT0/s_CNT3_D_3 (clk_gen/CNT0/s_CNT3_D_3)
+     LUT4:I0->O            1   0.551   0.996  clk_gen/CNT0/s_CNT3_D_cmp_eq000020 (clk_gen/CNT0/s_CNT3_D_cmp_eq000020)
+     LUT4:I1->O           13   0.551   1.238  clk_gen/CNT0/s_CNT3_D_cmp_eq000070 (clk_gen/CNT0/s_CNT3_D_cmp_eq0000)
+     LUT4_D:I2->O         12   0.551   1.186  clk_gen/CNT0/s_CNT3_U_mux0000<10>141 (clk_gen/CNT0/N6)
+     LUT4:I2->O            1   0.551   0.801  clk_gen/CNT0/s_CNT3_U_mux0000<9>14 (clk_gen/CNT0/s_CNT3_U_mux0000<9>14)
+     FDS_1:S                   1.026          clk_gen/CNT0/s_CNT3_U_8
     ----------------------------------------
-    Total                      9.445ns (3.950ns logic, 5.495ns route)
-                                       (41.8% logic, 58.2% route)
+    Total                      9.417ns (3.950ns logic, 5.467ns route)
+                                       (41.9% logic, 58.1% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_gen/CNT0/s_wr1'
@@ -1106,7 +1105,7 @@ Offset:              6.706ns (Levels of Logic = 4)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O            16   0.821   1.576  m_reset_b_IBUF (m_reset_b_IBUF)
-     LUT2:I0->O            1   0.551   1.140  clk_gen/CNT0/s_CNT3_U_mux0000<10>111_SW0 (N107)
+     LUT2:I0->O            1   0.551   1.140  clk_gen/CNT0/s_CNT3_U_mux0000<10>111_SW0 (N87)
      LUT4_D:I0->O         12   0.551   1.313  clk_gen/CNT0/s_CNT3_D_mux0004<13>21 (clk_gen/CNT0/N7)
      LUT3:I1->O            1   0.551   0.000  clk_gen/CNT0/s_CNT3_D_mux0004<13>221 (clk_gen/CNT0/s_CNT3_D_mux0004<13>22)
      FDS_1:D                   0.203          clk_gen/CNT0/s_CNT3_D_1
@@ -1138,15 +1137,15 @@ Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_gen/CNT0/s_wr1'
   Total number of paths / destination ports: 51 / 3
 -------------------------------------------------------------------------
 Offset:              12.556ns (Levels of Logic = 4)
-  Source:            clk_gen/CNT0/s_REG_2 (FF)
+  Source:            clk_gen/CNT0/s_REG_14 (FF)
   Destination:       m_AD9283_clk (PAD)
   Source Clock:      clk_gen/CNT0/s_wr1 rising
 
-  Data Path: clk_gen/CNT0/s_REG_2 to m_AD9283_clk
+  Data Path: clk_gen/CNT0/s_REG_14 to m_AD9283_clk
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDPE:C->Q             6   0.720   1.342  clk_gen/CNT0/s_REG_2 (clk_gen/CNT0/s_REG_2)
+     FDCE:C->Q             6   0.720   1.342  clk_gen/CNT0/s_REG_14 (clk_gen/CNT0/s_REG_14)
      LUT4:I0->O            1   0.551   1.140  clk_gen/CNT0/s_out2_or000012 (clk_gen/CNT0/s_out2_or000012)
      LUT4:I0->O            1   0.551   1.140  clk_gen/CNT0/s_out2_or000071 (clk_gen/CNT0/s_out2_or0000)
      LUT4:I0->O            4   0.551   0.917  clk_gen/CNT0/m_out (m_TP_1_OBUF1)
@@ -1171,7 +1170,7 @@ Offset:              14.413ns (Levels of Logic = 5)
      FDCE:C->Q             2   0.720   1.216  clk_gen/CNT0/s_CNT2_1 (clk_gen/CNT0/s_CNT2_1)
      LUT4:I0->O            1   0.551   1.140  clk_gen/CNT0/s_CNT2_cmp_eq000011 (clk_gen/CNT0/s_CNT2_cmp_eq000011)
      LUT4_D:I0->O         16   0.551   1.576  clk_gen/CNT0/s_CNT2_cmp_eq000075 (clk_gen/CNT0/s_CNT2_cmp_eq0000)
-     LUT3:I0->O            1   0.551   0.996  clk_gen/CNT0/m_out_SW0 (N38)
+     LUT3:I0->O            1   0.551   0.996  clk_gen/CNT0/m_out_SW0 (N30)
      LUT4:I1->O            4   0.551   0.917  clk_gen/CNT0/m_out (m_TP_1_OBUF1)
      OBUF:I->O                 5.644          m_AD9283_clk_OBUF (m_AD9283_clk)
     ----------------------------------------
@@ -1220,11 +1219,11 @@ Delay:               9.309ns (Levels of Logic = 3)
 
 
 Total REAL time to Xst completion: 11.00 secs
-Total CPU time to Xst completion: 11.42 secs
+Total CPU time to Xst completion: 11.72 secs
  
 --> 
 
-Total memory usage is 4583676 kilobytes
+Total memory usage is 4583600 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  321 (   0 filtered)
