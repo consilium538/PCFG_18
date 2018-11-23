@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/tb_pcfg_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_textio" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="tb_pcfg" />
+            <top_module name="textio" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="29" />
+   <wvobject fp_name="/tb_pcfg/m_reset_b" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_reset_b</obj_property>
+      <obj_property name="ObjectShortName">m_reset_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_clk</obj_property>
+      <obj_property name="ObjectShortName">m_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_address" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_address[8:0]</obj_property>
+      <obj_property name="ObjectShortName">m_address[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_cmd_data" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_cmd_data</obj_property>
+      <obj_property name="ObjectShortName">m_cmd_data</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_oe_b" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_oe_b</obj_property>
+      <obj_property name="ObjectShortName">m_oe_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_wen" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_wen</obj_property>
+      <obj_property name="ObjectShortName">m_wen</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_ren" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_ren</obj_property>
+      <obj_property name="ObjectShortName">m_ren</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_adc_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_adc_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_adc_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_dac_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_dac_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_dac_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_dac_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_dac_clk</obj_property>
+      <obj_property name="ObjectShortName">m_dac_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_ad9283_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_ad9283_clk</obj_property>
+      <obj_property name="ObjectShortName">m_ad9283_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_led" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_led[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_led[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_tp" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_tp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_tp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/m_clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">m_clk_period</obj_property>
+      <obj_property name="ObjectShortName">m_clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider16" type="divider">
+      <obj_property name="label">New Divider</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/uut/sig_controller/rem0ctr/m_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_clk</obj_property>
+      <obj_property name="ObjectShortName">m_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/uut/sig_controller/rem0ctr/m_enp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_enp</obj_property>
+      <obj_property name="ObjectShortName">m_enp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/uut/sig_controller/rem0ctr/m_clr" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_clr</obj_property>
+      <obj_property name="ObjectShortName">m_clr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/uut/sig_controller/rem0ctr/m_sel" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/uut/sig_controller/rem0ctr/m_din" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_din[10:0]</obj_property>
+      <obj_property name="ObjectShortName">m_din[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/uut/sig_controller/rem0ctr/m_comp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_comp</obj_property>
+      <obj_property name="ObjectShortName">m_comp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/uut/sig_controller/rem0ctr/m_cnt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_cnt[10:0]</obj_property>
+      <obj_property name="ObjectShortName">m_cnt[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/uut/sig_controller/rem0ctr/m_dout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_dout[10:0]</obj_property>
+      <obj_property name="ObjectShortName">m_dout[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/uut/sig_controller/rem0ctr/s_reg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">s_reg[10:0]</obj_property>
+      <obj_property name="ObjectShortName">s_reg[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/uut/sig_controller/rem0ctr/s_cnt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">s_cnt[10:0]</obj_property>
+      <obj_property name="ObjectShortName">s_cnt[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider29" type="divider">
+      <obj_property name="label">New Divider</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/uut/sig_controller/t_ps" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">t_ps</obj_property>
+      <obj_property name="ObjectShortName">t_ps</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcfg/uut/sig_controller/s_sel0" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">s_sel0[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_sel0[1:0]</obj_property>
+   </wvobject>
+</wave_config>

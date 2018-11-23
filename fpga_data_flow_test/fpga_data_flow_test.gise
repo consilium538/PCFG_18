@@ -50,11 +50,11 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1542872861" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1542872861">
+    <transform xil_pn:end_ts="1542961324" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1542961324">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1542885172" xil_pn:in_ck="-3789731673528410496" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1542885172">
+    <transform xil_pn:end_ts="1542961484" xil_pn:in_ck="-3789731673528410496" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1542961484">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="vhdl/ADCcnt.vhd"/>
@@ -69,23 +69,24 @@
       <outfile xil_pn:name="vhdl/top_8254.vhd"/>
       <outfile xil_pn:name="vhdl/tw_8254_cnt.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1542872862" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-5341502638493830005" xil_pn:start_ts="1542872862">
+    <transform xil_pn:end_ts="1542961324" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-5341502638493830005" xil_pn:start_ts="1542961324">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1542872862" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-3241590594312758973" xil_pn:start_ts="1542872862">
+    <transform xil_pn:end_ts="1542961324" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-3241590594312758973" xil_pn:start_ts="1542961324">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1542872862" xil_pn:in_ck="-2674038647964011337" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-5135657127394621017" xil_pn:start_ts="1542872862">
+    <transform xil_pn:end_ts="1542961325" xil_pn:in_ck="-2674038647964011337" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-5135657127394621017" xil_pn:start_ts="1542961324">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/sram2k.ngc"/>
       <outfile xil_pn:name="ipcore_dir/sram2k.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1542885172" xil_pn:in_ck="-3789731673528410496" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1542885172">
+    <transform xil_pn:end_ts="1542961484" xil_pn:in_ck="-8655513626843591761" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1542961484">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="ipcore_dir/sram2k.vhd"/>
       <outfile xil_pn:name="vhdl/ADCcnt.vhd"/>
       <outfile xil_pn:name="vhdl/Averager.vhd"/>
       <outfile xil_pn:name="vhdl/CompSub.vhd"/>
@@ -98,7 +99,7 @@
       <outfile xil_pn:name="vhdl/top_8254.vhd"/>
       <outfile xil_pn:name="vhdl/tw_8254_cnt.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1542885178" xil_pn:in_ck="-8655513626843591761" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1654146490968088371" xil_pn:start_ts="1542885172">
+    <transform xil_pn:end_ts="1542961491" xil_pn:in_ck="-8655513626843591761" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1654146490968088371" xil_pn:start_ts="1542961484">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -110,7 +111,7 @@
       <outfile xil_pn:name="tb_pcfg_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1542885179" xil_pn:in_ck="9170402313474694212" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-4441317525850371424" xil_pn:start_ts="1542885178">
+    <transform xil_pn:end_ts="1542961491" xil_pn:in_ck="9170402313474694212" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-4441317525850371424" xil_pn:start_ts="1542961491">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -149,7 +150,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1542885139" xil_pn:in_ck="-8655513626843591761" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="-4069688552825608527" xil_pn:start_ts="1542885124">
+    <transform xil_pn:end_ts="1542961454" xil_pn:in_ck="-8655513626843591761" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="-4069688552825608527" xil_pn:start_ts="1542961439">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>

@@ -27,19 +27,7 @@ Time resolution is 1 ps
 Simulator is doing circuit initialization process.
 at 0 ps, Instance /tb_pcfg/uut/clk_gen/CNT0/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 Finished circuit initialization process.
-# restart
-# run 1ms
-Simulator is doing circuit initialization process.
-Finished circuit initialization process.
+# run 100us
 at 6575 ns(5): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_pcfg/uut/sram_AD/U0/native_mem_module/mem_module/).
-# run 1ms
-# run 1ms
-# run 1ms
-# run 1ms
-# run 1ms
-# run 1ms
-# run 1ms
-# run 1ms
-# run 1ms
-# run 1ms
-at 10041012500 ps(2): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_pcfg/uut/sram_0/U0/native_mem_module/mem_module/).
+at 41062500 ps(2): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_pcfg/uut/sram_0/U0/native_mem_module/mem_module/).
+at 64637500 ps(2): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_pcfg/uut/sram_1/U0/native_mem_module/mem_module/).

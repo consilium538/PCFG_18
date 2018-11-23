@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.17 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.17 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Reading design: PCFG_TOP.prj
 
@@ -122,7 +122,8 @@ Architecture behavioral of Entity top_8254 is up to date.
 Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/address_decoder.vhd" in Library work.
 Architecture behavioral of Entity address_decoder is up to date.
 Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/signal_controller.vhd" in Library work.
-Architecture behavioral of Entity signal_controller is up to date.
+Entity <signal_controller> compiled.
+Entity <signal_controller> (Architecture <behavioral>) compiled.
 Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/ipcore_dir/sram2k.vhd" in Library work.
 Architecture sram2k_a of Entity sram2k is up to date.
 Compiling vhdl file "C:/KDH/Doc/18y6s/adca/PCFG/PCFG_18/fpga_data_flow_test/vhdl/Averager.vhd" in Library work.
@@ -342,6 +343,7 @@ WARNING:Xst:1780 - Signal <s_outlatch_en> is never used or assigned. This unconn
 WARNING:Xst:1780 - Signal <s_inlatch_en> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <s_da_latch_en> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <s_comp3> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_comp1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <s_average_addr> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <s_ad_latch_en> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <s_Aadc> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
@@ -351,7 +353,7 @@ INFO:Xst:1799 - State average8 is never reached in FSM <t_ps>.
     -----------------------------------------------------------------------
     | States             | 34                                             |
     | Transitions        | 62                                             |
-    | Inputs             | 17                                             |
+    | Inputs             | 16                                             |
     | Outputs            | 42                                             |
     | Clock              | m_clk                     (rising_edge)        |
     | Power Up State     | idle                                           |
@@ -783,21 +785,21 @@ Design Statistics
 # IOs                              : 51
 
 Cell Usage :
-# BELS                             : 1339
+# BELS                             : 1316
 #      GND                         : 9
 #      INV                         : 71
-#      LUT1                        : 84
-#      LUT2                        : 224
+#      LUT1                        : 83
+#      LUT2                        : 219
 #      LUT2_D                      : 1
-#      LUT2_L                      : 9
-#      LUT3                        : 135
-#      LUT3_D                      : 8
-#      LUT3_L                      : 5
-#      LUT4                        : 218
-#      LUT4_D                      : 21
-#      LUT4_L                      : 30
-#      MUXCY                       : 297
-#      MUXF5                       : 20
+#      LUT2_L                      : 5
+#      LUT3                        : 141
+#      LUT3_D                      : 7
+#      LUT3_L                      : 6
+#      LUT4                        : 209
+#      LUT4_D                      : 23
+#      LUT4_L                      : 25
+#      MUXCY                       : 286
+#      MUXF5                       : 24
 #      VCC                         : 1
 #      XORCY                       : 206
 # FlipFlops/Latches                : 373
@@ -827,9 +829,9 @@ Device utilization summary:
 
 Selected Device : 3s5000fg900-4 
 
- Number of Slices:                      436  out of  33280     1%  
+ Number of Slices:                      429  out of  33280     1%  
  Number of Slice Flip Flops:            365  out of  66560     0%  
- Number of 4 input LUTs:                806  out of  66560     1%  
+ Number of 4 input LUTs:                790  out of  66560     1%  
  Number of IOs:                          51
  Number of bonded IOBs:                  51  out of    633     8%  
     IOB Flip Flops:                       8
@@ -889,7 +891,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'm_clk'
   Clock period: 10.259ns (frequency: 97.475MHz)
-  Total number of paths / destination ports: 10845 / 599
+  Total number of paths / destination ports: 10761 / 599
 -------------------------------------------------------------------------
 Delay:               10.259ns (Levels of Logic = 6)
   Source:            sig_controller/t_ps_FSM_FFd6 (FF)
@@ -1097,13 +1099,13 @@ Delay:               9.309ns (Levels of Logic = 3)
 
 
 Total REAL time to Xst completion: 12.00 secs
-Total CPU time to Xst completion: 11.94 secs
+Total CPU time to Xst completion: 11.74 secs
  
 --> 
 
-Total memory usage is 4583596 kilobytes
+Total memory usage is 4583672 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  202 (   0 filtered)
+Number of warnings :  203 (   0 filtered)
 Number of infos    :   15 (   0 filtered)
 
