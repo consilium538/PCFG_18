@@ -379,7 +379,7 @@ begin
                 when dt_cntpreset =>
                     t_ps <= dt_transfer;
                 when dt_transfer =>
-                    if(s_comp1 = '1') then
+                    if(s_comp0 = '1') then
                         t_ps <= idle;
                     else
                         t_ps <= dt_transfer;
@@ -481,7 +481,7 @@ begin
 
     s_enp0 <= '1' when ( ( t_ps = wact0 and t_prevmode = "001" ) or ( t_ps = rterm0 and t_prevmode = "000" ) or t_ps = dt_cntpreset or t_ps = dt_transfer or t_ps = adc_transfer or t_ps = average2 ) else
               '0';
-    s_clr0 <= '1' when ( ( t_ps = decode and not ( ( m_mode_addr = "001" and m_OE_b = '1' and t_prevmode = "001") or ( m_mode_addr = "001" and m_OE_b = '0' and t_prevmode = "000" )  )  ) or s_state_clr = '1' ) else --not done
+    s_clr0 <= '1' when ( ( t_ps = decode and ( ( m_mode_addr = "001" and m_OE_b = '1' and not ( t_prevmode = "001" )) or ( m_mode_addr = "001" and m_OE_b = '0' and not ( t_prevmode = "000" ) )  )  ) or s_state_clr = '1' ) else --not done
               '0';
     s_sel0 <= "01" when ( t_ps = wact0 ) else -- add
               "10" when ( t_ps = softreset ) else -- clear
@@ -612,7 +612,7 @@ begin
                    '0';
     s_state_avg <= '1' when ( t_ps = average0 or t_ps = average1 or t_ps = average2 or t_ps = average3 or t_ps = average4 or t_ps = average5 or t_ps = average6 or t_ps = average7 ) else
                    '0';
-    s_state_clr <= '1' when ( t_ps = dt_cntclr or t_ps = dac_cntclr or t_ps = adc_cntclr ) else
+    s_state_clr <= '1' when ( t_ps = dt_cntclr or t_ps = dac_cntclr or t_ps = adc_cntclr or t_ps = average0 ) else
                    '0';
 
 end Behavioral;
