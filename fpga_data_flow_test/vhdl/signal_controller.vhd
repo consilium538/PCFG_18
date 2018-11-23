@@ -479,7 +479,7 @@ begin
     s_wea0 <= "1" when ( t_ps=wact0 or t_ps = adc_transfer) else "0";
     s_enb0 <= s_state_pc_read0 or s_state_dt or s_state_avg;
 
-    s_enp0 <= '1' when ( ( t_ps = wact0 and t_prevmode = "001" ) or ( t_ps = rterm0 and t_prevmode = "000" ) or t_ps = dt_cntpreset or t_ps = dt_transfer or t_ps = adc_cntpreset or t_ps = adc_transfer or t_ps = average2 ) else
+    s_enp0 <= '1' when ( ( t_ps = wact0 and t_prevmode = "001" ) or ( t_ps = rterm0 and t_prevmode = "000" ) or t_ps = dt_cntpreset or t_ps = dt_transfer or t_ps = adc_transfer or t_ps = average2 ) else
               '0';
     s_clr0 <= '1' when ( ( t_ps = decode and not ( ( m_mode_addr = "001" and m_OE_b = '1' and t_prevmode = "001") or ( m_mode_addr = "001" and m_OE_b = '0' and t_prevmode = "000" )  )  ) or s_state_clr = '1' ) else --not done
               '0';
@@ -519,7 +519,7 @@ begin
               "0";
     s_enb3 <= s_state_adc;
 
-    s_enpad <= '1' when ( t_ps = adc_transfer ) else
+    s_enpad <= '1' when ( t_ps = adc_cntpreset or t_ps = adc_transfer ) else
               '0';
     s_clrad <= '1' when ( s_state_clr = '1' and t_ps = idle ) else --not done
               '0';
